@@ -187,3 +187,27 @@ Command-line arguments:  -os linux -ws gtk -arch x86_64
 
 !ENTRY com.sigasi.hdt.vhdl.ui 1 1 2015-03-05 11:43:54.615
 !MESSAGE Participant timing {DeferredBuilderParticipant=26}
+
+!ENTRY com.sigasi.hdt.vhdl.ui 1 1 2015-03-05 11:46:23.551
+!MESSAGE Building 1 resources, timing: {global index=11, linking=29, validation=7, totalLinkingAndValidation=39} resets: {GI resets=1, LV resets=1}
+
+!ENTRY com.sigasi.hdt.vhdl.ui 1 1 2015-03-05 11:46:23.578
+!MESSAGE Participant timing {DeferredBuilderParticipant=27}
+
+!ENTRY com.sigasi.hdt.vhdl.ui 1 1 2015-03-05 11:46:29.647
+!MESSAGE Building 1 resources, timing: {global index=18, linking=24, validation=2, totalLinkingAndValidation=28} resets: {GI resets=1, LV resets=1}
+
+!ENTRY com.sigasi.hdt.vhdl.ui 1 1 2015-03-05 11:46:29.662
+!MESSAGE Participant timing {DeferredBuilderParticipant=15}
+
+!ENTRY com.sigasi.hdt.vhdl.ui 1 1 2015-03-05 11:47:22.192
+!MESSAGE Building 1 resources, timing: {global index=15, linking=29, validation=4, totalLinkingAndValidation=36} resets: {GI resets=1, LV resets=1}
+
+!ENTRY com.sigasi.hdt.vhdl.ui 1 1 2015-03-05 11:47:22.210
+!MESSAGE Participant timing {DeferredBuilderParticipant=16}
+
+!ENTRY com.sigasi.hdt.vhdl.ui 1 1 2015-03-05 11:47:30.288
+!MESSAGE Building 1 resources, timing: {global index=13, linking=27, validation=2, totalLinkingAndValidation=31} resets: {GI resets=1, LV resets=1}
+
+!ENTRY com.sigasi.hdt.vhdl.ui 1 1 2015-03-05 11:47:30.303
+!MESSAGE Participant timing {DeferredBuilderParticipant=14}

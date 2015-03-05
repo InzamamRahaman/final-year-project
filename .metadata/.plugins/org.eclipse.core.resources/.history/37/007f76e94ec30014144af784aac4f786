@@ -12,7 +12,7 @@ entity codestream is
 	);
 end entity codestream;
 
-architecture MY_CODESTREAM of codestream is
+architecture RTL of codestream is
 	variable len : codestream_index;
 begin
 	
@@ -35,4 +35,4 @@ begin
 	end process;
 	
 
-end architecture MY_CODESTREAM;
+end architecture RTL;

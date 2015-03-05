@@ -12,8 +12,8 @@ entity codestream is
 	);
 end entity codestream;
 
-architecture MY_CODESTREAM of codestream is
-	variable len : codestream_index;
+architecture RTL of codestream is
+	signal len : codestream_index;
 begin
 	
 	-- process to initialize the codestream
@@ -21,7 +21,7 @@ begin
 	begin
 		if rising_edge(clk) and rst = '1' then
 			stream <= (others => '0');
-			len := 0;
+			len <= 0;
 		end if;
 	end process;
 	
@@ -29,10 +29,10 @@ begin
 	insertion_process : process(clk, inbit) 
 	begin
 		if rising_edge(clk) then
-			len := len + 1;
+			len <= len + 1;
 			stream(len) <= inbit;
 		end if;
 	end process;
 	
 
-end architecture MY_CODESTREAM;
+end architecture RTL;

@@ -35,4 +35,4 @@ begin
 	end process;
 	
 
-end architecture MY_CODESTREAM;
+end architecture RTL;
