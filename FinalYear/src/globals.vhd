@@ -14,6 +14,7 @@ package globals is
 	
 	-- type to represent vq indicies
 	subtype int_vq_index is integer range 0 to N_large;
+	subtype codestream_index is integer range 0 to N_large * 5;
 	
 	--record types
 	
@@ -86,6 +87,9 @@ package body globals is
 		xs(0) := index;
 	end;
 
+	-- NB
+	-- we shall return 1 + the actual location in the array
+	-- we do this in alignment with the method as mentioned in Kieu et all
 	procedure get_list_index(xs : vq_index_list;
 		value : in int_vq_index; ans : out int_list_index)
 	is
@@ -97,7 +101,7 @@ package body globals is
 			ans := mem.location + 1;
 		else
 			sift_down(xs, value);
-			ans := 0;
+			ans := 1;
 		end if;
 	end;
 	
