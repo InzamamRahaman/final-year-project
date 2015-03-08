@@ -1656,3 +1656,15 @@ java.net.UnknownHostException: sigasi-talkback.appspot.com: unknown error
 
 !ENTRY com.sigasi.hdt.vhdl.ui 1 1 2015-03-08 19:50:26.846
 !MESSAGE Participant timing {DeferredBuilderParticipant=17}
+
+!ENTRY com.sigasi.hdt.vhdl.ui 1 1 2015-03-08 19:55:34.112
+!MESSAGE Building 1 resources, timing: {global index=25, linking=36, validation=4, totalLinkingAndValidation=43} resets: {GI resets=1, LV resets=1}
+
+!ENTRY com.sigasi.hdt.vhdl.ui 1 1 2015-03-08 19:55:34.142
+!MESSAGE Participant timing {DeferredBuilderParticipant=29}
+
+!ENTRY com.sigasi.hdt.vhdl.ui 1 1 2015-03-08 19:55:51.629
+!MESSAGE Building 1 resources, timing: {global index=20, linking=48, validation=4, totalLinkingAndValidation=56} resets: {GI resets=1, LV resets=1}
+
+!ENTRY com.sigasi.hdt.vhdl.ui 1 1 2015-03-08 19:55:51.644
+!MESSAGE Participant timing {DeferredBuilderParticipant=15}

@@ -99,6 +99,12 @@ begin
 		when INDEX_PRESENT_IN_LIST => 
 			temp_secret_index := secret_len + 3;
 			temp_secret(0 to 3) <= secret(secret_len to temp_secret_index);
+			for idx in secret_index to (secret_index + 4) loop
+				if idx < secret_len then
+					temp_secret(temp_secret_index) := secret(idx);
+					temp_secret_index := temp_secret_index + 1;
+				end if;
+			end loop;
 			if temp_secret = "0000" then
 				if list_index = 1 then
 					next_state <= ALL_ZEROES_1;

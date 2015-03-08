@@ -1632,3 +1632,27 @@ java.lang.NullPointerException
 	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.ensureResultCached(DecorationScheduler.java:370)
 	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.run(DecorationScheduler.java:330)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+pdt: ERROR - 08/03 19:55:34 - Worker-58: Error during decoration of F/FinalYear/Common Libraries
+pdt: WARNING - 08/03 19:55:34 - Worker-58: pdt: The following Exception was caught:
+java.lang.NullPointerException
+	at org.cs3.pdt.navigator.internal.decorators.PDTConsultDecoratorContributor.decorate(PDTConsultDecoratorContributor.java:114)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorDefinition.decorate(LightweightDecoratorDefinition.java:263)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager$LightweightRunnable.run(LightweightDecoratorManager.java:81)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.decorate(LightweightDecoratorManager.java:365)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.getDecorations(LightweightDecoratorManager.java:347)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.ensureResultCached(DecorationScheduler.java:370)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.run(DecorationScheduler.java:330)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+pdt: ERROR - 08/03 19:55:52 - Worker-56: Error during decoration of F/FinalYear/Common Libraries
+pdt: WARNING - 08/03 19:55:52 - Worker-56: pdt: The following Exception was caught:
+java.lang.NullPointerException
+	at org.cs3.pdt.navigator.internal.decorators.PDTConsultDecoratorContributor.decorate(PDTConsultDecoratorContributor.java:114)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorDefinition.decorate(LightweightDecoratorDefinition.java:263)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager$LightweightRunnable.run(LightweightDecoratorManager.java:81)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.decorate(LightweightDecoratorManager.java:365)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.getDecorations(LightweightDecoratorManager.java:347)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.ensureResultCached(DecorationScheduler.java:370)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.run(DecorationScheduler.java:330)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
