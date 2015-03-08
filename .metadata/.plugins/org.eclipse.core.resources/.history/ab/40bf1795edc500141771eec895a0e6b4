@@ -59,7 +59,6 @@ begin
 			image_col := 0;
 			secret_index := 0;
 			secret_len := 0;
-			zeroes_arr := (others => '0');
 		elsif rising_edge(clk) then
 			current_state <= next_state;
 		end if; 
@@ -84,18 +83,14 @@ begin
 				next_state <= INDEX_PRESENT_IN_LIST;
 			end if;
 		when INDEX_NOT_IN_LIST =>
-			stream_limit := stream_len + n_small;
-			stream(stream_len to stream_limit) <= zeroes_arr;
-			stream_len := stream_limit + 1;
-			next_state <= START_ENCODING;
-			-- counter := counter - 1;
-			-- if counter = 0 then
-				-- next_state <= START_ENCODING;
-			-- else 
-				-- stream(stream_len) <= '0';
-				-- stream_len := stream_len + 1;
-				-- next_state <= INDEX_NOT_IN_LIST;
-			-- end if;
+			counter := counter - 1;
+			if counter = 0 then
+				next_state <= START_ENCODING;
+			else 
+				stream(stream_len) <= '0';
+				stream_len := stream_len + 1;
+				next_state <= INDEX_NOT_IN_LIST;
+			end if;
 		when INDEX_PRESENT_IN_LIST => 
 			temp_secret_index := 0;
 			for idx in secret_index to (secret_index + 4) loop
