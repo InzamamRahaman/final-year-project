@@ -1,0 +1,87 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+use work.globals.all;
+use ieee.math_real.all;
+
+entity main is
+	port (
+		clk : in std_logic;
+		rst : in std_logic;
+		result : out code_stream
+	);
+end entity main;
+
+architecture My_Main of main is
+	variable image_data : matrix;
+	variable image_row : int_vq_index;
+	variable image_col : int_vq_index;
+	variable counter : counter_int;
+	variable stream_len : codestream_index;
+	signal vq_index : int_vq_index;
+	signal list_index : int_list_index;
+	signal to_stream : std_logic;
+	signal stream: code_stream;
+	signal current_state : main_state;
+	signal next_state : main_state;
+begin
+
+	-- read in the input file for the image
+	-- read in the secret message
+	
+	-- instantiate entity for list
+	list_unit: entity work.list(SELF_ORGANIZING_LIST)
+		port map(rst        => rst,
+			     vq_index   => vq_index,
+			     list_index => list_index);
+			     
+	-- instantiate code stream
+	-- code_stream_unit: entity work.codestream
+		-- port map(inbit  => to_stream,
+			--     stream => stream, 
+			  --   len => stream_len);
+	-- process for state stup
+	
+	setup_process: process(clk, rst)
+	begin
+		if rst = '1' then
+			next_state <= START_READING;
+		elsif rising_edge(clk) then
+			current_state <= next_state;
+		end if; 
+	end process;
+	
+	main_process: process(current_state)
+	begin
+		case current_state is
+		when START_READING =>
+			-- start reading process here
+			next_state <= START_ENCODING;
+		when START_ENCODING =>
+			vq_index <= image_data(image_row)(image_col);-- value from file
+			image_row := image_row + 1;
+			if image_row = 128 then
+				image_row := 0;
+			end if;
+			if list_index = 0 then -- if the list does not contain that vq index
+				counter := n_small + 1;
+				next_state <= INDEX_NOT_IN_LIST;
+			else
+				next_state <= START_ENCODING;
+			end if;
+		when INDEX_NOT_IN_LIST =>
+			counter := counter - 1;
+			if counter = 0 then
+				next_state <= START_ENCODING;
+			else 
+				stream(stream_len) <= '0';
+				stream_len := stream_len + 1;
+				next_state <= INDEX_NOT_IN_LIST;
+			end if;
+		when DONE =>
+			result <= stream;
+		end case;
+	end process;
+	
+
+end architecture My_Main;
