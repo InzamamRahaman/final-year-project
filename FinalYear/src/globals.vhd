@@ -14,7 +14,7 @@ package globals is
 	
 	-- type to represent vq indicies
 	subtype int_vq_index is integer range 0 to N_large;
-	subtype codestream_index is integer range 0 to N_large * 5;
+	subtype codestream_index is integer range 0 to N_large * 5 + n_small;
 	subtype counter_int is integer range 0 to 10;
 	
 	--record types
@@ -29,13 +29,16 @@ package globals is
 	
 	-- array types
 	type vq_index_list is array (0 to l) of int_vq_index;
-	type code_stream is array (0 to (N_large * 5)) of std_logic;
+	--type code_stream is std_logic_vector(0 to N_large * 5);--/array (0 to (N_large * 5)) of std_logic;
 	type matrix_row is array (0 to N_large) of int_vq_index;
 	type matrix is array (0 to N_large) of matrix_row;
 	type transformed_image_row is array (0 to N_large * N_large) of int_vq_index;
 	
 	-- enumerated types for state management
-	type main_state is (START_READING, START_ENCODING, INDEX_NOT_IN_LIST, DONE);
+	type main_state is (START_READING, START_ENCODING, INDEX_NOT_IN_LIST,
+		INDEX_PRESENT_IN_LIST,ALL_ZEROES_O,  NOT_ALL_ZEROES_0, ALL_ZEROES_1,
+		NOT_ALL_ZEROES_1, DONE
+	);
 	
 	-- functions for simple data manipulations
 	function is_member(xs : vq_index_list; elem : int_vq_index) 

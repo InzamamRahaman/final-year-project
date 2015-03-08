@@ -1,0 +1,130 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+use work.globals.all;
+use ieee.math_real.all;
+
+entity main is
+	port (
+		clk : in std_logic;
+		rst : in std_logic;
+		result : out code_stream
+	);
+end entity main;
+
+architecture My_Main of main is
+	variable image_data : matrix;
+	variable image_row : int_vq_index;
+	variable image_col : int_vq_index;
+	variable secret : code_stream;
+	variable counter : counter_int;
+	variable stream_len : codestream_index;
+	variable temp_secret : std_logic_vector(3 downto 0);
+	variable secret_index : codestream_index;
+	variable secret_len : codestream_index;
+	variable temp_secret_index: codestream_index;
+	signal vq_index : int_vq_index;
+	signal list_index : int_list_index;
+	signal to_stream : std_logic;
+	signal stream: code_stream;
+	signal current_state : main_state;
+	signal next_state : main_state;
+begin
+
+	-- read in the input file for the image
+	-- read in the secret message
+	
+	-- instantiate entity for list
+	list_unit: entity work.list(SELF_ORGANIZING_LIST)
+		port map(rst        => rst,
+			     vq_index   => vq_index,
+			     list_index => list_index);
+			     
+	-- instantiate code stream
+	-- code_stream_unit: entity work.codestream
+		-- port map(inbit  => to_stream,
+			--     stream => stream, 
+			  --   len => stream_len);
+	-- process for state stup
+	
+	setup_process: process(clk, rst)
+	begin
+		if rst = '1' then
+			next_state <= START_READING;
+			counter := 0;
+			stream_len := 0;
+			image_row := 0;
+			image_col := 0;
+			secret_index := 0;
+			secret_len := 0;
+		elsif rising_edge(clk) then
+			current_state <= next_state;
+		end if; 
+	end process;
+	
+	main_process: process(current_state)
+	begin
+		case current_state is
+		when START_READING =>
+			-- start reading process here
+			next_state <= START_ENCODING;
+		when START_ENCODING =>
+			vq_index <= image_data(image_row)(image_col);-- value from file
+			image_row := image_row + 1;
+			if image_row = 128 then
+				image_row := 0;
+			end if;
+			if list_index = 0 then -- if the list does not contain that vq index
+				counter := n_small + 1;
+				next_state <= INDEX_NOT_IN_LIST;
+			else
+				next_state <= INDEX_PRESENT_IN_LIST;
+			end if;
+		when INDEX_NOT_IN_LIST =>
+			counter := counter - 1;
+			if counter = 0 then
+				next_state <= START_ENCODING;
+			else 
+				stream(stream_len) <= '0';
+				stream_len := stream_len + 1;
+				next_state <= INDEX_NOT_IN_LIST;
+			end if;
+		when INDEX_PRESENT_IN_LIST => 
+			temp_secret_index := 0;
+			for idx in secret_index to (secret_index + 4) loop
+				if idx < secret_len then
+					temp_secret(temp_secret_index) := secret(idx);
+					temp_secret_index := temp_secret_index + 1;
+				end if;
+			end loop;
+			if temp_secret = "0000" then
+				if list_index = 1 then
+					next_state <= ALL_ZEROES_1;
+					counter := 4;
+				else
+					next_state <= ALL_ZEROES_0;
+				end if;
+			else
+				if list_index = 1 then
+					next_state <= NOT_ALL_ZEROES_1;
+				else
+					next_state <= NOT_ALL_ZEROES_0;
+				end if;
+			end if;
+		when ALL_ZEROES_1 =>
+			for idx in 0 to 3 loop
+				stream(stream_len) <= '0';
+				stream_len := stream_len + 1;
+			end loop;
+			    stream(stream_len) <= '1';
+			    stream_len := stream_len + 1;
+			    stream(stream_len) <= '1';
+			    stream_len := stream_len + 1;
+		when DONE =>
+			result <= stream;
+			next_state <= DONE;
+		end case;
+	end process;
+	
+
+end architecture My_Main;

@@ -8,7 +8,7 @@ entity main is
 	port (
 		clk : in std_logic;
 		rst : in std_logic;
-		result : out code_stream
+		result : out std_logic_vector(0 to (N_large * 5))--code_stream
 	);
 end entity main;
 
@@ -16,12 +16,18 @@ architecture My_Main of main is
 	variable image_data : matrix;
 	variable image_row : int_vq_index;
 	variable image_col : int_vq_index;
+	variable secret : std_logic_vector(0 to (N_large * 5));
 	variable counter : counter_int;
 	variable stream_len : codestream_index;
+	variable temp_secret : std_logic_vector(3 downto 0);
+	variable secret_index : codestream_index;
+	variable secret_len : codestream_index;
+	variable temp_secret_index: codestream_index;
+	variable stream_limit : codestream_index;
 	signal vq_index : int_vq_index;
 	signal list_index : int_list_index;
 	signal to_stream : std_logic;
-	signal stream: code_stream;
+	signal stream: std_logic_vector(0 to (N_large * 5));
 	signal current_state : main_state;
 	signal next_state : main_state;
 begin
@@ -50,6 +56,8 @@ begin
 			stream_len := 0;
 			image_row := 0;
 			image_col := 0;
+			secret_index := 0;
+			secret_len := 0;
 		elsif rising_edge(clk) then
 			current_state <= next_state;
 		end if; 
@@ -71,7 +79,7 @@ begin
 				counter := n_small + 1;
 				next_state <= INDEX_NOT_IN_LIST;
 			else
-				next_state <= START_ENCODING;
+				next_state <= INDEX_PRESENT_IN_LIST;
 			end if;
 		when INDEX_NOT_IN_LIST =>
 			counter := counter - 1;
@@ -82,6 +90,44 @@ begin
 				stream_len := stream_len + 1;
 				next_state <= INDEX_NOT_IN_LIST;
 			end if;
+		when INDEX_PRESENT_IN_LIST => 
+			temp_secret_index := 0;
+			for idx in secret_index to (secret_index + 4) loop
+				if idx < secret_len then
+					temp_secret(temp_secret_index) := secret(idx);
+					temp_secret_index := temp_secret_index + 1;
+				end if;
+			end loop;
+			if temp_secret = "0000" then
+				if list_index = 1 then
+					next_state <= ALL_ZEROES_1;
+					counter := 4;
+				else
+					next_state <= ALL_ZEROES_O;
+				end if;
+			else
+				if list_index = 1 then
+					next_state <= NOT_ALL_ZEROES_1;
+				else
+					next_state <= NOT_ALL_ZEROES_0;
+				end if;
+			end if;
+		when ALL_ZEROES_1 =>
+			stream_limit := stream_len + 3;
+			stream(stream_len to stream_limit) <= temp_secret(0 to 3);
+			stream_len := stream_limit + 1;
+			stream(stream_len) <= '1';
+			stream_len := stream_len + 1;
+			stream(stream_len) <= '1';
+			stream_len := stream_len + 1;
+		when NOT_ALL_ZEROES_1 =>
+			stream_limit := stream_len + 3;
+			stream(stream_len to stream_limit) <= temp_secret(0 to 3);
+			stream_len := stream_limit + 1;
+			stream(stream_len) <= '1';
+			stream_len := stream_len + 1;
+			stream(stream_len) <= '1';
+			stream_len := stream_len + 1;
 		when DONE =>
 			result <= stream;
 			next_state <= DONE;
