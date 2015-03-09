@@ -3,6 +3,7 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 use work.globals.all;
 use ieee.math_real.all;
+use ieee.numeric_std.all;
 
 entity main is
 	port (
@@ -25,6 +26,7 @@ architecture My_Main of main is
 	variable temp_secret_index: codestream_index;
 	variable stream_limit : codestream_index;
 	variable zeroes_arr : std_logic_vector(0 to n_small);
+	variable substream_size_val : substream_size;
 	signal vq_index : int_vq_index;
 	signal list_index : int_list_index;
 	signal to_stream : std_logic;
@@ -112,6 +114,46 @@ begin
 		when NOT_ALL_ZEROES_1 =>
 			stream_limit := stream_len + (n_small - 1) + 1;
 			stream(stream_len to stream_limit) <= temp_secret(0 to (n_small - 1)) & "1";
+			stream_len := stream_limit + 1;
+		when ALL_ZEROES_O =>
+			substream_size_val := get_substream_size(list_index);
+			stream_limit := stream_len + (n_small - 1) + substream_size_val + substream_size_val + 1;
+			if substream_size_val = 1 then
+				stream(stream_len to stream_limit) <= temp_secret(0 to (n_small - 1)) & 
+					"10" & std_logic_vector(to_unsigned(list_index, 1));
+			elsif substream_size_val = 2 then
+				stream(stream_len to stream_limit) <= temp_secret(0 to (n_small - 1)) & 
+					"100" & std_logic_vector(to_unsigned(list_index, 2));
+			elsif substream_size_val = 3 then
+				stream(stream_len to stream_limit) <= temp_secret(0 to (n_small - 1)) & 
+					"1000" & std_logic_vector(to_unsigned(list_index, 3));
+			elsif substream_size_val = 4 then
+				stream(stream_len to stream_limit) <= temp_secret(0 to (n_small - 1)) & 
+					"10000" & std_logic_vector(to_unsigned(list_index, 4));
+			else 
+				stream(stream_len to stream_limit) <= temp_secret(0 to (n_small - 1)) & 
+					"100000" & std_logic_vector(to_unsigned(list_index, 5));
+			end if;
+			stream_len := stream_limit + 1;
+		when NOT_ALL_ZEROES_0 =>
+			substream_size_val := get_substream_size(list_index);
+			stream_limit := stream_len + (n_small - 1) + substream_size_val + substream_size_val;
+			if substream_size_val = 1 then
+				stream(stream_len to stream_limit) <= temp_secret(0 to (n_small - 1)) & 
+					"0" & std_logic_vector(to_unsigned(list_index, 1));
+			elsif substream_size_val = 2 then
+				stream(stream_len to stream_limit) <= temp_secret(0 to (n_small - 1)) & 
+					"00" & std_logic_vector(to_unsigned(list_index, 2));
+			elsif substream_size_val = 3 then
+				stream(stream_len to stream_limit) <= temp_secret(0 to (n_small - 1)) & 
+					"000" & std_logic_vector(to_unsigned(list_index, 3));
+			elsif substream_size_val = 4 then
+				stream(stream_len to stream_limit) <= temp_secret(0 to (n_small - 1)) & 
+					"0000" & std_logic_vector(to_unsigned(list_index, 4));
+			else 
+				stream(stream_len to stream_limit) <= temp_secret(0 to (n_small - 1)) & 
+					"00000" & std_logic_vector(to_unsigned(list_index, 5));
+			end if;
 			stream_len := stream_limit + 1;
 		when DONE =>
 			result <= stream;

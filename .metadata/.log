@@ -2441,3 +2441,187 @@ java.net.UnknownHostException: sigasi-talkback.appspot.com: unknown error
 
 !ENTRY com.sigasi.hdt.vhdl.ui 1 1 2015-03-09 12:14:36.666
 !MESSAGE Participant timing {DeferredBuilderParticipant=16}
+
+!ENTRY org.apache.log4j 4 0 2015-03-09 12:27:11.388
+!MESSAGE com.sigasi.hdt.vhdl.ui.editor.VhdlSemanticHighlightingCalculator  - Problem in semantic highlighter
+
+!STACK 0
+java.lang.ClassCastException: com.sigasi.hdt.vhdl.vhdl.impl.ConstantDeclarationImpl cannot be cast to com.sigasi.hdt.hdl.HdlDeclaration
+	at com.sigasi.hdt.vhdl.vhdl.impl.IdentifierPathElementImpl.getIdentifier(IdentifierPathElementImpl.java:69)
+	at com.sigasi.hdt.vhdl.vhdl.impl.IdentifierPathElementImpl.eGet(IdentifierPathElementImpl.java:108)
+	at org.eclipse.emf.ecore.impl.BasicEObjectImpl.eGet(BasicEObjectImpl.java:1011)
+	at org.eclipse.emf.ecore.impl.BasicEObjectImpl.eGet(BasicEObjectImpl.java:1003)
+	at org.eclipse.emf.ecore.impl.BasicEObjectImpl.eGet(BasicEObjectImpl.java:998)
+	at com.sigasi.hdt.vhdl.ui.editor.VhdlSemanticHighlightingCalculator.a(VhdlSemanticHighlightingCalculator.java:39)
+	at com.sigasi.hdt.vhdl.ui.editor.VhdlSemanticHighlightingCalculator.provideHighlightingFor(VhdlSemanticHighlightingCalculator.java:28)
+	at org.eclipse.xtext.ui.editor.syntaxcoloring.MergingHighlightedPositionAcceptor.provideHighlightingFor(MergingHighlightedPositionAcceptor.java:51)
+	at org.eclipse.xtext.ui.editor.syntaxcoloring.HighlightingReconciler.reconcilePositions(HighlightingReconciler.java:139)
+	at org.eclipse.xtext.ui.editor.syntaxcoloring.HighlightingReconciler.modelChanged(HighlightingReconciler.java:357)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument.notifyModelListeners(XtextDocument.java:182)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.modify(XtextDocument.java:432)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument.internalModify(XtextDocument.java:131)
+	at org.eclipse.xtext.ui.editor.DirtyStateEditorSupport$UpdateEditorStateJob.unloadAffectedResourcesAndReparseDocument(DirtyStateEditorSupport.java:180)
+	at org.eclipse.xtext.ui.editor.DirtyStateEditorSupport$UpdateEditorStateJob.run(DirtyStateEditorSupport.java:159)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY com.sigasi.hdt.vhdl.ui 1 1 2015-03-09 12:27:39.594
+!MESSAGE Building 1 resources, timing: {global index=36, linking=75, validation=31, totalLinkingAndValidation=129} resets: {GI resets=1, LV resets=1}
+
+!ENTRY com.sigasi.hdt.vhdl.ui 1 1 2015-03-09 12:27:39.640
+!MESSAGE Participant timing {DeferredBuilderParticipant=45}
+
+!ENTRY com.sigasi.hdt.vhdl.ui 1 1 2015-03-09 12:28:56.075
+!MESSAGE Building 1 resources, timing: {global index=16, linking=57, validation=43, totalLinkingAndValidation=115} resets: {GI resets=1, LV resets=1}
+
+!ENTRY com.sigasi.hdt.vhdl.ui 1 1 2015-03-09 12:28:56.091
+!MESSAGE Participant timing {DeferredBuilderParticipant=15}
+
+!ENTRY com.sigasi.hdt.vhdl.ui 1 1 2015-03-09 12:30:08.002
+!MESSAGE Building 1 resources, timing: {global index=13, linking=51, validation=23, totalLinkingAndValidation=109} resets: {GI resets=1, LV resets=1}
+
+!ENTRY com.sigasi.hdt.vhdl.ui 1 1 2015-03-09 12:30:08.031
+!MESSAGE Participant timing {DeferredBuilderParticipant=26}
+
+!ENTRY com.sigasi.hdt.vhdl.ui 1 1 2015-03-09 12:30:25.652
+!MESSAGE Building 1 resources, timing: {global index=9, linking=56, validation=18, totalLinkingAndValidation=87} resets: {GI resets=1, LV resets=1}
+
+!ENTRY com.sigasi.hdt.vhdl.ui 1 1 2015-03-09 12:30:25.673
+!MESSAGE Participant timing {DeferredBuilderParticipant=19}
+
+!ENTRY com.sigasi.hdt.vhdl.ui 1 1 2015-03-09 12:31:04.308
+!MESSAGE Building 1 resources, timing: {global index=17, linking=60, validation=21, totalLinkingAndValidation=99} resets: {GI resets=1, LV resets=1}
+
+!ENTRY com.sigasi.hdt.vhdl.ui 1 1 2015-03-09 12:31:04.339
+!MESSAGE Participant timing {DeferredBuilderParticipant=25}
+
+!ENTRY com.sigasi.hdt.vhdl.ui 1 1 2015-03-09 12:33:35.107
+!MESSAGE Building 1 resources, timing: {global index=12, linking=48, validation=21, totalLinkingAndValidation=89} resets: {GI resets=1, LV resets=1}
+
+!ENTRY com.sigasi.hdt.vhdl.ui 1 1 2015-03-09 12:33:35.132
+!MESSAGE Participant timing {DeferredBuilderParticipant=23}
+
+!ENTRY com.sigasi.hdt.vhdl.ui 1 1 2015-03-09 12:34:13.791
+!MESSAGE Building 1 resources, timing: {global index=20, linking=45, validation=9, totalLinkingAndValidation=58} resets: {GI resets=1, LV resets=1}
+
+!ENTRY com.sigasi.hdt.vhdl.ui 1 1 2015-03-09 12:34:13.813
+!MESSAGE Participant timing {DeferredBuilderParticipant=21}
+
+!ENTRY com.sigasi.hdt.vhdl.ui 1 1 2015-03-09 12:34:28.946
+!MESSAGE Building 1 resources, timing: {global index=25, linking=55, validation=15, totalLinkingAndValidation=76} resets: {GI resets=1, LV resets=1}
+
+!ENTRY com.sigasi.hdt.vhdl.ui 1 1 2015-03-09 12:34:28.965
+!MESSAGE Participant timing {DeferredBuilderParticipant=18}
+
+!ENTRY com.sigasi.hdt.vhdl.ui 1 1 2015-03-09 12:35:37.528
+!MESSAGE Building 1 resources, timing: {global index=24, linking=44, validation=7, totalLinkingAndValidation=55} resets: {GI resets=1, LV resets=1}
+
+!ENTRY com.sigasi.hdt.vhdl.ui 1 1 2015-03-09 12:35:37.543
+!MESSAGE Participant timing {DeferredBuilderParticipant=15}
+
+!ENTRY com.sigasi.hdt.vhdl.ui 1 1 2015-03-09 12:37:14.014
+!MESSAGE Building 1 resources, timing: {global index=24, linking=39, validation=6, totalLinkingAndValidation=49} resets: {GI resets=1, LV resets=1}
+
+!ENTRY com.sigasi.hdt.vhdl.ui 1 1 2015-03-09 12:37:14.030
+!MESSAGE Participant timing {DeferredBuilderParticipant=15}
+
+!ENTRY com.sigasi.hdt.vhdl.ui 1 1 2015-03-09 12:37:48.352
+!MESSAGE Building 1 resources, timing: {global index=17, linking=35, validation=10, totalLinkingAndValidation=51} resets: {GI resets=1, LV resets=1}
+
+!ENTRY com.sigasi.hdt.vhdl.ui 1 1 2015-03-09 12:37:48.381
+!MESSAGE Participant timing {DeferredBuilderParticipant=28}
+
+!ENTRY com.sigasi.hdt.vhdl.ui 1 1 2015-03-09 12:40:33.225
+!MESSAGE Building 1 resources, timing: {global index=23, linking=39, validation=8, totalLinkingAndValidation=53} resets: {GI resets=1, LV resets=1}
+
+!ENTRY com.sigasi.hdt.vhdl.ui 1 1 2015-03-09 12:40:33.240
+!MESSAGE Participant timing {DeferredBuilderParticipant=15}
+
+!ENTRY com.sigasi.hdt.vhdl.ui 1 1 2015-03-09 12:40:34.753
+!MESSAGE Building 1 resources, timing: {global index=26, linking=41, validation=9, totalLinkingAndValidation=55} resets: {GI resets=1, LV resets=1}
+
+!ENTRY com.sigasi.hdt.vhdl.ui 1 1 2015-03-09 12:40:34.770
+!MESSAGE Participant timing {DeferredBuilderParticipant=15}
+
+!ENTRY com.sigasi.hdt.vhdl.ui 1 1 2015-03-09 12:41:29.665
+!MESSAGE Building 1 resources, timing: {global index=21, linking=45, validation=8, totalLinkingAndValidation=57} resets: {GI resets=1, LV resets=1}
+
+!ENTRY com.sigasi.hdt.vhdl.ui 1 1 2015-03-09 12:41:29.692
+!MESSAGE Participant timing {DeferredBuilderParticipant=26}
+
+!ENTRY com.sigasi.hdt.vhdl.ui 1 1 2015-03-09 12:44:59.170
+!MESSAGE Building 1 resources, timing: {global index=26, linking=39, validation=6, totalLinkingAndValidation=49} resets: {GI resets=1, LV resets=1}
+
+!ENTRY com.sigasi.hdt.vhdl.ui 1 1 2015-03-09 12:44:59.189
+!MESSAGE Participant timing {DeferredBuilderParticipant=18}
+
+!ENTRY com.sigasi.hdt.vhdl.ui 1 1 2015-03-09 12:45:19.071
+!MESSAGE Building 1 resources, timing: {global index=25, linking=39, validation=6, totalLinkingAndValidation=50} resets: {GI resets=1, LV resets=1}
+
+!ENTRY com.sigasi.hdt.vhdl.ui 1 1 2015-03-09 12:45:19.097
+!MESSAGE Participant timing {DeferredBuilderParticipant=25}
+
+!ENTRY com.sigasi.hdt.vhdl.ui 1 1 2015-03-09 12:45:40.247
+!MESSAGE Building 1 resources, timing: {global index=23, linking=39, validation=7, totalLinkingAndValidation=50} resets: {GI resets=1, LV resets=1}
+
+!ENTRY com.sigasi.hdt.vhdl.ui 1 1 2015-03-09 12:45:40.263
+!MESSAGE Participant timing {DeferredBuilderParticipant=15}
+
+!ENTRY com.sigasi.hdt.vhdl.ui 1 1 2015-03-09 12:45:58.248
+!MESSAGE Building 1 resources, timing: {global index=24, linking=47, validation=10, totalLinkingAndValidation=63} resets: {GI resets=1, LV resets=1}
+
+!ENTRY com.sigasi.hdt.vhdl.ui 1 1 2015-03-09 12:45:58.271
+!MESSAGE Participant timing {DeferredBuilderParticipant=22}
+
+!ENTRY com.sigasi.hdt.vhdl.ui 1 1 2015-03-09 12:46:46.140
+!MESSAGE Building 1 resources, timing: {global index=9, linking=40, validation=16, totalLinkingAndValidation=68} resets: {GI resets=1, LV resets=1}
+
+!ENTRY com.sigasi.hdt.vhdl.ui 1 1 2015-03-09 12:46:46.155
+!MESSAGE Participant timing {DeferredBuilderParticipant=14}
+
+!ENTRY com.sigasi.hdt.vhdl.ui 1 1 2015-03-09 12:47:13.626
+!MESSAGE Building 1 resources, timing: {global index=30, linking=35, validation=7, totalLinkingAndValidation=48} resets: {GI resets=1, LV resets=1}
+
+!ENTRY com.sigasi.hdt.vhdl.ui 1 1 2015-03-09 12:47:13.646
+!MESSAGE Participant timing {DeferredBuilderParticipant=19}
+
+!ENTRY com.sigasi.hdt.vhdl.ui 1 1 2015-03-09 12:47:21.701
+!MESSAGE Building 1 resources, timing: {global index=32, linking=54, validation=11, totalLinkingAndValidation=72} resets: {GI resets=1, LV resets=1}
+
+!ENTRY com.sigasi.hdt.vhdl.ui 1 1 2015-03-09 12:47:21.720
+!MESSAGE Participant timing {DeferredBuilderParticipant=18}
+
+!ENTRY com.sigasi.hdt.vhdl.ui 1 1 2015-03-09 12:47:47.812
+!MESSAGE Building 1 resources, timing: {global index=28, linking=36, validation=9, totalLinkingAndValidation=50} resets: {GI resets=1, LV resets=1}
+
+!ENTRY com.sigasi.hdt.vhdl.ui 1 1 2015-03-09 12:47:47.830
+!MESSAGE Participant timing {DeferredBuilderParticipant=18}
+
+!ENTRY com.sigasi.hdt.vhdl.ui 1 1 2015-03-09 12:48:26.607
+!MESSAGE Building 1 resources, timing: {global index=28, linking=36, validation=8, totalLinkingAndValidation=49} resets: {GI resets=1, LV resets=1}
+
+!ENTRY com.sigasi.hdt.vhdl.ui 1 1 2015-03-09 12:48:26.623
+!MESSAGE Participant timing {DeferredBuilderParticipant=15}
+
+!ENTRY com.sigasi.hdt.vhdl.ui 1 1 2015-03-09 12:48:42.206
+!MESSAGE Building 1 resources, timing: {global index=22, linking=43, validation=8, totalLinkingAndValidation=56} resets: {GI resets=1, LV resets=1}
+
+!ENTRY com.sigasi.hdt.vhdl.ui 1 1 2015-03-09 12:48:42.229
+!MESSAGE Participant timing {DeferredBuilderParticipant=23}
+
+!ENTRY com.sigasi.hdt.vhdl.ui 1 1 2015-03-09 12:48:51.640
+!MESSAGE Building 1 resources, timing: {global index=30, linking=37, validation=8, totalLinkingAndValidation=50} resets: {GI resets=1, LV resets=1}
+
+!ENTRY com.sigasi.hdt.vhdl.ui 1 1 2015-03-09 12:48:51.656
+!MESSAGE Participant timing {DeferredBuilderParticipant=14}
+
+!ENTRY com.sigasi.hdt.vhdl.ui 1 1 2015-03-09 12:49:06.412
+!MESSAGE Building 1 resources, timing: {global index=28, linking=65, validation=11, totalLinkingAndValidation=82} resets: {GI resets=1, LV resets=1}
+
+!ENTRY com.sigasi.hdt.vhdl.ui 1 1 2015-03-09 12:49:06.441
+!MESSAGE Participant timing {DeferredBuilderParticipant=28}
+
+!ENTRY com.sigasi.hdt.vhdl.ui 1 1 2015-03-09 12:49:12.607
+!MESSAGE Building 1 resources, timing: {global index=31, linking=42, validation=8, totalLinkingAndValidation=54} resets: {GI resets=1, LV resets=1}
+
+!ENTRY com.sigasi.hdt.vhdl.ui 1 1 2015-03-09 12:49:12.624
+!MESSAGE Participant timing {DeferredBuilderParticipant=16}

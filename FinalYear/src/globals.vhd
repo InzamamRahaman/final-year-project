@@ -1,11 +1,15 @@
 library ieee;
 use ieee.std_logic_1164.all;
+library ieee;
+use ieee.numeric_std.all;
 package globals is
 	
 	-- constants 
 	constant n_small : integer := 4; -- number of secret bit per index
 	constant N_large : integer := 128; -- the size of the codebooks
 	constant l : integer := 16; -- the size of the self-organizing list
+	constant all_zero_0_fill : std_logic_vector(0 to 7) := "1000000";
+	constant not_all_zero_0_fill : std_logic_vector(0 to 6) := "000000";
 	
 	-- subtypes to accurately represent indicies
 	
@@ -16,6 +20,7 @@ package globals is
 	subtype int_vq_index is integer range 0 to N_large;
 	subtype codestream_index is integer range 0 to N_large * 5 + n_small;
 	subtype counter_int is integer range 0 to 10;
+	subtype substream_size is integer range 0 to 5;
 	
 	--record types
 	
@@ -44,6 +49,9 @@ package globals is
 	function is_member(xs : vq_index_list; elem : int_vq_index) 
 	return membership_data; 
 	
+	function get_substream_size(num : int_list_index)
+	return substream_size;
+	
 	-- procedures for moving data throughout an array
 	procedure sift_up(xs : inout vq_index_list; start : in int_list_index);
 	procedure sift_down(xs : inout vq_index_list; index : in int_vq_index);
@@ -70,6 +78,23 @@ package body globals is
 		data.is_present := '0';
 		return data;
 	end;
+	
+	function get_substream_size(num : int_list_index)
+	return substream_size is
+	begin
+		if num < 2 then
+			return 1;
+		elsif num < 4 then
+			return 2;
+		elsif num < 8 then
+			return 3;
+		elsif num < 16 then
+			return 4;
+		else 
+			return 5;
+		end if;
+	end;
+	
 	
 	procedure sift_up(xs : inout vq_index_list; start : in int_list_index)
 	is
