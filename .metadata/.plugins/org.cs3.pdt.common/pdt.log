@@ -1656,3 +1656,16 @@ java.lang.NullPointerException
 	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.ensureResultCached(DecorationScheduler.java:370)
 	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.run(DecorationScheduler.java:330)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+pdt: ----------------------------------
+pdt: Mon Mar 09 11:14:31 AST 2015
+pdt: ----------------------------------
+pdt: set debug output to LOGFILE
+pdt: ----------------------------------
+pdt: Mon Mar 09 11:14:31 AST 2015
+pdt: ----------------------------------
+pdt: set debug output to LOGFILE
+pdt: WARNING - 09/03 11:14:41 - Prolog Process Default Process Work: Prolog warnings and errors during initialization:
+Location: /home/school/.eclipse/org.eclipse.platform_3.8_155965261/plugins/org.cs3.prolog.library_3.0.3.201411200925/pl/compatiblitySWI.pl:373
+Message: Goal (directive) failed: user:disable_tty_control
+
+

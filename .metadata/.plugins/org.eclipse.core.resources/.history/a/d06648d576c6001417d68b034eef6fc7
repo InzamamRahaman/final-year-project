@@ -85,12 +85,20 @@ begin
 			end if;
 		when INDEX_NOT_IN_LIST =>
 			stream_limit := stream_len + n_small - 1;
-			stream(stream_len to stream_limit) <= zeroes_arr(0  to (n_small  - 1));
+			stream(stream_len to stream_limit) <= zeroes_arr;
 			stream_len := stream_limit + 1;
 			next_state <= START_ENCODING;
+			-- counter := counter - 1;
+			-- if counter = 0 then
+				-- next_state <= START_ENCODING;
+			-- else 
+				-- stream(stream_len) <= '0';
+				-- stream_len := stream_len + 1;
+				-- next_state <= INDEX_NOT_IN_LIST;
+			-- end if;
 		when INDEX_PRESENT_IN_LIST => 
-			temp_secret_index := secret_len + (n_small - 1);
-			temp_secret(0 to (n_small - 1)) <= secret(secret_len to temp_secret_index);
+			temp_secret_index := secret_len + 3;
+			temp_secret(0 to 3) <= secret(secret_len to temp_secret_index);
 			if temp_secret = "0000" then
 				if list_index = 1 then
 					next_state <= ALL_ZEROES_1;
@@ -106,13 +114,21 @@ begin
 				end if;
 			end if;
 		when ALL_ZEROES_1 =>
-			stream_limit := stream_len + (n_small - 1) + 2;
-			stream(stream_len to stream_limit) <= temp_secret(0 to (n_small - 1)) & "11";
+			stream_limit := stream_len + 3;
+			stream(stream_len to stream_limit) <= temp_secret(0 to 3);
 			stream_len := stream_limit + 1;
+			stream(stream_len) <= '1';
+			stream_len := stream_len + 1;
+			stream(stream_len) <= '1';
+			stream_len := stream_len + 1;
 		when NOT_ALL_ZEROES_1 =>
-			stream_limit := stream_len + (n_small - 1) + 1;
-			stream(stream_len to stream_limit) <= temp_secret(0 to (n_small - 1)) & "1";
+			stream_limit := stream_len + 3;
+			stream(stream_len to stream_limit) <= temp_secret(0 to 3);
 			stream_len := stream_limit + 1;
+			stream(stream_len) <= '1';
+			stream_len := stream_len + 1;
+			stream(stream_len) <= '1';
+			stream_len := stream_len + 1;
 		when DONE =>
 			result <= stream;
 			next_state <= DONE;
