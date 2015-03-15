@@ -110,8 +110,7 @@ Slice Utilization Ratio Delta      : 5
 Compiling vhdl file "/home/school/ise_projs/final-year-project/Encoder/globals.vhd" in Library work.
 Architecture globals of Entity globals is up to date.
 Compiling vhdl file "/home/school/ise_projs/final-year-project/Encoder/list.vhd" in Library work.
-Entity <list> compiled.
-Entity <list> (Architecture <Behavioral>) compiled.
+Architecture behavioral of Entity list is up to date.
 Compiling vhdl file "/home/school/ise_projs/final-year-project/Encoder/main.vhd" in Library work.
 Entity <main> compiled.
 ERROR:HDLParsers:3345 - "/home/school/ise_projs/final-year-project/Encoder/main.vhd" Line 19.  Only SHARED variables can be declared here.
@@ -126,7 +125,6 @@ ERROR:HDLParsers:3345 - "/home/school/ise_projs/final-year-project/Encoder/main.
 ERROR:HDLParsers:3345 - "/home/school/ise_projs/final-year-project/Encoder/main.vhd" Line 29.  Only SHARED variables can be declared here.
 ERROR:HDLParsers:3345 - "/home/school/ise_projs/final-year-project/Encoder/main.vhd" Line 30.  Only SHARED variables can be declared here.
 ERROR:HDLParsers:3345 - "/home/school/ise_projs/final-year-project/Encoder/main.vhd" Line 31.  Only SHARED variables can be declared here.
-ERROR:HDLParsers:834 - "/home/school/ise_projs/final-year-project/Encoder/main.vhd" Line 91. Signal next_state has a multi source.
 ERROR:HDLParsers:807 - "/home/school/ise_projs/final-year-project/Encoder/main.vhd" Line 102. temp_secret can not be used with range to.
 ERROR:HDLParsers:807 - "/home/school/ise_projs/final-year-project/Encoder/main.vhd" Line 119. temp_secret can not be used with range to.
 ERROR:HDLParsers:807 - "/home/school/ise_projs/final-year-project/Encoder/main.vhd" Line 123. temp_secret can not be used with range to.
@@ -143,9 +141,9 @@ ERROR:HDLParsers:807 - "/home/school/ise_projs/final-year-project/Encoder/main.v
 --> 
 
 
-Total memory usage is 490240 kilobytes
+Total memory usage is 490248 kilobytes
 
-Number of errors   :   26 (   0 filtered)
+Number of errors   :   25 (   0 filtered)
 Number of warnings :    0 (   0 filtered)
 Number of infos    :    0 (   0 filtered)
 

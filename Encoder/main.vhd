@@ -59,7 +59,6 @@ begin
 	setup_process: process(clk, rst)
 	begin
 		if rst = '1' then
-			next_state <= READING_IMAGE;
 			counter := 0;
 			stream_len := 0;
 			image_row := 0;
@@ -67,6 +66,7 @@ begin
 			secret_index := 0;
 			secret_len := 0;
 			zeroes_arr := (others => '0');
+			current_state <= READING_IMAGE;
 		elsif rising_edge(clk) then
 			current_state <= next_state;
 		end if; 
