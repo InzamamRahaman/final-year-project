@@ -35,6 +35,7 @@ architecture My_Main of main is
 	signal stream: std_logic_vector(0 to (N_large * 5));
 	signal current_state : main_state;
 	signal next_state : main_state;
+	signal elements : vq_index_list;
 	--signal image_data_file : image_file is in "image.txt";
 	--signal secret_data_file : secret_file;
 begin
@@ -43,10 +44,10 @@ begin
 	-- read in the secret message
 	
 	-- instantiate entity for list
-	list_unit: entity work.list(SELF_ORGANIZING_LIST)
-		port map(rst        => rst,
-			     vq_index   => vq_index,
-			     list_index => list_index);
+	list_unit: entity work.list(Behavioral)
+		port map(elements => elements, 
+					to_insert => vq_index,
+					location => list_index);
 			     
 	-- instantiate code stream
 	-- code_stream_unit: entity work.codestream

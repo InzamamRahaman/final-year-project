@@ -69,7 +69,7 @@ package globals is
 	-- procedure get_list_index(xs : inout vq_index_list;
 		-- value : in int_vq_index; ans : out int_list_index);
 		procedure retrieve_list_index(xs : inout vq_index_list;
-		index : in int_vq_index; location : out int_list_index);
+		index : in int_vq_index; signal location : out int_list_index);
 end package globals;
 
 package body globals is
@@ -160,7 +160,7 @@ package body globals is
 	
 
 	procedure retrieve_list_index(xs : inout vq_index_list;
-		index : in int_vq_index; location : out int_list_index)
+		index : in int_vq_index; signal location : out int_list_index)
 	is
 		variable temp_location : int_list_index;
 	begin	
@@ -172,7 +172,7 @@ package body globals is
 			sift_down(xs, index);
 			temp_location := 1;
 		end if;
-		location := temp_location;
+		location <= temp_location;
 	end procedure;
 
 	
