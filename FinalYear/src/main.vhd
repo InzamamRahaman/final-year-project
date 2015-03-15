@@ -4,6 +4,8 @@ use ieee.numeric_std.all;
 use work.globals.all;
 use ieee.math_real.all;
 use ieee.numeric_std.all;
+use STD.textio.all;
+  
 
 entity main is
 	port (
@@ -33,6 +35,8 @@ architecture My_Main of main is
 	signal stream: std_logic_vector(0 to (N_large * 5));
 	signal current_state : main_state;
 	signal next_state : main_state;
+	--signal image_data_file : image_file is in "image.txt";
+	--signal secret_data_file : secret_file;
 begin
 
 	-- read in the input file for the image
@@ -54,7 +58,7 @@ begin
 	setup_process: process(clk, rst)
 	begin
 		if rst = '1' then
-			next_state <= START_READING;
+			next_state <= READING_IMAGE;
 			counter := 0;
 			stream_len := 0;
 			image_row := 0;
@@ -70,9 +74,11 @@ begin
 	main_process: process(current_state)
 	begin
 		case current_state is
-		when START_READING =>
-			-- start reading process here
-			next_state <= START_ENCODING;
+		when READING_IMAGE =>
+			if ENDFILE (image) then
+				
+		when READING_SECRET =>
+			
 		when START_ENCODING =>
 			vq_index <= image_data(image_row)(image_col);-- value from file
 			image_row := image_row + 1;

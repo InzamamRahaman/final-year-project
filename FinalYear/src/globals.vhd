@@ -39,8 +39,18 @@ package globals is
 	type matrix is array (0 to N_large) of matrix_row;
 	type transformed_image_row is array (0 to N_large * N_large) of int_vq_index;
 	
+	
+	-- types for files
+	type image_file is file of int_vq_index;
+	type secret_file is file of std_logic;
+	
+	-- files
+	file img : image_file is in "image.txt";
+	file in_secret : secret_file is in "secret.txt";
+	file out_secret : secret_file is out "output.txt";
+	
 	-- enumerated types for state management
-	type main_state is (START_READING, START_ENCODING, INDEX_NOT_IN_LIST,
+	type main_state is (READING_IMAGE, READING_SECRET, START_ENCODING, INDEX_NOT_IN_LIST,
 		INDEX_PRESENT_IN_LIST,ALL_ZEROES_O,  NOT_ALL_ZEROES_0, ALL_ZEROES_1,
 		NOT_ALL_ZEROES_1, DONE
 	);
