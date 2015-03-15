@@ -131,12 +131,16 @@ package body globals is
 		variable ans : int_list_index;
 		variable temp_index : int_list_index;
 	begin 
-		temp_index := xs(start);
-		ans := start + 1; -- plus one as the method requires i-indexing
-		for idx in (start - 1) to 1 loop
-			xs(idx + 1) := xs(idx);
-		end loop;
-		xs(0) := temp_index;
+		temp_index := xs(start - 1);
+		--ans := start + 1; -- plus one as the method requires i-indexing
+		if temp_index = 0 then
+			xs(0) := temp_index;
+		else
+			for idx in (start - 2) downto 0 loop
+				xs(idx + 1) := xs(idx);
+			end loop;
+			xs(0) := temp_index;
+		end if;
 	end;
 	
 	procedure sift_down(xs : inout vq_index_list; 

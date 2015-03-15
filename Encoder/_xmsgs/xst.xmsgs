@@ -5,85 +5,85 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
-<msg type="error" file="HDLParsers" num="3345" delta="new" >&quot;<arg fmt="%s" index="1">/home/school/ise_projs/final-year-project/Encoder/main.vhd</arg>&quot; Line <arg fmt="%d" index="2">19</arg>.  Only SHARED variables can be declared here.
+<msg type="error" file="HDLParsers" num="3345" delta="old" >&quot;<arg fmt="%s" index="1">/home/school/ise_projs/final-year-project/Encoder/main.vhd</arg>&quot; Line <arg fmt="%d" index="2">19</arg>.  Only SHARED variables can be declared here.
 </msg>
 
-<msg type="error" file="HDLParsers" num="3345" delta="new" >&quot;<arg fmt="%s" index="1">/home/school/ise_projs/final-year-project/Encoder/main.vhd</arg>&quot; Line <arg fmt="%d" index="2">20</arg>.  Only SHARED variables can be declared here.
+<msg type="error" file="HDLParsers" num="3345" delta="old" >&quot;<arg fmt="%s" index="1">/home/school/ise_projs/final-year-project/Encoder/main.vhd</arg>&quot; Line <arg fmt="%d" index="2">20</arg>.  Only SHARED variables can be declared here.
 </msg>
 
-<msg type="error" file="HDLParsers" num="3345" delta="new" >&quot;<arg fmt="%s" index="1">/home/school/ise_projs/final-year-project/Encoder/main.vhd</arg>&quot; Line <arg fmt="%d" index="2">21</arg>.  Only SHARED variables can be declared here.
+<msg type="error" file="HDLParsers" num="3345" delta="old" >&quot;<arg fmt="%s" index="1">/home/school/ise_projs/final-year-project/Encoder/main.vhd</arg>&quot; Line <arg fmt="%d" index="2">21</arg>.  Only SHARED variables can be declared here.
 </msg>
 
-<msg type="error" file="HDLParsers" num="3345" delta="new" >&quot;<arg fmt="%s" index="1">/home/school/ise_projs/final-year-project/Encoder/main.vhd</arg>&quot; Line <arg fmt="%d" index="2">22</arg>.  Only SHARED variables can be declared here.
+<msg type="error" file="HDLParsers" num="3345" delta="old" >&quot;<arg fmt="%s" index="1">/home/school/ise_projs/final-year-project/Encoder/main.vhd</arg>&quot; Line <arg fmt="%d" index="2">22</arg>.  Only SHARED variables can be declared here.
 </msg>
 
-<msg type="error" file="HDLParsers" num="3345" delta="new" >&quot;<arg fmt="%s" index="1">/home/school/ise_projs/final-year-project/Encoder/main.vhd</arg>&quot; Line <arg fmt="%d" index="2">23</arg>.  Only SHARED variables can be declared here.
+<msg type="error" file="HDLParsers" num="3345" delta="old" >&quot;<arg fmt="%s" index="1">/home/school/ise_projs/final-year-project/Encoder/main.vhd</arg>&quot; Line <arg fmt="%d" index="2">23</arg>.  Only SHARED variables can be declared here.
 </msg>
 
-<msg type="error" file="HDLParsers" num="3345" delta="new" >&quot;<arg fmt="%s" index="1">/home/school/ise_projs/final-year-project/Encoder/main.vhd</arg>&quot; Line <arg fmt="%d" index="2">24</arg>.  Only SHARED variables can be declared here.
+<msg type="error" file="HDLParsers" num="3345" delta="old" >&quot;<arg fmt="%s" index="1">/home/school/ise_projs/final-year-project/Encoder/main.vhd</arg>&quot; Line <arg fmt="%d" index="2">24</arg>.  Only SHARED variables can be declared here.
 </msg>
 
-<msg type="error" file="HDLParsers" num="3345" delta="new" >&quot;<arg fmt="%s" index="1">/home/school/ise_projs/final-year-project/Encoder/main.vhd</arg>&quot; Line <arg fmt="%d" index="2">26</arg>.  Only SHARED variables can be declared here.
+<msg type="error" file="HDLParsers" num="3345" delta="old" >&quot;<arg fmt="%s" index="1">/home/school/ise_projs/final-year-project/Encoder/main.vhd</arg>&quot; Line <arg fmt="%d" index="2">26</arg>.  Only SHARED variables can be declared here.
 </msg>
 
-<msg type="error" file="HDLParsers" num="3345" delta="new" >&quot;<arg fmt="%s" index="1">/home/school/ise_projs/final-year-project/Encoder/main.vhd</arg>&quot; Line <arg fmt="%d" index="2">27</arg>.  Only SHARED variables can be declared here.
+<msg type="error" file="HDLParsers" num="3345" delta="old" >&quot;<arg fmt="%s" index="1">/home/school/ise_projs/final-year-project/Encoder/main.vhd</arg>&quot; Line <arg fmt="%d" index="2">27</arg>.  Only SHARED variables can be declared here.
 </msg>
 
-<msg type="error" file="HDLParsers" num="3345" delta="new" >&quot;<arg fmt="%s" index="1">/home/school/ise_projs/final-year-project/Encoder/main.vhd</arg>&quot; Line <arg fmt="%d" index="2">28</arg>.  Only SHARED variables can be declared here.
+<msg type="error" file="HDLParsers" num="3345" delta="old" >&quot;<arg fmt="%s" index="1">/home/school/ise_projs/final-year-project/Encoder/main.vhd</arg>&quot; Line <arg fmt="%d" index="2">28</arg>.  Only SHARED variables can be declared here.
 </msg>
 
-<msg type="error" file="HDLParsers" num="3345" delta="new" >&quot;<arg fmt="%s" index="1">/home/school/ise_projs/final-year-project/Encoder/main.vhd</arg>&quot; Line <arg fmt="%d" index="2">29</arg>.  Only SHARED variables can be declared here.
+<msg type="error" file="HDLParsers" num="3345" delta="old" >&quot;<arg fmt="%s" index="1">/home/school/ise_projs/final-year-project/Encoder/main.vhd</arg>&quot; Line <arg fmt="%d" index="2">29</arg>.  Only SHARED variables can be declared here.
 </msg>
 
-<msg type="error" file="HDLParsers" num="3345" delta="new" >&quot;<arg fmt="%s" index="1">/home/school/ise_projs/final-year-project/Encoder/main.vhd</arg>&quot; Line <arg fmt="%d" index="2">30</arg>.  Only SHARED variables can be declared here.
+<msg type="error" file="HDLParsers" num="3345" delta="old" >&quot;<arg fmt="%s" index="1">/home/school/ise_projs/final-year-project/Encoder/main.vhd</arg>&quot; Line <arg fmt="%d" index="2">30</arg>.  Only SHARED variables can be declared here.
 </msg>
 
-<msg type="error" file="HDLParsers" num="3345" delta="new" >&quot;<arg fmt="%s" index="1">/home/school/ise_projs/final-year-project/Encoder/main.vhd</arg>&quot; Line <arg fmt="%d" index="2">31</arg>.  Only SHARED variables can be declared here.
+<msg type="error" file="HDLParsers" num="3345" delta="old" >&quot;<arg fmt="%s" index="1">/home/school/ise_projs/final-year-project/Encoder/main.vhd</arg>&quot; Line <arg fmt="%d" index="2">31</arg>.  Only SHARED variables can be declared here.
 </msg>
 
-<msg type="error" file="HDLParsers" num="3281" delta="new" >&quot;<arg fmt="%s" index="1">/home/school/ise_projs/final-year-project/Encoder/main.vhd</arg>&quot; Line <arg fmt="%d" index="2">46</arg>. <arg fmt="%s" index="3">SELF_ORGANIZING_LIST</arg> is not an architecture body for <arg fmt="%s" index="4">list</arg> in library <arg fmt="%s" index="5">work</arg>.
+<msg type="error" file="HDLParsers" num="3281" delta="old" >&quot;<arg fmt="%s" index="1">/home/school/ise_projs/final-year-project/Encoder/main.vhd</arg>&quot; Line <arg fmt="%d" index="2">46</arg>. <arg fmt="%s" index="3">SELF_ORGANIZING_LIST</arg> is not an architecture body for <arg fmt="%s" index="4">list</arg> in library <arg fmt="%s" index="5">work</arg>.
 </msg>
 
-<msg type="error" file="HDLParsers" num="834" delta="new" >&quot;<arg fmt="%s" index="1">/home/school/ise_projs/final-year-project/Encoder/main.vhd</arg>&quot; Line <arg fmt="%d" index="2">90</arg>. Signal <arg fmt="%s" index="3">next_state</arg> has a multi source.
+<msg type="error" file="HDLParsers" num="834" delta="old" >&quot;<arg fmt="%s" index="1">/home/school/ise_projs/final-year-project/Encoder/main.vhd</arg>&quot; Line <arg fmt="%d" index="2">90</arg>. Signal <arg fmt="%s" index="3">next_state</arg> has a multi source.
 </msg>
 
-<msg type="error" file="HDLParsers" num="807" delta="new" >&quot;<arg fmt="%s" index="1">/home/school/ise_projs/final-year-project/Encoder/main.vhd</arg>&quot; Line <arg fmt="%d" index="2">101</arg>. <arg fmt="%s" index="3">temp_secret</arg> can not be used with range <arg fmt="%s" index="4">to</arg>.
+<msg type="error" file="HDLParsers" num="807" delta="old" >&quot;<arg fmt="%s" index="1">/home/school/ise_projs/final-year-project/Encoder/main.vhd</arg>&quot; Line <arg fmt="%d" index="2">101</arg>. <arg fmt="%s" index="3">temp_secret</arg> can not be used with range <arg fmt="%s" index="4">to</arg>.
 </msg>
 
-<msg type="error" file="HDLParsers" num="807" delta="new" >&quot;<arg fmt="%s" index="1">/home/school/ise_projs/final-year-project/Encoder/main.vhd</arg>&quot; Line <arg fmt="%d" index="2">118</arg>. <arg fmt="%s" index="3">temp_secret</arg> can not be used with range <arg fmt="%s" index="4">to</arg>.
+<msg type="error" file="HDLParsers" num="807" delta="old" >&quot;<arg fmt="%s" index="1">/home/school/ise_projs/final-year-project/Encoder/main.vhd</arg>&quot; Line <arg fmt="%d" index="2">118</arg>. <arg fmt="%s" index="3">temp_secret</arg> can not be used with range <arg fmt="%s" index="4">to</arg>.
 </msg>
 
-<msg type="error" file="HDLParsers" num="807" delta="new" >&quot;<arg fmt="%s" index="1">/home/school/ise_projs/final-year-project/Encoder/main.vhd</arg>&quot; Line <arg fmt="%d" index="2">122</arg>. <arg fmt="%s" index="3">temp_secret</arg> can not be used with range <arg fmt="%s" index="4">to</arg>.
+<msg type="error" file="HDLParsers" num="807" delta="old" >&quot;<arg fmt="%s" index="1">/home/school/ise_projs/final-year-project/Encoder/main.vhd</arg>&quot; Line <arg fmt="%d" index="2">122</arg>. <arg fmt="%s" index="3">temp_secret</arg> can not be used with range <arg fmt="%s" index="4">to</arg>.
 </msg>
 
-<msg type="error" file="HDLParsers" num="807" delta="new" >&quot;<arg fmt="%s" index="1">/home/school/ise_projs/final-year-project/Encoder/main.vhd</arg>&quot; Line <arg fmt="%d" index="2">128</arg>. <arg fmt="%s" index="3">temp_secret</arg> can not be used with range <arg fmt="%s" index="4">to</arg>.
+<msg type="error" file="HDLParsers" num="807" delta="old" >&quot;<arg fmt="%s" index="1">/home/school/ise_projs/final-year-project/Encoder/main.vhd</arg>&quot; Line <arg fmt="%d" index="2">128</arg>. <arg fmt="%s" index="3">temp_secret</arg> can not be used with range <arg fmt="%s" index="4">to</arg>.
 </msg>
 
-<msg type="error" file="HDLParsers" num="807" delta="new" >&quot;<arg fmt="%s" index="1">/home/school/ise_projs/final-year-project/Encoder/main.vhd</arg>&quot; Line <arg fmt="%d" index="2">131</arg>. <arg fmt="%s" index="3">temp_secret</arg> can not be used with range <arg fmt="%s" index="4">to</arg>.
+<msg type="error" file="HDLParsers" num="807" delta="old" >&quot;<arg fmt="%s" index="1">/home/school/ise_projs/final-year-project/Encoder/main.vhd</arg>&quot; Line <arg fmt="%d" index="2">131</arg>. <arg fmt="%s" index="3">temp_secret</arg> can not be used with range <arg fmt="%s" index="4">to</arg>.
 </msg>
 
-<msg type="error" file="HDLParsers" num="807" delta="new" >&quot;<arg fmt="%s" index="1">/home/school/ise_projs/final-year-project/Encoder/main.vhd</arg>&quot; Line <arg fmt="%d" index="2">134</arg>. <arg fmt="%s" index="3">temp_secret</arg> can not be used with range <arg fmt="%s" index="4">to</arg>.
+<msg type="error" file="HDLParsers" num="807" delta="old" >&quot;<arg fmt="%s" index="1">/home/school/ise_projs/final-year-project/Encoder/main.vhd</arg>&quot; Line <arg fmt="%d" index="2">134</arg>. <arg fmt="%s" index="3">temp_secret</arg> can not be used with range <arg fmt="%s" index="4">to</arg>.
 </msg>
 
-<msg type="error" file="HDLParsers" num="807" delta="new" >&quot;<arg fmt="%s" index="1">/home/school/ise_projs/final-year-project/Encoder/main.vhd</arg>&quot; Line <arg fmt="%d" index="2">137</arg>. <arg fmt="%s" index="3">temp_secret</arg> can not be used with range <arg fmt="%s" index="4">to</arg>.
+<msg type="error" file="HDLParsers" num="807" delta="old" >&quot;<arg fmt="%s" index="1">/home/school/ise_projs/final-year-project/Encoder/main.vhd</arg>&quot; Line <arg fmt="%d" index="2">137</arg>. <arg fmt="%s" index="3">temp_secret</arg> can not be used with range <arg fmt="%s" index="4">to</arg>.
 </msg>
 
-<msg type="error" file="HDLParsers" num="807" delta="new" >&quot;<arg fmt="%s" index="1">/home/school/ise_projs/final-year-project/Encoder/main.vhd</arg>&quot; Line <arg fmt="%d" index="2">140</arg>. <arg fmt="%s" index="3">temp_secret</arg> can not be used with range <arg fmt="%s" index="4">to</arg>.
+<msg type="error" file="HDLParsers" num="807" delta="old" >&quot;<arg fmt="%s" index="1">/home/school/ise_projs/final-year-project/Encoder/main.vhd</arg>&quot; Line <arg fmt="%d" index="2">140</arg>. <arg fmt="%s" index="3">temp_secret</arg> can not be used with range <arg fmt="%s" index="4">to</arg>.
 </msg>
 
-<msg type="error" file="HDLParsers" num="807" delta="new" >&quot;<arg fmt="%s" index="1">/home/school/ise_projs/final-year-project/Encoder/main.vhd</arg>&quot; Line <arg fmt="%d" index="2">148</arg>. <arg fmt="%s" index="3">temp_secret</arg> can not be used with range <arg fmt="%s" index="4">to</arg>.
+<msg type="error" file="HDLParsers" num="807" delta="old" >&quot;<arg fmt="%s" index="1">/home/school/ise_projs/final-year-project/Encoder/main.vhd</arg>&quot; Line <arg fmt="%d" index="2">148</arg>. <arg fmt="%s" index="3">temp_secret</arg> can not be used with range <arg fmt="%s" index="4">to</arg>.
 </msg>
 
-<msg type="error" file="HDLParsers" num="807" delta="new" >&quot;<arg fmt="%s" index="1">/home/school/ise_projs/final-year-project/Encoder/main.vhd</arg>&quot; Line <arg fmt="%d" index="2">151</arg>. <arg fmt="%s" index="3">temp_secret</arg> can not be used with range <arg fmt="%s" index="4">to</arg>.
+<msg type="error" file="HDLParsers" num="807" delta="old" >&quot;<arg fmt="%s" index="1">/home/school/ise_projs/final-year-project/Encoder/main.vhd</arg>&quot; Line <arg fmt="%d" index="2">151</arg>. <arg fmt="%s" index="3">temp_secret</arg> can not be used with range <arg fmt="%s" index="4">to</arg>.
 </msg>
 
-<msg type="error" file="HDLParsers" num="807" delta="new" >&quot;<arg fmt="%s" index="1">/home/school/ise_projs/final-year-project/Encoder/main.vhd</arg>&quot; Line <arg fmt="%d" index="2">154</arg>. <arg fmt="%s" index="3">temp_secret</arg> can not be used with range <arg fmt="%s" index="4">to</arg>.
+<msg type="error" file="HDLParsers" num="807" delta="old" >&quot;<arg fmt="%s" index="1">/home/school/ise_projs/final-year-project/Encoder/main.vhd</arg>&quot; Line <arg fmt="%d" index="2">154</arg>. <arg fmt="%s" index="3">temp_secret</arg> can not be used with range <arg fmt="%s" index="4">to</arg>.
 </msg>
 
-<msg type="error" file="HDLParsers" num="807" delta="new" >&quot;<arg fmt="%s" index="1">/home/school/ise_projs/final-year-project/Encoder/main.vhd</arg>&quot; Line <arg fmt="%d" index="2">157</arg>. <arg fmt="%s" index="3">temp_secret</arg> can not be used with range <arg fmt="%s" index="4">to</arg>.
+<msg type="error" file="HDLParsers" num="807" delta="old" >&quot;<arg fmt="%s" index="1">/home/school/ise_projs/final-year-project/Encoder/main.vhd</arg>&quot; Line <arg fmt="%d" index="2">157</arg>. <arg fmt="%s" index="3">temp_secret</arg> can not be used with range <arg fmt="%s" index="4">to</arg>.
 </msg>
 
-<msg type="error" file="HDLParsers" num="807" delta="new" >&quot;<arg fmt="%s" index="1">/home/school/ise_projs/final-year-project/Encoder/main.vhd</arg>&quot; Line <arg fmt="%d" index="2">160</arg>. <arg fmt="%s" index="3">temp_secret</arg> can not be used with range <arg fmt="%s" index="4">to</arg>.
+<msg type="error" file="HDLParsers" num="807" delta="old" >&quot;<arg fmt="%s" index="1">/home/school/ise_projs/final-year-project/Encoder/main.vhd</arg>&quot; Line <arg fmt="%d" index="2">160</arg>. <arg fmt="%s" index="3">temp_secret</arg> can not be used with range <arg fmt="%s" index="4">to</arg>.
 </msg>
 
 </messages>

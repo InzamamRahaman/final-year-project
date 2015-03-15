@@ -5,14 +5,14 @@ Parameter TMPDIR set to xst/projnav.tmp
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.06 secs
+Total CPU time to Xst completion: 0.04 secs
  
 --> 
 Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.06 secs
+Total CPU time to Xst completion: 0.04 secs
  
 --> 
 Reading design: main.prj
@@ -111,7 +111,6 @@ Compiling vhdl file "/home/school/ise_projs/final-year-project/Encoder/globals.v
 Package <globals> compiled.
 Package body <globals> compiled.
 Compiling vhdl file "/home/school/ise_projs/final-year-project/Encoder/main.vhd" in Library work.
-Entity <main> compiled.
 ERROR:HDLParsers:3345 - "/home/school/ise_projs/final-year-project/Encoder/main.vhd" Line 19.  Only SHARED variables can be declared here.
 ERROR:HDLParsers:3345 - "/home/school/ise_projs/final-year-project/Encoder/main.vhd" Line 20.  Only SHARED variables can be declared here.
 ERROR:HDLParsers:3345 - "/home/school/ise_projs/final-year-project/Encoder/main.vhd" Line 21.  Only SHARED variables can be declared here.
@@ -142,7 +141,7 @@ ERROR:HDLParsers:807 - "/home/school/ise_projs/final-year-project/Encoder/main.v
 --> 
 
 
-Total memory usage is 490108 kilobytes
+Total memory usage is 490132 kilobytes
 
 Number of errors   :   27 (   0 filtered)
 Number of warnings :    0 (   0 filtered)
