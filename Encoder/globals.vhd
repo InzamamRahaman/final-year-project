@@ -33,8 +33,9 @@ package globals is
 		end record;
 	
 	-- array types
+	type image_data is array (0 to (128 * 128 - 1)) of int_vq_index;
 	type vq_index_list is array (0 to l) of int_vq_index;
-	--type code_stream is std_logic_vector(0 to N_large * 5);--/array (0 to (N_large * 5)) of std_logic;
+	--type code_stream is std_logic_vector(0 to N_large * 5);--/array (0 t_o (N_large * 5)) of std_logic;
 	type matrix_row is array (0 to N_large) of int_vq_index;
 	type matrix is array (0 to N_large) of matrix_row;
 	type transformed_image_row is array (0 to N_large * N_large) of int_vq_index;

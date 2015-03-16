@@ -16,25 +16,24 @@ entity main is
 end entity main;
 
 architecture My_Main of main is
-	variable image_data : matrix;
-	variable image_row : int_vq_index;
-	variable image_col : int_vq_index;
-	variable secret : std_logic_vector(0 to (N_large * 5));
-	variable counter : counter_int;
-	variable stream_len : codestream_index;
-	signal temp_secret : std_logic_vector(3 downto 0);
-	variable secret_index : codestream_index;
-	variable secret_len : codestream_index;
-	variable temp_secret_index: codestream_index;
-	variable stream_limit : codestream_index;
-	variable zeroes_arr : std_logic_vector(0 to n_small);
-	variable substream_size_val : substream_size;
-	signal vq_index : int_vq_index;
-	signal list_index : int_list_index;
-	signal to_stream : std_logic;
-	signal stream: std_logic_vector(0 to (N_large * 5));
+
+	-- signals that need to be global
 	signal current_state : main_state;
 	signal next_state : main_state;
+	signal vq_index : int_vq_index;
+	signal list_index : int_list_index;
+	
+	variable counter : counter_int;
+	
+	signal temp_secret : std_logic_vector(3 downto 0);
+	variable secret_index : codestream_index;
+	variable temp_secret_index: codestream_index;
+	variable zeroes_arr : std_logic_vector(0 to n_small);
+	variable substream_size_val : substream_size;
+	
+	signal to_stream : std_logic;
+	--signal stream: std_logic_vector(0 to (N_large * 5));
+	
 	signal elements : vq_index_list;
 	--signal image_data_file : image_file is in "image.txt";
 	--signal secret_data_file : secret_file;
@@ -48,62 +47,89 @@ begin
 		port map(elements => elements, 
 					to_insert => vq_index,
 					location => list_index);
-			     
-	-- instantiate code stream
-	-- code_stream_unit: entity work.codestream
-		-- port map(inbit  => to_stream,
-			--     stream => stream, 
-			  --   len => stream_len);
-	-- process for state stup
 	
 	setup_process: process(clk, rst)
 	begin
 		if rst = '1' then
-			counter := 0;
-			stream_len := 0;
-			image_row := 0;
-			image_col := 0;
-			secret_index := 0;
-			secret_len := 0;
-			zeroes_arr := (others => '0');
-			current_state <= READING_IMAGE;
+			current_state <= SETUP;
 		elsif rising_edge(clk) then
 			current_state <= next_state;
 		end if; 
 	end process;
 	
 	main_process: process(current_state)
+	
+	-- variables to manage image state
+	variable my_image_data : image_data;
+	variable current_image_data_index : image_index;
+	variable image_size : image_index;
+	
+	-- variables to manage secret state
+	variable secret : std_logic_vector(0 to (N_large * 5));
+	variable secret_index : codestream_index; -- current index of secret
+	variable stream_limit : codestream_index;
+	variable secret_size : codestream_index;
+	
+	-- variables to manage output stream state
+	variable stream : std_logic_vector(0 to (N_large * 5));
+	variable temp_secret : std_logic_vector(3 downto (n_small - 1));
+	variable stream_index : codestream_index; -- current index of codestream
+	variable stream_slice_limit : codestream_index;
+	
+	
+	
 	begin
 		case current_state is
+		when SETUP =>
+			current_image_data_index := -1;
+			image_size := -1;
+			secret_index := -1;
+			secret_size := -1;
+			stream_index := -1;
 		when READING_IMAGE =>
-			
-				
-		when READING_SECRET =>
-			
-		when START_ENCODING =>
-			vq_index <= image_data(image_row)(image_col);-- value from file
-			image_row := image_row + 1;
-			if image_row = 128 then
-				image_row := 0;
-			end if;
-			if list_index = 0 then -- if the list does not contain that vq index
-				counter := n_small + 1;
-				next_state <= INDEX_NOT_IN_LIST;
+			if endfile() then
+				current_image_data_index := -1;
+				next_state <= READING_SECRET;
 			else
-				next_state <= INDEX_PRESENT_IN_LIST;
+				current_image_data_index := current_image_data_index + 1;
+				image_size := image_size + 1;
+				read(my_image_data(current_image_data_index), );
+				next_state <= READING_IMAGE;
 			end if;
-		when INDEX_NOT_IN_LIST =>
-			stream_limit := stream_len + n_small - 1;
-			stream(stream_len to stream_limit) <= zeroes_arr(0  to (n_small  - 1));
-			stream_len := stream_limit + 1;
+		when READING_SECRET =>
+			if endfile() then
+			   secret_index := -1;
+				next_state <= START_ENCODING;
+			else
+				secret_index := secret_index + 1;
+				secret_size := secret_size + 1;
+				read(secret(codestream_len), );
+				next_state <= READING_SECRET;
+			end if;
+		when START_ENCODING =>
+			-- has  to start at -1
+			current_image_data_index := current_image_data_index + 1;
+			if current_image_data_index > image_size then
+				next_state <= DONE;
+			else
+				vq_index <= my_image_data(current_image_data_index);
+				if list_index = 0 then
+					next_state <= INDEX_NOT_IN_LIST;
+				else
+					next_state <= INDEX_PRESENT_IN_LIST;
+				end if;
+			end if;
+		when INDEX_NOT_IN_LIST => 
+			stream_limit := stream_index + n_small;
+			stream_index := stream_index + 1;
+			stream(stream_index to stream_limit) := zeroes_arr(0  to (n_small  - 1));
 			next_state <= START_ENCODING;
 		when INDEX_PRESENT_IN_LIST => 
-			temp_secret_index := secret_len + (n_small - 1);
-			temp_secret(0 to (n_small - 1)) <= secret(secret_len to temp_secret_index);
+			secret_index := secret_index + 1;
+			temp_secret(0 to (n_small - 1)) := secret(secret_index to (secret_index + n_small - 1));
 			if temp_secret = "0000" then
 				if list_index = 1 then
 					next_state <= ALL_ZEROES_1;
-					counter := 4;
 				else
 					next_state <= ALL_ZEROES_O;
 				end if;
