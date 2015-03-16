@@ -120,9 +120,9 @@ begin
 				end if;
 			end if;
 		when INDEX_NOT_IN_LIST => 
-			stream_limit := stream_index + n_small;
+			stream_slice_limit := stream_index + n_small;
 			stream_index := stream_index + 1;
-			stream(stream_index to stream_limit) := zeroes_arr(0  to (n_small  - 1));
+			stream(stream_index to stream_slice_limit) := zeroes_arr(0  to (n_small  - 1));
 			next_state <= START_ENCODING;
 		when INDEX_PRESENT_IN_LIST => 
 			secret_index := secret_index + 1;
@@ -141,12 +141,14 @@ begin
 				end if;
 			end if;
 		when ALL_ZEROES_1 =>
-			stream_limit := stream_len + (n_small - 1) + 2;
-			stream(stream_len to stream_limit) <= temp_secret(0 to (n_small - 1)) & "11";
-			stream_len := stream_limit + 1;
+			stream_slice_limit := stream_index + (n_small + 2);
+			stream_index := stream_index + 1;
+			stream(stream_index to stream_slice_limit) := 
+				temp_secret(0 to (n_small - 1)) & "11";
 		when NOT_ALL_ZEROES_1 =>
-			stream_limit := stream_len + (n_small - 1) + 1;
-			stream(stream_len to stream_limit) <= temp_secret(0 to (n_small - 1)) & "1";
+			stream_slice_limit := stream_index + (n_small + 1);
+			stream_index := stream_index + 1;
+			stream(stream_len to stream_slice_limit) <= temp_secret(0 to (n_small - 1)) & "1";
 			stream_len := stream_limit + 1;
 		when ALL_ZEROES_O =>
 			substream_size_val := get_substream_size(list_index);
