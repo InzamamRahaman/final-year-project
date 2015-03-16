@@ -18,10 +18,10 @@ package globals is
 	
 	-- type to represent vq indicies
 	subtype int_vq_index is integer range 0 to N_large;
-	subtype codestream_index is integer range 0 to N_large * 5 + n_small;
+	subtype codestream_index is integer range -1 to N_large * 5 + n_small;
 	subtype counter_int is integer range 0 to 10;
-	subtype substream_size is integer range 0 to 5;
-	
+	subtype substream_size is integer range 0 to 7;
+	subtype image_index is integer range -1 to ((128 * 128) + 1);
 	--record types
 	
 	-- membership_data models the possibility of a vq_index being
@@ -51,7 +51,7 @@ package globals is
 	file out_secret : secret_file is out "output.txt";
 	
 	-- enumerated types for state management
-	type main_state is (READING_IMAGE, READING_SECRET, START_ENCODING, INDEX_NOT_IN_LIST,
+	type main_state is (SETUP, READING_IMAGE, READING_SECRET, START_ENCODING, INDEX_NOT_IN_LIST,
 		INDEX_PRESENT_IN_LIST,ALL_ZEROES_O,  NOT_ALL_ZEROES_0, ALL_ZEROES_1,
 		NOT_ALL_ZEROES_1, DONE
 	);

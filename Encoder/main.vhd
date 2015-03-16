@@ -18,23 +18,22 @@ end entity main;
 architecture My_Main of main is
 
 	-- signals that need to be global
-	signal current_state : main_state;
-	signal next_state : main_state;
-	signal vq_index : int_vq_index;
-	signal list_index : int_list_index;
+	signal current_state : main_state; -- used for current state
+	signal next_state : main_state; -- used to indicate next state transition
+	signal vq_index : int_vq_index; -- the vq index value from the image 
+	signal list_index : int_list_index; -- the latest inserted vq index's position in the list
+	signal elements : vq_index_list; -- the list of vq indicies to be manipulated
+	-- signal to_stream : std_logic; -- to indicate if to send the data to stream
+	 
+
 	
-	variable counter : counter_int;
 	
-	signal temp_secret : std_logic_vector(3 downto 0);
-	variable secret_index : codestream_index;
-	variable temp_secret_index: codestream_index;
-	variable zeroes_arr : std_logic_vector(0 to n_small);
-	variable substream_size_val : substream_size;
-	
-	signal to_stream : std_logic;
 	--signal stream: std_logic_vector(0 to (N_large * 5));
-	
-	signal elements : vq_index_list;
+--	variable counter : counter_int;
+--	signal temp_secret : std_logic_vector(3 downto 0);
+--	variable secret_index : codestream_index;
+--	variable temp_secret_index: codestream_index;
+--	variable substream_size_val : substream_size;
 	--signal image_data_file : image_file is in "image.txt";
 	--signal secret_data_file : secret_file;
 begin
@@ -72,10 +71,14 @@ begin
 	
 	-- variables to manage output stream state
 	variable stream : std_logic_vector(0 to (N_large * 5));
-	variable temp_secret : std_logic_vector(3 downto (n_small - 1));
+	variable temp_secret : std_logic_vector(0 to (n_small - 1));
 	variable stream_index : codestream_index; -- current index of codestream
 	variable stream_slice_limit : codestream_index;
 	
+	
+	-- other helper variables
+	variable min_num_bits : substream_size;
+	variable zeroes_arr : std_logic_vector(0 to n_small);
 	
 	
 	begin
@@ -86,26 +89,27 @@ begin
 			secret_index := -1;
 			secret_size := -1;
 			stream_index := -1;
+			next_state <= READING_IMAGE;
 		when READING_IMAGE =>
-			if endfile() then
-				current_image_data_index := -1;
-				next_state <= READING_SECRET;
-			else
-				current_image_data_index := current_image_data_index + 1;
-				image_size := image_size + 1;
-				read(my_image_data(current_image_data_index), );
-				next_state <= READING_IMAGE;
-			end if;
+--			if endfile() then
+--				current_image_data_index := -1;
+--				next_state <= READING_SECRET;
+--			else
+--				current_image_data_index := current_image_data_index + 1;
+--				image_size := image_size + 1;
+--				read(my_image_data(current_image_data_index), );
+--				next_state <= READING_IMAGE;
+--			end if;
 		when READING_SECRET =>
-			if endfile() then
-			   secret_index := -1;
-				next_state <= START_ENCODING;
-			else
-				secret_index := secret_index + 1;
-				secret_size := secret_size + 1;
-				read(secret(codestream_len), );
-				next_state <= READING_SECRET;
-			end if;
+--			if endfile() then
+--			   secret_index := -1;
+--				next_state <= START_ENCODING;
+--			else
+--				secret_index := secret_index + 1;
+--				secret_size := secret_size + 1;
+--				read(secret(codestream_len), );
+--				next_state <= READING_SECRET;
+--			end if;
 		when START_ENCODING =>
 			-- has  to start at -1
 			current_image_data_index := current_image_data_index + 1;
@@ -145,51 +149,57 @@ begin
 			stream_index := stream_index + 1;
 			stream(stream_index to stream_slice_limit) := 
 				temp_secret(0 to (n_small - 1)) & "11";
+			next_state <= START_ENCODING;
 		when NOT_ALL_ZEROES_1 =>
 			stream_slice_limit := stream_index + (n_small + 1);
 			stream_index := stream_index + 1;
-			stream(stream_len to stream_slice_limit) <= temp_secret(0 to (n_small - 1)) & "1";
-			stream_len := stream_limit + 1;
+			stream(stream_index to stream_slice_limit) :=
+				temp_secret(0 to (n_small - 1)) & "1";
+			next_state <= START_ENCODING;
 		when ALL_ZEROES_O =>
-			substream_size_val := get_substream_size(list_index);
-			stream_limit := stream_len + (n_small - 1) + substream_size_val + substream_size_val + 1;
-			if substream_size_val = 1 then
-				stream(stream_len to stream_limit) <= temp_secret(0 to (n_small - 1)) & 
+			min_num_bits := get_substream_size(list_index);
+			stream_slice_limit := stream_index + n_small + 2 * min_num_bits + 1;
+			stream_index := stream_index + 1;
+			if min_num_bits = 1 then
+				stream(stream_index to stream_slice_limit) := temp_secret(0 to (n_small - 1)) & 
 					"10" & std_logic_vector(to_unsigned(list_index, 1));
-			elsif substream_size_val = 2 then
-				stream(stream_len to stream_limit) <= temp_secret(0 to (n_small - 1)) & 
+			elsif min_num_bits = 2 then
+				stream(stream_index to stream_slice_limit) := temp_secret(0 to (n_small - 1)) & 
 					"100" & std_logic_vector(to_unsigned(list_index, 2));
-			elsif substream_size_val = 3 then
-				stream(stream_len to stream_limit) <= temp_secret(0 to (n_small - 1)) & 
+			elsif min_num_bits = 3 then
+				stream(stream_index to stream_slice_limit) := temp_secret(0 to (n_small - 1)) & 
 					"1000" & std_logic_vector(to_unsigned(list_index, 3));
-			elsif substream_size_val = 4 then
-				stream(stream_len to stream_limit) <= temp_secret(0 to (n_small - 1)) & 
+			elsif min_num_bits = 4 then
+				stream(stream_index to stream_slice_limit) := temp_secret(0 to (n_small - 1)) & 
 					"10000" & std_logic_vector(to_unsigned(list_index, 4));
 			else 
-				stream(stream_len to stream_limit) <= temp_secret(0 to (n_small - 1)) & 
+				stream(stream_index to stream_slice_limit) := temp_secret(0 to (n_small - 1)) & 
 					"100000" & std_logic_vector(to_unsigned(list_index, 5));
 			end if;
-			stream_len := stream_limit + 1;
+			stream_index := stream_slice_limit;
+			next_state <= START_ENCODING;
 		when NOT_ALL_ZEROES_0 =>
-			substream_size_val := get_substream_size(list_index);
-			stream_limit := stream_len + (n_small - 1) + substream_size_val + substream_size_val;
-			if substream_size_val = 1 then
-				stream(stream_len to stream_limit) <= temp_secret(0 to (n_small - 1)) & 
+			min_num_bits := get_substream_size(list_index);
+			stream_slice_limit := stream_index + n_small + 2 * min_num_bits;
+			stream_index := stream_index + 1;
+			if min_num_bits = 1 then
+				stream(stream_index to stream_slice_limit) := temp_secret(0 to (n_small - 1)) & 
 					"0" & std_logic_vector(to_unsigned(list_index, 1));
-			elsif substream_size_val = 2 then
-				stream(stream_len to stream_limit) <= temp_secret(0 to (n_small - 1)) & 
+			elsif min_num_bits = 2 then
+				stream(stream_index to stream_slice_limit) := temp_secret(0 to (n_small - 1)) & 
 					"00" & std_logic_vector(to_unsigned(list_index, 2));
-			elsif substream_size_val = 3 then
-				stream(stream_len to stream_limit) <= temp_secret(0 to (n_small - 1)) & 
+			elsif min_num_bits = 3 then
+				stream(stream_index to stream_slice_limit) := temp_secret(0 to (n_small - 1)) & 
 					"000" & std_logic_vector(to_unsigned(list_index, 3));
-			elsif substream_size_val = 4 then
-				stream(stream_len to stream_limit) <= temp_secret(0 to (n_small - 1)) & 
+			elsif min_num_bits = 4 then
+				stream(stream_index to stream_slice_limit) := temp_secret(0 to (n_small - 1)) & 
 					"0000" & std_logic_vector(to_unsigned(list_index, 4));
 			else 
-				stream(stream_len to stream_limit) <= temp_secret(0 to (n_small - 1)) & 
+				stream(stream_index to stream_slice_limit) := temp_secret(0 to (n_small - 1)) & 
 					"00000" & std_logic_vector(to_unsigned(list_index, 5));
 			end if;
-			stream_len := stream_limit + 1;
+			stream_index := stream_slice_limit;
+			next_state <= START_ENCODING;
 		when DONE =>
 			result <= stream;
 			next_state <= DONE;

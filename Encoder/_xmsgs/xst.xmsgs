@@ -5,80 +5,49 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
-<msg type="error" file="HDLParsers" num="3345" delta="old" >&quot;<arg fmt="%s" index="1">/home/school/ise_projs/final-year-project/Encoder/main.vhd</arg>&quot; Line <arg fmt="%d" index="2">19</arg>.  Only SHARED variables can be declared here.
+<msg type="warning" file="Xst" num="1929" delta="new" >&quot;<arg fmt="%s" index="1">/home/school/ise_projs/final-year-project/Encoder/globals.vhd</arg>&quot; line <arg fmt="%d" index="2">49</arg>: Skipping file declaration &lt;<arg fmt="%s" index="3">img</arg>&gt;. Only text files are supported.
 </msg>
 
-<msg type="error" file="HDLParsers" num="3345" delta="old" >&quot;<arg fmt="%s" index="1">/home/school/ise_projs/final-year-project/Encoder/main.vhd</arg>&quot; Line <arg fmt="%d" index="2">20</arg>.  Only SHARED variables can be declared here.
+<msg type="warning" file="Xst" num="1929" delta="new" >&quot;<arg fmt="%s" index="1">/home/school/ise_projs/final-year-project/Encoder/globals.vhd</arg>&quot; line <arg fmt="%d" index="2">50</arg>: Skipping file declaration &lt;<arg fmt="%s" index="3">in_secret</arg>&gt;. Only text files are supported.
 </msg>
 
-<msg type="error" file="HDLParsers" num="3345" delta="old" >&quot;<arg fmt="%s" index="1">/home/school/ise_projs/final-year-project/Encoder/main.vhd</arg>&quot; Line <arg fmt="%d" index="2">21</arg>.  Only SHARED variables can be declared here.
+<msg type="warning" file="Xst" num="1929" delta="new" >&quot;<arg fmt="%s" index="1">/home/school/ise_projs/final-year-project/Encoder/globals.vhd</arg>&quot; line <arg fmt="%d" index="2">51</arg>: Skipping file declaration &lt;<arg fmt="%s" index="3">out_secret</arg>&gt;. Only text files are supported.
 </msg>
 
-<msg type="error" file="HDLParsers" num="3345" delta="old" >&quot;<arg fmt="%s" index="1">/home/school/ise_projs/final-year-project/Encoder/main.vhd</arg>&quot; Line <arg fmt="%d" index="2">22</arg>.  Only SHARED variables can be declared here.
+<msg type="warning" file="Xst" num="1929" delta="new" >&quot;<arg fmt="%s" index="1">/home/school/ise_projs/final-year-project/Encoder/globals.vhd</arg>&quot; line <arg fmt="%d" index="2">49</arg>: Skipping file declaration &lt;<arg fmt="%s" index="3">img</arg>&gt;. Only text files are supported.
 </msg>
 
-<msg type="error" file="HDLParsers" num="3345" delta="old" >&quot;<arg fmt="%s" index="1">/home/school/ise_projs/final-year-project/Encoder/main.vhd</arg>&quot; Line <arg fmt="%d" index="2">23</arg>.  Only SHARED variables can be declared here.
+<msg type="warning" file="Xst" num="1929" delta="new" >&quot;<arg fmt="%s" index="1">/home/school/ise_projs/final-year-project/Encoder/globals.vhd</arg>&quot; line <arg fmt="%d" index="2">50</arg>: Skipping file declaration &lt;<arg fmt="%s" index="3">in_secret</arg>&gt;. Only text files are supported.
 </msg>
 
-<msg type="error" file="HDLParsers" num="3345" delta="old" >&quot;<arg fmt="%s" index="1">/home/school/ise_projs/final-year-project/Encoder/main.vhd</arg>&quot; Line <arg fmt="%d" index="2">24</arg>.  Only SHARED variables can be declared here.
+<msg type="warning" file="Xst" num="1929" delta="new" >&quot;<arg fmt="%s" index="1">/home/school/ise_projs/final-year-project/Encoder/globals.vhd</arg>&quot; line <arg fmt="%d" index="2">51</arg>: Skipping file declaration &lt;<arg fmt="%s" index="3">out_secret</arg>&gt;. Only text files are supported.
 </msg>
 
-<msg type="error" file="HDLParsers" num="3345" delta="old" >&quot;<arg fmt="%s" index="1">/home/school/ise_projs/final-year-project/Encoder/main.vhd</arg>&quot; Line <arg fmt="%d" index="2">26</arg>.  Only SHARED variables can be declared here.
+<msg type="warning" file="Xst" num="1929" delta="new" >&quot;<arg fmt="%s" index="1">/home/school/ise_projs/final-year-project/Encoder/globals.vhd</arg>&quot; line <arg fmt="%d" index="2">49</arg>: Skipping file declaration &lt;<arg fmt="%s" index="3">img</arg>&gt;. Only text files are supported.
 </msg>
 
-<msg type="error" file="HDLParsers" num="3345" delta="old" >&quot;<arg fmt="%s" index="1">/home/school/ise_projs/final-year-project/Encoder/main.vhd</arg>&quot; Line <arg fmt="%d" index="2">27</arg>.  Only SHARED variables can be declared here.
+<msg type="warning" file="Xst" num="1929" delta="new" >&quot;<arg fmt="%s" index="1">/home/school/ise_projs/final-year-project/Encoder/globals.vhd</arg>&quot; line <arg fmt="%d" index="2">50</arg>: Skipping file declaration &lt;<arg fmt="%s" index="3">in_secret</arg>&gt;. Only text files are supported.
 </msg>
 
-<msg type="error" file="HDLParsers" num="3345" delta="old" >&quot;<arg fmt="%s" index="1">/home/school/ise_projs/final-year-project/Encoder/main.vhd</arg>&quot; Line <arg fmt="%d" index="2">28</arg>.  Only SHARED variables can be declared here.
+<msg type="warning" file="Xst" num="1929" delta="new" >&quot;<arg fmt="%s" index="1">/home/school/ise_projs/final-year-project/Encoder/globals.vhd</arg>&quot; line <arg fmt="%d" index="2">51</arg>: Skipping file declaration &lt;<arg fmt="%s" index="3">out_secret</arg>&gt;. Only text files are supported.
 </msg>
 
-<msg type="error" file="HDLParsers" num="3345" delta="old" >&quot;<arg fmt="%s" index="1">/home/school/ise_projs/final-year-project/Encoder/main.vhd</arg>&quot; Line <arg fmt="%d" index="2">29</arg>.  Only SHARED variables can be declared here.
+<msg type="warning" file="Xst" num="1929" delta="new" >&quot;<arg fmt="%s" index="1">/home/school/ise_projs/final-year-project/Encoder/globals.vhd</arg>&quot; line <arg fmt="%d" index="2">49</arg>: Skipping file declaration &lt;<arg fmt="%s" index="3">img</arg>&gt;. Only text files are supported.
 </msg>
 
-<msg type="error" file="HDLParsers" num="3345" delta="old" >&quot;<arg fmt="%s" index="1">/home/school/ise_projs/final-year-project/Encoder/main.vhd</arg>&quot; Line <arg fmt="%d" index="2">30</arg>.  Only SHARED variables can be declared here.
+<msg type="warning" file="Xst" num="1929" delta="new" >&quot;<arg fmt="%s" index="1">/home/school/ise_projs/final-year-project/Encoder/globals.vhd</arg>&quot; line <arg fmt="%d" index="2">50</arg>: Skipping file declaration &lt;<arg fmt="%s" index="3">in_secret</arg>&gt;. Only text files are supported.
 </msg>
 
-<msg type="error" file="HDLParsers" num="3345" delta="old" >&quot;<arg fmt="%s" index="1">/home/school/ise_projs/final-year-project/Encoder/main.vhd</arg>&quot; Line <arg fmt="%d" index="2">31</arg>.  Only SHARED variables can be declared here.
+<msg type="warning" file="Xst" num="1929" delta="new" >&quot;<arg fmt="%s" index="1">/home/school/ise_projs/final-year-project/Encoder/globals.vhd</arg>&quot; line <arg fmt="%d" index="2">51</arg>: Skipping file declaration &lt;<arg fmt="%s" index="3">out_secret</arg>&gt;. Only text files are supported.
 </msg>
 
-<msg type="error" file="HDLParsers" num="807" delta="old" >&quot;<arg fmt="%s" index="1">/home/school/ise_projs/final-year-project/Encoder/main.vhd</arg>&quot; Line <arg fmt="%d" index="2">102</arg>. <arg fmt="%s" index="3">temp_secret</arg> can not be used with range <arg fmt="%s" index="4">to</arg>.
+<msg type="warning" file="Xst" num="1929" delta="new" >&quot;<arg fmt="%s" index="1">/home/school/ise_projs/final-year-project/Encoder/main.vhd</arg>&quot; line <arg fmt="%d" index="2">49</arg>: Skipping file declaration &lt;<arg fmt="%s" index="3">img</arg>&gt;. Only text files are supported.
 </msg>
 
-<msg type="error" file="HDLParsers" num="807" delta="old" >&quot;<arg fmt="%s" index="1">/home/school/ise_projs/final-year-project/Encoder/main.vhd</arg>&quot; Line <arg fmt="%d" index="2">119</arg>. <arg fmt="%s" index="3">temp_secret</arg> can not be used with range <arg fmt="%s" index="4">to</arg>.
+<msg type="warning" file="Xst" num="1929" delta="new" >&quot;<arg fmt="%s" index="1">/home/school/ise_projs/final-year-project/Encoder/main.vhd</arg>&quot; line <arg fmt="%d" index="2">50</arg>: Skipping file declaration &lt;<arg fmt="%s" index="3">in_secret</arg>&gt;. Only text files are supported.
 </msg>
 
-<msg type="error" file="HDLParsers" num="807" delta="old" >&quot;<arg fmt="%s" index="1">/home/school/ise_projs/final-year-project/Encoder/main.vhd</arg>&quot; Line <arg fmt="%d" index="2">123</arg>. <arg fmt="%s" index="3">temp_secret</arg> can not be used with range <arg fmt="%s" index="4">to</arg>.
-</msg>
-
-<msg type="error" file="HDLParsers" num="807" delta="old" >&quot;<arg fmt="%s" index="1">/home/school/ise_projs/final-year-project/Encoder/main.vhd</arg>&quot; Line <arg fmt="%d" index="2">129</arg>. <arg fmt="%s" index="3">temp_secret</arg> can not be used with range <arg fmt="%s" index="4">to</arg>.
-</msg>
-
-<msg type="error" file="HDLParsers" num="807" delta="old" >&quot;<arg fmt="%s" index="1">/home/school/ise_projs/final-year-project/Encoder/main.vhd</arg>&quot; Line <arg fmt="%d" index="2">132</arg>. <arg fmt="%s" index="3">temp_secret</arg> can not be used with range <arg fmt="%s" index="4">to</arg>.
-</msg>
-
-<msg type="error" file="HDLParsers" num="807" delta="old" >&quot;<arg fmt="%s" index="1">/home/school/ise_projs/final-year-project/Encoder/main.vhd</arg>&quot; Line <arg fmt="%d" index="2">135</arg>. <arg fmt="%s" index="3">temp_secret</arg> can not be used with range <arg fmt="%s" index="4">to</arg>.
-</msg>
-
-<msg type="error" file="HDLParsers" num="807" delta="old" >&quot;<arg fmt="%s" index="1">/home/school/ise_projs/final-year-project/Encoder/main.vhd</arg>&quot; Line <arg fmt="%d" index="2">138</arg>. <arg fmt="%s" index="3">temp_secret</arg> can not be used with range <arg fmt="%s" index="4">to</arg>.
-</msg>
-
-<msg type="error" file="HDLParsers" num="807" delta="old" >&quot;<arg fmt="%s" index="1">/home/school/ise_projs/final-year-project/Encoder/main.vhd</arg>&quot; Line <arg fmt="%d" index="2">141</arg>. <arg fmt="%s" index="3">temp_secret</arg> can not be used with range <arg fmt="%s" index="4">to</arg>.
-</msg>
-
-<msg type="error" file="HDLParsers" num="807" delta="old" >&quot;<arg fmt="%s" index="1">/home/school/ise_projs/final-year-project/Encoder/main.vhd</arg>&quot; Line <arg fmt="%d" index="2">149</arg>. <arg fmt="%s" index="3">temp_secret</arg> can not be used with range <arg fmt="%s" index="4">to</arg>.
-</msg>
-
-<msg type="error" file="HDLParsers" num="807" delta="old" >&quot;<arg fmt="%s" index="1">/home/school/ise_projs/final-year-project/Encoder/main.vhd</arg>&quot; Line <arg fmt="%d" index="2">152</arg>. <arg fmt="%s" index="3">temp_secret</arg> can not be used with range <arg fmt="%s" index="4">to</arg>.
-</msg>
-
-<msg type="error" file="HDLParsers" num="807" delta="old" >&quot;<arg fmt="%s" index="1">/home/school/ise_projs/final-year-project/Encoder/main.vhd</arg>&quot; Line <arg fmt="%d" index="2">155</arg>. <arg fmt="%s" index="3">temp_secret</arg> can not be used with range <arg fmt="%s" index="4">to</arg>.
-</msg>
-
-<msg type="error" file="HDLParsers" num="807" delta="old" >&quot;<arg fmt="%s" index="1">/home/school/ise_projs/final-year-project/Encoder/main.vhd</arg>&quot; Line <arg fmt="%d" index="2">158</arg>. <arg fmt="%s" index="3">temp_secret</arg> can not be used with range <arg fmt="%s" index="4">to</arg>.
-</msg>
-
-<msg type="error" file="HDLParsers" num="807" delta="old" >&quot;<arg fmt="%s" index="1">/home/school/ise_projs/final-year-project/Encoder/main.vhd</arg>&quot; Line <arg fmt="%d" index="2">161</arg>. <arg fmt="%s" index="3">temp_secret</arg> can not be used with range <arg fmt="%s" index="4">to</arg>.
+<msg type="warning" file="Xst" num="1929" delta="new" >&quot;<arg fmt="%s" index="1">/home/school/ise_projs/final-year-project/Encoder/main.vhd</arg>&quot; line <arg fmt="%d" index="2">51</arg>: Skipping file declaration &lt;<arg fmt="%s" index="3">out_secret</arg>&gt;. Only text files are supported.
 </msg>
 
 </messages>
-

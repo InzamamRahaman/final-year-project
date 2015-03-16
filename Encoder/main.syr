@@ -5,14 +5,14 @@ Parameter TMPDIR set to xst/projnav.tmp
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.04 secs
+Total CPU time to Xst completion: 0.06 secs
  
 --> 
 Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.04 secs
+Total CPU time to Xst completion: 0.06 secs
  
 --> 
 Reading design: main.prj
@@ -113,37 +113,32 @@ Compiling vhdl file "/home/school/ise_projs/final-year-project/Encoder/list.vhd"
 Architecture behavioral of Entity list is up to date.
 Compiling vhdl file "/home/school/ise_projs/final-year-project/Encoder/main.vhd" in Library work.
 Entity <main> compiled.
-ERROR:HDLParsers:3345 - "/home/school/ise_projs/final-year-project/Encoder/main.vhd" Line 19.  Only SHARED variables can be declared here.
-ERROR:HDLParsers:3345 - "/home/school/ise_projs/final-year-project/Encoder/main.vhd" Line 20.  Only SHARED variables can be declared here.
-ERROR:HDLParsers:3345 - "/home/school/ise_projs/final-year-project/Encoder/main.vhd" Line 21.  Only SHARED variables can be declared here.
-ERROR:HDLParsers:3345 - "/home/school/ise_projs/final-year-project/Encoder/main.vhd" Line 22.  Only SHARED variables can be declared here.
-ERROR:HDLParsers:3345 - "/home/school/ise_projs/final-year-project/Encoder/main.vhd" Line 23.  Only SHARED variables can be declared here.
-ERROR:HDLParsers:3345 - "/home/school/ise_projs/final-year-project/Encoder/main.vhd" Line 24.  Only SHARED variables can be declared here.
-ERROR:HDLParsers:3345 - "/home/school/ise_projs/final-year-project/Encoder/main.vhd" Line 26.  Only SHARED variables can be declared here.
-ERROR:HDLParsers:3345 - "/home/school/ise_projs/final-year-project/Encoder/main.vhd" Line 27.  Only SHARED variables can be declared here.
-ERROR:HDLParsers:3345 - "/home/school/ise_projs/final-year-project/Encoder/main.vhd" Line 28.  Only SHARED variables can be declared here.
-ERROR:HDLParsers:3345 - "/home/school/ise_projs/final-year-project/Encoder/main.vhd" Line 29.  Only SHARED variables can be declared here.
-ERROR:HDLParsers:3345 - "/home/school/ise_projs/final-year-project/Encoder/main.vhd" Line 30.  Only SHARED variables can be declared here.
-ERROR:HDLParsers:3345 - "/home/school/ise_projs/final-year-project/Encoder/main.vhd" Line 31.  Only SHARED variables can be declared here.
-ERROR:HDLParsers:807 - "/home/school/ise_projs/final-year-project/Encoder/main.vhd" Line 102. temp_secret can not be used with range to.
-ERROR:HDLParsers:807 - "/home/school/ise_projs/final-year-project/Encoder/main.vhd" Line 119. temp_secret can not be used with range to.
-ERROR:HDLParsers:807 - "/home/school/ise_projs/final-year-project/Encoder/main.vhd" Line 123. temp_secret can not be used with range to.
-ERROR:HDLParsers:807 - "/home/school/ise_projs/final-year-project/Encoder/main.vhd" Line 129. temp_secret can not be used with range to.
-ERROR:HDLParsers:807 - "/home/school/ise_projs/final-year-project/Encoder/main.vhd" Line 132. temp_secret can not be used with range to.
-ERROR:HDLParsers:807 - "/home/school/ise_projs/final-year-project/Encoder/main.vhd" Line 135. temp_secret can not be used with range to.
-ERROR:HDLParsers:807 - "/home/school/ise_projs/final-year-project/Encoder/main.vhd" Line 138. temp_secret can not be used with range to.
-ERROR:HDLParsers:807 - "/home/school/ise_projs/final-year-project/Encoder/main.vhd" Line 141. temp_secret can not be used with range to.
-ERROR:HDLParsers:807 - "/home/school/ise_projs/final-year-project/Encoder/main.vhd" Line 149. temp_secret can not be used with range to.
-ERROR:HDLParsers:807 - "/home/school/ise_projs/final-year-project/Encoder/main.vhd" Line 152. temp_secret can not be used with range to.
-ERROR:HDLParsers:807 - "/home/school/ise_projs/final-year-project/Encoder/main.vhd" Line 155. temp_secret can not be used with range to.
-ERROR:HDLParsers:807 - "/home/school/ise_projs/final-year-project/Encoder/main.vhd" Line 158. temp_secret can not be used with range to.
-ERROR:HDLParsers:807 - "/home/school/ise_projs/final-year-project/Encoder/main.vhd" Line 161. temp_secret can not be used with range to.
---> 
+Entity <main> (Architecture <My_Main>) compiled.
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+WARNING:Xst:1929 - "/home/school/ise_projs/final-year-project/Encoder/globals.vhd" line 49: Skipping file declaration <img>. Only text files are supported.
+WARNING:Xst:1929 - "/home/school/ise_projs/final-year-project/Encoder/globals.vhd" line 50: Skipping file declaration <in_secret>. Only text files are supported.
+WARNING:Xst:1929 - "/home/school/ise_projs/final-year-project/Encoder/globals.vhd" line 51: Skipping file declaration <out_secret>. Only text files are supported.
+Analyzing hierarchy for entity <main> in library <work> (architecture <My_Main>).
+WARNING:Xst:1929 - "/home/school/ise_projs/final-year-project/Encoder/globals.vhd" line 49: Skipping file declaration <img>. Only text files are supported.
+WARNING:Xst:1929 - "/home/school/ise_projs/final-year-project/Encoder/globals.vhd" line 50: Skipping file declaration <in_secret>. Only text files are supported.
+WARNING:Xst:1929 - "/home/school/ise_projs/final-year-project/Encoder/globals.vhd" line 51: Skipping file declaration <out_secret>. Only text files are supported.
+WARNING:Xst:1929 - "/home/school/ise_projs/final-year-project/Encoder/globals.vhd" line 49: Skipping file declaration <img>. Only text files are supported.
+WARNING:Xst:1929 - "/home/school/ise_projs/final-year-project/Encoder/globals.vhd" line 50: Skipping file declaration <in_secret>. Only text files are supported.
+WARNING:Xst:1929 - "/home/school/ise_projs/final-year-project/Encoder/globals.vhd" line 51: Skipping file declaration <out_secret>. Only text files are supported.
+
+Analyzing hierarchy for entity <list> in library <work> (architecture <Behavioral>).
+WARNING:Xst:1929 - "/home/school/ise_projs/final-year-project/Encoder/globals.vhd" line 49: Skipping file declaration <img>. Only text files are supported.
+WARNING:Xst:1929 - "/home/school/ise_projs/final-year-project/Encoder/globals.vhd" line 50: Skipping file declaration <in_secret>. Only text files are supported.
+WARNING:Xst:1929 - "/home/school/ise_projs/final-year-project/Encoder/globals.vhd" line 51: Skipping file declaration <out_secret>. Only text files are supported.
 
 
-Total memory usage is 490248 kilobytes
-
-Number of errors   :   25 (   0 filtered)
-Number of warnings :    0 (   0 filtered)
-Number of infos    :    0 (   0 filtered)
-
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing Entity <main> in library <work> (Architecture <My_Main>).
+WARNING:Xst:1929 - "/home/school/ise_projs/final-year-project/Encoder/main.vhd" line 49: Skipping file declaration <img>. Only text files are supported.
+WARNING:Xst:1929 - "/home/school/ise_projs/final-year-project/Encoder/main.vhd" line 50: Skipping file declaration <in_secret>. Only text files are supported.
+WARNING:Xst:1929 - "/home/school/ise_projs/final-year-project/Encoder/main.vhd" line 51: Skipping file declaration <out_secret>. Only text files are supported.
