@@ -53,7 +53,7 @@ package globals is
 	-- enumerated types for state management
 	type main_state is (SETUP, READING_IMAGE, READING_SECRET, START_ENCODING, INDEX_NOT_IN_LIST,
 		INDEX_PRESENT_IN_LIST,ALL_ZEROES_O,  NOT_ALL_ZEROES_0, ALL_ZEROES_1,
-		NOT_ALL_ZEROES_1, DONE
+		NOT_ALL_ZEROES_1, DONE, STOP
 	);
 	
 	-- functions for simple data manipulations

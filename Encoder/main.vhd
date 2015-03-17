@@ -11,7 +11,7 @@ entity main is
 	port (
 		clk : in std_logic;
 		rst : in std_logic;
-		result : out std_logic_vector(0 to (N_large * 5))--code_stream
+		result : out std_logic--out std_logic_vector(0 to (N_large * 5))--code_stream
 	);
 end entity main;
 
@@ -74,7 +74,7 @@ begin
 	variable temp_secret : std_logic_vector(0 to (n_small - 1));
 	variable stream_index : codestream_index; -- current index of codestream
 	variable stream_slice_limit : codestream_index;
-	
+	variable stream_length : codestream_index;
 	
 	-- other helper variables
 	variable min_num_bits : substream_size;
@@ -91,25 +91,25 @@ begin
 			stream_index := -1;
 			next_state <= READING_IMAGE;
 		when READING_IMAGE =>
---			if endfile() then
---				current_image_data_index := -1;
---				next_state <= READING_SECRET;
---			else
---				current_image_data_index := current_image_data_index + 1;
---				image_size := image_size + 1;
---				read(my_image_data(current_image_data_index), );
---				next_state <= READING_IMAGE;
---			end if;
+			if endfile(img) then
+				current_image_data_index := -1;
+				next_state <= READING_SECRET;
+			else
+				current_image_data_index := current_image_data_index + 1;
+				image_size := image_size + 1;
+				read(img, my_image_data(current_image_data_index));
+				next_state <= READING_IMAGE;
+			end if;
 		when READING_SECRET =>
---			if endfile() then
---			   secret_index := -1;
---				next_state <= START_ENCODING;
---			else
---				secret_index := secret_index + 1;
---				secret_size := secret_size + 1;
---				read(secret(codestream_len), );
---				next_state <= READING_SECRET;
---			end if;
+			if endfile(in_secret) then
+			   secret_index := -1;
+				next_state <= START_ENCODING;
+			else
+				secret_index := secret_index + 1;
+				secret_size := secret_size + 1;
+				read(in_secret, secret(stream_index));
+				next_state <= READING_SECRET;
+			end if;
 		when START_ENCODING =>
 			-- has  to start at -1
 			current_image_data_index := current_image_data_index + 1;
@@ -127,6 +127,7 @@ begin
 			stream_slice_limit := stream_index + n_small;
 			stream_index := stream_index + 1;
 			stream(stream_index to stream_slice_limit) := zeroes_arr(0  to (n_small  - 1));
+			stream_length := stream_length + n_small;
 			next_state <= START_ENCODING;
 		when INDEX_PRESENT_IN_LIST => 
 			secret_index := secret_index + 1;
@@ -201,8 +202,11 @@ begin
 			stream_index := stream_slice_limit;
 			next_state <= START_ENCODING;
 		when DONE =>
-			result <= stream;
-			next_state <= DONE;
+			result <= '1';
+			-- write to output file here
+			next_state <= STOP;
+		when STOP =>
+			next_state <= STOP;
 		end case;
 	end process;
 	

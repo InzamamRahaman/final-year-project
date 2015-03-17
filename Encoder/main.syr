@@ -5,14 +5,14 @@ Parameter TMPDIR set to xst/projnav.tmp
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.06 secs
+Total CPU time to Xst completion: 0.04 secs
  
 --> 
 Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.06 secs
+Total CPU time to Xst completion: 0.04 secs
  
 --> 
 Reading design: main.prj
@@ -71,7 +71,7 @@ Automatic Register Balancing       : No
 
 ---- Target Options
 Add IO Buffers                     : YES
-Global Maximum Fanout              : 500
+Global Maximum Fanout              : 100000
 Add Generic Clock Buffer(BUFG)     : 24
 Register Duplication               : YES
 Slice Packing                      : YES
@@ -112,8 +112,7 @@ Architecture globals of Entity globals is up to date.
 Compiling vhdl file "/home/school/ise_projs/final-year-project/Encoder/list.vhd" in Library work.
 Architecture behavioral of Entity list is up to date.
 Compiling vhdl file "/home/school/ise_projs/final-year-project/Encoder/main.vhd" in Library work.
-Entity <main> compiled.
-Entity <main> (Architecture <My_Main>) compiled.
+Architecture my_main of Entity main is up to date.
 
 =========================================================================
 *                     Design Hierarchy Analysis                         *
@@ -121,7 +120,7 @@ Entity <main> (Architecture <My_Main>) compiled.
 WARNING:Xst:1929 - "/home/school/ise_projs/final-year-project/Encoder/globals.vhd" line 49: Skipping file declaration <img>. Only text files are supported.
 WARNING:Xst:1929 - "/home/school/ise_projs/final-year-project/Encoder/globals.vhd" line 50: Skipping file declaration <in_secret>. Only text files are supported.
 WARNING:Xst:1929 - "/home/school/ise_projs/final-year-project/Encoder/globals.vhd" line 51: Skipping file declaration <out_secret>. Only text files are supported.
-Analyzing hierarchy for entity <main> in library <work> (architecture <My_Main>).
+Analyzing hierarchy for entity <main> in library <work> (architecture <my_main>).
 WARNING:Xst:1929 - "/home/school/ise_projs/final-year-project/Encoder/globals.vhd" line 49: Skipping file declaration <img>. Only text files are supported.
 WARNING:Xst:1929 - "/home/school/ise_projs/final-year-project/Encoder/globals.vhd" line 50: Skipping file declaration <in_secret>. Only text files are supported.
 WARNING:Xst:1929 - "/home/school/ise_projs/final-year-project/Encoder/globals.vhd" line 51: Skipping file declaration <out_secret>. Only text files are supported.
@@ -138,7 +137,7 @@ WARNING:Xst:1929 - "/home/school/ise_projs/final-year-project/Encoder/globals.vh
 =========================================================================
 *                            HDL Analysis                               *
 =========================================================================
-Analyzing Entity <main> in library <work> (Architecture <My_Main>).
+Analyzing Entity <main> in library <work> (Architecture <my_main>).
 WARNING:Xst:1929 - "/home/school/ise_projs/final-year-project/Encoder/main.vhd" line 49: Skipping file declaration <img>. Only text files are supported.
 WARNING:Xst:1929 - "/home/school/ise_projs/final-year-project/Encoder/main.vhd" line 50: Skipping file declaration <in_secret>. Only text files are supported.
 WARNING:Xst:1929 - "/home/school/ise_projs/final-year-project/Encoder/main.vhd" line 51: Skipping file declaration <out_secret>. Only text files are supported.

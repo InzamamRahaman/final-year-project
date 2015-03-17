@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2015-03-15T17:14:54</DateModified>
+  <DateModified>2015-03-16T23:03:44</DateModified>
   <ModuleName>main</ModuleName>
   <SummaryTimeStamp>2015-03-15T17:10:01</SummaryTimeStamp>
   <SavedFilePath>/home/school/ise_projs/final-year-project/Encoder/iseconfig/main.xreport</SavedFilePath>
-  <ImplementationReportsDirectory>/home/school/ise_projs/final-year-project/Encoder</ImplementationReportsDirectory>
+  <ImplementationReportsDirectory>/home/school/ise_projs/final-year-project/Encoder/</ImplementationReportsDirectory>
   <DateInitialized>2015-03-15T16:31:39</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>
