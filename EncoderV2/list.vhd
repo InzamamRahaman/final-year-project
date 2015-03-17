@@ -31,16 +31,15 @@ use work.size_data_pkg.all;
 --use UNISIM.VComponents.all;
 
 entity list is
-    Port ( vq : in  vq_index;
-			  elements : inout vq_index_list;
-			  
+    Port ( vq : in  vq_index; 
            index : out  list_index);
 end list;
 
 architecture Behavioral of list is	
 begin
 
-	insertion_pr: process(vq, elements)
+	insertion_pr: process(vq)
+		variable elements : vq_index_list;
 		variable response : list_index;
 	begin
 	
@@ -68,14 +67,14 @@ begin
 		
 		for jdx in MAX_LIST_SIZE downto 2 loop
 			if response = 0 then
-				elements(jdx) <= elements(jdx - 1);
+				elements(jdx) := elements(jdx - 1);
 			elsif response > 1 and response = jdx then
-				elements(jdx) <= elements(jdx - 1);
+				elements(jdx) := elements(jdx - 1);
 			else
-				elements(jdx) <= elements(jdx);
+				elements(jdx) := elements(jdx);
 			end if;
 		end loop;
-		elements(1) <= vq;
+		elements(1) := vq;
 		index <= response;
 	end process;
 
