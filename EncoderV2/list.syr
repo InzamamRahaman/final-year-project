@@ -5,14 +5,14 @@ Parameter TMPDIR set to xst/projnav.tmp
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.07 secs
+Total CPU time to Xst completion: 0.06 secs
  
 --> 
 Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.07 secs
+Total CPU time to Xst completion: 0.06 secs
  
 --> 
 Reading design: list.prj
@@ -101,6 +101,9 @@ Verilog 2001                       : YES
 Auto BRAM Packing                  : NO
 Slice Utilization Ratio Delta      : 5
 
+---- Other Options
+Cores Search Directories           : {"ipcore_dir"  }
+
 =========================================================================
 
 
@@ -110,8 +113,7 @@ Slice Utilization Ratio Delta      : 5
 Compiling vhdl file "/home/school/ise_projs/final-year-project/EncoderV2/size_data_pkg.vhd" in Library work.
 Architecture size_data_pkg of Entity size_data_pkg is up to date.
 Compiling vhdl file "/home/school/ise_projs/final-year-project/EncoderV2/list.vhd" in Library work.
-Entity <list> compiled.
-Entity <list> (Architecture <behavioral>) compiled.
+Architecture behavioral of Entity list is up to date.
 
 =========================================================================
 *                     Design Hierarchy Analysis                         *
@@ -284,7 +286,7 @@ Speed Grade: -5
    Minimum period: No path found
    Minimum input arrival time before clock: No path found
    Maximum output required time after clock: No path found
-   Maximum combinational path delay: 20.366ns
+   Maximum combinational path delay: 19.516ns
 
 Timing Detail:
 --------------
@@ -292,25 +294,24 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default path analysis
-  Total number of paths / destination ports: 4545 / 3
+  Total number of paths / destination ports: 4336 / 3
 -------------------------------------------------------------------------
-Delay:               20.366ns (Levels of Logic = 16)
-  Source:            vq<1> (PAD)
+Delay:               19.516ns (Levels of Logic = 15)
+  Source:            vq<0> (PAD)
   Destination:       index<1> (PAD)
 
-  Data Path: vq<1> to index<1>
+  Data Path: vq<0> to index<1>
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O             4   1.106   0.499  vq_1_IBUF (vq_1_IBUF)
-     LDCPE:D->Q            2   0.393   0.532  elements_2_1 (elements_2_1)
+     IBUF:I->O             4   1.106   0.499  vq_0_IBUF (vq_0_IBUF)
+     LDCPE:D->Q            2   0.393   0.532  elements_2_0 (elements_2_0)
      LUT4:I0->O            1   0.612   0.509  response_cmp_eq0002826 (response_cmp_eq0002826)
      LUT4:I0->O            3   0.612   0.603  response_cmp_eq00028136 (response_cmp_eq0002)
      LUT2:I0->O            8   0.612   0.643  elements_3_cmp_eq00001 (elements_3_cmp_eq0000)
-     LDCPE:GE->Q           2   0.588   0.532  elements_3_2 (elements_3_2)
-     LUT4:I0->O            1   0.612   0.387  response_cmp_eq0001844 (response_cmp_eq0001844)
-     LUT4:I2->O            1   0.612   0.360  response_cmp_eq00018141_SW0 (N01)
-     LUT4:I3->O            3   0.612   0.603  response_cmp_eq00018141 (response_cmp_eq0001)
+     LDCPE:GE->Q           2   0.588   0.532  elements_3_0 (elements_3_0)
+     LUT4:I0->O            1   0.612   0.509  response_cmp_eq0001826 (response_cmp_eq0001826)
+     LUT4:I0->O            3   0.612   0.603  response_cmp_eq00018136 (response_cmp_eq0001)
      LUT2:I0->O            8   0.612   0.643  elements_4_cmp_eq00001 (elements_4_cmp_eq0000)
      LDCPE:GE->Q           1   0.588   0.509  elements_4_0 (elements_4_0)
      LUT4:I0->O            1   0.612   0.509  response_cmp_eq0000826 (response_cmp_eq0000826)
@@ -319,19 +320,19 @@ Delay:               20.366ns (Levels of Logic = 16)
      INV:I->O              1   0.612   0.357  response_mux0003<1>1_INV_0 (index_1_OBUF)
      OBUF:I->O                 3.169          index_1_OBUF (index<1>)
     ----------------------------------------
-    Total                     20.366ns (12.576ns logic, 7.790ns route)
-                                       (61.8% logic, 38.2% route)
+    Total                     19.516ns (11.964ns logic, 7.552ns route)
+                                       (61.3% logic, 38.7% route)
 
 =========================================================================
 
 
-Total REAL time to Xst completion: 9.00 secs
-Total CPU time to Xst completion: 7.35 secs
+Total REAL time to Xst completion: 10.00 secs
+Total CPU time to Xst completion: 7.31 secs
  
 --> 
 
 
-Total memory usage is 540852 kilobytes
+Total memory usage is 540884 kilobytes
 
 Number of errors   :    0 (   0 filtered)
 Number of warnings :    3 (   0 filtered)

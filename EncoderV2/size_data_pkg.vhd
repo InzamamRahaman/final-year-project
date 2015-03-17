@@ -16,11 +16,19 @@ package size_data_pkg is
 -- secret stream
 
 	constant MAX_LIST_SIZE : integer := 4;
+	constant NUM_IMAGE_ROWS : integer := 128;
+	constant MAX_BUFFER_SIZE : integer := 10;
 	
-	subtype list_index is integer range 0 to 4;
-	subtype vq_index is integer range 1 to 128;
+	subtype list_index is integer range 0 to MAX_LIST_SIZE;
+	subtype vq_index is integer range 0 to NUM_IMAGE_ROWS;
+	subtype vq_index_size is integer range 0 to 8
+	subtype list_index_size is integer range 0 to 3;
+	subtype buffer_index is integer range 0 to MAX_BUFFER_SIZE;
 	
 	type vq_index_list is array (1 to MAX_LIST_SIZE) of vq_index;
+	
+	function get_vq_index_size(vq : vq_index) return vq_index_size;
+	function get_list_index_size(li : list_index) return list_index_size;
 
 -- type <new_type> is
 --  record
@@ -42,6 +50,38 @@ package size_data_pkg is
 end size_data_pkg;
 
 package body size_data_pkg is
+
+	function get_vq_index_size(vq : vq_index) 
+	return vq_index_size
+	is
+	begin
+		if vq < 2 then
+			return 1;
+		elsif vq < 4 then
+			return 2;
+		elsif vq < 8 then
+			return 3;
+		elsif vq < 16 then
+			return 4;
+		elsif vq < 32 then
+			return 5;
+		elsif vq < 64 then 
+			return 6;
+		else
+			return 7;
+		end if;
+	end get_vq_index_size;
+	
+	function get_list_index_size(li : list_index) 
+	return list_index_size
+	is 
+	begin
+		if li < 2 then
+			return 1;
+		else
+			return 2;
+		end if;
+	end get_list_index_size;
 
 ---- Example 1
 --  function <function_name>  (signal <signal_name> : in <type_declaration>  ) return <type_declaration> is

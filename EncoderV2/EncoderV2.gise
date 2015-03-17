@@ -47,7 +47,7 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1426573310" xil_pn:name="TRAN_regenerateCores" xil_pn:prop_ck="4254608954761537350" xil_pn:start_ts="1426573310">
+    <transform xil_pn:end_ts="1426606017" xil_pn:in_ck="5153654393151410383" xil_pn:name="TRAN_regenerateCores" xil_pn:prop_ck="4254608954761537350" xil_pn:start_ts="1426606017">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
@@ -67,21 +67,16 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1426604501" xil_pn:in_ck="3635189531734978769" xil_pn:name="TRANEXT_xstsynthesize_spartan3e" xil_pn:prop_ck="5558502197937176823" xil_pn:start_ts="1426604488">
+    <transform xil_pn:end_ts="1426606036" xil_pn:in_ck="5168702774435945368" xil_pn:name="TRANEXT_xstsynthesize_spartan3e" xil_pn:prop_ck="5558502197937176823" xil_pn:start_ts="1426606017">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
-      <outfile xil_pn:name="_xmsgs/xst.xmsgs"/>
-      <outfile xil_pn:name="list.lso"/>
-      <outfile xil_pn:name="list.ngc"/>
-      <outfile xil_pn:name="list.ngr"/>
-      <outfile xil_pn:name="list.prj"/>
-      <outfile xil_pn:name="list.stx"/>
-      <outfile xil_pn:name="list.syr"/>
-      <outfile xil_pn:name="list.xst"/>
-      <outfile xil_pn:name="list_xst.xrpt"/>
-      <outfile xil_pn:name="webtalk_pn.xml"/>
-      <outfile xil_pn:name="xst"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputAdded"/>
+      <status xil_pn:value="InputChanged"/>
+      <status xil_pn:value="InputRemoved"/>
+      <status xil_pn:value="OutputRemoved"/>
     </transform>
   </transforms>
 
