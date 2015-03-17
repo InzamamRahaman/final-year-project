@@ -44,9 +44,13 @@ begin
 		variable xs : vq_index_list;
 		variable value_to_insert : int_vq_index;
 	begin
-		xs := elements;
-		value_to_insert := to_insert;
-		retrieve_list_index(xs, value_to_insert, location);
+		if to_insert = 0 then
+			location <= 0;
+		else
+			xs := elements;
+			value_to_insert := to_insert;
+			retrieve_list_index(xs, value_to_insert, location);
+		end if;
 	end process;
 
 end Behavioral;

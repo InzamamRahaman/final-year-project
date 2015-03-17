@@ -80,8 +80,7 @@ BEGIN
    -- Stimulus process
    stim_proc: process
    begin		
-		wait for clk_period * 10;
-     rst <= '1';
+		rst <= '1';
    end process;
 	
 	run_process: process

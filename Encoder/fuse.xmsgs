@@ -5,5 +5,8 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
+<msg type="warning" file="HDLCompiler" num="1369" delta="unknown" >"/home/school/ise_projs/final-year-project/Encoder/main_test.vhd" Line 81: Possible infinite loop; process does not have a wait statement
+</msg>
+
 </messages>
 

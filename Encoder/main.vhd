@@ -50,8 +50,10 @@ begin
 	setup_process: process(clk, rst)
 	begin
 		if rst = '1' then
+			report "starting to set up";
 			current_state <= SETUP;
 		elsif rising_edge(clk) then
+			report "Transitioning to another state";
 			current_state <= next_state;
 		end if; 
 	end process;
@@ -84,6 +86,7 @@ begin
 	begin
 		case current_state is
 		when SETUP =>
+			report "In setup";
 			current_image_data_index := -1;
 			image_size := -1;
 			secret_index := -1;
@@ -91,6 +94,7 @@ begin
 			stream_index := -1;
 			next_state <= READING_IMAGE;
 		when READING_IMAGE =>
+			report "Reading image";
 			if endfile(img) then
 				current_image_data_index := -1;
 				next_state <= READING_SECRET;
@@ -101,6 +105,7 @@ begin
 				next_state <= READING_IMAGE;
 			end if;
 		when READING_SECRET =>
+			report "Reading secret";
 			if endfile(in_secret) then
 			   secret_index := -1;
 				next_state <= START_ENCODING;
@@ -112,6 +117,7 @@ begin
 			end if;
 		when START_ENCODING =>
 			-- has  to start at -1
+			report "Starting to encode the data";
 			current_image_data_index := current_image_data_index + 1;
 			if current_image_data_index > image_size then
 				next_state <= DONE;

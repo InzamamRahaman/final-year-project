@@ -1,0 +1,364 @@
+Release 14.7 - xst P.20131013 (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> 
+Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.04 secs
+ 
+--> 
+Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.04 secs
+ 
+--> 
+Reading design: list.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "list.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "list"
+Output Format                      : NGC
+Target Device                      : xc3s250e-5-tq144
+
+---- Source Options
+Top Module Name                    : list
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Multiplier Style                   : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 500
+Add Generic Clock Buffer(BUFG)     : 24
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Yes
+Use Synchronous Set                : Yes
+Use Synchronous Reset              : Yes
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling vhdl file "/home/school/ise_projs/final-year-project/EncoderV2/size_data_pkg.vhd" in Library work.
+Architecture size_data_pkg of Entity size_data_pkg is up to date.
+Compiling vhdl file "/home/school/ise_projs/final-year-project/EncoderV2/list.vhd" in Library work.
+Entity <list> compiled.
+Entity <list> (Architecture <behavioral>) compiled.
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for entity <list> in library <work> (architecture <behavioral>).
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing Entity <list> in library <work> (Architecture <behavioral>).
+Entity <list> analyzed. Unit <list> generated.
+
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <list>.
+    Related source file is "/home/school/ise_projs/final-year-project/EncoderV2/list.vhd".
+WARNING:Xst:737 - Found 8-bit latch for signal <$mux0000>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 8-bit latch for signal <$mux0001>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 8-bit latch for signal <$mux0002>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+    Found 3-bit comparator greater for signal <mux0000$cmp_gt0000> created at line 71.
+    Found 8-bit comparator equal for signal <response$cmp_eq0000> created at line 50.
+    Found 8-bit comparator equal for signal <response$cmp_eq0001> created at line 50.
+    Found 8-bit comparator equal for signal <response$cmp_eq0002> created at line 50.
+    Found 8-bit comparator equal for signal <response$cmp_eq0003> created at line 50.
+    Summary:
+	inferred   5 Comparator(s).
+Unit <list> synthesized.
+
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Latches                                              : 3
+ 8-bit latch                                           : 3
+# Comparators                                          : 5
+ 3-bit comparator greater                              : 1
+ 8-bit comparator equal                                : 4
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# Latches                                              : 3
+ 8-bit latch                                           : 3
+# Comparators                                          : 5
+ 3-bit comparator greater                              : 1
+ 8-bit comparator equal                                : 4
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+
+Optimizing unit <list> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block list, actual ratio is 0.
+Latch _mux0000_0 has been replicated 1 time(s) to handle iob=true attribute.
+Latch _mux0000_1 has been replicated 1 time(s) to handle iob=true attribute.
+Latch _mux0000_2 has been replicated 1 time(s) to handle iob=true attribute.
+Latch _mux0000_3 has been replicated 1 time(s) to handle iob=true attribute.
+Latch _mux0000_4 has been replicated 1 time(s) to handle iob=true attribute.
+Latch _mux0000_5 has been replicated 1 time(s) to handle iob=true attribute.
+Latch _mux0000_6 has been replicated 1 time(s) to handle iob=true attribute.
+Latch _mux0000_7 has been replicated 1 time(s) to handle iob=true attribute.
+Latch _mux0001_0 has been replicated 1 time(s) to handle iob=true attribute.
+Latch _mux0001_1 has been replicated 1 time(s) to handle iob=true attribute.
+Latch _mux0001_2 has been replicated 1 time(s) to handle iob=true attribute.
+Latch _mux0001_3 has been replicated 1 time(s) to handle iob=true attribute.
+Latch _mux0001_4 has been replicated 1 time(s) to handle iob=true attribute.
+Latch _mux0001_5 has been replicated 1 time(s) to handle iob=true attribute.
+Latch _mux0001_6 has been replicated 1 time(s) to handle iob=true attribute.
+Latch _mux0001_7 has been replicated 1 time(s) to handle iob=true attribute.
+Latch _mux0002_0 has been replicated 1 time(s) to handle iob=true attribute.
+Latch _mux0002_1 has been replicated 1 time(s) to handle iob=true attribute.
+Latch _mux0002_2 has been replicated 1 time(s) to handle iob=true attribute.
+Latch _mux0002_3 has been replicated 1 time(s) to handle iob=true attribute.
+Latch _mux0002_4 has been replicated 1 time(s) to handle iob=true attribute.
+Latch _mux0002_5 has been replicated 1 time(s) to handle iob=true attribute.
+Latch _mux0002_6 has been replicated 1 time(s) to handle iob=true attribute.
+Latch _mux0002_7 has been replicated 1 time(s) to handle iob=true attribute.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Found no macro
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : list.ngr
+Top Level Output File Name         : list
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+
+Design Statistics
+# IOs                              : 43
+
+Cell Usage :
+# BELS                             : 23
+#      GND                         : 1
+#      INV                         : 1
+#      LUT2                        : 4
+#      LUT3                        : 1
+#      LUT4                        : 15
+#      VCC                         : 1
+# FlipFlops/Latches                : 48
+#      LDCPE                       : 48
+# IO Buffers                       : 43
+#      IBUF                        : 8
+#      OBUF                        : 35
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 3s250etq144-5 
+
+ Number of Slices:                       14  out of   2448     0%  
+ Number of Slice Flip Flops:             24  out of   4896     0%  
+ Number of 4 input LUTs:                 21  out of   4896     0%  
+ Number of IOs:                          43
+ Number of bonded IOBs:                  43  out of    108    39%  
+    IOB Flip Flops:                      24
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+N1                                 | NONE(_mux0002_0)       | 48    |
+-----------------------------------+------------------------+-------+
+INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
+
+Asynchronous Control Signals Information:
+----------------------------------------
+-----------------------------------+------------------------+-------+
+Control Signal                     | Buffer(FF name)        | Load  |
+-----------------------------------+------------------------+-------+
+N0(XST_GND:G)                      | NONE(_mux0000_0)       | 96    |
+-----------------------------------+------------------------+-------+
+
+Timing Summary:
+---------------
+Speed Grade: -5
+
+   Minimum period: No path found
+   Minimum input arrival time before clock: No path found
+   Maximum output required time after clock: No path found
+   Maximum combinational path delay: 21.735ns
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default path analysis
+  Total number of paths / destination ports: 17424 / 35
+-------------------------------------------------------------------------
+Delay:               21.735ns (Levels of Logic = 16)
+  Source:            vq<1> (PAD)
+  Destination:       elements<2><0> (PAD)
+
+  Data Path: vq<1> to elements<2><0>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             6   1.106   0.569  vq_1_IBUF (elements_1__1_OBUF)
+     LDCPE:D->Q            3   0.393   0.603  _mux0000_1 (_mux0000_1)
+     LUT4:I0->O            1   0.612   0.509  response_cmp_eq0002826 (response_cmp_eq0002826)
+     LUT4:I0->O            3   0.612   0.603  response_cmp_eq00028136 (response_cmp_eq0002)
+     LUT2:I0->O           16   0.612   0.879  mux0001_cmp_eq00001 (mux0001_cmp_eq0000)
+     LDCPE:GE->Q           3   0.588   0.603  _mux0001_0 (_mux0001_0)
+     LUT4:I0->O            1   0.612   0.509  response_cmp_eq0001826 (response_cmp_eq0001826)
+     LUT4:I0->O            3   0.612   0.603  response_cmp_eq00018136 (response_cmp_eq0001)
+     LUT2:I0->O           16   0.612   0.879  mux0002_cmp_eq00001 (mux0002_cmp_eq0000)
+     LDCPE:GE->Q           1   0.588   0.509  _mux0002_0 (_mux0002_0)
+     LUT4:I0->O            1   0.612   0.509  response_cmp_eq0000826 (response_cmp_eq0000826)
+     LUT4:I0->O            3   0.612   0.603  response_cmp_eq00008136 (response_cmp_eq0000)
+     LUT2:I0->O            4   0.612   0.568  response_mux0003<2>1 (index_2_OBUF)
+     LUT2:I1->O           16   0.612   0.879  mux0000_cmp_eq00001 (mux0000_cmp_eq0000)
+     LDCPE:GE->Q           1   0.588   0.357  _mux0000_0_1 (_mux0000_0_1)
+     OBUF:I->O                 3.169          elements_2__0_OBUF (elements<2><0>)
+    ----------------------------------------
+    Total                     21.735ns (12.552ns logic, 9.183ns route)
+                                       (57.8% logic, 42.2% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 7.00 secs
+Total CPU time to Xst completion: 7.10 secs
+ 
+--> 
+
+
+Total memory usage is 538752 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    3 (   0 filtered)
+Number of infos    :    1 (   0 filtered)
+
