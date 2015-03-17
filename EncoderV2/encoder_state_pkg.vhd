@@ -12,8 +12,9 @@ use IEEE.STD_LOGIC_1164.all;
 
 package encoder_state_pkg is
 	
-	type encoder_state is (READ_DATA, GET_ENCODING, SEND_ENCODING, 
-	INFORM_USER, DONE);
+	type encoder_state is (READING_DATA, SEND_ENCODING, 
+	INFORM_USER, DONE, INDEX_CONTAINED_FALSE, INDEX_CONTAINED_TRUE,
+	ALL_SECRET_ZERO_TRUE, ALL_SECRET_ZERO_FALSE, CASE_2, CASE_3, CASE_4, CASE_5);
 	
 end encoder_state_pkg;
 

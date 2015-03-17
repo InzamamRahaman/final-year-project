@@ -21,7 +21,7 @@ package size_data_pkg is
 	
 	subtype list_index is integer range 0 to MAX_LIST_SIZE;
 	subtype vq_index is integer range 0 to NUM_IMAGE_ROWS;
-	subtype vq_index_size is integer range 0 to 8
+	subtype vq_index_size is integer range 0 to 8;
 	subtype list_index_size is integer range 0 to 3;
 	subtype buffer_index is integer range 0 to MAX_BUFFER_SIZE;
 	
