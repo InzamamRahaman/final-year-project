@@ -67,13 +67,18 @@ begin
 		end if;
 	end process;
 	
-	encoding_pr : process(current_state)
-		variable output_buffer : std_logic_vector(1 to MAX_BUFFER_SIZE) := 
-			(others => '0');
-		variable current : buffer_index := 0;
-		variable buffer_size : buffer_index := 0;
+	encoding_pr : process(current_state, vq, li, secret_bit)
+		variable output_buffer : std_logic_vector(1 to MAX_BUFFER_SIZE);
+		variable current : buffer_index;
+		variable buffer_size : buffer_index;
 	begin
-		
+		sending <= '0';
+		entry <= '0';
+		send_more <= '1';
+		next_state <= current_state;
+		current := current;
+		buffer_size := buffer_size;
+		output_buffer := output_buffer;
 		case current_state is
 			when INFORM_USER =>
 				send_more <= '1';

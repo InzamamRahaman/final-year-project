@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2015-03-17T13:16:39</DateModified>
+  <DateModified>2015-03-18T12:12:52</DateModified>
   <ModuleName>encoder</ModuleName>
-  <SummaryTimeStamp>2015-03-17T13:16:07</SummaryTimeStamp>
+  <SummaryTimeStamp>2015-03-17T14:20:08</SummaryTimeStamp>
   <SavedFilePath>/home/school/ise_projs/final-year-project/EncoderV2/iseconfig/list.xreport</SavedFilePath>
   <ImplementationReportsDirectory>/home/school/ise_projs/final-year-project/EncoderV2</ImplementationReportsDirectory>
   <DateInitialized>2015-03-17T12:58:01</DateInitialized>
