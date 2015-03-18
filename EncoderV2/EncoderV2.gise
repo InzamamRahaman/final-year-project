@@ -35,6 +35,7 @@
     <file xil_pn:fileType="FILE_HTML" xil_pn:name="encoder_summary.html"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="encoder_vhdl.prj"/>
     <file xil_pn:fileType="FILE_XRPT" xil_pn:name="encoder_xst.xrpt"/>
+    <file xil_pn:fileType="FILE_LOG" xil_pn:name="ipcore_dir/coregen.log"/>
     <file xil_pn:fileType="FILE_CMD_LOG" xil_pn:name="list.cmd_log"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_LSO" xil_pn:name="list.lso"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGC" xil_pn:name="list.ngc"/>
