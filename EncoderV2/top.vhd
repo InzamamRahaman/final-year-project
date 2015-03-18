@@ -125,7 +125,7 @@ begin
 				vq => vq,
 				secret_bit => std_logic
 			);
-		
+		-- performs the primary encodings
 		encoder_unit: encoder port map(
 				clk => clk,
 				rst => rst,
@@ -137,11 +137,20 @@ begin
 				entry_len => stream_segment_len
 			);
 	
-	main_pr : process(clk)
+	main_pr : process(clk, rst)
 	begin
 	
-		
-		
+		if rst = '1' then
+			send_more <= '0';
+			stream_segment_pre_len <= (others => '0');
+			vq_pre <= (others => '0');
+			vq <= 0;
+			secret_bit_pre <= (others => '0');
+			secret_bit <= '0';
+			image_address <= (others => '0');
+			secret_address <= (others => '0');
+			enable_list <= '0';
+		end if;
 	end process;
 
 end Behavioral;
