@@ -45,9 +45,10 @@ entity encoder is
 end encoder;
 
 architecture Behavioral of encoder is
-	signal current_state : encoder_state;
-	signal next_state : encoder_state;
-	signal li : list_index;
+	signal current_state : encoder_state <= READING_DATA;
+	signal next_state : encoder_state <= READING_DATA;
+	signal li : list_index <= 0;
+	
 begin
 
 	-- self orgnaizing list
@@ -68,8 +69,8 @@ begin
 	end process;
 	
 	encoding_pr : process(current_state, vq, li, secret_bit)
-		variable output_buffer : std_logic_vector(1 to MAX_BUFFER_SIZE);
-		variable buffer_size : buffer_index;
+		variable output_buffer : std_logic_vector(1 to MAX_BUFFER_SIZE) := (others => '0');
+		variable buffer_size : buffer_index := 0;
 	begin
 		case current_state is
 			when INFORM_USER =>

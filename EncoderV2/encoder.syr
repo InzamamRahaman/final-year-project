@@ -161,49 +161,32 @@ Unit <list> synthesized.
 
 Synthesizing Unit <encoder>.
     Related source file is "/home/school/ise_projs/final-year-project/EncoderV2/encoder.vhd".
-    Found finite state machine <FSM_0> for signal <current_state>.
-    -----------------------------------------------------------------------
-    | States             | 12                                             |
-    | Transitions        | 18                                             |
-    | Inputs             | 5                                              |
-    | Outputs            | 12                                             |
-    | Clock              | clk                       (rising_edge)        |
-    | Reset              | rst                       (positive)           |
-    | Reset type         | asynchronous                                   |
-    | Reset State        | reading_data                                   |
-    | Power Up State     | reading_data                                   |
-    | Encoding           | automatic                                      |
-    | Implementation     | LUT                                            |
-    -----------------------------------------------------------------------
-WARNING:Xst:737 - Found 4-bit latch for signal <current>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+    Using one-hot encoding for signal <current_state>.
+WARNING:Xst:737 - Found 4-bit latch for signal <buffer_size>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
 INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
-WARNING:Xst:737 - Found 1-bit latch for signal <output_buffer_9>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
-WARNING:Xst:737 - Found 1-bit latch for signal <output_buffer_8>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
-WARNING:Xst:737 - Found 1-bit latch for signal <output_buffer_10>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
-WARNING:Xst:737 - Found 1-bit latch for signal <output_buffer_7>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
-WARNING:Xst:737 - Found 1-bit latch for signal <output_buffer_6>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
-WARNING:Xst:737 - Found 1-bit latch for signal <output_buffer_5>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
-WARNING:Xst:737 - Found 1-bit latch for signal <output_buffer_4>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
-WARNING:Xst:737 - Found 1-bit latch for signal <output_buffer_3>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
-WARNING:Xst:737 - Found 1-bit latch for signal <output_buffer_2>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 12-bit latch for signal <next_state>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
 INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
 WARNING:Xst:737 - Found 1-bit latch for signal <output_buffer_1>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
 INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
-WARNING:Xst:737 - Found 4-bit latch for signal <buffer_size>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <output_buffer_2>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
 INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
-    Found 4-bit subtractor for signal <buffer_size$addsub0000> created at line 121.
-    Found 4-bit adder for signal <current$addsub0000> created at line 120.
-    Summary:
-	inferred   1 Finite State Machine(s).
-	inferred   2 Adder/Subtractor(s).
+WARNING:Xst:737 - Found 1-bit latch for signal <output_buffer_3>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 1-bit latch for signal <output_buffer_4>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 1-bit latch for signal <output_buffer_5>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 1-bit latch for signal <output_buffer_6>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 1-bit latch for signal <output_buffer_7>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 1-bit latch for signal <output_buffer_10>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 1-bit latch for signal <output_buffer_8>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 1-bit latch for signal <output_buffer_9>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+    Found 12-bit register for signal <current_state>.
 Unit <encoder> synthesized.
 
 
@@ -211,12 +194,12 @@ Unit <encoder> synthesized.
 HDL Synthesis Report
 
 Macro Statistics
-# Adders/Subtractors                                   : 2
- 4-bit adder                                           : 1
- 4-bit subtractor                                      : 1
+# Registers                                            : 1
+ 12-bit register                                       : 1
 # Latches                                              : 15
  1-bit latch                                           : 10
- 4-bit latch                                           : 2
+ 12-bit latch                                          : 1
+ 4-bit latch                                           : 1
  8-bit latch                                           : 3
 # Comparators                                          : 5
  3-bit comparator greater                              : 1
@@ -228,36 +211,18 @@ Macro Statistics
 *                       Advanced HDL Synthesis                          *
 =========================================================================
 
-Analyzing FSM <FSM_0> for best encoding.
-Optimizing FSM <current_state/FSM> on signal <current_state[1:12]> with one-hot encoding.
----------------------------------------
- State                 | Encoding
----------------------------------------
- reading_data          | 000000000001
- send_encoding         | 000000100000
- inform_user           | 000000000010
- done                  | 000000000100
- index_contained_false | 000000001000
- index_contained_true  | 000000010000
- all_secret_zero_true  | 000001000000
- all_secret_zero_false | 000010000000
- case_2                | 000100000000
- case_3                | 001000000000
- case_4                | 010000000000
- case_5                | 100000000000
----------------------------------------
+WARNING:Xst:1293 - FF/Latch <0> has a constant value of 0 in block <2>. This FF/Latch will be trimmed during the optimization process.
 
 =========================================================================
 Advanced HDL Synthesis Report
 
 Macro Statistics
-# FSMs                                                 : 1
-# Adders/Subtractors                                   : 2
- 4-bit adder                                           : 1
- 4-bit subtractor                                      : 1
+# Registers                                            : 12
+ Flip-Flops                                            : 12
 # Latches                                              : 15
  1-bit latch                                           : 10
- 4-bit latch                                           : 2
+ 12-bit latch                                          : 1
+ 4-bit latch                                           : 1
  8-bit latch                                           : 3
 # Comparators                                          : 5
  3-bit comparator greater                              : 1
@@ -268,6 +233,7 @@ Macro Statistics
 =========================================================================
 *                         Low Level Synthesis                           *
 =========================================================================
+WARNING:Xst:1293 - FF/Latch <buffer_size_2> has a constant value of 0 in block <encoder>. This FF/Latch will be trimmed during the optimization process.
 
 Optimizing unit <encoder> ...
 
@@ -298,9 +264,20 @@ WARNING:Xst:2677 - Node <list_unit/elements_4_3> of sequential type is unconnect
 WARNING:Xst:2677 - Node <list_unit/elements_4_2> of sequential type is unconnected in block <encoder>.
 WARNING:Xst:2677 - Node <list_unit/elements_4_1> of sequential type is unconnected in block <encoder>.
 WARNING:Xst:2677 - Node <list_unit/elements_4_0> of sequential type is unconnected in block <encoder>.
-WARNING:Xst:1293 - FF/Latch <current_state_FSM_FFd2> has a constant value of 0 in block <encoder>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <current_state_FSM_FFd4> has a constant value of 0 in block <encoder>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <current_state_FSM_FFd9> has a constant value of 0 in block <encoder>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1426 - The value init of the FF/Latch next_state_0 hinder the constant cleaning in the block encoder.
+   You should achieve better results by setting this init to 0.
+WARNING:Xst:1293 - FF/Latch <next_state_10> has a constant value of 0 in block <encoder>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <next_state_8> has a constant value of 0 in block <encoder>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <next_state_4> has a constant value of 0 in block <encoder>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <current_state_4> has a constant value of 0 in block <encoder>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <current_state_8> has a constant value of 0 in block <encoder>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <current_state_10> has a constant value of 0 in block <encoder>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <next_state_1> has a constant value of 0 in block <encoder>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <current_state_1> has a constant value of 0 in block <encoder>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <next_state_2> has a constant value of 0 in block <encoder>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <buffer_size_3> has a constant value of 0 in block <encoder>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <buffer_size_1> has a constant value of 0 in block <encoder>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <buffer_size_0> has a constant value of 0 in block <encoder>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <output_buffer_1> (without init value) has a constant value of 0 in block <encoder>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <output_buffer_2> (without init value) has a constant value of 0 in block <encoder>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <output_buffer_3> (without init value) has a constant value of 0 in block <encoder>. This FF/Latch will be trimmed during the optimization process.
@@ -311,12 +288,10 @@ WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <output_buffer_7> (w
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <output_buffer_10> (without init value) has a constant value of 0 in block <encoder>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <output_buffer_8> (without init value) has a constant value of 0 in block <encoder>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <output_buffer_9> (without init value) has a constant value of 0 in block <encoder>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:2677 - Node <current_0> of sequential type is unconnected in block <encoder>.
-WARNING:Xst:2677 - Node <current_1> of sequential type is unconnected in block <encoder>.
-WARNING:Xst:2677 - Node <current_2> of sequential type is unconnected in block <encoder>.
-WARNING:Xst:2677 - Node <current_3> of sequential type is unconnected in block <encoder>.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <current_state_2> has a constant value of 0 in block <encoder>. This FF/Latch will be trimmed during the optimization process.
 Building and optimizing final netlist ...
 Found area constraint ratio of 100 (+ 5) on block encoder, actual ratio is 0.
+FlipFlop current_state_3 has been replicated 1 time(s) to handle iob=true attribute.
 
 Final Macro Processing ...
 
@@ -324,8 +299,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 9
- Flip-Flops                                            : 9
+# Registers                                            : 8
+ Flip-Flops                                            : 8
 
 =========================================================================
 
@@ -351,26 +326,23 @@ Optimization Goal                  : Speed
 Keep Hierarchy                     : No
 
 Design Statistics
-# IOs                              : 14
+# IOs                              : 27
 
 Cell Usage :
-# BELS                             : 19
+# BELS                             : 8
 #      GND                         : 1
 #      LUT2                        : 3
-#      LUT2_D                      : 2
 #      LUT3                        : 1
-#      LUT4                        : 11
-#      VCC                         : 1
-# FlipFlops/Latches                : 13
-#      FDC                         : 6
-#      FDCE                        : 2
+#      LUT4                        : 3
+# FlipFlops/Latches                : 15
+#      FDC                         : 7
 #      FDP                         : 1
-#      LD                          : 4
+#      LD_1                        : 7
 # Clock Buffers                    : 1
 #      BUFGP                       : 1
-# IO Buffers                       : 13
+# IO Buffers                       : 26
 #      IBUF                        : 10
-#      OBUF                        : 3
+#      OBUF                        : 16
 =========================================================================
 
 Device utilization summary:
@@ -378,11 +350,12 @@ Device utilization summary:
 
 Selected Device : 3s250etq144-5 
 
- Number of Slices:                       11  out of   2448     0%  
- Number of Slice Flip Flops:             13  out of   4896     0%  
- Number of 4 input LUTs:                 17  out of   4896     0%  
- Number of IOs:                          14
- Number of bonded IOBs:                  14  out of    108    12%  
+ Number of Slices:                        8  out of   2448     0%  
+ Number of Slice Flip Flops:             14  out of   4896     0%  
+ Number of 4 input LUTs:                  7  out of   4896     0%  
+ Number of IOs:                          27
+ Number of bonded IOBs:                  27  out of    108    25%  
+    IOB Flip Flops:                       1
  Number of GCLKs:                         1  out of     24     4%  
 
 ---------------------------
@@ -403,12 +376,12 @@ NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
 
 Clock Information:
 ------------------
------------------------------------------+------------------------+-------+
-Clock Signal                             | Clock buffer(FF name)  | Load  |
------------------------------------------+------------------------+-------+
-buffer_size_not0001(current_not0001241:O)| NONE(*)(buffer_size_0) | 4     |
-clk                                      | BUFGP                  | 9     |
------------------------------------------+------------------------+-------+
+---------------------------------------+------------------------+-------+
+Clock Signal                           | Clock buffer(FF name)  | Load  |
+---------------------------------------+------------------------+-------+
+next_state_or0000(next_state_or00001:O)| NONE(*)(next_state_0)  | 7     |
+clk                                    | BUFGP                  | 8     |
+---------------------------------------+------------------------+-------+
 (*) This 1 clock signal(s) are generated by combinatorial logic,
 and XST is not able to identify which are the primary clock signals.
 Please use the CLOCK_SIGNAL constraint to specify the clock signal(s) generated by combinatorial logic.
@@ -419,16 +392,16 @@ Asynchronous Control Signals Information:
 -----------------------------------+------------------------+-------+
 Control Signal                     | Buffer(FF name)        | Load  |
 -----------------------------------+------------------------+-------+
-rst                                | IBUF                   | 9     |
+rst                                | IBUF                   | 8     |
 -----------------------------------+------------------------+-------+
 
 Timing Summary:
 ---------------
 Speed Grade: -5
 
-   Minimum period: 3.138ns (Maximum Frequency: 318.705MHz)
-   Minimum input arrival time before clock: 3.639ns
-   Maximum output required time after clock: 6.419ns
+   Minimum period: No path found
+   Minimum input arrival time before clock: 3.556ns
+   Maximum output required time after clock: 4.040ns
    Maximum combinational path delay: No path found
 
 Timing Detail:
@@ -436,124 +409,57 @@ Timing Detail:
 All values displayed in nanoseconds (ns)
 
 =========================================================================
-Timing constraint: Default period analysis for Clock 'buffer_size_not0001'
-  Clock period: 3.138ns (frequency: 318.705MHz)
-  Total number of paths / destination ports: 16 / 4
--------------------------------------------------------------------------
-Delay:               3.138ns (Levels of Logic = 2)
-  Source:            buffer_size_1 (LATCH)
-  Destination:       buffer_size_2 (LATCH)
-  Source Clock:      buffer_size_not0001 falling
-  Destination Clock: buffer_size_not0001 falling
-
-  Data Path: buffer_size_1 to buffer_size_2
-                                Gate     Net
-    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
-    ----------------------------------------  ------------
-     LD:G->Q               3   0.588   0.603  buffer_size_1 (buffer_size_1)
-     LUT2_D:I0->O          3   0.612   0.454  Msub_buffer_size_addsub0000_cy<1>11 (Msub_buffer_size_addsub0000_cy<1>)
-     LUT4:I3->O            1   0.612   0.000  buffer_size_mux0000<2>1 (buffer_size_mux0000<2>)
-     LD:D                      0.268          buffer_size_2
-    ----------------------------------------
-    Total                      3.138ns (2.080ns logic, 1.058ns route)
-                                       (66.3% logic, 33.7% route)
-
-=========================================================================
-Timing constraint: Default period analysis for Clock 'clk'
-  Clock period: 2.115ns (frequency: 472.891MHz)
-  Total number of paths / destination ports: 10 / 9
--------------------------------------------------------------------------
-Delay:               2.115ns (Levels of Logic = 1)
-  Source:            current_state_FSM_FFd7 (FF)
-  Destination:       current_state_FSM_FFd7 (FF)
-  Source Clock:      clk rising
-  Destination Clock: clk rising
-
-  Data Path: current_state_FSM_FFd7 to current_state_FSM_FFd7
-                                Gate     Net
-    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
-    ----------------------------------------  ------------
-     FDC:C->Q              6   0.514   0.721  current_state_FSM_FFd7 (current_state_FSM_FFd7)
-     LUT4:I0->O            2   0.612   0.000  buffer_size_mux0000<1>11 (current_state_FSM_FFd7-In)
-     FDC:D                     0.268          current_state_FSM_FFd7
-    ----------------------------------------
-    Total                      2.115ns (1.394ns logic, 0.721ns route)
-                                       (65.9% logic, 34.1% route)
-
-=========================================================================
-Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
+Timing constraint: Default OFFSET IN BEFORE for Clock 'next_state_or0000'
   Total number of paths / destination ports: 18 / 4
 -------------------------------------------------------------------------
-Offset:              3.639ns (Levels of Logic = 3)
-  Source:            vq<3> (PAD)
-  Destination:       current_state_FSM_FFd8 (FF)
-  Destination Clock: clk rising
+Offset:              3.556ns (Levels of Logic = 3)
+  Source:            vq<0> (PAD)
+  Destination:       next_state_3 (LATCH)
+  Destination Clock: next_state_or0000 rising
 
-  Data Path: vq<3> to current_state_FSM_FFd8
+  Data Path: vq<0> to next_state_3
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O             1   1.106   0.509  vq_3_IBUF (vq_3_IBUF)
-     LUT4:I0->O            2   0.612   0.532  current_state_cmp_eq000012 (current_state_cmp_eq000012)
-     LUT4:I0->O            1   0.612   0.000  current_state_FSM_FFd10-In1 (current_state_FSM_FFd10-In)
-     FDC:D                     0.268          current_state_FSM_FFd10
+     IBUF:I->O             1   1.106   0.509  vq_0_IBUF (vq_0_IBUF)
+     LUT4:I0->O            2   0.612   0.449  next_state_cmp_eq000012 (next_state_cmp_eq000012)
+     LUT3:I1->O            1   0.612   0.000  next_state_mux0001<5>1 (next_state_mux0001<5>)
+     LD_1:D                    0.268          next_state_5
     ----------------------------------------
-    Total                      3.639ns (2.598ns logic, 1.041ns route)
-                                       (71.4% logic, 28.6% route)
+    Total                      3.556ns (2.598ns logic, 0.958ns route)
+                                       (73.1% logic, 26.9% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
-  Total number of paths / destination ports: 2 / 2
+  Total number of paths / destination ports: 1 / 1
 -------------------------------------------------------------------------
-Offset:              5.396ns (Levels of Logic = 2)
-  Source:            current_state_FSM_FFd7 (FF)
-  Destination:       sending (PAD)
+Offset:              4.040ns (Levels of Logic = 1)
+  Source:            current_state_3_1 (FF)
+  Destination:       finished (PAD)
   Source Clock:      clk rising
 
-  Data Path: current_state_FSM_FFd7 to sending
+  Data Path: current_state_3_1 to finished
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDC:C->Q              6   0.514   0.721  current_state_FSM_FFd7 (current_state_FSM_FFd7)
-     LUT4:I0->O            2   0.612   0.380  buffer_size_mux0000<1>11 (current_state_FSM_FFd7-In)
-     OBUF:I->O                 3.169          sending_OBUF (sending)
+     FDC:C->Q              1   0.514   0.357  current_state_3_1 (current_state_3_1)
+     OBUF:I->O                 3.169          finished_OBUF (finished)
     ----------------------------------------
-    Total                      5.396ns (4.295ns logic, 1.101ns route)
-                                       (79.6% logic, 20.4% route)
-
-=========================================================================
-Timing constraint: Default OFFSET OUT AFTER for Clock 'buffer_size_not0001'
-  Total number of paths / destination ports: 4 / 1
--------------------------------------------------------------------------
-Offset:              6.419ns (Levels of Logic = 3)
-  Source:            buffer_size_1 (LATCH)
-  Destination:       sending (PAD)
-  Source Clock:      buffer_size_not0001 falling
-
-  Data Path: buffer_size_1 to sending
-                                Gate     Net
-    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
-    ----------------------------------------  ------------
-     LD:G->Q               3   0.588   0.603  buffer_size_1 (buffer_size_1)
-     LUT2_D:I0->O          3   0.612   0.454  Msub_buffer_size_addsub0000_cy<1>11 (Msub_buffer_size_addsub0000_cy<1>)
-     LUT4:I3->O            2   0.612   0.380  buffer_size_mux0000<1>11 (current_state_FSM_FFd7-In)
-     OBUF:I->O                 3.169          sending_OBUF (sending)
-    ----------------------------------------
-    Total                      6.419ns (4.981ns logic, 1.438ns route)
-                                       (77.6% logic, 22.4% route)
+    Total                      4.040ns (3.683ns logic, 0.357ns route)
+                                       (91.2% logic, 8.8% route)
 
 =========================================================================
 
 
 Total REAL time to Xst completion: 8.00 secs
-Total CPU time to Xst completion: 7.92 secs
+Total CPU time to Xst completion: 7.47 secs
  
 --> 
 
 
-Total memory usage is 544596 kilobytes
+Total memory usage is 544588 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :   56 (   0 filtered)
+Number of warnings :   65 (   0 filtered)
 Number of infos    :   13 (   0 filtered)
 

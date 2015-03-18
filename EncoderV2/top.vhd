@@ -43,20 +43,45 @@ begin
 	main_pr : process(clk)
 		signal stream_segment_len_pre : buffer_size;		
 		signal sending : std_logic;
-		signal vq_pre : std_logic_vector();
+		signal vq_pre : std_logic_vector(7 downto 0);
 		signal vq : vq_index;
-		signal secret_bit_pre : std_logic;
+		signal secret_bit_pre : std_logic_vector(0 downto 0);
 		signal secret_bit : std_logic;
 		signal send_more : std_logic;
-		signal image_address : std_logic_vector();
-		signal secret_address : std_logic_vector();
+		signal image_address : std_logic_vector(14 downto 0);
+		signal secret_address : std_logic_vector(16 downto 0);
 	begin
 	
-		image_unit : entity work.IMAGE_RAM map port ();
+		-- used to compute the newest addresses for the
+		-- image RAM and secret RAM
+		address_calculator_unit : entity work.address_calculator map
+			port (
+				image_address => image_address;
+				secert_address => secret_address;
+				compute_now => send_more
+			);
 	
-		convert_unit : entity work.converter port
-			map (
+		-- at clock cycle for data reading
+		-- extracts the current vq index from RAM
+		image_unit : entity work.IMAGE_RAM map port (
 			
+		);
+		
+		-- at clock cycle for data reading
+		-- extracts the current secert bit from RAM
+		secret_unit : entity work.SECRET_RAM map port (
+		
+		);
+	
+		-- initializes and maps ports on the converted module 
+		-- to convert the data from RAMS into more 
+		-- suitable formats
+		convert_unit : entity work.converter(Behavioral) port
+			map (
+				vq_pre => vq_pre,
+				secret_bit_pre => secret_bit_pre,
+				vq => vq,
+				secret_bit => std_logic
 			);
 		
 		encoder_unit: entity work.encoder port
