@@ -33,7 +33,7 @@ entity top is
     Port ( clk : in  STD_LOGIC;
            rst : in  STD_LOGIC;
            stream_segment : out  std_logic_vector(1 to MAX_BUFFER_SIZE);
-           stream_segment_len : out  std_logic_vector(0 to 3));
+           stream_segment_len : out  std_logic_vector(3 downto 0));
 end top;
 
 architecture Behavioral of top is
