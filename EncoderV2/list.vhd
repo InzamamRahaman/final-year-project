@@ -32,6 +32,7 @@ use work.size_data_pkg.all;
 
 entity list is
     Port ( clk : in std_logic;
+				rst : in std_logic;
 				vq : in  vq_index; 
            index : out  list_index);
 end list;
@@ -39,19 +40,25 @@ end list;
 architecture Behavioral of list is	
 begin
 
-	insertion_pr: process(clk)
+	insertion_pr: process(clk, rst)
 		variable elements : vq_index_list;
 		variable response : list_index;
 	begin
 		
+		if rst = '1' then
+			for idx in 1 to MAX_LIST_SIZE loop
+				elements(idx) := 0;
+			end loop;
 			response := 0;
-		for idx in 1 to MAX_LIST_SIZE loop
-			if elements(idx) = vq then
-				response := idx + 1;
-			else
-				response := response;
-			end if;
-		end loop;
+		elsif rising_edge(clk) then
+			response := 0;
+			for idx in 1 to MAX_LIST_SIZE loop
+				if elements(idx) = vq then
+					response := idx + 1;
+				else
+					response := response;
+				end if;
+			end loop;
 		
 --		-- if it isn't insert it
 --		if response = 0 then
@@ -76,6 +83,7 @@ begin
 		end loop;
 		elements(1) := vq;
 		index <= response;
+	end if;
 	end process;
 
 end Behavioral;

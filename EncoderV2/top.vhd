@@ -40,7 +40,7 @@ entity top is
 end top;
 
 architecture Behavioral of top is
-	signal stream_segment_len_pre : buffer_size;		
+	signal stream_segment_len_pre : buffer_index;		
 	signal sending : std_logic;
 	signal vq_pre : std_logic_vector(7 downto 0);
 	signal vq : vq_index;
@@ -50,26 +50,30 @@ architecture Behavioral of top is
 	signal image_address : std_logic_vector(14 downto 0);
 	signal secret_address : std_logic_vector(16 downto 0);
 	signal enable_list : std_logic;
+	signal finished : std_logic;
+	--signal stream_segment_len : std_logic_vector(3 downto 0);
 	
 	-- list components here
 	component address_calculator is
-    Port ( image_address : inout  STD_LOGIC_VECTOR(14 downto 0);
-           secret_address : inout  STD_LOGIC(16 downto 0);
+    Port ( clk : in std_logic;
+			  image_address : inout  STD_LOGIC_VECTOR(14 downto 0);
+           secret_address : inout  STD_LOGIC_VECTOR(16 downto 0);
            compute_now : in  STD_LOGIC);
 	end component;
 	
 	component list is
     Port ( clk : in std_logic;
+			  rst : in std_logic;	
 				vq : in  vq_index; 
            index : out  list_index);
 	end component;
 	
 	component converter is
 	Port (
-		vq_pre : std_logic_vector(7 downto 0);
-		secret_bit_pre : std_logic_vector(0 downto 0);
-		vq : vq_index;
-		secert_bit : std_logic
+		vq_pre : in std_logic_vector(7 downto 0);
+		secret_bit_pre : in std_logic_vector(0 downto 0);
+		vq : out vq_index;
+		secret_bit : out std_logic
 	);
 	end component;
 	
@@ -84,6 +88,26 @@ architecture Behavioral of top is
 			  finished : out std_logic
 			  );
 	end component;
+	
+	COMPONENT IMAGE_RAM
+  PORT (
+    clka : IN STD_LOGIC;
+    wea : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
+    addra : IN STD_LOGIC_VECTOR(14 DOWNTO 0);
+    dina : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+    douta : OUT STD_LOGIC_VECTOR(7 DOWNTO 0)
+  );
+END COMPONENT;
+
+COMPONENT SECRET_RAM
+  PORT (
+    clka : IN STD_LOGIC;
+    wea : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
+    addra : IN STD_LOGIC_VECTOR(16 DOWNTO 0);
+    dina : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
+    douta : OUT STD_LOGIC_VECTOR(0 DOWNTO 0)
+  );
+END COMPONENT;
 
 
 begin
@@ -91,8 +115,9 @@ begin
 	-- used to compute the newest addresses for the
 		-- image RAM and secret RAM
 		address_calculator_unit : address_calculator port map (
+				clk => clk,
 				image_address => image_address,
-				secert_address => secret_address,
+				secret_address => secret_address,
 				compute_now => send_more
 			);
 	
@@ -100,7 +125,7 @@ begin
 		-- extracts the current vq index from RAM
 		image_unit : IMAGE_RAM port map (
 			clka => clk,
-			wea => '0',
+			wea => (others => '0'),
 			dina => (others => '0'),
 			addra => image_address,
 			douta => vq_pre
@@ -110,7 +135,7 @@ begin
 		-- extracts the current secert bit from RAM
 		secret_unit : SECRET_RAM port map (
 			clka => clk,
-			wea => '0',
+			wea => (others => '0'),
 			dina => (others => '0'),
 			addra => secret_address,
 			douta => secret_bit_pre
@@ -123,32 +148,24 @@ begin
 				vq_pre => vq_pre,
 				secret_bit_pre => secret_bit_pre,
 				vq => vq,
-				secret_bit => std_logic
+				secret_bit => secret_bit
 			);
 		-- performs the primary encodings
 		encoder_unit: encoder port map(
 				clk => clk,
 				rst => rst,
 				vq => vq,
-				secert_bit => secret_bit,
-				sending => sending,
+				secret_bit => secret_bit,
+				--sending => sending,
 				send_more => send_more,
 				entry => stream_segment,
-				entry_len => stream_segment_len
+				entry_len => stream_segment_len,
+				finished => finished
 			);
 	
 	main_pr : process(clk, rst)
 	begin
-	
 		if rst = '1' then
-			send_more <= '0';
-			stream_segment_pre_len <= (others => '0');
-			vq_pre <= (others => '0');
-			vq <= 0;
-			secret_bit_pre <= (others => '0');
-			secret_bit <= '0';
-			image_address <= (others => '0');
-			secret_address <= (others => '0');
 			enable_list <= '0';
 		end if;
 	end process;

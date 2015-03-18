@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2015-03-18T17:48:15</DateModified>
+  <DateModified>2015-03-18T18:54:08</DateModified>
   <ModuleName>top</ModuleName>
-  <SummaryTimeStamp>2015-03-18T17:21:56</SummaryTimeStamp>
+  <SummaryTimeStamp>2015-03-18T18:49:32</SummaryTimeStamp>
   <SavedFilePath>/home/school/ise_projs/final-year-project/EncoderV2/iseconfig/encoder.xreport</SavedFilePath>
   <ImplementationReportsDirectory>/home/school/ise_projs/final-year-project/EncoderV2</ImplementationReportsDirectory>
   <DateInitialized>2015-03-18T17:48:15</DateInitialized>
@@ -11,7 +11,7 @@
  </header>
  <body>
   <viewgroup label="Design Overview" >
-   <view inputState="Unknown" program="implementation" ShowPartitionData="false" type="FPGASummary" file="top_summary.html" label="Summary" >
+   <view inputState="Unknown" program="implementation" ShowPartitionData="false" type="FPGASummary" file="top_summary.html" label="Summary" ExpandClockNets="true" >
     <toc-item title="Design Overview" target="Design Overview" />
     <toc-item title="Design Utilization Summary" target="Design Utilization Summary" />
     <toc-item title="Performance Summary" target="Performance Summary" />

@@ -22,7 +22,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
+use IEEE.NUMERIC_STD.ALL;
 
 -- Uncomment the following library declaration if instantiating
 -- any Xilinx primitives in this code.
@@ -30,18 +30,21 @@ use IEEE.STD_LOGIC_1164.ALL;
 --use UNISIM.VComponents.all;
 
 entity address_calculator is
-    Port ( image_address : inout  STD_LOGIC_VECTOR(14 downto 0);
-           secret_address : inout  STD_LOGIC(16 downto 0);
+    Port ( clk : in std_logic;
+			  image_address : inout  STD_LOGIC_VECTOR(14 downto 0);
+           secret_address : inout  STD_LOGIC_VECTOR(16 downto 0);
            compute_now : in  STD_LOGIC);
 end address_calculator;
 
 architecture Behavioral of address_calculator is
 begin
-	calc_process: process
+	calc_process: process(clk, compute_now)
 	begin
-		if (compute_now = '1') then
-			image_address <= image_address+ 1;
-			secret_addreess <= secret_address + 1;
+		if rising_edge(clk) then
+			if (compute_now = '1') then
+				image_address <= std_logic_vector(unsigned(image_address) + 1);
+				secret_address <= std_logic_vector(unsigned(secret_address) + 1);
+			end if;
 		end if;
 	end process;
 end Behavioral;

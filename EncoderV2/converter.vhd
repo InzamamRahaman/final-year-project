@@ -34,10 +34,10 @@ use ieee.numeric_std.all;
 
 entity converter is
 	Port (
-		vq_pre : std_logic_vector(7 downto 0);
-		secret_bit_pre : std_logic_vector(0 downto 0);
-		vq : vq_index;
-		secert_bit : std_logic
+		vq_pre : in std_logic_vector(7 downto 0);
+		secret_bit_pre : in std_logic_vector(0 downto 0);
+		vq : out vq_index;
+		secret_bit : out std_logic
 	);
 end converter;
 

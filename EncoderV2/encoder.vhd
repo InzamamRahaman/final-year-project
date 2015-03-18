@@ -55,6 +55,8 @@ begin
 	
 	list_unit : entity work.list(Behavioral) port
 		map (
+			clk => clk,
+			rst => rst,
 			vq => vq,
 			index => li
 		);
