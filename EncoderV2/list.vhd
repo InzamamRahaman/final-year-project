@@ -31,20 +31,20 @@ use work.size_data_pkg.all;
 --use UNISIM.VComponents.all;
 
 entity list is
-    Port ( vq : in  vq_index; 
+    Port ( clk : in std_logic;
+				vq : in  vq_index; 
            index : out  list_index);
 end list;
 
 architecture Behavioral of list is	
 begin
 
-	insertion_pr: process(vq)
+	insertion_pr: process(clk)
 		variable elements : vq_index_list;
 		variable response : list_index;
 	begin
-	
-		-- check if it is in the list
-		response := 0;
+		
+			response := 0;
 		for idx in 1 to MAX_LIST_SIZE loop
 			if elements(idx) = vq then
 				response := idx + 1;

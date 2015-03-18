@@ -41,14 +41,14 @@ entity encoder is
 			  send_more : out std_logic;
            entry : out  STD_LOGIC_VECTOR(1 to MAX_BUFFER_SIZE);
 			  entry_len : out STD_LOGIC_VECTOR(3 downto 0);
-			  finished : out std_logic);
+			  finished : out std_logic
+			  );
 end encoder;
 
 architecture Behavioral of encoder is
-	signal current_state : encoder_state <= READING_DATA;
-	signal next_state : encoder_state <= READING_DATA;
-	signal li : list_index <= 0;
-	
+	signal current_state : encoder_state;
+	signal next_state : encoder_state;
+	signal li : list_index;
 begin
 
 	-- self orgnaizing list
@@ -67,6 +67,8 @@ begin
 			current_state <= next_state;
 		end if;
 	end process;
+	
+	
 	
 	encoding_pr : process(current_state, vq, li, secret_bit)
 		variable output_buffer : std_logic_vector(1 to MAX_BUFFER_SIZE) := (others => '0');

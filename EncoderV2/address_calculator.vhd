@@ -36,12 +36,13 @@ entity address_calculator is
 end address_calculator;
 
 architecture Behavioral of address_calculator is
-	if compute_now = '1' then
-		image_address <= image_address+ 1;
-		secret_addreess <= secret_address + 1;
-	end if;
 begin
-
-
+	calc_process: process
+	begin
+		if (compute_now = '1') then
+			image_address <= image_address+ 1;
+			secret_addreess <= secret_address + 1;
+		end if;
+	end process;
 end Behavioral;
 

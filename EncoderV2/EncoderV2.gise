@@ -81,21 +81,19 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1426704920" xil_pn:in_ck="-6238510965890829542" xil_pn:name="TRANEXT_xstsynthesize_spartan3e" xil_pn:prop_ck="-303238436375641445" xil_pn:start_ts="1426704909">
-      <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="WarningsGenerated"/>
+    <transform xil_pn:end_ts="1426713716" xil_pn:in_ck="6221243960428782305" xil_pn:name="TRANEXT_xstsynthesize_spartan3e" xil_pn:prop_ck="8219746454013755943" xil_pn:start_ts="1426713708">
+      <status xil_pn:value="FailedRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="InputAdded"/>
       <status xil_pn:value="InputChanged"/>
       <outfile xil_pn:name="_xmsgs/xst.xmsgs"/>
       <outfile xil_pn:name="encoder.lso"/>
       <outfile xil_pn:name="encoder.ngc"/>
       <outfile xil_pn:name="encoder.ngr"/>
       <outfile xil_pn:name="encoder.prj"/>
-      <outfile xil_pn:name="encoder.stx"/>
       <outfile xil_pn:name="encoder.syr"/>
       <outfile xil_pn:name="encoder.xst"/>
+      <outfile xil_pn:name="encoder_vhdl.prj"/>
       <outfile xil_pn:name="encoder_xst.xrpt"/>
       <outfile xil_pn:name="list.ngr"/>
       <outfile xil_pn:name="webtalk_pn.xml"/>

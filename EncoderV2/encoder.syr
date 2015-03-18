@@ -5,14 +5,14 @@ Parameter TMPDIR set to xst/projnav.tmp
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.05 secs
+Total CPU time to Xst completion: 0.04 secs
  
 --> 
 Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.05 secs
+Total CPU time to Xst completion: 0.04 secs
  
 --> 
 Reading design: encoder.prj
@@ -71,7 +71,7 @@ Automatic Register Balancing       : No
 
 ---- Target Options
 Add IO Buffers                     : YES
-Global Maximum Fanout              : 500
+Global Maximum Fanout              : 100000
 Add Generic Clock Buffer(BUFG)     : 24
 Register Duplication               : YES
 Slice Packing                      : YES
@@ -115,351 +115,32 @@ Architecture size_data_pkg of Entity size_data_pkg is up to date.
 Compiling vhdl file "/home/school/ise_projs/final-year-project/EncoderV2/encoder_state_pkg.vhd" in Library work.
 Architecture encoder_state_pkg of Entity encoder_state_pkg is up to date.
 Compiling vhdl file "/home/school/ise_projs/final-year-project/EncoderV2/list.vhd" in Library work.
-Architecture behavioral of Entity list is up to date.
+Entity <list> compiled.
+Entity <list> (Architecture <behavioral>) compiled.
 Compiling vhdl file "/home/school/ise_projs/final-year-project/EncoderV2/encoder.vhd" in Library work.
 Entity <encoder> compiled.
-Entity <encoder> (Architecture <behavioral>) compiled.
-
-=========================================================================
-*                     Design Hierarchy Analysis                         *
-=========================================================================
-Analyzing hierarchy for entity <encoder> in library <work> (architecture <behavioral>).
-
-Analyzing hierarchy for entity <list> in library <work> (architecture <Behavioral>).
-
-
-=========================================================================
-*                            HDL Analysis                               *
-=========================================================================
-Analyzing Entity <encoder> in library <work> (Architecture <behavioral>).
-Entity <encoder> analyzed. Unit <encoder> generated.
-
-Analyzing Entity <list> in library <work> (Architecture <Behavioral>).
-Entity <list> analyzed. Unit <list> generated.
-
-
-=========================================================================
-*                           HDL Synthesis                               *
-=========================================================================
-
-Performing bidirectional port resolution...
-
-Synthesizing Unit <list>.
-    Related source file is "/home/school/ise_projs/final-year-project/EncoderV2/list.vhd".
-WARNING:Xst:737 - Found 8-bit latch for signal <elements_2>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 8-bit latch for signal <elements_3>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 8-bit latch for signal <elements_4>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-    Found 3-bit comparator greater for signal <elements_2$cmp_gt0000> created at line 70.
-    Found 8-bit comparator equal for signal <response$cmp_eq0000> created at line 49.
-    Found 8-bit comparator equal for signal <response$cmp_eq0001> created at line 49.
-    Found 8-bit comparator equal for signal <response$cmp_eq0002> created at line 49.
-    Found 8-bit comparator equal for signal <response$cmp_eq0003> created at line 49.
-    Summary:
-	inferred   5 Comparator(s).
-Unit <list> synthesized.
-
-
-Synthesizing Unit <encoder>.
-    Related source file is "/home/school/ise_projs/final-year-project/EncoderV2/encoder.vhd".
-    Using one-hot encoding for signal <current_state>.
-WARNING:Xst:737 - Found 4-bit latch for signal <buffer_size>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
-WARNING:Xst:737 - Found 12-bit latch for signal <next_state>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
-WARNING:Xst:737 - Found 1-bit latch for signal <output_buffer_1>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
-WARNING:Xst:737 - Found 1-bit latch for signal <output_buffer_2>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
-WARNING:Xst:737 - Found 1-bit latch for signal <output_buffer_3>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
-WARNING:Xst:737 - Found 1-bit latch for signal <output_buffer_4>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
-WARNING:Xst:737 - Found 1-bit latch for signal <output_buffer_5>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
-WARNING:Xst:737 - Found 1-bit latch for signal <output_buffer_6>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
-WARNING:Xst:737 - Found 1-bit latch for signal <output_buffer_7>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
-WARNING:Xst:737 - Found 1-bit latch for signal <output_buffer_10>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
-WARNING:Xst:737 - Found 1-bit latch for signal <output_buffer_8>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
-WARNING:Xst:737 - Found 1-bit latch for signal <output_buffer_9>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
-    Found 12-bit register for signal <current_state>.
-Unit <encoder> synthesized.
-
-
-=========================================================================
-HDL Synthesis Report
-
-Macro Statistics
-# Registers                                            : 1
- 12-bit register                                       : 1
-# Latches                                              : 15
- 1-bit latch                                           : 10
- 12-bit latch                                          : 1
- 4-bit latch                                           : 1
- 8-bit latch                                           : 3
-# Comparators                                          : 5
- 3-bit comparator greater                              : 1
- 8-bit comparator equal                                : 4
-
-=========================================================================
-
-=========================================================================
-*                       Advanced HDL Synthesis                          *
-=========================================================================
-
-WARNING:Xst:1293 - FF/Latch <0> has a constant value of 0 in block <2>. This FF/Latch will be trimmed during the optimization process.
-
-=========================================================================
-Advanced HDL Synthesis Report
-
-Macro Statistics
-# Registers                                            : 12
- Flip-Flops                                            : 12
-# Latches                                              : 15
- 1-bit latch                                           : 10
- 12-bit latch                                          : 1
- 4-bit latch                                           : 1
- 8-bit latch                                           : 3
-# Comparators                                          : 5
- 3-bit comparator greater                              : 1
- 8-bit comparator equal                                : 4
-
-=========================================================================
-
-=========================================================================
-*                         Low Level Synthesis                           *
-=========================================================================
-WARNING:Xst:1293 - FF/Latch <buffer_size_2> has a constant value of 0 in block <encoder>. This FF/Latch will be trimmed during the optimization process.
-
-Optimizing unit <encoder> ...
-
-Optimizing unit <list> ...
-
-Mapping all equations...
-WARNING:Xst:2677 - Node <list_unit/elements_2_7> of sequential type is unconnected in block <encoder>.
-WARNING:Xst:2677 - Node <list_unit/elements_2_6> of sequential type is unconnected in block <encoder>.
-WARNING:Xst:2677 - Node <list_unit/elements_2_5> of sequential type is unconnected in block <encoder>.
-WARNING:Xst:2677 - Node <list_unit/elements_2_4> of sequential type is unconnected in block <encoder>.
-WARNING:Xst:2677 - Node <list_unit/elements_2_3> of sequential type is unconnected in block <encoder>.
-WARNING:Xst:2677 - Node <list_unit/elements_2_2> of sequential type is unconnected in block <encoder>.
-WARNING:Xst:2677 - Node <list_unit/elements_2_1> of sequential type is unconnected in block <encoder>.
-WARNING:Xst:2677 - Node <list_unit/elements_2_0> of sequential type is unconnected in block <encoder>.
-WARNING:Xst:2677 - Node <list_unit/elements_3_7> of sequential type is unconnected in block <encoder>.
-WARNING:Xst:2677 - Node <list_unit/elements_3_6> of sequential type is unconnected in block <encoder>.
-WARNING:Xst:2677 - Node <list_unit/elements_3_5> of sequential type is unconnected in block <encoder>.
-WARNING:Xst:2677 - Node <list_unit/elements_3_4> of sequential type is unconnected in block <encoder>.
-WARNING:Xst:2677 - Node <list_unit/elements_3_3> of sequential type is unconnected in block <encoder>.
-WARNING:Xst:2677 - Node <list_unit/elements_3_2> of sequential type is unconnected in block <encoder>.
-WARNING:Xst:2677 - Node <list_unit/elements_3_1> of sequential type is unconnected in block <encoder>.
-WARNING:Xst:2677 - Node <list_unit/elements_3_0> of sequential type is unconnected in block <encoder>.
-WARNING:Xst:2677 - Node <list_unit/elements_4_7> of sequential type is unconnected in block <encoder>.
-WARNING:Xst:2677 - Node <list_unit/elements_4_6> of sequential type is unconnected in block <encoder>.
-WARNING:Xst:2677 - Node <list_unit/elements_4_5> of sequential type is unconnected in block <encoder>.
-WARNING:Xst:2677 - Node <list_unit/elements_4_4> of sequential type is unconnected in block <encoder>.
-WARNING:Xst:2677 - Node <list_unit/elements_4_3> of sequential type is unconnected in block <encoder>.
-WARNING:Xst:2677 - Node <list_unit/elements_4_2> of sequential type is unconnected in block <encoder>.
-WARNING:Xst:2677 - Node <list_unit/elements_4_1> of sequential type is unconnected in block <encoder>.
-WARNING:Xst:2677 - Node <list_unit/elements_4_0> of sequential type is unconnected in block <encoder>.
-WARNING:Xst:1426 - The value init of the FF/Latch next_state_0 hinder the constant cleaning in the block encoder.
-   You should achieve better results by setting this init to 0.
-WARNING:Xst:1293 - FF/Latch <next_state_10> has a constant value of 0 in block <encoder>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <next_state_8> has a constant value of 0 in block <encoder>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <next_state_4> has a constant value of 0 in block <encoder>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <current_state_4> has a constant value of 0 in block <encoder>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <current_state_8> has a constant value of 0 in block <encoder>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <current_state_10> has a constant value of 0 in block <encoder>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <next_state_1> has a constant value of 0 in block <encoder>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <current_state_1> has a constant value of 0 in block <encoder>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <next_state_2> has a constant value of 0 in block <encoder>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <buffer_size_3> has a constant value of 0 in block <encoder>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <buffer_size_1> has a constant value of 0 in block <encoder>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <buffer_size_0> has a constant value of 0 in block <encoder>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <output_buffer_1> (without init value) has a constant value of 0 in block <encoder>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <output_buffer_2> (without init value) has a constant value of 0 in block <encoder>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <output_buffer_3> (without init value) has a constant value of 0 in block <encoder>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <output_buffer_4> (without init value) has a constant value of 0 in block <encoder>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <output_buffer_5> (without init value) has a constant value of 0 in block <encoder>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <output_buffer_6> (without init value) has a constant value of 0 in block <encoder>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <output_buffer_7> (without init value) has a constant value of 0 in block <encoder>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <output_buffer_10> (without init value) has a constant value of 0 in block <encoder>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <output_buffer_8> (without init value) has a constant value of 0 in block <encoder>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <output_buffer_9> (without init value) has a constant value of 0 in block <encoder>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <current_state_2> has a constant value of 0 in block <encoder>. This FF/Latch will be trimmed during the optimization process.
-Building and optimizing final netlist ...
-Found area constraint ratio of 100 (+ 5) on block encoder, actual ratio is 0.
-FlipFlop current_state_3 has been replicated 1 time(s) to handle iob=true attribute.
-
-Final Macro Processing ...
-
-=========================================================================
-Final Register Report
-
-Macro Statistics
-# Registers                                            : 8
- Flip-Flops                                            : 8
-
-=========================================================================
-
-=========================================================================
-*                           Partition Report                            *
-=========================================================================
-
-Partition Implementation Status
--------------------------------
-
-  No Partitions were found in this design.
-
--------------------------------
-
-=========================================================================
-*                            Final Report                               *
-=========================================================================
-Final Results
-RTL Top Level Output File Name     : encoder.ngr
-Top Level Output File Name         : encoder
-Output Format                      : NGC
-Optimization Goal                  : Speed
-Keep Hierarchy                     : No
-
-Design Statistics
-# IOs                              : 27
-
-Cell Usage :
-# BELS                             : 8
-#      GND                         : 1
-#      LUT2                        : 3
-#      LUT3                        : 1
-#      LUT4                        : 3
-# FlipFlops/Latches                : 15
-#      FDC                         : 7
-#      FDP                         : 1
-#      LD_1                        : 7
-# Clock Buffers                    : 1
-#      BUFGP                       : 1
-# IO Buffers                       : 26
-#      IBUF                        : 10
-#      OBUF                        : 16
-=========================================================================
-
-Device utilization summary:
----------------------------
-
-Selected Device : 3s250etq144-5 
-
- Number of Slices:                        8  out of   2448     0%  
- Number of Slice Flip Flops:             14  out of   4896     0%  
- Number of 4 input LUTs:                  7  out of   4896     0%  
- Number of IOs:                          27
- Number of bonded IOBs:                  27  out of    108    25%  
-    IOB Flip Flops:                       1
- Number of GCLKs:                         1  out of     24     4%  
-
----------------------------
-Partition Resource Summary:
----------------------------
-
-  No Partitions were found in this design.
-
----------------------------
-
-
-=========================================================================
-TIMING REPORT
-
-NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
-      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
-      GENERATED AFTER PLACE-and-ROUTE.
-
-Clock Information:
-------------------
----------------------------------------+------------------------+-------+
-Clock Signal                           | Clock buffer(FF name)  | Load  |
----------------------------------------+------------------------+-------+
-next_state_or0000(next_state_or00001:O)| NONE(*)(next_state_0)  | 7     |
-clk                                    | BUFGP                  | 8     |
----------------------------------------+------------------------+-------+
-(*) This 1 clock signal(s) are generated by combinatorial logic,
-and XST is not able to identify which are the primary clock signals.
-Please use the CLOCK_SIGNAL constraint to specify the clock signal(s) generated by combinatorial logic.
-INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
-
-Asynchronous Control Signals Information:
-----------------------------------------
------------------------------------+------------------------+-------+
-Control Signal                     | Buffer(FF name)        | Load  |
------------------------------------+------------------------+-------+
-rst                                | IBUF                   | 8     |
------------------------------------+------------------------+-------+
-
-Timing Summary:
----------------
-Speed Grade: -5
-
-   Minimum period: No path found
-   Minimum input arrival time before clock: 3.556ns
-   Maximum output required time after clock: 4.040ns
-   Maximum combinational path delay: No path found
-
-Timing Detail:
---------------
-All values displayed in nanoseconds (ns)
-
-=========================================================================
-Timing constraint: Default OFFSET IN BEFORE for Clock 'next_state_or0000'
-  Total number of paths / destination ports: 18 / 4
--------------------------------------------------------------------------
-Offset:              3.556ns (Levels of Logic = 3)
-  Source:            vq<0> (PAD)
-  Destination:       next_state_3 (LATCH)
-  Destination Clock: next_state_or0000 rising
-
-  Data Path: vq<0> to next_state_3
-                                Gate     Net
-    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
-    ----------------------------------------  ------------
-     IBUF:I->O             1   1.106   0.509  vq_0_IBUF (vq_0_IBUF)
-     LUT4:I0->O            2   0.612   0.449  next_state_cmp_eq000012 (next_state_cmp_eq000012)
-     LUT3:I1->O            1   0.612   0.000  next_state_mux0001<5>1 (next_state_mux0001<5>)
-     LD_1:D                    0.268          next_state_5
-    ----------------------------------------
-    Total                      3.556ns (2.598ns logic, 0.958ns route)
-                                       (73.1% logic, 26.9% route)
-
-=========================================================================
-Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
-  Total number of paths / destination ports: 1 / 1
--------------------------------------------------------------------------
-Offset:              4.040ns (Levels of Logic = 1)
-  Source:            current_state_3_1 (FF)
-  Destination:       finished (PAD)
-  Source Clock:      clk rising
-
-  Data Path: current_state_3_1 to finished
-                                Gate     Net
-    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
-    ----------------------------------------  ------------
-     FDC:C->Q              1   0.514   0.357  current_state_3_1 (current_state_3_1)
-     OBUF:I->O                 3.169          finished_OBUF (finished)
-    ----------------------------------------
-    Total                      4.040ns (3.683ns logic, 0.357ns route)
-                                       (91.2% logic, 8.8% route)
-
-=========================================================================
-
-
-Total REAL time to Xst completion: 8.00 secs
-Total CPU time to Xst completion: 7.47 secs
- 
+ERROR:HDLParsers:164 - "/home/school/ise_projs/final-year-project/EncoderV2/encoder.vhd" Line 48. parse error, unexpected LE, expecting AFFECT or SEMICOLON
+ERROR:HDLParsers:164 - "/home/school/ise_projs/final-year-project/EncoderV2/encoder.vhd" Line 49. parse error, unexpected LE, expecting AFFECT or SEMICOLON
+ERROR:HDLParsers:164 - "/home/school/ise_projs/final-year-project/EncoderV2/encoder.vhd" Line 50. parse error, unexpected LE, expecting AFFECT or SEMICOLON
+ERROR:HDLParsers:3313 - "/home/school/ise_projs/final-year-project/EncoderV2/encoder.vhd" Line 60. Undefined symbol 'li'.  Should it be: si?
+ERROR:HDLParsers:1209 - "/home/school/ise_projs/final-year-project/EncoderV2/encoder.vhd" Line 60. li: Undefined symbol (last report in this block)
+ERROR:HDLParsers:851 - "/home/school/ise_projs/final-year-project/EncoderV2/encoder.vhd" Line 56. Formal enable of entity with no default value must be associated with an actual value.
+ERROR:HDLParsers:3312 - "/home/school/ise_projs/final-year-project/EncoderV2/encoder.vhd" Line 65. Undefined symbol 'current_state'.
+ERROR:HDLParsers:1209 - "/home/school/ise_projs/final-year-project/EncoderV2/encoder.vhd" Line 67. current_state: Undefined symbol (last report in this block)
+ERROR:HDLParsers:3312 - "/home/school/ise_projs/final-year-project/EncoderV2/encoder.vhd" Line 67. Undefined symbol 'next_state'.
+ERROR:HDLParsers:1209 - "/home/school/ise_projs/final-year-project/EncoderV2/encoder.vhd" Line 67. next_state: Undefined symbol (last report in this block)
+ERROR:HDLParsers:3312 - "/home/school/ise_projs/final-year-project/EncoderV2/encoder.vhd" Line 76. Undefined symbol 'current_state'.
+ERROR:HDLParsers:1209 - "/home/school/ise_projs/final-year-project/EncoderV2/encoder.vhd" Line 76. current_state: Undefined symbol (last report in this block)
+ERROR:HDLParsers:3312 - "/home/school/ise_projs/final-year-project/EncoderV2/encoder.vhd" Line 78. Undefined symbol 'next_state'.
+ERROR:HDLParsers:1209 - "/home/school/ise_projs/final-year-project/EncoderV2/encoder.vhd" Line 87. next_state: Undefined symbol (last report in this block)
+ERROR:HDLParsers:3313 - "/home/school/ise_projs/final-year-project/EncoderV2/encoder.vhd" Line 94. Undefined symbol 'li'.  Should it be: si?
+ERROR:HDLParsers:1209 - "/home/school/ise_projs/final-year-project/EncoderV2/encoder.vhd" Line 94. li: Undefined symbol (last report in this block)
 --> 
 
 
-Total memory usage is 544588 kilobytes
+Total memory usage is 490040 kilobytes
 
-Number of errors   :    0 (   0 filtered)
-Number of warnings :   65 (   0 filtered)
-Number of infos    :   13 (   0 filtered)
+Number of errors   :   16 (   0 filtered)
+Number of warnings :    0 (   0 filtered)
+Number of infos    :    0 (   0 filtered)
 
