@@ -33,7 +33,8 @@ entity address_calculator is
     Port ( clk : in std_logic;
 			  image_address : inout  STD_LOGIC_VECTOR(14 downto 0);
            secret_address : inout  STD_LOGIC_VECTOR(16 downto 0);
-           compute_now : in  STD_LOGIC);
+           compute_now : in  STD_LOGIC;
+			  compute_secret_now : in std_logic);
 end address_calculator;
 
 architecture Behavioral of address_calculator is
@@ -43,6 +44,8 @@ begin
 		if rising_edge(clk) then
 			if (compute_now = '1') then
 				image_address <= std_logic_vector(unsigned(image_address) + 1);
+			end if;
+			if (compute_secret_now = '1') then
 				secret_address <= std_logic_vector(unsigned(secret_address) + 1);
 			end if;
 		end if;

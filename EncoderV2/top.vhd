@@ -43,6 +43,7 @@ end top;
 architecture Behavioral of top is
 	--signal stream_segment_len_pre : buffer_index;		
 	--signal sending : std_logic;
+	signal send_more_secret : std_logic;
 	signal vq_pre : std_logic_vector(7 downto 0);
 	signal vq : vq_index;
 	signal secret_bit_pre : std_logic_vector(0 downto 0);
@@ -59,7 +60,8 @@ architecture Behavioral of top is
     Port ( clk : in std_logic;
 			  image_address : inout  STD_LOGIC_VECTOR(14 downto 0);
            secret_address : inout  STD_LOGIC_VECTOR(16 downto 0);
-           compute_now : in  STD_LOGIC);
+           compute_now : in  STD_LOGIC;
+			  compute_secret_now : in std_logic);
 	end component;
 	
 	component list is
@@ -86,7 +88,8 @@ architecture Behavioral of top is
 			  send_more : out std_logic;
            entry : out  STD_LOGIC_VECTOR(1 to MAX_BUFFER_SIZE);
 			  entry_len : out STD_LOGIC_VECTOR(3 downto 0);
-			  finished : out std_logic
+			  finished : out std_logic;
+			  send_more_secret : out std_logic
 			  );
 	end component;
 	
@@ -119,7 +122,8 @@ begin
 				clk => clk,
 				image_address => image_address,
 				secret_address => secret_address,
-				compute_now => send_more
+				compute_now => send_more,
+				compute_secret_now => send_more_secret
 			);
 	
 		-- at clock cycle for data reading
@@ -161,7 +165,8 @@ begin
 				send_more => send_more,
 				entry => stream_segment,
 				entry_len => stream_segment_len,
-				finished => finished
+				finished => finished,
+				send_more_secret => send_more_secret
 			);
 	
 	main_pr : process(clk, rst)

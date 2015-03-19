@@ -5,14 +5,14 @@ Parameter TMPDIR set to xst/projnav.tmp
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.07 secs
+Total CPU time to Xst completion: 0.06 secs
  
 --> 
 Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.07 secs
+Total CPU time to Xst completion: 0.06 secs
  
 --> 
 Reading design: top.prj
@@ -119,10 +119,10 @@ Architecture conversions_pkg of Entity conversions_pkg is up to date.
 Compiling vhdl file "/home/school/ise_projs/final-year-project/EncoderV2/list.vhd" in Library work.
 Architecture behavioral of Entity list is up to date.
 Compiling vhdl file "/home/school/ise_projs/final-year-project/EncoderV2/list_index_size_calc.vhd" in Library work.
-Entity <list_index_size_calc> compiled.
-Entity <list_index_size_calc> (Architecture <behavioral>) compiled.
+Architecture behavioral of Entity list_index_size_calc is up to date.
 Compiling vhdl file "/home/school/ise_projs/final-year-project/EncoderV2/address_calculator.vhd" in Library work.
-Architecture behavioral of Entity address_calculator is up to date.
+Entity <address_calculator> compiled.
+Entity <address_calculator> (Architecture <behavioral>) compiled.
 Compiling vhdl file "/home/school/ise_projs/final-year-project/EncoderV2/ipcore_dir/IMAGE_RAM.vhd" in Library work.
 Architecture image_ram_a of Entity image_ram is up to date.
 Compiling vhdl file "/home/school/ise_projs/final-year-project/EncoderV2/ipcore_dir/SECRET_RAM.vhd" in Library work.
@@ -130,8 +130,7 @@ Architecture secret_ram_a of Entity secret_ram is up to date.
 Compiling vhdl file "/home/school/ise_projs/final-year-project/EncoderV2/converter.vhd" in Library work.
 Architecture behavioral of Entity converter is up to date.
 Compiling vhdl file "/home/school/ise_projs/final-year-project/EncoderV2/encoder.vhd" in Library work.
-Entity <encoder> compiled.
-Entity <encoder> (Architecture <behavioral>) compiled.
+Architecture behavioral of Entity encoder is up to date.
 Compiling vhdl file "/home/school/ise_projs/final-year-project/EncoderV2/top.vhd" in Library work.
 Architecture behavioral of Entity top is up to date.
 
@@ -155,8 +154,8 @@ Analyzing hierarchy for entity <list_index_size_calc> in library <work> (archite
 *                            HDL Analysis                               *
 =========================================================================
 Analyzing Entity <top> in library <work> (Architecture <behavioral>).
-WARNING:Xst:2211 - "/home/school/ise_projs/final-year-project/EncoderV2/top.vhd" line 127: Instantiating black box module <IMAGE_RAM>.
-WARNING:Xst:2211 - "/home/school/ise_projs/final-year-project/EncoderV2/top.vhd" line 137: Instantiating black box module <SECRET_RAM>.
+WARNING:Xst:2211 - "/home/school/ise_projs/final-year-project/EncoderV2/top.vhd" line 131: Instantiating black box module <IMAGE_RAM>.
+WARNING:Xst:2211 - "/home/school/ise_projs/final-year-project/EncoderV2/top.vhd" line 141: Instantiating black box module <SECRET_RAM>.
 INFO:Xst:2679 - Register <enable_list> in unit <top> has a constant value of 0 during circuit operation. The register is replaced by logic.
 Entity <top> analyzed. Unit <top> generated.
 
@@ -240,9 +239,10 @@ Synthesizing Unit <encoder>.
     Found 4-bit register for signal <entry_len>.
     Found 10-bit register for signal <entry>.
     Found 1-bit register for signal <send_more>.
+    Found 1-bit register for signal <send_more_secret>.
     Summary:
 	inferred   1 Finite State Machine(s).
-	inferred  16 D-type flip-flop(s).
+	inferred  17 D-type flip-flop(s).
 Unit <encoder> synthesized.
 
 
@@ -259,8 +259,8 @@ Macro Statistics
 # Counters                                             : 2
  15-bit up counter                                     : 1
  17-bit up counter                                     : 1
-# Registers                                            : 18
- 1-bit register                                        : 12
+# Registers                                            : 19
+ 1-bit register                                        : 13
  3-bit register                                        : 1
  4-bit register                                        : 1
  8-bit register                                        : 4
@@ -305,8 +305,8 @@ Macro Statistics
 # Counters                                             : 2
  15-bit up counter                                     : 1
  17-bit up counter                                     : 1
-# Registers                                            : 51
- Flip-Flops                                            : 51
+# Registers                                            : 52
+ Flip-Flops                                            : 52
 # Comparators                                          : 7
  3-bit comparator greater                              : 1
  3-bit comparator less                                 : 2
@@ -317,7 +317,6 @@ Macro Statistics
 =========================================================================
 *                         Low Level Synthesis                           *
 =========================================================================
-INFO:Xst:2146 - In block <top>, Counter <address_calculator_unit/secret_address> <address_calculator_unit/image_address> are equivalent, XST will keep only <address_calculator_unit/secret_address>.
 
 Optimizing unit <top> ...
 
@@ -327,7 +326,7 @@ Optimizing unit <encoder> ...
 
 Mapping all equations...
 Building and optimizing final netlist ...
-Found area constraint ratio of 100 (+ 5) on block top, actual ratio is 2.
+Found area constraint ratio of 100 (+ 5) on block top, actual ratio is 3.
 
 Final Macro Processing ...
 
@@ -335,8 +334,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 79
- Flip-Flops                                            : 79
+# Registers                                            : 95
+ Flip-Flops                                            : 95
 
 =========================================================================
 
@@ -365,25 +364,23 @@ Design Statistics
 # IOs                              : 17
 
 Cell Usage :
-# BELS                             : 168
+# BELS                             : 193
 #      GND                         : 3
-#      INV                         : 6
-#      LUT1                        : 15
-#      LUT2                        : 6
-#      LUT2_L                      : 1
-#      LUT3                        : 26
-#      LUT3_L                      : 2
-#      LUT4                        : 59
-#      LUT4_D                      : 4
-#      LUT4_L                      : 7
-#      MUXCY                       : 16
-#      MUXF5                       : 5
+#      INV                         : 7
+#      LUT1                        : 28
+#      LUT2                        : 8
+#      LUT3                        : 18
+#      LUT4                        : 55
+#      LUT4_D                      : 3
+#      LUT4_L                      : 4
+#      MUXCY                       : 30
+#      MUXF5                       : 4
 #      VCC                         : 1
-#      XORCY                       : 17
-# FlipFlops/Latches                : 86
-#      FDC                         : 31
-#      FDCE                        : 27
-#      FDE                         : 27
+#      XORCY                       : 32
+# FlipFlops/Latches                : 102
+#      FDC                         : 33
+#      FDCE                        : 25
+#      FDE                         : 43
 #      FDP                         : 1
 # RAMS                             : 15
 #      RAMB16_S1_S1                : 14
@@ -400,9 +397,9 @@ Device utilization summary:
 
 Selected Device : 3s250etq144-5 
 
- Number of Slices:                       73  out of   2448     2%  
- Number of Slice Flip Flops:             86  out of   4896     1%  
- Number of 4 input LUTs:                126  out of   4896     2%  
+ Number of Slices:                       75  out of   2448     3%  
+ Number of Slice Flip Flops:            102  out of   4896     2%  
+ Number of 4 input LUTs:                123  out of   4896     2%  
  Number of IOs:                          17
  Number of bonded IOBs:                  17  out of    108    15%  
  Number of BRAMs:                        15  out of     12   125% (*) 
@@ -431,7 +428,7 @@ Clock Information:
 -----------------------------------+---------------------------------------------------------------------------------------------------------------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)                                                                                                           | Load  |
 -----------------------------------+---------------------------------------------------------------------------------------------------------------------------------+-------+
-clk                                | BUFGP                                                                                                                           | 101   |
+clk                                | BUFGP                                                                                                                           | 117   |
 image_unit/N1                      | NONE(image_unit/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3_init.ram/dpram.dp1x1.ram) | 9     |
 secret_unit/N1                     | NONE(secret_unit/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[5].ram.r/s3_init.ram/dpram.dp1x1.ram)| 6     |
 -----------------------------------+---------------------------------------------------------------------------------------------------------------------------------+-------+
@@ -449,9 +446,9 @@ Timing Summary:
 ---------------
 Speed Grade: -5
 
-   Minimum period: 8.184ns (Maximum Frequency: 122.185MHz)
-   Minimum input arrival time before clock: 3.733ns
-   Maximum output required time after clock: 4.134ns
+   Minimum period: 8.226ns (Maximum Frequency: 121.567MHz)
+   Minimum input arrival time before clock: 3.780ns
+   Maximum output required time after clock: 4.040ns
    Maximum combinational path delay: No path found
 
 Timing Detail:
@@ -460,10 +457,10 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clk'
-  Clock period: 8.184ns (frequency: 122.185MHz)
-  Total number of paths / destination ports: 7188 / 351
+  Clock period: 8.226ns (frequency: 121.567MHz)
+  Total number of paths / destination ports: 7214 / 380
 -------------------------------------------------------------------------
-Delay:               8.184ns (Levels of Logic = 5)
+Delay:               8.226ns (Levels of Logic = 5)
   Source:            image_unit/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/s3_init.ram/dpram.dp9x9.ram (RAM)
   Destination:       encoder_unit/list_unit/elements_2_0 (FF)
   Source Clock:      clk rising
@@ -474,21 +471,21 @@ Delay:               8.184ns (Levels of Logic = 5)
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
      RAMB16_S9_S9:CLKA->DOA6    1   2.436   0.426  U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/s3_init.ram/dpram.dp9x9.ram (U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.ram_douta<6>)
-     LUT4:I1->O            7   0.612   0.632  U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/Mmux_dout_mux71 (douta<6>)
+     LUT4:I1->O            8   0.612   0.673  U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/Mmux_dout_mux71 (douta<6>)
      end scope: 'image_unit'
      LUT4:I2->O            1   0.612   0.426  encoder_unit/list_unit/response_cmp_eq0002853 (encoder_unit/list_unit/response_cmp_eq0002853)
      LUT4:I1->O            5   0.612   0.690  encoder_unit/list_unit/response_cmp_eq00028136 (encoder_unit/list_unit/response_cmp_eq0002)
      LUT3:I0->O            8   0.612   0.643  encoder_unit/list_unit/elements_2_not00011 (encoder_unit/list_unit/elements_2_not0001)
      FDCE:CE                   0.483          encoder_unit/list_unit/elements_2_0
     ----------------------------------------
-    Total                      8.184ns (5.367ns logic, 2.817ns route)
-                                       (65.6% logic, 34.4% route)
+    Total                      8.226ns (5.367ns logic, 2.859ns route)
+                                       (65.2% logic, 34.8% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
-  Total number of paths / destination ports: 3 / 3
+  Total number of paths / destination ports: 4 / 4
 -------------------------------------------------------------------------
-Offset:              3.733ns (Levels of Logic = 2)
+Offset:              3.780ns (Levels of Logic = 2)
   Source:            rst (PAD)
   Destination:       encoder_unit/list_unit/index_0 (FF)
   Destination Clock: clk rising
@@ -498,43 +495,43 @@ Offset:              3.733ns (Levels of Logic = 2)
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
      IBUF:I->O            60   1.106   1.080  rst_IBUF (rst_IBUF)
-     INV:I->O              3   0.612   0.451  encoder_unit/list_unit/rst_inv1_INV_0 (encoder_unit/list_unit/rst_inv)
+     INV:I->O              4   0.612   0.499  encoder_unit/rst_inv1_INV_0 (encoder_unit/list_unit/rst_inv)
      FDE:CE                    0.483          encoder_unit/list_unit/index_0
     ----------------------------------------
-    Total                      3.733ns (2.201ns logic, 1.532ns route)
-                                       (59.0% logic, 41.0% route)
+    Total                      3.780ns (2.201ns logic, 1.579ns route)
+                                       (58.2% logic, 41.8% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
   Total number of paths / destination ports: 15 / 15
 -------------------------------------------------------------------------
-Offset:              4.134ns (Levels of Logic = 1)
-  Source:            encoder_unit/entry_6 (FF)
-  Destination:       stream_segment<6> (PAD)
+Offset:              4.040ns (Levels of Logic = 1)
+  Source:            encoder_unit/finished (FF)
+  Destination:       finished (PAD)
   Source Clock:      clk rising
 
-  Data Path: encoder_unit/entry_6 to stream_segment<6>
+  Data Path: encoder_unit/finished to finished
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDC:C->Q              3   0.514   0.451  encoder_unit/entry_6 (encoder_unit/entry_6)
-     OBUF:I->O                 3.169          stream_segment_6_OBUF (stream_segment<6>)
+     FDCE:C->Q             1   0.514   0.357  encoder_unit/finished (encoder_unit/finished)
+     OBUF:I->O                 3.169          finished_OBUF (finished)
     ----------------------------------------
-    Total                      4.134ns (3.683ns logic, 0.451ns route)
-                                       (89.1% logic, 10.9% route)
+    Total                      4.040ns (3.683ns logic, 0.357ns route)
+                                       (91.2% logic, 8.8% route)
 
 =========================================================================
 
 
-Total REAL time to Xst completion: 10.00 secs
-Total CPU time to Xst completion: 9.06 secs
+Total REAL time to Xst completion: 9.00 secs
+Total CPU time to Xst completion: 8.12 secs
  
 --> 
 
 
-Total memory usage is 527660 kilobytes
+Total memory usage is 527460 kilobytes
 
 Number of errors   :    0 (   0 filtered)
 Number of warnings :    4 (   0 filtered)
-Number of infos    :    3 (   0 filtered)
+Number of infos    :    2 (   0 filtered)
 

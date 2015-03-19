@@ -40,6 +40,7 @@ entity encoder is
 			  vq : in vq_index;
 			  secret_bit : in std_logic;
 			  send_more : out std_logic;
+			  send_more_secret : out std_logic;
            entry : out  STD_LOGIC_VECTOR(1 to MAX_BUFFER_SIZE);
 			  entry_len : out STD_LOGIC_VECTOR(3 downto 0);
 			  finished : out std_logic
@@ -81,12 +82,15 @@ begin
 			entry <= (others => '0');
 			entry_len <= (others => '0');
 		elsif rising_edge(clk) then
+		entry_len <= (others => '0');
+		entry <= (others => '0');
 		case current_state is
 			when INFORM_USER =>
 				send_more <= '1';
 				current_state <= READING_DATA;
 			when READING_DATA =>
 				send_more <= '0';
+				send_more_secret <= '0';
 				if vq = 0 then
 					current_state <= DONE;
 				elsif li = 0 then
@@ -97,6 +101,7 @@ begin
 			when INDEX_CONTAINED_FALSE =>
 				entry(1 to 10) <= "00" & std_logic_vector(to_unsigned(vq, 8));
 				entry_len <= "1010";
+				send_more_secret <= '0';
 				current_state <= INFORM_USER;
 			when INDEX_CONTAINED_TRUE =>
 				if secret_bit = '0' then
@@ -121,11 +126,13 @@ begin
 				entry(2 to 3) <= "11";
 				entry_len <=  "0011";--convert_to_length(3);
 				current_state <= INFORM_USER;
+				send_more_secret <= '1';
 			when CASE_4 =>
 				entry(1) <= secret_bit;
 				entry(2) <= '1';
 				entry_len <= "0010";
 				current_state <= INFORM_USER;
+				send_more_secret <= '1';
 			when CASE_3 => 
 				entry(1) <= secret_bit;
 				entry(2) <= '1';
@@ -142,6 +149,7 @@ begin
 					entry_len <= "1000";
 				end if;
 				current_state <= INFORM_USER;
+				send_more_secret <= '1';
 			when CASE_5 => 
 				entry(1) <= secret_bit;
 				if num_bits = 1 then
@@ -157,8 +165,11 @@ begin
 					entry_len <= "0111";
 				end if;
 				current_state <= INFORM_USER;
+				send_more_secret <= '1';
 			when DONE => 
 				finished <= '1';
+				send_more <= '0';
+				send_more_secret <= '0';
 				current_state <= DONE;
 			end case;
 		end if;
