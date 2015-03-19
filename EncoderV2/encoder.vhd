@@ -43,6 +43,13 @@ entity encoder is
 			  entry_len : out STD_LOGIC_VECTOR(3 downto 0);
 			  finished : out std_logic
 			  );
+			  
+	function convert_to_length(num : natural) 
+	return std_logic_vector(3 downto 0)
+	is 
+	begin
+			return std_logic_vector(to_unsigned(num, 4));
+	end convert_to_length;
 end encoder;
 
 architecture Behavioral of encoder is
@@ -61,6 +68,90 @@ begin
 			index => li
 		);
 	
+	main_pr : process(clk, rst)
+		variable output_buffer : std_logic_vector(1 to MAX_BUFFER_SIZE) := (others => '0');
+		variable buffer_size : buffer_index := 0;
+	begin
+		if rst = '1' then
+			current_state <= READING_DATA;
+			send_more <= '0';
+			finished <= '0';
+			entry <= (others => '0');
+			entry_len <= (others => '0');
+		elsif rising_edge(clk) then
+		case current_state is
+			when INFORM_USER =>
+				send_more <= '1';
+				current_state <= READING_DATA;
+			when READING_DATA =>
+				send_more <= '0';
+				if vq = 0 then
+					current_state <= DONE;
+				elsif li = 0 then
+					current_state <= INDEX_CONTAINED_FALSE;
+				else
+					current_state <= INDEX_CONTAINED_TRUE;
+				end if;
+			when INDEX_CONTAINED_FALSE =>
+				entry(1 to 10) <= "00" & std_logic_vector(to_unsigned(vq, 8));
+				entry_len <= convert_to_length(10);
+				current_state <= INFORM_USER;
+			when INDEX_CONTAINED_TRUE =>
+				if secret_bit = '0' then
+					current_state <= ALL_SECRET_ZERO_TRUE;
+				else
+					current_state <= ALL_SECRET_ZERO_FALSE;
+				end if;
+			when ALL_SECRET_ZERO_TRUE =>
+				if li = 1 then
+					current_state <= CASE_2;
+				else
+					current_state <= CASE_3;
+				end if;
+			when ALL_SECRET_ZERO_FALSE =>
+				if li = 1 then
+					current_state <= CASE_4;
+				else
+					current_state <= CASE_5;
+				end if;
+			when CASE_2 =>
+				send_more <= '0';
+				entry <= (others => '0');
+				entry_len <= (others => '0');
+				output_buffer(1) := secret_bit;
+				output_buffer(2 to 3) := "11";
+				buffer_size := 3;
+				next_state <= SEND_ENCODING;
+				finished <= '0';
+			when CASE_4 =>
+				send_more <= '0';
+				entry <= (others => '0');
+				entry_len <= (others => '0');
+				output_buffer(1) := secret_bit;
+				output_buffer(2) := '1';
+				buffer_size := 2;
+				next_state <= SEND_ENCODING;
+				finished <= '0';
+			when CASE_3 => 
+				send_more <= '0';
+				output_buffer := (others => '0');
+				entry <= (others => '0');
+				entry_len <= (others => '0');
+				buffer_size := 0;
+				finished <= '0';
+			when CASE_5 => 
+				send_more <= '0';
+				output_buffer := (others => '0');
+				entry <= (others => '0');
+				entry_len <= (others => '0');
+				buffer_size := 0;
+				finished <= '0';
+			when DONE => 
+				finished <= '1';
+				next_state <= DONE;
+			end case;
+	end process;
+	
 	transition_pr : process(clk, rst)
 	begin
 		if rst = '1' then
@@ -76,45 +167,22 @@ begin
 		variable output_buffer : std_logic_vector(1 to MAX_BUFFER_SIZE) := (others => '0');
 		variable buffer_size : buffer_index := 0;
 	begin
+		output_buffer := (others => '0');
+		buffer_index := 0;
 		case current_state is
 			when INFORM_USER =>
-				next_state <= READING_DATA;
 				send_more <= '1';
-				output_buffer := (others => '0');
-				entry <= (others => '0');
-				entry_len <= (others => '0');
-				buffer_size := 0;
-				finished <= '0';
+				current_state <= READING_DATA;
 			when READING_DATA =>
+				send_more <= '0';
 				if vq = 0 then
-					next_state <= DONE;
-					send_more <= '0';
-					output_buffer := (others => '0');
-					entry <= (others => '0');
-					entry_len <= (others => '0');
-					buffer_size := 0;
-					finished <= '0';
+					current_state <= DONE;
 				elsif li = 0 then
-					next_state <= INDEX_CONTAINED_FALSE;
-					send_more <= '0';
-					output_buffer := (others => '0');
-					entry <= (others => '0');
-					entry_len <= (others => '0');
-					buffer_size := 0;
-					finished <= '0';
+					current_state <= INDEX_CONTAINED_FALSE;
 				else
-					next_state <= INDEX_CONTAINED_TRUE;
-					send_more <= '0';
-					output_buffer := (others => '0');
-					entry <= (others => '0');
-					entry_len <= (others => '0');
-					buffer_size := 0;
-					finished <= '0';
+					current_state <= INDEX_CONTAINED_TRUE;
 				end if;
 			when INDEX_CONTAINED_FALSE =>
-				send_more <= '0';
-				entry <= (others => '0');
-				entry_len <= (others => '0');
 				buffer_size := 10;
 				output_buffer(1 to 10) := "00" 
 					& std_logic_vector(to_unsigned(vq, 8));
