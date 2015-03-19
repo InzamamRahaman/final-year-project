@@ -115,181 +115,163 @@ begin
 					current_state <= CASE_5;
 				end if;
 			when CASE_2 =>
-				send_more <= '0';
-				entry <= (others => '0');
-				entry_len <= (others => '0');
-				output_buffer(1) := secret_bit;
-				output_buffer(2 to 3) := "11";
-				buffer_size := 3;
-				next_state <= SEND_ENCODING;
-				finished <= '0';
+				entry(1) <= secret_bit;
+				entry(2 to 3) <= "11";
+				entry_len <= convert_to_length(3);
+				current_state <= INFORM_USER;
 			when CASE_4 =>
-				send_more <= '0';
-				entry <= (others => '0');
-				entry_len <= (others => '0');
-				output_buffer(1) := secret_bit;
-				output_buffer(2) := '1';
-				buffer_size := 2;
-				next_state <= SEND_ENCODING;
-				finished <= '0';
+				entry(1) <= secret_bit;
+				entry(2) <= '1';
+				entry_len <= convert_to_length(2);
+				current_state <= INFORM_USER;
 			when CASE_3 => 
-				send_more <= '0';
-				output_buffer := (others => '0');
-				entry <= (others => '0');
-				entry_len <= (others => '0');
-				buffer_size := 0;
-				finished <= '0';
+				current_state <= INFORM_USER;
 			when CASE_5 => 
-				send_more <= '0';
-				output_buffer := (others => '0');
-				entry <= (others => '0');
-				entry_len <= (others => '0');
-				buffer_size := 0;
-				finished <= '0';
+				current_state <= INFORM_USER;
 			when DONE => 
 				finished <= '1';
 				next_state <= DONE;
 			end case;
 	end process;
 	
-	transition_pr : process(clk, rst)
-	begin
-		if rst = '1' then
-			current_state <= READING_DATA;
-		elsif rising_edge(clk) then
-			current_state <= next_state;
-		end if;
-	end process;
+--	transition_pr : process(clk, rst)
+--	begin
+--		if rst = '1' then
+--			current_state <= READING_DATA;
+--		elsif rising_edge(clk) then
+--			current_state <= next_state;
+--		end if;
+--	end process;
+--	
 	
 	
-	
-	encoding_pr : process(current_state, vq, li, secret_bit)
-		variable output_buffer : std_logic_vector(1 to MAX_BUFFER_SIZE) := (others => '0');
-		variable buffer_size : buffer_index := 0;
-	begin
-		output_buffer := (others => '0');
-		buffer_index := 0;
-		case current_state is
-			when INFORM_USER =>
-				send_more <= '1';
-				current_state <= READING_DATA;
-			when READING_DATA =>
-				send_more <= '0';
-				if vq = 0 then
-					current_state <= DONE;
-				elsif li = 0 then
-					current_state <= INDEX_CONTAINED_FALSE;
-				else
-					current_state <= INDEX_CONTAINED_TRUE;
-				end if;
-			when INDEX_CONTAINED_FALSE =>
-				buffer_size := 10;
-				output_buffer(1 to 10) := "00" 
-					& std_logic_vector(to_unsigned(vq, 8));
-				next_state <= SEND_ENCODING;
-				finished <= '0';
-			when SEND_ENCODING =>
-				send_more <= '0';
-				entry <= output_buffer;
-				entry_len <= std_logic_vector(to_unsigned(buffer_size, 4));
-				next_state <= INFORM_USER;
-				finished <= '0';
-			when INDEX_CONTAINED_TRUE =>
-				if secret_bit = '0' then
-					send_more <= '0';
-					output_buffer := (others => '0');
-					entry <= (others => '0');
-					entry_len <= (others => '0');
-					buffer_size := 0;
-					next_state <= ALL_SECRET_ZERO_TRUE;
-					finished <= '0';
-				else
-					send_more <= '0';
-					output_buffer := (others => '0');
-					entry <= (others => '0');
-					entry_len <= (others => '0');
-					buffer_size := 0;
-					next_state <= ALL_SECRET_ZERO_FALSE;
-					finished <= '0';
-				end if;
-			when ALL_SECRET_ZERO_TRUE =>
-				if li = 1 then
-					send_more <= '0';
-					output_buffer := (others => '0');
-					entry <= (others => '0');
-					entry_len <= (others => '0');
-					buffer_size := 0;
-					next_state <= CASE_2;
-					finished <= '0';
-				else
-					send_more <= '0';
-					output_buffer := (others => '0');
-					entry <= (others => '0');
-					entry_len <= (others => '0');
-					buffer_size := 0;
-					next_state <= CASE_3;
-					finished <= '0';
-				end if;
-			when ALL_SECRET_ZERO_FALSE =>
-				if li = 1 then
-					send_more <= '0';
-					output_buffer := (others => '0');
-					entry <= (others => '0');
-					entry_len <= (others => '0');
-					buffer_size := 0;
-					next_state <= CASE_4;
-					finished <= '0';
-				else
-					send_more <= '0';
-					output_buffer := (others => '0');
-					entry <= (others => '0');
-					entry_len <= (others => '0');
-					buffer_size := 0;
-					next_state <= CASE_5;
-					finished <= '0';
-				end if;
-			when CASE_2 =>
-				send_more <= '0';
-				entry <= (others => '0');
-				entry_len <= (others => '0');
-				output_buffer(1) := secret_bit;
-				output_buffer(2 to 3) := "11";
-				buffer_size := 3;
-				next_state <= SEND_ENCODING;
-				finished <= '0';
-			when CASE_4 =>
-				send_more <= '0';
-				entry <= (others => '0');
-				entry_len <= (others => '0');
-				output_buffer(1) := secret_bit;
-				output_buffer(2) := '1';
-				buffer_size := 2;
-				next_state <= SEND_ENCODING;
-				finished <= '0';
-			when CASE_3 => 
-				send_more <= '0';
-				output_buffer := (others => '0');
-				entry <= (others => '0');
-				entry_len <= (others => '0');
-				buffer_size := 0;
-				finished <= '0';
-			when CASE_5 => 
-				send_more <= '0';
-				output_buffer := (others => '0');
-				entry <= (others => '0');
-				entry_len <= (others => '0');
-				buffer_size := 0;
-				finished <= '0';
-			when DONE => 
-				send_more <= '0';
-				output_buffer := (others => '0');
-				entry <= (others => '0');
-				entry_len <= (others => '0');
-				buffer_size := 0;
-				finished <= '1';
-				next_state <= DONE;
-			end case;
-	end process;
+--	encoding_pr : process(current_state, vq, li, secret_bit)
+--		variable output_buffer : std_logic_vector(1 to MAX_BUFFER_SIZE) := (others => '0');
+--		variable buffer_size : buffer_index := 0;
+--	begin
+--		output_buffer := (others => '0');
+--		buffer_index := 0;
+--		case current_state is
+--			when INFORM_USER =>
+--				send_more <= '1';
+--				current_state <= READING_DATA;
+--			when READING_DATA =>
+--				send_more <= '0';
+--				if vq = 0 then
+--					current_state <= DONE;
+--				elsif li = 0 then
+--					current_state <= INDEX_CONTAINED_FALSE;
+--				else
+--					current_state <= INDEX_CONTAINED_TRUE;
+--				end if;
+--			when INDEX_CONTAINED_FALSE =>
+--				buffer_size := 10;
+--				output_buffer(1 to 10) := "00" 
+--					& std_logic_vector(to_unsigned(vq, 8));
+--				next_state <= SEND_ENCODING;
+--				finished <= '0';
+--			when SEND_ENCODING =>
+--				send_more <= '0';
+--				entry <= output_buffer;
+--				entry_len <= std_logic_vector(to_unsigned(buffer_size, 4));
+--				next_state <= INFORM_USER;
+--				finished <= '0';
+--			when INDEX_CONTAINED_TRUE =>
+--				if secret_bit = '0' then
+--					send_more <= '0';
+--					output_buffer := (others => '0');
+--					entry <= (others => '0');
+--					entry_len <= (others => '0');
+--					buffer_size := 0;
+--					next_state <= ALL_SECRET_ZERO_TRUE;
+--					finished <= '0';
+--				else
+--					send_more <= '0';
+--					output_buffer := (others => '0');
+--					entry <= (others => '0');
+--					entry_len <= (others => '0');
+--					buffer_size := 0;
+--					next_state <= ALL_SECRET_ZERO_FALSE;
+--					finished <= '0';
+--				end if;
+--			when ALL_SECRET_ZERO_TRUE =>
+--				if li = 1 then
+--					send_more <= '0';
+--					output_buffer := (others => '0');
+--					entry <= (others => '0');
+--					entry_len <= (others => '0');
+--					buffer_size := 0;
+--					next_state <= CASE_2;
+--					finished <= '0';
+--				else
+--					send_more <= '0';
+--					output_buffer := (others => '0');
+--					entry <= (others => '0');
+--					entry_len <= (others => '0');
+--					buffer_size := 0;
+--					next_state <= CASE_3;
+--					finished <= '0';
+--				end if;
+--			when ALL_SECRET_ZERO_FALSE =>
+--				if li = 1 then
+--					send_more <= '0';
+--					output_buffer := (others => '0');
+--					entry <= (others => '0');
+--					entry_len <= (others => '0');
+--					buffer_size := 0;
+--					next_state <= CASE_4;
+--					finished <= '0';
+--				else
+--					send_more <= '0';
+--					output_buffer := (others => '0');
+--					entry <= (others => '0');
+--					entry_len <= (others => '0');
+--					buffer_size := 0;
+--					next_state <= CASE_5;
+--					finished <= '0';
+--				end if;
+--			when CASE_2 =>
+--				send_more <= '0';
+--				entry <= (others => '0');
+--				entry_len <= (others => '0');
+--				output_buffer(1) := secret_bit;
+--				output_buffer(2 to 3) := "11";
+--				buffer_size := 3;
+--				next_state <= SEND_ENCODING;
+--				finished <= '0';
+--			when CASE_4 =>
+--				send_more <= '0';
+--				entry <= (others => '0');
+--				entry_len <= (others => '0');
+--				output_buffer(1) := secret_bit;
+--				output_buffer(2) := '1';
+--				buffer_size := 2;
+--				next_state <= SEND_ENCODING;
+--				finished <= '0';
+--			when CASE_3 => 
+--				send_more <= '0';
+--				output_buffer := (others => '0');
+--				entry <= (others => '0');
+--				entry_len <= (others => '0');
+--				buffer_size := 0;
+--				finished <= '0';
+--			when CASE_5 => 
+--				send_more <= '0';
+--				output_buffer := (others => '0');
+--				entry <= (others => '0');
+--				entry_len <= (others => '0');
+--				buffer_size := 0;
+--				finished <= '0';
+--			when DONE => 
+--				send_more <= '0';
+--				output_buffer := (others => '0');
+--				entry <= (others => '0');
+--				entry_len <= (others => '0');
+--				buffer_size := 0;
+--				finished <= '1';
+--				next_state <= DONE;
+--			end case;
+--	end process;
 	
 
 
