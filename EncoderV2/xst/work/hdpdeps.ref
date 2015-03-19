@@ -1,75 +1,83 @@
-V3 35
+V3 38
 FL /home/school/ise_projs/final-year-project/EncoderV2/address_calculator.vhd 2015/03/18.18:47:06 P.20131013
-EN work/address_calculator 1426737749 \
+EN work/address_calculator 1426740249 \
       FL /home/school/ise_projs/final-year-project/EncoderV2/address_calculator.vhd \
       PB ieee/std_logic_1164 1381692176 PB ieee/NUMERIC_STD 1381692181
-AR work/address_calculator/Behavioral 1426737750 \
+AR work/address_calculator/Behavioral 1426740250 \
       FL /home/school/ise_projs/final-year-project/EncoderV2/address_calculator.vhd \
-      EN work/address_calculator 1426737749
+      EN work/address_calculator 1426740249
 FL /home/school/ise_projs/final-year-project/EncoderV2/conversions_pkg.vhd 2015/03/18.23:53:51 P.20131013
-PH work/conversions_pkg 1426737745 \
+PH work/conversions_pkg 1426740243 \
       FL /home/school/ise_projs/final-year-project/EncoderV2/conversions_pkg.vhd \
       PB ieee/std_logic_1164 1381692176 PB ieee/NUMERIC_STD 1381692181
-PB work/conversions_pkg 1426737746 \
+PB work/conversions_pkg 1426740244 \
       FL /home/school/ise_projs/final-year-project/EncoderV2/conversions_pkg.vhd \
-      PH work/conversions_pkg 1426737745
+      PH work/conversions_pkg 1426740243
 FL /home/school/ise_projs/final-year-project/EncoderV2/converter.vhd 2015/03/18.17:58:16 P.20131013
-EN work/converter 1426737755 \
+EN work/converter 1426740255 \
       FL /home/school/ise_projs/final-year-project/EncoderV2/converter.vhd \
-      PB ieee/std_logic_1164 1381692176 PB work/size_data_pkg 1426737742 \
+      PB ieee/std_logic_1164 1381692176 PB work/size_data_pkg 1426740240 \
       PB ieee/NUMERIC_STD 1381692181
-AR work/converter/Behavioral 1426737756 \
+AR work/converter/Behavioral 1426740256 \
       FL /home/school/ise_projs/final-year-project/EncoderV2/converter.vhd \
-      EN work/converter 1426737755
-FL /home/school/ise_projs/final-year-project/EncoderV2/encoder.vhd 2015/03/19.00:02:13 P.20131013
-EN work/encoder 1426737757 \
+      EN work/converter 1426740255
+FL /home/school/ise_projs/final-year-project/EncoderV2/encoder.vhd 2015/03/19.00:43:41 P.20131013
+EN work/encoder 1426740257 \
       FL /home/school/ise_projs/final-year-project/EncoderV2/encoder.vhd \
       PB ieee/std_logic_1164 1381692176 PB ieee/NUMERIC_STD 1381692181 \
-      PB work/size_data_pkg 1426737742 PB work/encoder_state_pkg 1426737744 \
-      PB work/conversions_pkg 1426737746
-AR work/encoder/Behavioral 1426737758 \
+      PB work/size_data_pkg 1426740240 PB work/encoder_state_pkg 1426740242 \
+      PB work/conversions_pkg 1426740244
+AR work/encoder/Behavioral 1426740258 \
       FL /home/school/ise_projs/final-year-project/EncoderV2/encoder.vhd \
-      EN work/encoder 1426737757 AR work/list/Behavioral 1426737748
+      EN work/encoder 1426740257 AR work/list/Behavioral 1426740246 \
+      AR work/list_index_size_calc/Behavioral 1426740248
 FL /home/school/ise_projs/final-year-project/EncoderV2/encoder_state_pkg.vhd 2015/03/18.23:45:22 P.20131013
-PH work/encoder_state_pkg 1426737743 \
+PH work/encoder_state_pkg 1426740241 \
       FL /home/school/ise_projs/final-year-project/EncoderV2/encoder_state_pkg.vhd \
       PB ieee/std_logic_1164 1381692176
-PB work/encoder_state_pkg 1426737744 \
+PB work/encoder_state_pkg 1426740242 \
       FL /home/school/ise_projs/final-year-project/EncoderV2/encoder_state_pkg.vhd \
-      PH work/encoder_state_pkg 1426737743
+      PH work/encoder_state_pkg 1426740241
 FL /home/school/ise_projs/final-year-project/EncoderV2/ipcore_dir/IMAGE_RAM.vhd 2015/03/18.13:03:41 P.20131013
-EN work/IMAGE_RAM 1426737751 \
+EN work/IMAGE_RAM 1426740251 \
       FL /home/school/ise_projs/final-year-project/EncoderV2/ipcore_dir/IMAGE_RAM.vhd \
       PB ieee/std_logic_1164 1381692176
-AR work/IMAGE_RAM/IMAGE_RAM_a 1426737752 \
+AR work/IMAGE_RAM/IMAGE_RAM_a 1426740252 \
       FL /home/school/ise_projs/final-year-project/EncoderV2/ipcore_dir/IMAGE_RAM.vhd \
-      EN work/IMAGE_RAM 1426737751
+      EN work/IMAGE_RAM 1426740251
 FL /home/school/ise_projs/final-year-project/EncoderV2/ipcore_dir/SECRET_RAM.vhd 2015/03/18.13:36:54 P.20131013
-EN work/SECRET_RAM 1426737753 \
+EN work/SECRET_RAM 1426740253 \
       FL /home/school/ise_projs/final-year-project/EncoderV2/ipcore_dir/SECRET_RAM.vhd \
       PB ieee/std_logic_1164 1381692176
-AR work/SECRET_RAM/SECRET_RAM_a 1426737754 \
+AR work/SECRET_RAM/SECRET_RAM_a 1426740254 \
       FL /home/school/ise_projs/final-year-project/EncoderV2/ipcore_dir/SECRET_RAM.vhd \
-      EN work/SECRET_RAM 1426737753
+      EN work/SECRET_RAM 1426740253
 FL /home/school/ise_projs/final-year-project/EncoderV2/list.vhd 2015/03/18.18:25:30 P.20131013
-EN work/list 1426737747 \
+EN work/list 1426740245 \
       FL /home/school/ise_projs/final-year-project/EncoderV2/list.vhd \
-      PB ieee/std_logic_1164 1381692176 PB work/size_data_pkg 1426737742
-AR work/list/Behavioral 1426737748 \
+      PB ieee/std_logic_1164 1381692176 PB work/size_data_pkg 1426740240
+AR work/list/Behavioral 1426740246 \
       FL /home/school/ise_projs/final-year-project/EncoderV2/list.vhd \
-      EN work/list 1426737747
+      EN work/list 1426740245
+FL /home/school/ise_projs/final-year-project/EncoderV2/list_index_size_calc.vhd 2015/03/19.00:36:56 P.20131013
+EN work/list_index_size_calc 1426740247 \
+      FL /home/school/ise_projs/final-year-project/EncoderV2/list_index_size_calc.vhd \
+      PB ieee/std_logic_1164 1381692176 PB work/size_data_pkg 1426740240
+AR work/list_index_size_calc/Behavioral 1426740248 \
+      FL /home/school/ise_projs/final-year-project/EncoderV2/list_index_size_calc.vhd \
+      EN work/list_index_size_calc 1426740247
 FL /home/school/ise_projs/final-year-project/EncoderV2/size_data_pkg.vhd 2015/03/17.12:59:13 P.20131013
-PH work/size_data_pkg 1426737741 \
+PH work/size_data_pkg 1426740239 \
       FL /home/school/ise_projs/final-year-project/EncoderV2/size_data_pkg.vhd \
       PB ieee/std_logic_1164 1381692176
-PB work/size_data_pkg 1426737742 \
+PB work/size_data_pkg 1426740240 \
       FL /home/school/ise_projs/final-year-project/EncoderV2/size_data_pkg.vhd \
-      PH work/size_data_pkg 1426737741
+      PH work/size_data_pkg 1426740239
 FL /home/school/ise_projs/final-year-project/EncoderV2/top.vhd 2015/03/19.00:01:18 P.20131013
-EN work/top 1426737759 \
+EN work/top 1426740259 \
       FL /home/school/ise_projs/final-year-project/EncoderV2/top.vhd \
       PB ieee/std_logic_1164 1381692176 PB ieee/NUMERIC_STD 1381692181 \
-      PB work/size_data_pkg 1426737742 PB work/encoder_state_pkg 1426737744
-AR work/top/Behavioral 1426737760 \
-      FL /home/school/ise_projs/final-year-project/EncoderV2/top.vhd EN work/top 1426737759 \
+      PB work/size_data_pkg 1426740240 PB work/encoder_state_pkg 1426740242
+AR work/top/Behavioral 1426740260 \
+      FL /home/school/ise_projs/final-year-project/EncoderV2/top.vhd EN work/top 1426740259 \
       CP address_calculator CP IMAGE_RAM CP SECRET_RAM CP converter CP encoder

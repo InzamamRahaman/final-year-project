@@ -51,6 +51,7 @@ architecture Behavioral of encoder is
 	signal current_state : encoder_state;
 	--signal next_state : encoder_state;
 	signal li : list_index;
+	signal num_bits : list_index_size;
 begin
 
 	-- self orgnaizing list
@@ -61,6 +62,12 @@ begin
 			rst => rst,
 			vq => vq,
 			index => li
+		);
+		
+	list_index_size_calc_unit : entity work.list_index_size_calc(Behavioral) port
+		map (
+			index => li,
+			num_bits => num_bits
 		);
 	
 	main_pr : process(clk, rst)
@@ -120,8 +127,35 @@ begin
 				entry_len <= "0010";
 				current_state <= INFORM_USER;
 			when CASE_3 => 
+				entry(1) <= secret_bit;
+				entry(2) <= '1';
+				if num_bits = 1 then
+					entry(3 to 4) <= std_logic_vector(to_unsigned(li, 2));
+					entry_len <= "0100";
+				elsif num_bits = 2 then
+					entry(3) <= '0';
+					entry(4 to 6) <= std_logic_vector(to_unsigned(li, 3));
+					entry_len <= "0110";
+				else
+					entry(3 to 4) <= "00";
+					entry(5 to 8) <= std_logic_vector(to_unsigned(li, 4));
+					entry_len <= "1000";
+				end if;
 				current_state <= INFORM_USER;
 			when CASE_5 => 
+				entry(1) <= secret_bit;
+				if num_bits = 1 then
+					entry(2 to 3) <= std_logic_vector(to_unsigned(li, 2));
+					entry_len <= "0011";
+				elsif num_bits = 2 then
+					entry(2) <= '0';
+					entry(3 to 5) <= std_logic_vector(to_unsigned(li, 3));
+					entry_len <= "0101";
+				else
+					entry(2 to 3) <= "00";
+					entry(4 to 7) <= std_logic_vector(to_unsigned(li, 4));
+					entry_len <= "0111";
+				end if;
 				current_state <= INFORM_USER;
 			when DONE => 
 				finished <= '1';

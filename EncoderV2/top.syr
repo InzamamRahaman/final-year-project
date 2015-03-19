@@ -5,14 +5,14 @@ Parameter TMPDIR set to xst/projnav.tmp
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.06 secs
+Total CPU time to Xst completion: 0.07 secs
  
 --> 
 Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.06 secs
+Total CPU time to Xst completion: 0.07 secs
  
 --> 
 Reading design: top.prj
@@ -118,6 +118,9 @@ Compiling vhdl file "/home/school/ise_projs/final-year-project/EncoderV2/convers
 Architecture conversions_pkg of Entity conversions_pkg is up to date.
 Compiling vhdl file "/home/school/ise_projs/final-year-project/EncoderV2/list.vhd" in Library work.
 Architecture behavioral of Entity list is up to date.
+Compiling vhdl file "/home/school/ise_projs/final-year-project/EncoderV2/list_index_size_calc.vhd" in Library work.
+Entity <list_index_size_calc> compiled.
+Entity <list_index_size_calc> (Architecture <behavioral>) compiled.
 Compiling vhdl file "/home/school/ise_projs/final-year-project/EncoderV2/address_calculator.vhd" in Library work.
 Architecture behavioral of Entity address_calculator is up to date.
 Compiling vhdl file "/home/school/ise_projs/final-year-project/EncoderV2/ipcore_dir/IMAGE_RAM.vhd" in Library work.
@@ -130,8 +133,7 @@ Compiling vhdl file "/home/school/ise_projs/final-year-project/EncoderV2/encoder
 Entity <encoder> compiled.
 Entity <encoder> (Architecture <behavioral>) compiled.
 Compiling vhdl file "/home/school/ise_projs/final-year-project/EncoderV2/top.vhd" in Library work.
-Entity <top> compiled.
-Entity <top> (Architecture <behavioral>) compiled.
+Architecture behavioral of Entity top is up to date.
 
 =========================================================================
 *                     Design Hierarchy Analysis                         *
@@ -145,6 +147,8 @@ Analyzing hierarchy for entity <converter> in library <work> (architecture <beha
 Analyzing hierarchy for entity <encoder> in library <work> (architecture <behavioral>).
 
 Analyzing hierarchy for entity <list> in library <work> (architecture <Behavioral>).
+
+Analyzing hierarchy for entity <list_index_size_calc> in library <work> (architecture <Behavioral>).
 
 
 =========================================================================
@@ -167,6 +171,9 @@ Entity <encoder> analyzed. Unit <encoder> generated.
 
 Analyzing Entity <list> in library <work> (Architecture <Behavioral>).
 Entity <list> analyzed. Unit <list> generated.
+
+Analyzing Entity <list_index_size_calc> in library <work> (Architecture <Behavioral>).
+Entity <list_index_size_calc> analyzed. Unit <list_index_size_calc> generated.
 
 
 =========================================================================
@@ -202,6 +209,15 @@ Synthesizing Unit <list>.
 	inferred  35 D-type flip-flop(s).
 	inferred   5 Comparator(s).
 Unit <list> synthesized.
+
+
+Synthesizing Unit <list_index_size_calc>.
+    Related source file is "/home/school/ise_projs/final-year-project/EncoderV2/list_index_size_calc.vhd".
+    Found 3-bit comparator less for signal <num_bits$cmp_lt0000> created at line 44.
+    Found 3-bit comparator less for signal <num_bits$cmp_lt0001> created at line 45.
+    Summary:
+	inferred   2 Comparator(s).
+Unit <list_index_size_calc> synthesized.
 
 
 Synthesizing Unit <encoder>.
@@ -248,8 +264,9 @@ Macro Statistics
  3-bit register                                        : 1
  4-bit register                                        : 1
  8-bit register                                        : 4
-# Comparators                                          : 5
+# Comparators                                          : 7
  3-bit comparator greater                              : 1
+ 3-bit comparator less                                 : 2
  8-bit comparator equal                                : 4
 
 =========================================================================
@@ -279,7 +296,6 @@ Reading core <ipcore_dir/IMAGE_RAM.ngc>.
 Reading core <ipcore_dir/SECRET_RAM.ngc>.
 Loading core <IMAGE_RAM> for timing and area information for instance <image_unit>.
 Loading core <SECRET_RAM> for timing and area information for instance <secret_unit>.
-WARNING:Xst:1710 - FF/Latch <entry_len_2> (without init value) has a constant value of 0 in block <encoder_unit>. This FF/Latch will be trimmed during the optimization process.
 
 =========================================================================
 Advanced HDL Synthesis Report
@@ -291,8 +307,9 @@ Macro Statistics
  17-bit up counter                                     : 1
 # Registers                                            : 51
  Flip-Flops                                            : 51
-# Comparators                                          : 5
+# Comparators                                          : 7
  3-bit comparator greater                              : 1
+ 3-bit comparator less                                 : 2
  8-bit comparator equal                                : 4
 
 =========================================================================
@@ -300,7 +317,6 @@ Macro Statistics
 =========================================================================
 *                         Low Level Synthesis                           *
 =========================================================================
-WARNING:Xst:1710 - FF/Latch <entry_len_2> (without init value) has a constant value of 0 in block <encoder>. This FF/Latch will be trimmed during the optimization process.
 INFO:Xst:2146 - In block <top>, Counter <address_calculator_unit/secret_address> <address_calculator_unit/image_address> are equivalent, XST will keep only <address_calculator_unit/secret_address>.
 
 Optimizing unit <top> ...
@@ -319,8 +335,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 78
- Flip-Flops                                            : 78
+# Registers                                            : 79
+ Flip-Flops                                            : 79
 
 =========================================================================
 
@@ -349,22 +365,24 @@ Design Statistics
 # IOs                              : 17
 
 Cell Usage :
-# BELS                             : 133
+# BELS                             : 168
 #      GND                         : 3
 #      INV                         : 6
 #      LUT1                        : 15
-#      LUT2                        : 5
-#      LUT3                        : 11
-#      LUT4                        : 50
-#      LUT4_D                      : 3
-#      LUT4_L                      : 3
+#      LUT2                        : 6
+#      LUT2_L                      : 1
+#      LUT3                        : 26
+#      LUT3_L                      : 2
+#      LUT4                        : 59
+#      LUT4_D                      : 4
+#      LUT4_L                      : 7
 #      MUXCY                       : 16
-#      MUXF5                       : 3
+#      MUXF5                       : 5
 #      VCC                         : 1
 #      XORCY                       : 17
-# FlipFlops/Latches                : 85
-#      FDC                         : 25
-#      FDCE                        : 32
+# FlipFlops/Latches                : 86
+#      FDC                         : 31
+#      FDCE                        : 27
 #      FDE                         : 27
 #      FDP                         : 1
 # RAMS                             : 15
@@ -382,9 +400,9 @@ Device utilization summary:
 
 Selected Device : 3s250etq144-5 
 
- Number of Slices:                       64  out of   2448     2%  
- Number of Slice Flip Flops:             85  out of   4896     1%  
- Number of 4 input LUTs:                 93  out of   4896     1%  
+ Number of Slices:                       73  out of   2448     2%  
+ Number of Slice Flip Flops:             86  out of   4896     1%  
+ Number of 4 input LUTs:                126  out of   4896     2%  
  Number of IOs:                          17
  Number of bonded IOBs:                  17  out of    108    15%  
  Number of BRAMs:                        15  out of     12   125% (*) 
@@ -413,7 +431,7 @@ Clock Information:
 -----------------------------------+---------------------------------------------------------------------------------------------------------------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)                                                                                                           | Load  |
 -----------------------------------+---------------------------------------------------------------------------------------------------------------------------------+-------+
-clk                                | BUFGP                                                                                                                           | 100   |
+clk                                | BUFGP                                                                                                                           | 101   |
 image_unit/N1                      | NONE(image_unit/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3_init.ram/dpram.dp1x1.ram) | 9     |
 secret_unit/N1                     | NONE(secret_unit/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[5].ram.r/s3_init.ram/dpram.dp1x1.ram)| 6     |
 -----------------------------------+---------------------------------------------------------------------------------------------------------------------------------+-------+
@@ -424,7 +442,7 @@ Asynchronous Control Signals Information:
 -----------------------------------+------------------------+-------+
 Control Signal                     | Buffer(FF name)        | Load  |
 -----------------------------------+------------------------+-------+
-rst                                | IBUF                   | 58    |
+rst                                | IBUF                   | 59    |
 -----------------------------------+------------------------+-------+
 
 Timing Summary:
@@ -432,8 +450,8 @@ Timing Summary:
 Speed Grade: -5
 
    Minimum period: 8.184ns (Maximum Frequency: 122.185MHz)
-   Minimum input arrival time before clock: 3.732ns
-   Maximum output required time after clock: 4.063ns
+   Minimum input arrival time before clock: 3.733ns
+   Maximum output required time after clock: 4.134ns
    Maximum combinational path delay: No path found
 
 Timing Detail:
@@ -443,7 +461,7 @@ All values displayed in nanoseconds (ns)
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clk'
   Clock period: 8.184ns (frequency: 122.185MHz)
-  Total number of paths / destination ports: 7081 / 355
+  Total number of paths / destination ports: 7188 / 351
 -------------------------------------------------------------------------
 Delay:               8.184ns (Levels of Logic = 5)
   Source:            image_unit/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/s3_init.ram/dpram.dp9x9.ram (RAM)
@@ -470,7 +488,7 @@ Delay:               8.184ns (Levels of Logic = 5)
 Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
   Total number of paths / destination ports: 3 / 3
 -------------------------------------------------------------------------
-Offset:              3.732ns (Levels of Logic = 2)
+Offset:              3.733ns (Levels of Logic = 2)
   Source:            rst (PAD)
   Destination:       encoder_unit/list_unit/index_0 (FF)
   Destination Clock: clk rising
@@ -479,44 +497,44 @@ Offset:              3.732ns (Levels of Logic = 2)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O            59   1.106   1.080  rst_IBUF (rst_IBUF)
+     IBUF:I->O            60   1.106   1.080  rst_IBUF (rst_IBUF)
      INV:I->O              3   0.612   0.451  encoder_unit/list_unit/rst_inv1_INV_0 (encoder_unit/list_unit/rst_inv)
      FDE:CE                    0.483          encoder_unit/list_unit/index_0
     ----------------------------------------
-    Total                      3.732ns (2.201ns logic, 1.531ns route)
+    Total                      3.733ns (2.201ns logic, 1.532ns route)
                                        (59.0% logic, 41.0% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
-  Total number of paths / destination ports: 14 / 14
+  Total number of paths / destination ports: 15 / 15
 -------------------------------------------------------------------------
-Offset:              4.063ns (Levels of Logic = 1)
-  Source:            encoder_unit/entry_len_3 (FF)
-  Destination:       stream_segment_len<3> (PAD)
+Offset:              4.134ns (Levels of Logic = 1)
+  Source:            encoder_unit/entry_6 (FF)
+  Destination:       stream_segment<6> (PAD)
   Source Clock:      clk rising
 
-  Data Path: encoder_unit/entry_len_3 to stream_segment_len<3>
+  Data Path: encoder_unit/entry_6 to stream_segment<6>
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDC:C->Q              2   0.514   0.380  encoder_unit/entry_len_3 (encoder_unit/entry_len_3)
-     OBUF:I->O                 3.169          stream_segment_len_3_OBUF (stream_segment_len<3>)
+     FDC:C->Q              3   0.514   0.451  encoder_unit/entry_6 (encoder_unit/entry_6)
+     OBUF:I->O                 3.169          stream_segment_6_OBUF (stream_segment<6>)
     ----------------------------------------
-    Total                      4.063ns (3.683ns logic, 0.380ns route)
-                                       (90.6% logic, 9.4% route)
+    Total                      4.134ns (3.683ns logic, 0.451ns route)
+                                       (89.1% logic, 10.9% route)
 
 =========================================================================
 
 
-Total REAL time to Xst completion: 7.00 secs
-Total CPU time to Xst completion: 7.45 secs
+Total REAL time to Xst completion: 10.00 secs
+Total CPU time to Xst completion: 9.06 secs
  
 --> 
 
 
-Total memory usage is 526832 kilobytes
+Total memory usage is 527660 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :    6 (   0 filtered)
+Number of warnings :    4 (   0 filtered)
 Number of infos    :    3 (   0 filtered)
 
