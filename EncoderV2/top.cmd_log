@@ -19,3 +19,8 @@ xst -intstyle ise -ifn "/home/school/ise_projs/final-year-project/EncoderV2/top.
 xst -intstyle ise -ifn "/home/school/ise_projs/final-year-project/EncoderV2/top.xst" -ofn "/home/school/ise_projs/final-year-project/EncoderV2/top.syr" 
 xst -intstyle ise -ifn "/home/school/ise_projs/final-year-project/EncoderV2/top.xst" -ofn "/home/school/ise_projs/final-year-project/EncoderV2/top.syr" 
 xst -intstyle ise -ifn "/home/school/ise_projs/final-year-project/EncoderV2/top.xst" -ofn "/home/school/ise_projs/final-year-project/EncoderV2/top.syr" 
+xst -intstyle ise -ifn "/home/school/ise_projs/final-year-project/EncoderV2/top.xst" -ofn "/home/school/ise_projs/final-year-project/EncoderV2/top.syr" 
+xst -intstyle ise -ifn "/home/school/ise_projs/final-year-project/EncoderV2/top.xst" -ofn "/home/school/ise_projs/final-year-project/EncoderV2/top.syr" 
+xst -intstyle ise -ifn "/home/school/ise_projs/final-year-project/EncoderV2/top.xst" -ofn "/home/school/ise_projs/final-year-project/EncoderV2/top.syr" 
+xst -intstyle ise -ifn "/home/school/ise_projs/final-year-project/EncoderV2/top.xst" -ofn "/home/school/ise_projs/final-year-project/EncoderV2/top.syr" 
+xst -intstyle ise -ifn "/home/school/ise_projs/final-year-project/EncoderV2/top.xst" -ofn "/home/school/ise_projs/final-year-project/EncoderV2/top.syr" 

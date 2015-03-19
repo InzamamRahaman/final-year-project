@@ -31,6 +31,7 @@ use IEEE.NUMERIC_STD.ALL;
 
 use work.size_data_pkg.all;
 use work.encoder_state_pkg.all;
+use work.conversions_pkg.all;
 
 
 entity encoder is
@@ -44,12 +45,6 @@ entity encoder is
 			  finished : out std_logic
 			  );
 			  
-	function convert_to_length(num : natural) 
-	return std_logic_vector(3 downto 0)
-	is 
-	begin
-			return std_logic_vector(to_unsigned(num, 4));
-	end convert_to_length;
 end encoder;
 
 architecture Behavioral of encoder is
@@ -94,7 +89,7 @@ begin
 				end if;
 			when INDEX_CONTAINED_FALSE =>
 				entry(1 to 10) <= "00" & std_logic_vector(to_unsigned(vq, 8));
-				entry_len <= convert_to_length(10);
+				entry_len <= "1010";
 				current_state <= INFORM_USER;
 			when INDEX_CONTAINED_TRUE =>
 				if secret_bit = '0' then
@@ -117,12 +112,12 @@ begin
 			when CASE_2 =>
 				entry(1) <= secret_bit;
 				entry(2 to 3) <= "11";
-				entry_len <= convert_to_length(3);
+				entry_len <=  "0011";--convert_to_length(3);
 				current_state <= INFORM_USER;
 			when CASE_4 =>
 				entry(1) <= secret_bit;
 				entry(2) <= '1';
-				entry_len <= convert_to_length(2);
+				entry_len <= "0010";
 				current_state <= INFORM_USER;
 			when CASE_3 => 
 				current_state <= INFORM_USER;
@@ -132,6 +127,7 @@ begin
 				finished <= '1';
 				next_state <= DONE;
 			end case;
+		end if;
 	end process;
 	
 --	transition_pr : process(clk, rst)
