@@ -36,12 +36,13 @@ entity top is
     Port ( clk : in  STD_LOGIC;
            rst : in  STD_LOGIC;
            stream_segment : out  std_logic_vector(1 to MAX_BUFFER_SIZE);
-           stream_segment_len : out  std_logic_vector(3 downto 0));
+           stream_segment_len : out  std_logic_vector(3 downto 0);
+			  finished : out std_logic);
 end top;
 
 architecture Behavioral of top is
-	signal stream_segment_len_pre : buffer_index;		
-	signal sending : std_logic;
+	--signal stream_segment_len_pre : buffer_index;		
+	--signal sending : std_logic;
 	signal vq_pre : std_logic_vector(7 downto 0);
 	signal vq : vq_index;
 	signal secret_bit_pre : std_logic_vector(0 downto 0);
@@ -50,7 +51,7 @@ architecture Behavioral of top is
 	signal image_address : std_logic_vector(14 downto 0);
 	signal secret_address : std_logic_vector(16 downto 0);
 	signal enable_list : std_logic;
-	signal finished : std_logic;
+	-- signal finished : std_logic;
 	--signal stream_segment_len : std_logic_vector(3 downto 0);
 	
 	-- list components here

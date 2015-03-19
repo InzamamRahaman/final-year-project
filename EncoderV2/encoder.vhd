@@ -49,7 +49,7 @@ end encoder;
 
 architecture Behavioral of encoder is
 	signal current_state : encoder_state;
-	signal next_state : encoder_state;
+	--signal next_state : encoder_state;
 	signal li : list_index;
 begin
 
@@ -125,7 +125,7 @@ begin
 				current_state <= INFORM_USER;
 			when DONE => 
 				finished <= '1';
-				next_state <= DONE;
+				current_state <= DONE;
 			end case;
 		end if;
 	end process;
