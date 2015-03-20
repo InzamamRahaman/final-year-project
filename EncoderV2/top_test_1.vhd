@@ -83,9 +83,11 @@ BEGIN
 		   clk <= '0';
 			wait for clk_period/2;
 			clk <= '1';
-			report "Clock on";
+			--report "Clock on";
 			if (not (stream_segment_len = "0000")) then
 				report "Received new substream";
+				write(my_line, stream_segment);
+				writeline(output, my_line);
 				write(my_line, stream_segment);
 				writeline(outfile, my_line);
 				write(my_line, stream_segment_len);
