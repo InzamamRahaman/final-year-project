@@ -89,6 +89,7 @@ begin
 		entry <= (others => '0');
 		case current_state is
 			when INFORM_USER =>
+				send_more_secret <= '0';
 				send_more <= '1';
 				current_state <= READING_DATA;
 				enable_list <= '1';

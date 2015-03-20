@@ -59,6 +59,7 @@ architecture Behavioral of top is
 	-- list components here
 	component address_calculator is
     Port ( clk : in std_logic;
+			  rst : in std_logic;	
 			  image_address : inout  STD_LOGIC_VECTOR(14 downto 0);
            secret_address : inout  STD_LOGIC_VECTOR(16 downto 0);
            compute_now : in  STD_LOGIC;
@@ -121,6 +122,7 @@ begin
 		-- image RAM and secret RAM
 		address_calculator_unit : address_calculator port map (
 				clk => clk,
+				rst => rst,
 				image_address => image_address,
 				secret_address => secret_address,
 				compute_now => send_more,
