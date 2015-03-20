@@ -175,8 +175,9 @@ static void work_a_2507786789_2372691052_p_1(char *t0)
     char *t5;
     char *t6;
     int64 t7;
-    unsigned char t8;
+    int64 t8;
     unsigned char t9;
+    unsigned char t10;
 
 LAB0:    t1 = (t0 + 3368U);
     t2 = *((char **)t1);
@@ -197,8 +198,9 @@ LAB2:    xsi_set_current_line(102, ng0);
     t2 = (t0 + 1968U);
     t3 = *((char **)t2);
     t7 = *((int64 *)t3);
+    t8 = (t7 * 10);
     t2 = (t0 + 3176);
-    xsi_process_wait(t2, t7);
+    xsi_process_wait(t2, t8);
 
 LAB6:    *((char **)t1) = &&LAB7;
 
@@ -228,9 +230,9 @@ LAB8:    t3 = (t0 + 3720);
 
 LAB9:    t3 = (t0 + 1672U);
     t4 = *((char **)t3);
-    t8 = *((unsigned char *)t4);
-    t9 = (t8 == (unsigned char)3);
-    if (t9 == 1)
+    t9 = *((unsigned char *)t4);
+    t10 = (t9 == (unsigned char)3);
+    if (t10 == 1)
         goto LAB8;
     else
         goto LAB10;

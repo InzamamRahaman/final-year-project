@@ -18,7 +18,7 @@ Parsing VHDL file "/home/school/ise_projs/final-year-project/EncoderV2/top_test_
 Starting static elaboration
 Completed static elaboration
 Fuse Memory Usage: 210404 KB
-Fuse CPU Usage: 6330 ms
+Fuse CPU Usage: 6260 ms
 Compiling package standard
 Compiling package std_logic_1164
 Compiling package textio
@@ -51,5 +51,5 @@ Waiting for 3 sub-compilation(s) to finish...
 Compiled 43 VHDL Units
 Built simulation executable /home/school/ise_projs/final-year-project/EncoderV2/top_test_1_isim_beh.exe
 Fuse Memory Usage: 788268 KB
-Fuse CPU Usage: 6940 ms
-GCC CPU Usage: 2540 ms
+Fuse CPU Usage: 6910 ms
+GCC CPU Usage: 2650 ms
