@@ -62,6 +62,7 @@ begin
 		map (
 			clk => clk,
 			rst => rst,
+			enable_list => enable_list,
 			vq => vq,
 			index => li
 		);
@@ -93,16 +94,18 @@ begin
 			when INFORM_USER =>
 				send_more_secret <= '0';
 				send_more <= '0';
-				current_state <= READING_DATA;
+				current_state <= AWAITING_LIST_TRANSFORM;
 				enable_list <= '1';
+			when AWAITING_LIST_TRANSFORM =>
+				current_state <= READING_DATA;
 			when READING_DATA =>
 				report "Reading data";
 				report integer'image(vq);
 				report std_logic'image(secret_bit);
 				report integer'image(li);
-				send_more <= '0';
-				send_more_secret <= '0';
-				enable_list <= '0';
+--				send_more <= '0';
+--				send_more_secret <= '0';
+--				enable_list <= '0';
 				if vq = 0 then
 					current_state <= DONE;
 				elsif li = 0 then

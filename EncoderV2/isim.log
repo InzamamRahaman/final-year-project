@@ -34,79 +34,84 @@ at 115 ns: Note: Clock on (/top_test_1/).
 at 125 ns: Note: Clock on (/top_test_1/).
 at 125 ns: Note: Received new substream (/top_test_1/).
 at 135 ns: Note: Clock on (/top_test_1/).
-at 135 ns(1): Note: Reading data (/top_test_1/uut/encoder_unit/).
-at 135 ns(1): Note: 3 (/top_test_1/uut/encoder_unit/).
-at 135 ns(1): Note: '0' (/top_test_1/uut/encoder_unit/).
-at 135 ns(1): Note: 1 (/top_test_1/uut/encoder_unit/).
 at 145 ns: Note: Clock on (/top_test_1/).
+at 145 ns(1): Note: Reading data (/top_test_1/uut/encoder_unit/).
+at 145 ns(1): Note: 3 (/top_test_1/uut/encoder_unit/).
+at 145 ns(1): Note: '0' (/top_test_1/uut/encoder_unit/).
+at 145 ns(1): Note: 0 (/top_test_1/uut/encoder_unit/).
 at 155 ns: Note: Clock on (/top_test_1/).
 at 165 ns: Note: Clock on (/top_test_1/).
+at 165 ns: Note: Received new substream (/top_test_1/).
 at 175 ns: Note: Clock on (/top_test_1/).
-at 175 ns: Note: Received new substream (/top_test_1/).
 at 185 ns: Note: Clock on (/top_test_1/).
 at 185 ns(1): Note: Reading data (/top_test_1/uut/encoder_unit/).
 at 185 ns(1): Note: 6 (/top_test_1/uut/encoder_unit/).
-at 185 ns(1): Note: '1' (/top_test_1/uut/encoder_unit/).
-at 185 ns(1): Note: 1 (/top_test_1/uut/encoder_unit/).
+at 185 ns(1): Note: '0' (/top_test_1/uut/encoder_unit/).
+at 185 ns(1): Note: 0 (/top_test_1/uut/encoder_unit/).
 at 195 ns: Note: Clock on (/top_test_1/).
 at 205 ns: Note: Clock on (/top_test_1/).
+at 205 ns: Note: Received new substream (/top_test_1/).
 at 215 ns: Note: Clock on (/top_test_1/).
 at 225 ns: Note: Clock on (/top_test_1/).
-at 225 ns: Note: Received new substream (/top_test_1/).
+at 225 ns(1): Note: Reading data (/top_test_1/uut/encoder_unit/).
+at 225 ns(1): Note: 2 (/top_test_1/uut/encoder_unit/).
+at 225 ns(1): Note: '0' (/top_test_1/uut/encoder_unit/).
+at 225 ns(1): Note: 0 (/top_test_1/uut/encoder_unit/).
 at 235 ns: Note: Clock on (/top_test_1/).
-at 235 ns(1): Note: Reading data (/top_test_1/uut/encoder_unit/).
-at 235 ns(1): Note: 2 (/top_test_1/uut/encoder_unit/).
-at 235 ns(1): Note: '1' (/top_test_1/uut/encoder_unit/).
-at 235 ns(1): Note: 1 (/top_test_1/uut/encoder_unit/).
 at 245 ns: Note: Clock on (/top_test_1/).
+at 245 ns: Note: Received new substream (/top_test_1/).
 at 255 ns: Note: Clock on (/top_test_1/).
 at 265 ns: Note: Clock on (/top_test_1/).
+at 265 ns(1): Note: Reading data (/top_test_1/uut/encoder_unit/).
+at 265 ns(1): Note: 12 (/top_test_1/uut/encoder_unit/).
+at 265 ns(1): Note: '0' (/top_test_1/uut/encoder_unit/).
+at 265 ns(1): Note: 0 (/top_test_1/uut/encoder_unit/).
 at 275 ns: Note: Clock on (/top_test_1/).
-at 275 ns: Note: Received new substream (/top_test_1/).
 at 285 ns: Note: Clock on (/top_test_1/).
-at 285 ns(1): Note: Reading data (/top_test_1/uut/encoder_unit/).
-at 285 ns(1): Note: 12 (/top_test_1/uut/encoder_unit/).
-at 285 ns(1): Note: '0' (/top_test_1/uut/encoder_unit/).
-at 285 ns(1): Note: 1 (/top_test_1/uut/encoder_unit/).
+at 285 ns: Note: Received new substream (/top_test_1/).
 at 295 ns: Note: Clock on (/top_test_1/).
 at 305 ns: Note: Clock on (/top_test_1/).
+at 305 ns(1): Note: Reading data (/top_test_1/uut/encoder_unit/).
+at 305 ns(1): Note: 1 (/top_test_1/uut/encoder_unit/).
+at 305 ns(1): Note: '0' (/top_test_1/uut/encoder_unit/).
+at 305 ns(1): Note: 0 (/top_test_1/uut/encoder_unit/).
 at 315 ns: Note: Clock on (/top_test_1/).
 at 325 ns: Note: Clock on (/top_test_1/).
 at 325 ns: Note: Received new substream (/top_test_1/).
 at 335 ns: Note: Clock on (/top_test_1/).
-at 335 ns(1): Note: Reading data (/top_test_1/uut/encoder_unit/).
-at 335 ns(1): Note: 1 (/top_test_1/uut/encoder_unit/).
-at 335 ns(1): Note: '0' (/top_test_1/uut/encoder_unit/).
-at 335 ns(1): Note: 1 (/top_test_1/uut/encoder_unit/).
 at 345 ns: Note: Clock on (/top_test_1/).
+at 345 ns(1): Note: Reading data (/top_test_1/uut/encoder_unit/).
+at 345 ns(1): Note: 71 (/top_test_1/uut/encoder_unit/).
+at 345 ns(1): Note: '0' (/top_test_1/uut/encoder_unit/).
+at 345 ns(1): Note: 0 (/top_test_1/uut/encoder_unit/).
 at 355 ns: Note: Clock on (/top_test_1/).
 at 365 ns: Note: Clock on (/top_test_1/).
+at 365 ns: Note: Received new substream (/top_test_1/).
 at 375 ns: Note: Clock on (/top_test_1/).
-at 375 ns: Note: Received new substream (/top_test_1/).
 at 385 ns: Note: Clock on (/top_test_1/).
 at 385 ns(1): Note: Reading data (/top_test_1/uut/encoder_unit/).
-at 385 ns(1): Note: 71 (/top_test_1/uut/encoder_unit/).
-at 385 ns(1): Note: '1' (/top_test_1/uut/encoder_unit/).
-at 385 ns(1): Note: 1 (/top_test_1/uut/encoder_unit/).
+at 385 ns(1): Note: 21 (/top_test_1/uut/encoder_unit/).
+at 385 ns(1): Note: '0' (/top_test_1/uut/encoder_unit/).
+at 385 ns(1): Note: 0 (/top_test_1/uut/encoder_unit/).
 at 395 ns: Note: Clock on (/top_test_1/).
 at 405 ns: Note: Clock on (/top_test_1/).
+at 405 ns: Note: Received new substream (/top_test_1/).
 at 415 ns: Note: Clock on (/top_test_1/).
 at 425 ns: Note: Clock on (/top_test_1/).
-at 425 ns: Note: Received new substream (/top_test_1/).
+at 425 ns(1): Note: Reading data (/top_test_1/uut/encoder_unit/).
+at 425 ns(1): Note: 56 (/top_test_1/uut/encoder_unit/).
+at 425 ns(1): Note: '0' (/top_test_1/uut/encoder_unit/).
+at 425 ns(1): Note: 0 (/top_test_1/uut/encoder_unit/).
 at 435 ns: Note: Clock on (/top_test_1/).
-at 435 ns(1): Note: Reading data (/top_test_1/uut/encoder_unit/).
-at 435 ns(1): Note: 21 (/top_test_1/uut/encoder_unit/).
-at 435 ns(1): Note: '1' (/top_test_1/uut/encoder_unit/).
-at 435 ns(1): Note: 1 (/top_test_1/uut/encoder_unit/).
 at 445 ns: Note: Clock on (/top_test_1/).
+at 445 ns: Note: Received new substream (/top_test_1/).
 at 455 ns: Note: Clock on (/top_test_1/).
 at 465 ns: Note: Clock on (/top_test_1/).
+at 465 ns(1): Note: Reading data (/top_test_1/uut/encoder_unit/).
+at 465 ns(1): Note: 22 (/top_test_1/uut/encoder_unit/).
+at 465 ns(1): Note: '0' (/top_test_1/uut/encoder_unit/).
+at 465 ns(1): Note: 0 (/top_test_1/uut/encoder_unit/).
 at 475 ns: Note: Clock on (/top_test_1/).
-at 475 ns: Note: Received new substream (/top_test_1/).
 at 485 ns: Note: Clock on (/top_test_1/).
-at 485 ns(1): Note: Reading data (/top_test_1/uut/encoder_unit/).
-at 485 ns(1): Note: 56 (/top_test_1/uut/encoder_unit/).
-at 485 ns(1): Note: '1' (/top_test_1/uut/encoder_unit/).
-at 485 ns(1): Note: 1 (/top_test_1/uut/encoder_unit/).
+at 485 ns: Note: Received new substream (/top_test_1/).
 at 495 ns: Note: Clock on (/top_test_1/).
-# exit 0

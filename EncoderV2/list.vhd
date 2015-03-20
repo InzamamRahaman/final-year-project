@@ -33,6 +33,7 @@ use work.size_data_pkg.all;
 entity list is
     Port ( clk : in std_logic;
 				rst : in std_logic;
+				enable_list : in std_logic;
 				vq : in  vq_index; 
            index : out  list_index);
 end list;
@@ -51,39 +52,28 @@ begin
 			end loop;
 			response := 0;
 		elsif rising_edge(clk) then
-			response := 0;
+			if enable_list = '1' then
+				response := 0;
 				for idx in 1 to MAX_LIST_SIZE loop
-				if elements(idx) = vq then
-					response := idx;
-				else
-					response := response;
-				end if;
-			end loop;
-		
---		-- if it isn't insert it
---		if response = 0 then
---			elements(2 to MAX_LIST_SIZE) := elements(1 to MAX_LIST_SIZE - 1);
---			elements(1) := vq;
---		elsif response > 1 then
---			elements(2 to response) := elements(1 to response - 1);
---			elements(1) := vq;
---			elements(response + 1 to MAX_LIST_SIZE) := elements(response + 1 to MAX_LIST_SIZE);
---		else
---			elements := elements;
---		end if;
-		
-		for jdx in MAX_LIST_SIZE downto 2 loop
-			if response = 0 then
-				elements(jdx) := elements(jdx - 1);
-			elsif response > 1 and response = jdx then
-				elements(jdx) := elements(jdx - 1);
-			else
-				elements(jdx) := elements(jdx);
+					if elements(idx) = vq then
+						response := idx;
+					else
+						response := response;
+					end if;
+				end loop;
+				for jdx in MAX_LIST_SIZE downto 2 loop
+					if response = 0 then
+						elements(jdx) := elements(jdx - 1);
+					elsif response > 1 and response = jdx then
+						elements(jdx) := elements(jdx - 1);
+					else
+						elements(jdx) := elements(jdx);
+					end if;
+				end loop;
+				elements(1) := vq;
+				index <= response;
 			end if;
-		end loop;
-		elements(1) := vq;
-		index <= response;
-	end if;
+		end if;
 	end process;
 
 end Behavioral;
