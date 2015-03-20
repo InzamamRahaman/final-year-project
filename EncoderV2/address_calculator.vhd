@@ -39,15 +39,27 @@ end address_calculator;
 
 architecture Behavioral of address_calculator is
 begin
-	calc_process: process(clk, compute_now)
+	calc_process: process(compute_now)
 	begin
-		if rising_edge(clk) then
-			if (compute_now = '1') then
-				image_address <= std_logic_vector(unsigned(image_address) + 1);
-			end if;
-			if (compute_secret_now = '1') then
-				secret_address <= std_logic_vector(unsigned(secret_address) + 1);
-			end if;
+		if (compute_now = '1') then
+			-- report "Adding to image";
+			image_address <= std_logic_vector(unsigned(image_address) + 1);
+		end if;
+--		if rising_edge(clk) then
+--			if (compute_now = '1') then
+--				image_address <= std_logic_vector(unsigned(image_address) + 1);
+--			end if;
+--			if (compute_secret_now = '1') then
+--				secret_address <= std_logic_vector(unsigned(secret_address) + 1);
+--			end if;
+--		end if;
+	end process;
+	
+	calc_secret_process: process(compute_secret_now)
+	begin
+		if (compute_secret_now = '1') then
+			-- report "Adding to secret";
+			secret_address <= std_logic_vector(unsigned(secret_address) + 1);
 		end if;
 	end process;
 end Behavioral;

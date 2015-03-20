@@ -32,7 +32,7 @@ use IEEE.NUMERIC_STD.ALL;
 use work.size_data_pkg.all;
 use work.encoder_state_pkg.all;
 use work.conversions_pkg.all;
-
+use ieee.std_logic_textio.all;
 
 entity encoder is
     Port ( clk : in  STD_LOGIC;
@@ -53,6 +53,7 @@ architecture Behavioral of encoder is
 	--signal next_state : encoder_state;
 	signal li : list_index;
 	signal num_bits : list_index_size;
+	signal enable_list : std_logic;
 begin
 
 	-- self orgnaizing list
@@ -81,16 +82,23 @@ begin
 			finished <= '0';
 			entry <= (others => '0');
 			entry_len <= (others => '0');
+			enable_list <= '0';
 		elsif rising_edge(clk) then
+		enable_list <= '1';
 		entry_len <= (others => '0');
 		entry <= (others => '0');
 		case current_state is
 			when INFORM_USER =>
 				send_more <= '1';
 				current_state <= READING_DATA;
+				enable_list <= '1';
 			when READING_DATA =>
+				report "Reading data";
+				report integer'image(vq);
+				report integer'image(li);
 				send_more <= '0';
 				send_more_secret <= '0';
+				enable_list <= '1';
 				if vq = 0 then
 					current_state <= DONE;
 				elsif li = 0 then

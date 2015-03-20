@@ -32,6 +32,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 use work.size_data_pkg.all;
 use ieee.numeric_std.all;
 
+
 entity converter is
 	Port (
 		vq_pre : in std_logic_vector(7 downto 0);
@@ -47,6 +48,7 @@ begin
 	
 	vq <= to_integer(unsigned(vq_pre));
 	secret_bit <= secret_bit_pre(0);
+	
 
 end Behavioral;
 

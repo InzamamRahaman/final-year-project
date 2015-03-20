@@ -5,14 +5,14 @@ Parameter TMPDIR set to xst/projnav.tmp
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.06 secs
+Total CPU time to Xst completion: 0.04 secs
  
 --> 
 Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.06 secs
+Total CPU time to Xst completion: 0.04 secs
  
 --> 
 Reading design: top.prj
@@ -45,7 +45,7 @@ Ignore Synthesis Constraint File   : NO
 ---- Target Parameters
 Output File Name                   : "top"
 Output Format                      : NGC
-Target Device                      : xc3s250e-5-tq144
+Target Device                      : xc3s500e-5-fg320
 
 ---- Source Options
 Top Module Name                    : top
@@ -117,12 +117,12 @@ Architecture encoder_state_pkg of Entity encoder_state_pkg is up to date.
 Compiling vhdl file "/home/school/ise_projs/final-year-project/EncoderV2/conversions_pkg.vhd" in Library work.
 Architecture conversions_pkg of Entity conversions_pkg is up to date.
 Compiling vhdl file "/home/school/ise_projs/final-year-project/EncoderV2/list.vhd" in Library work.
-Architecture behavioral of Entity list is up to date.
+Entity <list> compiled.
+Entity <list> (Architecture <behavioral>) compiled.
 Compiling vhdl file "/home/school/ise_projs/final-year-project/EncoderV2/list_index_size_calc.vhd" in Library work.
 Architecture behavioral of Entity list_index_size_calc is up to date.
 Compiling vhdl file "/home/school/ise_projs/final-year-project/EncoderV2/address_calculator.vhd" in Library work.
-Entity <address_calculator> compiled.
-Entity <address_calculator> (Architecture <behavioral>) compiled.
+Architecture behavioral of Entity address_calculator is up to date.
 Compiling vhdl file "/home/school/ise_projs/final-year-project/EncoderV2/ipcore_dir/IMAGE_RAM.vhd" in Library work.
 Architecture image_ram_a of Entity image_ram is up to date.
 Compiling vhdl file "/home/school/ise_projs/final-year-project/EncoderV2/ipcore_dir/SECRET_RAM.vhd" in Library work.
@@ -130,7 +130,8 @@ Architecture secret_ram_a of Entity secret_ram is up to date.
 Compiling vhdl file "/home/school/ise_projs/final-year-project/EncoderV2/converter.vhd" in Library work.
 Architecture behavioral of Entity converter is up to date.
 Compiling vhdl file "/home/school/ise_projs/final-year-project/EncoderV2/encoder.vhd" in Library work.
-Architecture behavioral of Entity encoder is up to date.
+Entity <encoder> compiled.
+Entity <encoder> (Architecture <behavioral>) compiled.
 Compiling vhdl file "/home/school/ise_projs/final-year-project/EncoderV2/top.vhd" in Library work.
 Architecture behavioral of Entity top is up to date.
 
@@ -154,9 +155,9 @@ Analyzing hierarchy for entity <list_index_size_calc> in library <work> (archite
 *                            HDL Analysis                               *
 =========================================================================
 Analyzing Entity <top> in library <work> (Architecture <behavioral>).
-WARNING:Xst:2211 - "/home/school/ise_projs/final-year-project/EncoderV2/top.vhd" line 131: Instantiating black box module <IMAGE_RAM>.
-WARNING:Xst:2211 - "/home/school/ise_projs/final-year-project/EncoderV2/top.vhd" line 141: Instantiating black box module <SECRET_RAM>.
-INFO:Xst:2679 - Register <enable_list> in unit <top> has a constant value of 0 during circuit operation. The register is replaced by logic.
+WARNING:Xst:2211 - "/home/school/ise_projs/final-year-project/EncoderV2/top.vhd" line 132: Instantiating black box module <IMAGE_RAM>.
+WARNING:Xst:2211 - "/home/school/ise_projs/final-year-project/EncoderV2/top.vhd" line 142: Instantiating black box module <SECRET_RAM>.
+INFO:Xst:2679 - Register <something> in unit <top> has a constant value of 0 during circuit operation. The register is replaced by logic.
 Entity <top> analyzed. Unit <top> generated.
 
 Analyzing Entity <address_calculator> in library <work> (Architecture <behavioral>).
@@ -221,6 +222,7 @@ Unit <list_index_size_calc> synthesized.
 
 Synthesizing Unit <encoder>.
     Related source file is "/home/school/ise_projs/final-year-project/EncoderV2/encoder.vhd".
+WARNING:Xst:646 - Signal <enable_list> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
     Found finite state machine <FSM_0> for signal <current_state>.
     -----------------------------------------------------------------------
     | States             | 11                                             |
@@ -248,7 +250,7 @@ Unit <encoder> synthesized.
 
 Synthesizing Unit <top>.
     Related source file is "/home/school/ise_projs/final-year-project/EncoderV2/top.vhd".
-WARNING:Xst:646 - Signal <enable_list> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <something> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 Unit <top> synthesized.
 
 
@@ -326,7 +328,7 @@ Optimizing unit <encoder> ...
 
 Mapping all equations...
 Building and optimizing final netlist ...
-Found area constraint ratio of 100 (+ 5) on block top, actual ratio is 3.
+Found area constraint ratio of 100 (+ 5) on block top, actual ratio is 1.
 
 Final Macro Processing ...
 
@@ -395,17 +397,15 @@ Cell Usage :
 Device utilization summary:
 ---------------------------
 
-Selected Device : 3s250etq144-5 
+Selected Device : 3s500efg320-5 
 
- Number of Slices:                       75  out of   2448     3%  
- Number of Slice Flip Flops:            102  out of   4896     2%  
- Number of 4 input LUTs:                123  out of   4896     2%  
+ Number of Slices:                       75  out of   4656     1%  
+ Number of Slice Flip Flops:            102  out of   9312     1%  
+ Number of 4 input LUTs:                123  out of   9312     1%  
  Number of IOs:                          17
- Number of bonded IOBs:                  17  out of    108    15%  
- Number of BRAMs:                        15  out of     12   125% (*) 
+ Number of bonded IOBs:                  17  out of    232     7%  
+ Number of BRAMs:                        15  out of     20    75%  
  Number of GCLKs:                         1  out of     24     4%  
-
-WARNING:Xst:1336 -  (*) More than 100% of Device resources are used
 
 ---------------------------
 Partition Resource Summary:
@@ -524,12 +524,12 @@ Offset:              4.040ns (Levels of Logic = 1)
 
 
 Total REAL time to Xst completion: 9.00 secs
-Total CPU time to Xst completion: 8.12 secs
+Total CPU time to Xst completion: 8.64 secs
  
 --> 
 
 
-Total memory usage is 527460 kilobytes
+Total memory usage is 527404 kilobytes
 
 Number of errors   :    0 (   0 filtered)
 Number of warnings :    4 (   0 filtered)

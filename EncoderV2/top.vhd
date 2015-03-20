@@ -51,9 +51,10 @@ architecture Behavioral of top is
 	signal send_more : std_logic;
 	signal image_address : std_logic_vector(14 downto 0);
 	signal secret_address : std_logic_vector(16 downto 0);
-	signal enable_list : std_logic;
+	-- signal enable_list : std_logic;
 	-- signal finished : std_logic;
 	--signal stream_segment_len : std_logic_vector(3 downto 0);
+	signal something : std_logic;
 	
 	-- list components here
 	component address_calculator is
@@ -172,7 +173,18 @@ begin
 	main_pr : process(clk, rst)
 	begin
 		if rst = '1' then
-			enable_list <= '0';
+--			enable_list <= '0';
+			something <= '0';
+--			image_address <= (others => '0');
+--			send_more_secret <= (others => '0');
+--		elsif
+--			if send_more = '1' then
+--				image_address <= std_logic_vector(unsigned(image_address) + 1):
+--			end if;
+--			
+--			if send_more_secret = '1' then
+--				secret_address <= std_logic_vector(unsigned(secret_address) + 1);
+--			end if;
 		end if;
 	end process;
 

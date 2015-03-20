@@ -52,9 +52,9 @@ begin
 			response := 0;
 		elsif rising_edge(clk) then
 			response := 0;
-			for idx in 1 to MAX_LIST_SIZE loop
+				for idx in 1 to MAX_LIST_SIZE loop
 				if elements(idx) = vq then
-					response := idx + 1;
+					response := idx;
 				else
 					response := response;
 				end if;
