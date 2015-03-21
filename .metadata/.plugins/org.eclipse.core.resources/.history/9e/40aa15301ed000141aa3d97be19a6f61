@@ -22,10 +22,8 @@ def int_to_bin(num, num_bits = 8):
     while temp: 
         result[counter] = temp % 2
         temp = temp / 2
-        counter += 1
     for bit in result:
         ans = str(bit) + ans 
-    print num, " ", ans
     return ans
     
 
