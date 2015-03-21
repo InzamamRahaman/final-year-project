@@ -32,7 +32,8 @@ use IEEE.NUMERIC_STD.ALL;
 use work.size_data_pkg.all;
 use work.encoder_state_pkg.all;
 use work.conversions_pkg.all;
-use ieee.std_logic_textio.all;
+use ieee.std_logic_textio.all; 
+use std.textio.all;
 
 entity encoder is
     Port ( clk : in  STD_LOGIC;
@@ -43,7 +44,8 @@ entity encoder is
 			  send_more_secret : out std_logic;
            entry : out  STD_LOGIC_VECTOR(1 to MAX_BUFFER_SIZE);
 			  entry_len : out STD_LOGIC_VECTOR(3 downto 0);
-			  finished : out std_logic
+			  completed : out std_logic
+			  -- next_state : encoder_state;
 			  );
 			  
 end encoder;
@@ -54,6 +56,7 @@ architecture Behavioral of encoder is
 	signal li : list_index;
 	signal num_bits : list_index_size;
 	signal enable_list : std_logic;
+	signal vq_count : vq_index_number;
 begin
 
 	-- self orgnaizing list
@@ -76,14 +79,18 @@ begin
 	main_pr : process(clk, rst)
 		variable output_buffer : std_logic_vector(1 to MAX_BUFFER_SIZE) := (others => '0');
 		variable buffer_size : buffer_index := 0;
+		variable my_line : line;
+		file indicies : text is out "reported_index.txt";
 	begin
 		if rst = '1' then
-			current_state <= READING_DATA;
+			current_state <= RESET_STATE;
+			--next_state <= READING_DATA;
 			send_more <= '0';
-			finished <= '0';
+			completed <= '0';
 			entry <= (others => '0');
 			entry_len <= (others => '0');
 			enable_list <= '0';
+			vq_count <= 0;
 		elsif rising_edge(clk) then
 		enable_list <= '0';
 		entry_len <= (others => '0');
@@ -91,23 +98,35 @@ begin
 		send_more_secret <= '0';
 		send_more <= '0';
 		case current_state is
+			when RESET_STATE =>
+			   report "RESET STATE";
+				current_state <= INDEX_CONTAINED_FALSE;
+				send_more <= '1';
 			when INFORM_USER =>
+				report "INFORM USER";
 				send_more_secret <= '0';
 				send_more <= '0';
 				current_state <= AWAITING_LIST_TRANSFORM;
 				enable_list <= '1';
 			when AWAITING_LIST_TRANSFORM =>
+				report "AWAITING_LIST_TRANSFORM";
 				current_state <= READING_DATA;
 			when READING_DATA =>
-				report "Reading data";
-				report integer'image(vq);
-				report std_logic'image(secret_bit);
-				report integer'image(li);
+				report "READING_DATA";
+				--report "Reading data";
+				--report integer'image(vq);
+				--write(my_line, integer'image(vq));
+				--writeline(indicies, my_line);
+				--report std_logic'image(secret_bit);
+				--report integer'image(li);
 --				send_more <= '0';
 --				send_more_secret <= '0';
 --				enable_list <= '0';
-				if vq = 0 then
-					current_state <= DONE;
+				if vq_count = 16384 then
+					report "Heading into the done state";
+					current_state <= ANOTHER_DONE;
+					report "Assigned next state";
+					--finished <= '1';
 				elsif li = 0 then
 					current_state <= INDEX_CONTAINED_FALSE;
 					send_more <= '1';
@@ -117,38 +136,47 @@ begin
 					send_more_secret <= '1';
 				end if;
 			when INDEX_CONTAINED_FALSE =>
+				report "INDEX_CONTAINED_FALSE";
+				vq_count <= vq_count + 1;
 				entry(1 to 10) <= "00" & std_logic_vector(to_unsigned(vq, 8));
 				entry_len <= "1010";
 				current_state <= INFORM_USER;
 			when INDEX_CONTAINED_TRUE =>
+				report "INDEX_CONTAINED_TRUE";
+				vq_count <= vq_count + 1;
 				if secret_bit = '0' then
 					current_state <= ALL_SECRET_ZERO_TRUE;
 				else
 					current_state <= ALL_SECRET_ZERO_FALSE;
 				end if;
 			when ALL_SECRET_ZERO_TRUE =>
+				report "ALL_SECRET_ZERO_TRUE";
 				if li = 1 then
 					current_state <= CASE_2;
 				else
 					current_state <= CASE_3;
 				end if;
 			when ALL_SECRET_ZERO_FALSE =>
+				report "ALL_SECRET_ZERO_FALSE";
 				if li = 1 then
 					current_state <= CASE_4;
 				else
 					current_state <= CASE_5;
 				end if;
 			when CASE_2 =>
+				report "CASE_2";
 				entry(1) <= secret_bit;
 				entry(2 to 3) <= "11";
 				entry_len <=  "0011";--convert_to_length(3);
 				current_state <= INFORM_USER;
 			when CASE_4 =>
+				report "CASE_4";
 				entry(1) <= secret_bit;
 				entry(2) <= '1';
 				entry_len <= "0010";
 				current_state <= INFORM_USER;
 			when CASE_3 => 
+				report "CASE_3";
 				entry(1) <= secret_bit;
 				entry(2) <= '1';
 				if num_bits = 1 then
@@ -165,6 +193,7 @@ begin
 				end if;
 				current_state <= INFORM_USER;
 			when CASE_5 => 
+				report "CASE_5";
 				entry(1) <= secret_bit;
 				if num_bits = 1 then
 					entry(2 to 3) <= std_logic_vector(to_unsigned(li, 2));
@@ -180,10 +209,20 @@ begin
 				end if;
 				current_state <= INFORM_USER;
 			when DONE => 
-				finished <= '1';
+				report "DONE";
+				--completed <= '1';
+				send_more <= '0';
+				send_more_secret <= '0';
+				current_state <= ANOTHER_DONE;
+			when ANOTHER_DONE =>
+				report "ANOTHER DONE";
+				--completed <= '1';
 				send_more <= '0';
 				send_more_secret <= '0';
 				current_state <= DONE;
+			when others =>
+				report "illegal state";
+				completed <= '1';
 			end case;
 		end if;
 	end process;

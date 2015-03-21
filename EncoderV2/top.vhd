@@ -37,7 +37,7 @@ entity top is
            rst : in  STD_LOGIC;
            stream_segment : out  std_logic_vector(1 to MAX_BUFFER_SIZE);
            stream_segment_len : out  std_logic_vector(3 downto 0);
-			  finished : out std_logic);
+			  completed : out std_logic);
 end top;
 
 architecture Behavioral of top is
@@ -90,7 +90,7 @@ architecture Behavioral of top is
 			  send_more : out std_logic;
            entry : out  STD_LOGIC_VECTOR(1 to MAX_BUFFER_SIZE);
 			  entry_len : out STD_LOGIC_VECTOR(3 downto 0);
-			  finished : out std_logic;
+			  completed : out std_logic;
 			  send_more_secret : out std_logic
 			  );
 	end component;
@@ -168,7 +168,7 @@ begin
 				send_more => send_more,
 				entry => stream_segment,
 				entry_len => stream_segment_len,
-				finished => finished,
+				completed => completed,
 				send_more_secret => send_more_secret
 			);
 	

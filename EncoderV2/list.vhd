@@ -48,7 +48,7 @@ begin
 		
 		if rst = '1' then
 			for idx in 1 to MAX_LIST_SIZE loop
-				elements(idx) := 0;
+				elements(idx) := -1;
 			end loop;
 			response := 0;
 		elsif rising_edge(clk) then

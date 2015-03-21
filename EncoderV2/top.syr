@@ -5,14 +5,14 @@ Parameter TMPDIR set to xst/projnav.tmp
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.04 secs
+Total CPU time to Xst completion: 0.07 secs
  
 --> 
 Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.04 secs
+Total CPU time to Xst completion: 0.07 secs
  
 --> 
 Reading design: top.prj
@@ -117,12 +117,12 @@ Architecture encoder_state_pkg of Entity encoder_state_pkg is up to date.
 Compiling vhdl file "/home/school/ise_projs/final-year-project/EncoderV2/conversions_pkg.vhd" in Library work.
 Architecture conversions_pkg of Entity conversions_pkg is up to date.
 Compiling vhdl file "/home/school/ise_projs/final-year-project/EncoderV2/list.vhd" in Library work.
-Entity <list> compiled.
-Entity <list> (Architecture <behavioral>) compiled.
+Architecture behavioral of Entity list is up to date.
 Compiling vhdl file "/home/school/ise_projs/final-year-project/EncoderV2/list_index_size_calc.vhd" in Library work.
 Architecture behavioral of Entity list_index_size_calc is up to date.
 Compiling vhdl file "/home/school/ise_projs/final-year-project/EncoderV2/address_calculator.vhd" in Library work.
-Architecture behavioral of Entity address_calculator is up to date.
+Entity <address_calculator> compiled.
+Entity <address_calculator> (Architecture <behavioral>) compiled.
 Compiling vhdl file "/home/school/ise_projs/final-year-project/EncoderV2/ipcore_dir/IMAGE_RAM.vhd" in Library work.
 Architecture image_ram_a of Entity image_ram is up to date.
 Compiling vhdl file "/home/school/ise_projs/final-year-project/EncoderV2/ipcore_dir/SECRET_RAM.vhd" in Library work.
@@ -130,8 +130,7 @@ Architecture secret_ram_a of Entity secret_ram is up to date.
 Compiling vhdl file "/home/school/ise_projs/final-year-project/EncoderV2/converter.vhd" in Library work.
 Architecture behavioral of Entity converter is up to date.
 Compiling vhdl file "/home/school/ise_projs/final-year-project/EncoderV2/encoder.vhd" in Library work.
-Entity <encoder> compiled.
-Entity <encoder> (Architecture <behavioral>) compiled.
+Architecture behavioral of Entity encoder is up to date.
 Compiling vhdl file "/home/school/ise_projs/final-year-project/EncoderV2/top.vhd" in Library work.
 Architecture behavioral of Entity top is up to date.
 
@@ -155,8 +154,8 @@ Analyzing hierarchy for entity <list_index_size_calc> in library <work> (archite
 *                            HDL Analysis                               *
 =========================================================================
 Analyzing Entity <top> in library <work> (Architecture <behavioral>).
-WARNING:Xst:2211 - "/home/school/ise_projs/final-year-project/EncoderV2/top.vhd" line 132: Instantiating black box module <IMAGE_RAM>.
-WARNING:Xst:2211 - "/home/school/ise_projs/final-year-project/EncoderV2/top.vhd" line 142: Instantiating black box module <SECRET_RAM>.
+WARNING:Xst:2211 - "/home/school/ise_projs/final-year-project/EncoderV2/top.vhd" line 134: Instantiating black box module <IMAGE_RAM>.
+WARNING:Xst:2211 - "/home/school/ise_projs/final-year-project/EncoderV2/top.vhd" line 144: Instantiating black box module <SECRET_RAM>.
 INFO:Xst:2679 - Register <something> in unit <top> has a constant value of 0 during circuit operation. The register is replaced by logic.
 Entity <top> analyzed. Unit <top> generated.
 
@@ -200,11 +199,11 @@ Synthesizing Unit <list>.
     Related source file is "/home/school/ise_projs/final-year-project/EncoderV2/list.vhd".
     Found 3-bit register for signal <index>.
     Found 32-bit register for signal <elements>.
-    Found 3-bit comparator greater for signal <elements_2$cmp_gt0000> created at line 77.
-    Found 8-bit comparator equal for signal <response$cmp_eq0000> created at line 56.
-    Found 8-bit comparator equal for signal <response$cmp_eq0001> created at line 56.
-    Found 8-bit comparator equal for signal <response$cmp_eq0002> created at line 56.
-    Found 8-bit comparator equal for signal <response$cmp_eq0003> created at line 56.
+    Found 3-bit comparator lessequal for signal <elements_2$cmp_le0000> created at line 66.
+    Found 8-bit comparator equal for signal <response$cmp_eq0000> created at line 58.
+    Found 8-bit comparator equal for signal <response$cmp_eq0001> created at line 58.
+    Found 8-bit comparator equal for signal <response$cmp_eq0002> created at line 58.
+    Found 8-bit comparator equal for signal <response$cmp_eq0003> created at line 58.
     Summary:
 	inferred  35 D-type flip-flop(s).
 	inferred   5 Comparator(s).
@@ -222,13 +221,12 @@ Unit <list_index_size_calc> synthesized.
 
 Synthesizing Unit <encoder>.
     Related source file is "/home/school/ise_projs/final-year-project/EncoderV2/encoder.vhd".
-WARNING:Xst:646 - Signal <enable_list> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
     Found finite state machine <FSM_0> for signal <current_state>.
     -----------------------------------------------------------------------
-    | States             | 11                                             |
-    | Transitions        | 16                                             |
+    | States             | 12                                             |
+    | Transitions        | 17                                             |
     | Inputs             | 4                                              |
-    | Outputs            | 11                                             |
+    | Outputs            | 12                                             |
     | Clock              | clk                       (rising_edge)        |
     | Reset              | rst                       (positive)           |
     | Reset type         | asynchronous                                   |
@@ -242,9 +240,10 @@ WARNING:Xst:646 - Signal <enable_list> is assigned but never used. This unconnec
     Found 10-bit register for signal <entry>.
     Found 1-bit register for signal <send_more>.
     Found 1-bit register for signal <send_more_secret>.
+    Found 1-bit register for signal <enable_list>.
     Summary:
 	inferred   1 Finite State Machine(s).
-	inferred  17 D-type flip-flop(s).
+	inferred  18 D-type flip-flop(s).
 Unit <encoder> synthesized.
 
 
@@ -261,14 +260,14 @@ Macro Statistics
 # Counters                                             : 2
  15-bit up counter                                     : 1
  17-bit up counter                                     : 1
-# Registers                                            : 19
- 1-bit register                                        : 13
+# Registers                                            : 20
+ 1-bit register                                        : 14
  3-bit register                                        : 1
  4-bit register                                        : 1
  8-bit register                                        : 4
 # Comparators                                          : 7
- 3-bit comparator greater                              : 1
  3-bit comparator less                                 : 2
+ 3-bit comparator lessequal                            : 1
  8-bit comparator equal                                : 4
 
 =========================================================================
@@ -278,22 +277,23 @@ Macro Statistics
 =========================================================================
 
 Analyzing FSM <FSM_0> for best encoding.
-Optimizing FSM <encoder_unit/current_state/FSM> on signal <current_state[1:11]> with one-hot encoding.
---------------------------------------
- State                 | Encoding
---------------------------------------
- reading_data          | 00000000001
- inform_user           | 00000000010
- done                  | 00000000100
- index_contained_false | 00000001000
- index_contained_true  | 00000010000
- all_secret_zero_true  | 00000100000
- all_secret_zero_false | 00001000000
- case_2                | 00010000000
- case_3                | 00100000000
- case_4                | 01000000000
- case_5                | 10000000000
---------------------------------------
+Optimizing FSM <encoder_unit/current_state/FSM> on signal <current_state[1:12]> with one-hot encoding.
+-----------------------------------------
+ State                   | Encoding
+-----------------------------------------
+ reading_data            | 000000000001
+ awaiting_list_transform | 000000000010
+ inform_user             | 000000000100
+ done                    | 000000001000
+ index_contained_false   | 000000010000
+ index_contained_true    | 000000100000
+ all_secret_zero_true    | 000001000000
+ all_secret_zero_false   | 000010000000
+ case_2                  | 000100000000
+ case_3                  | 001000000000
+ case_4                  | 010000000000
+ case_5                  | 100000000000
+-----------------------------------------
 Reading core <ipcore_dir/IMAGE_RAM.ngc>.
 Reading core <ipcore_dir/SECRET_RAM.ngc>.
 Loading core <IMAGE_RAM> for timing and area information for instance <image_unit>.
@@ -307,11 +307,11 @@ Macro Statistics
 # Counters                                             : 2
  15-bit up counter                                     : 1
  17-bit up counter                                     : 1
-# Registers                                            : 52
- Flip-Flops                                            : 52
+# Registers                                            : 53
+ Flip-Flops                                            : 53
 # Comparators                                          : 7
- 3-bit comparator greater                              : 1
  3-bit comparator less                                 : 2
+ 3-bit comparator lessequal                            : 1
  8-bit comparator equal                                : 4
 
 =========================================================================
@@ -319,6 +319,7 @@ Macro Statistics
 =========================================================================
 *                         Low Level Synthesis                           *
 =========================================================================
+INFO:Xst:2261 - The FF/Latch <current_state_FSM_FFd11> in Unit <encoder> is equivalent to the following FF/Latch, which will be removed : <enable_list> 
 
 Optimizing unit <top> ...
 
@@ -336,8 +337,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 95
- Flip-Flops                                            : 95
+# Registers                                            : 96
+ Flip-Flops                                            : 96
 
 =========================================================================
 
@@ -366,23 +367,23 @@ Design Statistics
 # IOs                              : 17
 
 Cell Usage :
-# BELS                             : 193
+# BELS                             : 190
 #      GND                         : 3
 #      INV                         : 7
 #      LUT1                        : 28
-#      LUT2                        : 8
+#      LUT2                        : 7
+#      LUT2_L                      : 2
 #      LUT3                        : 18
-#      LUT4                        : 55
-#      LUT4_D                      : 3
-#      LUT4_L                      : 4
+#      LUT4                        : 52
+#      LUT4_L                      : 5
 #      MUXCY                       : 30
-#      MUXF5                       : 4
+#      MUXF5                       : 5
 #      VCC                         : 1
 #      XORCY                       : 32
-# FlipFlops/Latches                : 102
-#      FDC                         : 33
-#      FDCE                        : 25
-#      FDE                         : 43
+# FlipFlops/Latches                : 103
+#      FDC                         : 26
+#      FDCE                        : 65
+#      FDE                         : 11
 #      FDP                         : 1
 # RAMS                             : 15
 #      RAMB16_S1_S1                : 14
@@ -399,9 +400,9 @@ Device utilization summary:
 
 Selected Device : 3s500efg320-5 
 
- Number of Slices:                       75  out of   4656     1%  
- Number of Slice Flip Flops:            102  out of   9312     1%  
- Number of 4 input LUTs:                123  out of   9312     1%  
+ Number of Slices:                       76  out of   4656     1%  
+ Number of Slice Flip Flops:            103  out of   9312     1%  
+ Number of 4 input LUTs:                119  out of   9312     1%  
  Number of IOs:                          17
  Number of bonded IOBs:                  17  out of    232     7%  
  Number of BRAMs:                        15  out of     20    75%  
@@ -428,7 +429,7 @@ Clock Information:
 -----------------------------------+---------------------------------------------------------------------------------------------------------------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)                                                                                                           | Load  |
 -----------------------------------+---------------------------------------------------------------------------------------------------------------------------------+-------+
-clk                                | BUFGP                                                                                                                           | 117   |
+clk                                | BUFGP                                                                                                                           | 118   |
 image_unit/N1                      | NONE(image_unit/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3_init.ram/dpram.dp1x1.ram) | 9     |
 secret_unit/N1                     | NONE(secret_unit/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[5].ram.r/s3_init.ram/dpram.dp1x1.ram)| 6     |
 -----------------------------------+---------------------------------------------------------------------------------------------------------------------------------+-------+
@@ -439,15 +440,15 @@ Asynchronous Control Signals Information:
 -----------------------------------+------------------------+-------+
 Control Signal                     | Buffer(FF name)        | Load  |
 -----------------------------------+------------------------+-------+
-rst                                | IBUF                   | 59    |
+rst                                | IBUF                   | 92    |
 -----------------------------------+------------------------+-------+
 
 Timing Summary:
 ---------------
 Speed Grade: -5
 
-   Minimum period: 8.226ns (Maximum Frequency: 121.567MHz)
-   Minimum input arrival time before clock: 3.780ns
+   Minimum period: 9.161ns (Maximum Frequency: 109.156MHz)
+   Minimum input arrival time before clock: 3.894ns
    Maximum output required time after clock: 4.040ns
    Maximum combinational path delay: No path found
 
@@ -457,10 +458,10 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clk'
-  Clock period: 8.226ns (frequency: 121.567MHz)
-  Total number of paths / destination ports: 7214 / 380
+  Clock period: 9.161ns (frequency: 109.156MHz)
+  Total number of paths / destination ports: 8307 / 392
 -------------------------------------------------------------------------
-Delay:               8.226ns (Levels of Logic = 5)
+Delay:               9.161ns (Levels of Logic = 6)
   Source:            image_unit/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/s3_init.ram/dpram.dp9x9.ram (RAM)
   Destination:       encoder_unit/list_unit/elements_2_0 (FF)
   Source Clock:      clk rising
@@ -470,22 +471,23 @@ Delay:               8.226ns (Levels of Logic = 5)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     RAMB16_S9_S9:CLKA->DOA6    1   2.436   0.426  U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/s3_init.ram/dpram.dp9x9.ram (U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.ram_douta<6>)
-     LUT4:I1->O            8   0.612   0.673  U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/Mmux_dout_mux71 (douta<6>)
+     RAMB16_S9_S9:CLKA->DOA3    1   2.436   0.426  U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/s3_init.ram/dpram.dp9x9.ram (U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.ram_douta<3>)
+     LUT4:I1->O            8   0.612   0.673  U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/Mmux_dout_mux41 (douta<3>)
      end scope: 'image_unit'
-     LUT4:I2->O            1   0.612   0.426  encoder_unit/list_unit/response_cmp_eq0002853 (encoder_unit/list_unit/response_cmp_eq0002853)
-     LUT4:I1->O            5   0.612   0.690  encoder_unit/list_unit/response_cmp_eq00028136 (encoder_unit/list_unit/response_cmp_eq0002)
-     LUT3:I0->O            8   0.612   0.643  encoder_unit/list_unit/elements_2_not00011 (encoder_unit/list_unit/elements_2_not0001)
+     LUT4:I2->O            1   0.612   0.426  encoder_unit/list_unit/response_mux0003<0>53 (encoder_unit/list_unit/response_mux0003<0>53)
+     LUT4:I1->O            3   0.612   0.603  encoder_unit/list_unit/response_mux0003<0>136 (encoder_unit/list_unit/response_mux0003<0>136)
+     LUT4:I0->O            2   0.612   0.410  encoder_unit/list_unit/response_mux0003<0>175 (encoder_unit/list_unit/response_mux0003<0>)
+     LUT3:I2->O            8   0.612   0.643  encoder_unit/list_unit/elements_2_not00011 (encoder_unit/list_unit/elements_2_not0001)
      FDCE:CE                   0.483          encoder_unit/list_unit/elements_2_0
     ----------------------------------------
-    Total                      8.226ns (5.367ns logic, 2.859ns route)
-                                       (65.2% logic, 34.8% route)
+    Total                      9.161ns (5.979ns logic, 3.182ns route)
+                                       (65.3% logic, 34.7% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
   Total number of paths / destination ports: 4 / 4
 -------------------------------------------------------------------------
-Offset:              3.780ns (Levels of Logic = 2)
+Offset:              3.894ns (Levels of Logic = 2)
   Source:            rst (PAD)
   Destination:       encoder_unit/list_unit/index_0 (FF)
   Destination Clock: clk rising
@@ -494,12 +496,12 @@ Offset:              3.780ns (Levels of Logic = 2)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O            60   1.106   1.080  rst_IBUF (rst_IBUF)
-     INV:I->O              4   0.612   0.499  encoder_unit/rst_inv1_INV_0 (encoder_unit/list_unit/rst_inv)
+     IBUF:I->O            94   1.106   1.242  rst_IBUF (rst_IBUF)
+     LUT2:I0->O            3   0.612   0.451  encoder_unit/list_unit/index_and00001 (encoder_unit/list_unit/index_and0000)
      FDE:CE                    0.483          encoder_unit/list_unit/index_0
     ----------------------------------------
-    Total                      3.780ns (2.201ns logic, 1.579ns route)
-                                       (58.2% logic, 41.8% route)
+    Total                      3.894ns (2.201ns logic, 1.693ns route)
+                                       (56.5% logic, 43.5% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
@@ -523,15 +525,15 @@ Offset:              4.040ns (Levels of Logic = 1)
 =========================================================================
 
 
-Total REAL time to Xst completion: 9.00 secs
-Total CPU time to Xst completion: 8.64 secs
+Total REAL time to Xst completion: 8.00 secs
+Total CPU time to Xst completion: 8.16 secs
  
 --> 
 
 
-Total memory usage is 527404 kilobytes
+Total memory usage is 527612 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :    4 (   0 filtered)
-Number of infos    :    2 (   0 filtered)
+Number of warnings :    3 (   0 filtered)
+Number of infos    :    3 (   0 filtered)
 

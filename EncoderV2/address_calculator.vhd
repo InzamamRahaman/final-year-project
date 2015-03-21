@@ -41,7 +41,7 @@ end address_calculator;
 architecture Behavioral of address_calculator is
 begin
 	
-	calc_pr : process(clk)
+	calc_pr : process(clk, rst)
 	begin
 		if rst = '1' then
 			image_address <= (others => '0');

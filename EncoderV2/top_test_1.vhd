@@ -47,7 +47,7 @@ ARCHITECTURE behavior OF top_test_1 IS
          rst : IN  std_logic;
          stream_segment : OUT  std_logic_vector(1 to 10);
          stream_segment_len : OUT  std_logic_vector(3 downto 0);
-         finished : OUT  std_logic
+         completed : OUT  std_logic
         );
     END COMPONENT;
     
@@ -59,7 +59,7 @@ ARCHITECTURE behavior OF top_test_1 IS
  	--Outputs
    signal stream_segment : std_logic_vector(1 to 10) := (others => '0');
    signal stream_segment_len : std_logic_vector(3 downto 0) := (others => '0');
-   signal finished : std_logic := '0';
+   signal completed : std_logic := '0';
 
    -- Clock period definitions
    constant clk_period : time := 10 ns;
@@ -72,7 +72,7 @@ BEGIN
           rst => rst,
           stream_segment => stream_segment,
           stream_segment_len => stream_segment_len,
-          finished => finished
+          completed => completed
         );
 
    -- Clock process definitions
@@ -85,13 +85,13 @@ BEGIN
 			clk <= '1';
 			--report "Clock on";
 			if (not (stream_segment_len = "0000")) then
-				report "Received new substream";
-				write(my_line, stream_segment);
-				writeline(output, my_line);
-				write(my_line, stream_segment);
-				writeline(outfile, my_line);
-				write(my_line, stream_segment_len);
-				writeline(outfile, my_line);
+--				report "Received new substream";
+--				write(my_line, stream_segment);
+--				writeline(output, my_line);
+--				write(my_line, stream_segment);
+--				writeline(outfile, my_line);
+--				write(my_line, stream_segment_len);
+--				writeline(outfile, my_line);
 			end if;
 			wait for clk_period/2;
    end process;
@@ -104,7 +104,7 @@ BEGIN
 		rst <= '1';
       wait for clk_period * 10;	
 		rst <= '0';
-      wait until finished = '1';
+      wait until completed = '1';
 		
       -- insert stimulus here 
    end process;

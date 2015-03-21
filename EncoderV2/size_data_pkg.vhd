@@ -19,8 +19,11 @@ package size_data_pkg is
 	constant NUM_IMAGE_ROWS : integer := 128;
 	constant MAX_BUFFER_SIZE : integer := 10;
 	
+	
+	subtype vq_index_number is integer range 0 to 16400;
+	constant MAX_NUMBER_OF_VQ_INDICIES : vq_index_number := 16384;
 	subtype list_index is integer range 0 to MAX_LIST_SIZE;
-	subtype vq_index is integer range 0 to NUM_IMAGE_ROWS;
+	subtype vq_index is integer range -1 to NUM_IMAGE_ROWS;
 	subtype vq_index_size is integer range 0 to 8;
 	subtype list_index_size is integer range 0 to 3;
 	subtype buffer_index is integer range 0 to MAX_BUFFER_SIZE;
