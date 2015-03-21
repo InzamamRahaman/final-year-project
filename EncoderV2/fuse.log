@@ -17,8 +17,8 @@ Parsing VHDL file "/home/school/ise_projs/final-year-project/EncoderV2/top.vhd" 
 Parsing VHDL file "/home/school/ise_projs/final-year-project/EncoderV2/top_test_1.vhd" into library work
 Starting static elaboration
 Completed static elaboration
-Fuse Memory Usage: 210408 KB
-Fuse CPU Usage: 6410 ms
+Fuse Memory Usage: 210412 KB
+Fuse CPU Usage: 6810 ms
 Compiling package standard
 Compiling package std_logic_1164
 Compiling package textio
@@ -50,6 +50,6 @@ Time Resolution for simulation is 1ps.
 Waiting for 3 sub-compilation(s) to finish...
 Compiled 43 VHDL Units
 Built simulation executable /home/school/ise_projs/final-year-project/EncoderV2/top_test_1_isim_beh.exe
-Fuse Memory Usage: 788680 KB
-Fuse CPU Usage: 7030 ms
-GCC CPU Usage: 2600 ms
+Fuse Memory Usage: 788684 KB
+Fuse CPU Usage: 7470 ms
+GCC CPU Usage: 2670 ms

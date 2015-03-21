@@ -100,6 +100,8 @@ begin
 		case current_state is
 			when RESET_STATE =>
 			   report "RESET STATE";
+				write(my_line, integer'image(vq));
+				writeline(indicies, my_line);
 				current_state <= INDEX_CONTAINED_FALSE;
 				send_more <= '1';
 			when INFORM_USER =>
@@ -115,8 +117,8 @@ begin
 				report "READING_DATA";
 				--report "Reading data";
 				--report integer'image(vq);
-				--write(my_line, integer'image(vq));
-				--writeline(indicies, my_line);
+				write(my_line, integer'image(vq));
+				writeline(indicies, my_line);
 				--report std_logic'image(secret_bit);
 				--report integer'image(li);
 --				send_more <= '0';
