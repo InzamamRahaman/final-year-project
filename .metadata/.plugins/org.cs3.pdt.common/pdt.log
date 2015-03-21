@@ -1706,3 +1706,30 @@ java.lang.NullPointerException
 	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.ensureResultCached(DecorationScheduler.java:370)
 	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.run(DecorationScheduler.java:330)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+pdt: ----------------------------------
+pdt: Sat Mar 21 15:22:03 AST 2015
+pdt: ----------------------------------
+pdt: set debug output to LOGFILE
+pdt: ----------------------------------
+pdt: Sat Mar 21 15:22:03 AST 2015
+pdt: ----------------------------------
+pdt: set debug output to LOGFILE
+pdt: WARNING - 21/03 15:22:03 - main: Registry file /home/school/ise_projs/final-year-project/.metadata/.plugins/org.cs3.pdt.connector/registry-2 could not be read. A new file will be created on exit.
+pdt: WARNING - 21/03 15:22:19 - Prolog Process Default Process Work: Prolog warnings and errors during initialization:
+Location: /home/school/.eclipse/org.eclipse.platform_3.8_155965261/plugins/org.cs3.prolog.library_3.0.3.201411200925/pl/compatiblitySWI.pl:373
+Message: Goal (directive) failed: user:disable_tty_control
+
+
+pdt: ----------------------------------
+pdt: Sat Mar 21 15:26:11 AST 2015
+pdt: ----------------------------------
+pdt: set debug output to LOGFILE
+pdt: ----------------------------------
+pdt: Sat Mar 21 15:26:11 AST 2015
+pdt: ----------------------------------
+pdt: set debug output to LOGFILE
+pdt: WARNING - 21/03 15:26:13 - Prolog Process Default Process Work: Prolog warnings and errors during initialization:
+Location: /home/school/.eclipse/org.eclipse.platform_3.8_155965261/plugins/org.cs3.prolog.library_3.0.3.201411200925/pl/compatiblitySWI.pl:373
+Message: Goal (directive) failed: user:disable_tty_control
+
+

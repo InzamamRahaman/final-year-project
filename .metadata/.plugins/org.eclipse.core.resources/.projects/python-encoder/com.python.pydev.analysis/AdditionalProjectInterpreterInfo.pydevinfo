@@ -1,0 +1,46 @@
+-- VERSION_4
+-- START DISKCACHE
+/home/school/ise_projs/final-year-project/.metadata/.plugins/org.eclipse.core.resources/.projects/python-encoder/com.python.pydev.analysis/v2_indexcache
+src.FifoQueue|1426975763000|/home/school/ise_projs/final-year-project/python-encoder/src/FifoQueue.py
+src.OrganizingList|1426975828000|/home/school/ise_projs/final-year-project/python-encoder/src/OrganizingList.py
+-- END DISKCACHE
+-- START DICTIONARY
+7
+3=OrganizingList
+6=FifoQueue.__init__
+1=src.FifoQueue
+4=FifoQueue
+7=FifoQueue.get
+2=src.OrganizingList
+5=OrganizingList.__init__
+-- END DICTIONARY
+-- START TREE 1
+11
+arg|0|
+fif|1|FifoQueue!9@
+ima|0|
+int|0|
+lis|0|
+myc|0|
+org|1|OrganizingList!17@
+out|0|
+rea|0|
+sec|0|
+vq_|0|
+-- END TREE
+-- START TREE 2
+13
+!<m|0|
+__i|3|__init__!3&18@__init__!4&10@__iter__!4&10@
+e|0|
+ele|3|elements!5&19@elements!6&11@elements!7&11@
+fin|1|find!3&18@
+get|1|get!4&10@
+ins|2|insert!4&10@insert!3&18@
+is_|1|is_empty!4&10@
+max|1|max_size!5&19@
+mig|1|migrate_down!3&18@
+mo|0|
+nex|1|next!4&10@
+num|1|num_elements!5&19@
+-- END TREE

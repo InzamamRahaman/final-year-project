@@ -97,6 +97,7 @@ begin
 		entry <= (others => '0');
 		send_more_secret <= '0';
 		send_more <= '0';
+		vq_count <= vq_count + 0;
 		case current_state is
 			when RESET_STATE =>
 			   report "RESET STATE";
