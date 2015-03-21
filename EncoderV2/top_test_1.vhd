@@ -78,7 +78,7 @@ BEGIN
    -- Clock process definitions
    clk_process :process
 		variable my_line : line;
-		file outfile : text is out "output.txt";
+		file outfile : text is out "output_circuit.txt";
    begin
 		   clk <= '0';
 			wait for clk_period/2;
@@ -86,12 +86,12 @@ BEGIN
 			--report "Clock on";
 			if (not (stream_segment_len = "0000")) then
 --				report "Received new substream";
---				write(my_line, stream_segment);
+--   			write(my_line, stream_segment);
 --				writeline(output, my_line);
---				write(my_line, stream_segment);
---				writeline(outfile, my_line);
---				write(my_line, stream_segment_len);
---				writeline(outfile, my_line);
+				write(my_line, stream_segment);
+				writeline(outfile, my_line);
+				write(my_line, stream_segment_len);
+				writeline(outfile, my_line);
 			end if;
 			wait for clk_period/2;
    end process;

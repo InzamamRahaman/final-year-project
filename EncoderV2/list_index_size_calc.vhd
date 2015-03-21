@@ -41,13 +41,20 @@ begin
 	
 	conv_pr : process(index)
 	begin
-		if index < 2 then
-			num_bits <= 1;
-		elsif index < 4 then 
-			num_bits <= 2;
-		else
+		if index > 7 then
 			num_bits <= 3;
+		elsif index > 3 then
+			num_bits <= 2; 
+		else
+			num_bits <= 1; 
 		end if;
+--		if index < 3 then
+--			num_bits <= 1;
+--		elsif index < 4 then 
+--			num_bits <= 2;
+--		else
+--			num_bits <= 3;
+--		end if;
 	end process;
 
 end Behavioral;
