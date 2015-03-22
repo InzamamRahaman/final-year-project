@@ -40,14 +40,14 @@ LAB0:    xsi_set_current_line(44, ng0);
     t1 = (t0 + 1032U);
     t2 = *((char **)t1);
     t3 = *((int *)t2);
-    t4 = (t3 < 2);
+    t4 = (t3 > 7);
     if (t4 != 0)
         goto LAB2;
 
 LAB4:    t1 = (t0 + 1032U);
     t2 = *((char **)t1);
     t3 = *((int *)t2);
-    t4 = (t3 < 4);
+    t4 = (t3 > 3);
     if (t4 != 0)
         goto LAB5;
 
@@ -57,7 +57,7 @@ LAB6:    xsi_set_current_line(49, ng0);
     t5 = *((char **)t2);
     t6 = (t5 + 56U);
     t7 = *((char **)t6);
-    *((int *)t7) = 3;
+    *((int *)t7) = 1;
     xsi_driver_first_trans_fast_port(t1);
 
 LAB3:    t1 = (t0 + 2664);
@@ -70,7 +70,7 @@ LAB2:    xsi_set_current_line(45, ng0);
     t6 = *((char **)t5);
     t7 = (t6 + 56U);
     t8 = *((char **)t7);
-    *((int *)t8) = 1;
+    *((int *)t8) = 3;
     xsi_driver_first_trans_fast_port(t1);
     goto LAB3;
 

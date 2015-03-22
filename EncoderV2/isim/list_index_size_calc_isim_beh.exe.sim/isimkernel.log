@@ -1,0 +1,29 @@
+Command line:
+   list_index_size_calc_isim_beh.exe
+     -simmode  gui
+     -simrunnum  0
+     -socket  54797
+
+Sat Mar 21 23:47:37 2015
+
+
+ Elaboration Time: 0.03 sec
+
+ Current Memory Usage: 227.365 Meg
+
+ Total Signals          : 2
+ Total Nets             : 2
+ Total Signal Drivers   : 1
+ Total Blocks           : 3
+ Total Primitive Blocks : 3
+ Total Processes        : 1
+ Total Traceable Variables  : 12
+ Total Scalar Nets and Variables : 366
+Total Line Count : 4
+
+ Total Simulation Time: 0.03 sec
+
+ Current Memory Usage: 302.866 Meg
+
+Sat Mar 21 23:47:45 2015
+

@@ -40,7 +40,7 @@ entity top is
 			  completed : out std_logic);
 end top;
 
-architecture Behavioral of top is
+                        architecture Behavioral of top is
 	--signal stream_segment_len_pre : buffer_index;		
 	--signal sending : std_logic;
 	signal send_more_secret : std_logic;

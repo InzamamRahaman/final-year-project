@@ -136,7 +136,6 @@ begin
 				else
 					current_state <= INDEX_CONTAINED_TRUE;
 					send_more <= '1';
-					--send_more_secret <= '1';
 				end if;
 			when INDEX_CONTAINED_FALSE =>
 				report "INDEX_CONTAINED_FALSE";
@@ -145,7 +144,7 @@ begin
 				entry_len <= "1010";
 				current_state <= INFORM_USER;
 			when INDEX_CONTAINED_TRUE =>
-				report "INDEX_CONTAINED_TRUE";
+				--report "INDEX_CONTAINED_TRUE";
 				vq_count <= vq_count + 1;
 				if secret_bit = '0' then
 					current_state <= ALL_SECRET_ZERO_TRUE;
@@ -153,35 +152,34 @@ begin
 					current_state <= ALL_SECRET_ZERO_FALSE;
 				end if;
 			when ALL_SECRET_ZERO_TRUE =>
-				report "ALL_SECRET_ZERO_TRUE";
+				--report "ALL_SECRET_ZERO_TRUE";
 				if li = 1 then
 					current_state <= CASE_2;
 				else
 					current_state <= CASE_3;
 				end if;
 			when ALL_SECRET_ZERO_FALSE =>
-				report "ALL_SECRET_ZERO_FALSE";
+				--report "ALL_SECRET_ZERO_FALSE";
 				if li = 1 then
 					current_state <= CASE_4;
 				else
 					current_state <= CASE_5;
 				end if;
 			when CASE_2 =>
-				report "CASE_2";
-				entry(1) <= secret_bit;
+				--report "CASE_2";
+				entry(1) <= '0';
 				entry(2 to 3) <= "11";
 				entry_len <=  "0011";--convert_to_length(3);
-				current_state <= INFORM_USER;
-				send_more_secret <= '1';
+				current_state <= REQUEST_MORE_SECRET;
 			when CASE_4 =>
-				report "CASE_4";
+				--report "CASE_4";
 				entry(1) <= secret_bit;
 				entry(2) <= '1';
 				entry_len <= "0010";
-				current_state <= INFORM_USER;
+				current_state <= REQUEST_MORE_SECRET;
 			when CASE_3 => 
 				report "CASE_3";
-				entry(1) <= secret_bit;
+				entry(1) <= '0';
 				entry(2) <= '1';
 				if num_bits = 1 then
 				   entry(3) <= '0';
@@ -196,8 +194,7 @@ begin
 					entry(6 to 9) <= std_logic_vector(to_unsigned(li, 4));
 					entry_len <= "1001";
 				end if;
-				current_state <= INFORM_USER;
-				send_more_secret <= '1';
+				current_state <= REQUEST_MORE_SECRET;
 			when CASE_5 => 
 				report "CASE_5";
 				entry(1) <= secret_bit;
@@ -214,6 +211,9 @@ begin
 					entry(5 to 8) <= std_logic_vector(to_unsigned(li, 4));
 					entry_len <= "1000";
 				end if;
+				current_state <= REQUEST_MORE_SECRET;
+			when REQUEST_MORE_SECRET =>
+				send_more_secret <= '1';
 				current_state <= INFORM_USER;
 			when DONE => 
 				report "DONE";
