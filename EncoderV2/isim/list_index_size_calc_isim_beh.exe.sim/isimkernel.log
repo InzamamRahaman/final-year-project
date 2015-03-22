@@ -2,12 +2,12 @@ Command line:
    list_index_size_calc_isim_beh.exe
      -simmode  gui
      -simrunnum  0
-     -socket  54797
+     -socket  39565
 
-Sat Mar 21 23:47:37 2015
+Sun Mar 22 00:54:09 2015
 
 
- Elaboration Time: 0.03 sec
+ Elaboration Time: 0.02 sec
 
  Current Memory Usage: 227.365 Meg
 
@@ -25,5 +25,5 @@ Total Line Count : 4
 
  Current Memory Usage: 302.866 Meg
 
-Sat Mar 21 23:47:45 2015
+Sun Mar 22 00:54:14 2015
 

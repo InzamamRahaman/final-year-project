@@ -64,7 +64,7 @@ begin
 				for jdx in MAX_LIST_SIZE downto 2 loop
 					if response = 0 then
 						elements(jdx) := elements(jdx - 1);
-					elsif response > 1 and response = jdx then
+					elsif response > 1 and response >= jdx then
 						elements(jdx) := elements(jdx - 1);
 					else
 						elements(jdx) := elements(jdx);
