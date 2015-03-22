@@ -88,6 +88,8 @@ BEGIN
 --				report "Received new substream";
 --   			write(my_line, stream_segment);
 --				writeline(output, my_line);
+            --write(my_line, integer'image(vq));
+				--writeline(outfile, my_line);
 				write(my_line, stream_segment);
 				writeline(outfile, my_line);
 				write(my_line, stream_segment_len);

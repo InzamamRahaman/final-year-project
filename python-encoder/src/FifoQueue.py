@@ -32,3 +32,6 @@ class FifoQueue(object):
     
     def is_empty(self):
         return len(self.elements) == 0
+    
+    def size(self):
+        return len(self.elements)

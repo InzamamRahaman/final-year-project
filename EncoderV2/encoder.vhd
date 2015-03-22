@@ -136,7 +136,7 @@ begin
 				else
 					current_state <= INDEX_CONTAINED_TRUE;
 					send_more <= '1';
-					send_more_secret <= '1';
+					--send_more_secret <= '1';
 				end if;
 			when INDEX_CONTAINED_FALSE =>
 				report "INDEX_CONTAINED_FALSE";
@@ -172,6 +172,7 @@ begin
 				entry(2 to 3) <= "11";
 				entry_len <=  "0011";--convert_to_length(3);
 				current_state <= INFORM_USER;
+				send_more_secret <= '1';
 			when CASE_4 =>
 				report "CASE_4";
 				entry(1) <= secret_bit;
@@ -183,32 +184,35 @@ begin
 				entry(1) <= secret_bit;
 				entry(2) <= '1';
 				if num_bits = 1 then
-					entry(3 to 4) <= std_logic_vector(to_unsigned(li, 2));
-					entry_len <= "0100";
+				   entry(3) <= '0';
+					entry(4 to 5) <= std_logic_vector(to_unsigned(li, 2));
+					entry_len <= "0101";
 				elsif num_bits = 2 then
-					entry(3) <= '0';
-					entry(4 to 6) <= std_logic_vector(to_unsigned(li, 3));
-					entry_len <= "0110";
-				else
 					entry(3 to 4) <= "00";
-					entry(5 to 8) <= std_logic_vector(to_unsigned(li, 4));
-					entry_len <= "1000";
+					entry(5 to 7) <= std_logic_vector(to_unsigned(li, 3));
+					entry_len <= "0111";
+				else
+					entry(3 to 5) <= "000";
+					entry(6 to 9) <= std_logic_vector(to_unsigned(li, 4));
+					entry_len <= "1001";
 				end if;
 				current_state <= INFORM_USER;
+				send_more_secret <= '1';
 			when CASE_5 => 
 				report "CASE_5";
 				entry(1) <= secret_bit;
 				if num_bits = 1 then
-					entry(2 to 3) <= std_logic_vector(to_unsigned(li, 2));
-					entry_len <= "0011";
+				   entry(2) <= '0';
+					entry(3 to 4) <= std_logic_vector(to_unsigned(li, 2));
+					entry_len <= "0100";
 				elsif num_bits = 2 then
-					entry(2) <= '0';
-					entry(3 to 5) <= std_logic_vector(to_unsigned(li, 3));
-					entry_len <= "0101";
-				else
 					entry(2 to 3) <= "00";
-					entry(4 to 7) <= std_logic_vector(to_unsigned(li, 4));
-					entry_len <= "0111";
+					entry(4 to 6) <= std_logic_vector(to_unsigned(li, 3));
+					entry_len <= "0110";
+				else
+					entry(2 to 4) <= "000";
+					entry(5 to 8) <= std_logic_vector(to_unsigned(li, 4));
+					entry_len <= "1000";
 				end if;
 				current_state <= INFORM_USER;
 			when DONE => 

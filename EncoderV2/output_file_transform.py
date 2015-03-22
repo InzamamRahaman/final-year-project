@@ -29,6 +29,8 @@ final_string = ''
 
 for (idx, jdx) in zip(evens, odds):
   bit_stream = f1_data[idx]
+  #rep = bit_stream[0 : bin_to_int(f1_data[jdx].strip())].strip()
+  #f2.write(rep + '\n')
   final_string = final_string + bit_stream[0 : bin_to_int(f1_data[jdx].strip())].strip()
 
 for string in final_string:
