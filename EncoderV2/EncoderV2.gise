@@ -69,7 +69,7 @@
     <file xil_pn:fileType="FILE_HTML" xil_pn:name="top_envsettings.html"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="top_isim_beh.exe"/>
     <file xil_pn:fileType="FILE_HTML" xil_pn:name="top_summary.html"/>
-    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="top_test_1_beh.prj"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="top_test_1_beh.prj"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="top_test_1_isim_beh.exe"/>
     <file xil_pn:fileType="FILE_ISIM_MISC" xil_pn:name="top_test_1_isim_beh.wdb"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="top_test_1_stx_beh.prj"/>
@@ -88,6 +88,10 @@
     <transform xil_pn:end_ts="1427000232" xil_pn:in_ck="4494347861438609415" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1427000232">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputChanged"/>
+      <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="address_calculator.vhd"/>
       <outfile xil_pn:name="conversions_pkg.vhd"/>
       <outfile xil_pn:name="converter.vhd"/>
@@ -118,6 +122,11 @@
     <transform xil_pn:end_ts="1427000232" xil_pn:in_ck="4494347861438609415" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1427000232">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputChanged"/>
+      <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="address_calculator.vhd"/>
       <outfile xil_pn:name="conversions_pkg.vhd"/>
       <outfile xil_pn:name="converter.vhd"/>
@@ -132,7 +141,10 @@
     <transform xil_pn:end_ts="1427000240" xil_pn:in_ck="-8603600783429748980" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="5525379389377520658" xil_pn:start_ts="1427000232">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputChanged"/>
       <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="fuse.log"/>
       <outfile xil_pn:name="isim"/>
@@ -144,6 +156,9 @@
     <transform xil_pn:end_ts="1427000240" xil_pn:in_ck="-7606971432164891486" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="-1795198986846043897" xil_pn:start_ts="1427000240">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="isim.cmd"/>
       <outfile xil_pn:name="isim.log"/>
       <outfile xil_pn:name="top_test_1_isim_beh.wdb"/>
@@ -180,14 +195,10 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1426883292" xil_pn:in_ck="-4510581388558658150" xil_pn:name="TRANEXT_xstsynthesize_spartan3e" xil_pn:prop_ck="-5890401537785076932" xil_pn:start_ts="1426883280">
+    <transform xil_pn:end_ts="1427082399" xil_pn:in_ck="-4510581388558658150" xil_pn:name="TRANEXT_xstsynthesize_spartan3e" xil_pn:prop_ck="-5890401537785076932" xil_pn:start_ts="1427082362">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="InputChanged"/>
-      <status xil_pn:value="OutputRemoved"/>
       <outfile xil_pn:name="_xmsgs/xst.xmsgs"/>
       <outfile xil_pn:name="encoder.ngr"/>
       <outfile xil_pn:name="list.ngr"/>
@@ -198,6 +209,7 @@
       <outfile xil_pn:name="top.stx"/>
       <outfile xil_pn:name="top.syr"/>
       <outfile xil_pn:name="top.xst"/>
+      <outfile xil_pn:name="top_test_1_beh.prj"/>
       <outfile xil_pn:name="top_test_1_stx_beh.prj"/>
       <outfile xil_pn:name="top_xst.xrpt"/>
       <outfile xil_pn:name="webtalk_pn.xml"/>

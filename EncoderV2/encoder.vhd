@@ -79,8 +79,8 @@ begin
 	main_pr : process(clk, rst)
 		variable output_buffer : std_logic_vector(1 to MAX_BUFFER_SIZE) := (others => '0');
 		variable buffer_size : buffer_index := 0;
-		variable my_line : line;
-		file indicies : text is out "reported_index.txt";
+		--variable my_line : line;
+		--file indicies : text is out "reported_index.txt";
 	begin
 		if rst = '1' then
 			current_state <= RESET_STATE;
@@ -100,35 +100,35 @@ begin
 		vq_count <= vq_count + 0;
 		case current_state is
 			when RESET_STATE =>
-			   report "RESET STATE";
-				write(my_line, integer'image(vq));
-				writeline(indicies, my_line);
+			   --report "RESET STATE";
+				--write(my_line, integer'image(vq));
+				--writeline(indicies, my_line);
 				current_state <= INDEX_CONTAINED_FALSE;
 				send_more <= '1';
 			when INFORM_USER =>
-				report "INFORM USER";
+				--report "INFORM USER";
 				send_more_secret <= '0';
 				send_more <= '0';
 				current_state <= AWAITING_LIST_TRANSFORM;
 				enable_list <= '1';
 			when AWAITING_LIST_TRANSFORM =>
-				report "AWAITING_LIST_TRANSFORM";
+				--report "AWAITING_LIST_TRANSFORM";
 				current_state <= READING_DATA;
 			when READING_DATA =>
-				report "READING_DATA";
+				--report "READING_DATA";
 				--report "Reading data";
 				--report integer'image(vq);
-				write(my_line, integer'image(vq));
-				writeline(indicies, my_line);
+				--write(my_line, integer'image(vq));
+				--writeline(indicies, my_line);
 				--report std_logic'image(secret_bit);
 				--report integer'image(li);
 --				send_more <= '0';
 --				send_more_secret <= '0';
 --				enable_list <= '0';
 				if vq_count = 16384 then
-					report "Heading into the done state";
+					--report "Heading into the done state";
 					current_state <= ANOTHER_DONE;
-					report "Assigned next state";
+					--report "Assigned next state";
 					--finished <= '1';
 				elsif li = 0 then
 					current_state <= INDEX_CONTAINED_FALSE;
@@ -138,7 +138,7 @@ begin
 					send_more <= '1';
 				end if;
 			when INDEX_CONTAINED_FALSE =>
-				report "INDEX_CONTAINED_FALSE";
+				--report "INDEX_CONTAINED_FALSE";
 				vq_count <= vq_count + 1;
 				entry(1 to 10) <= "00" & std_logic_vector(to_unsigned(vq, 8));
 				entry_len <= "1010";
@@ -196,7 +196,7 @@ begin
 				end if;
 				current_state <= REQUEST_MORE_SECRET;
 			when CASE_5 => 
-				report "CASE_5";
+				--report "CASE_5";
 				entry(1) <= secret_bit;
 				if num_bits = 1 then
 				   entry(2) <= '0';
@@ -216,19 +216,19 @@ begin
 				send_more_secret <= '1';
 				current_state <= INFORM_USER;
 			when DONE => 
-				report "DONE";
+				--report "DONE";
 				--completed <= '1';
 				send_more <= '0';
 				send_more_secret <= '0';
 				current_state <= ANOTHER_DONE;
 			when ANOTHER_DONE =>
-				report "ANOTHER DONE";
+				--report "ANOTHER DONE";
 				--completed <= '1';
 				send_more <= '0';
 				send_more_secret <= '0';
 				current_state <= DONE;
 			when others =>
-				report "illegal state";
+				--report "illegal state";
 				completed <= '1';
 			end case;
 		end if;
