@@ -1733,3 +1733,17 @@ Location: /home/school/.eclipse/org.eclipse.platform_3.8_155965261/plugins/org.c
 Message: Goal (directive) failed: user:disable_tty_control
 
 
+pdt: ----------------------------------
+pdt: Fri Mar 27 15:43:25 AST 2015
+pdt: ----------------------------------
+pdt: set debug output to LOGFILE
+pdt: ----------------------------------
+pdt: Fri Mar 27 15:43:25 AST 2015
+pdt: ----------------------------------
+pdt: set debug output to LOGFILE
+pdt: WARNING - 27/03 15:43:25 - main: Registry file /home/school/ise_projs/final-year-project/.metadata/.plugins/org.cs3.pdt.connector/registry-3 could not be read. A new file will be created on exit.
+pdt: WARNING - 27/03 15:43:31 - Prolog Process Default Process Work: Prolog warnings and errors during initialization:
+Location: /home/school/.eclipse/org.eclipse.platform_3.8_155965261/plugins/org.cs3.prolog.library_3.0.3.201411200925/pl/compatiblitySWI.pl:373
+Message: Goal (directive) failed: user:disable_tty_control
+
+

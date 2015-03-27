@@ -2015,6 +2015,9 @@ encodings.utf_8|/usr/lib/python2.7/encodings/utf_8.py
 encodings.utf_8_sig|/usr/lib/python2.7/encodings/utf_8_sig.py
 encodings.uu_codec|/usr/lib/python2.7/encodings/uu_codec.py
 encodings.zlib_codec|/usr/lib/python2.7/encodings/zlib_codec.py
+enum.__init__|/usr/local/lib/python2.7/dist-packages/enum/__init__.py
+enum.enum|/usr/local/lib/python2.7/dist-packages/enum/enum.py
+enum.test_enum|/usr/local/lib/python2.7/dist-packages/enum/test_enum.py
 errno
 exceptions
 fcntl

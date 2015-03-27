@@ -1,1 +1,15 @@
-DELSTRsrc.encoder
+INSTUPsrc.FifoQueue
+/home/school/ise_projs/final-year-project/python-encoder/src/FifoQueue.py
+INFOS:&&1|1|2|0&&2|3|2|1&&3|4|2|5&&2|6|2|1&&2|7|2|1&&3|4|2|8&&2|9|2|1&&2|10|2|1&&2|11|2|1&&2|12|2|1
+next=10
+src.FifoQueue=2
+FifoQueue=1
+__iter__=9
+insert=6
+FifoQueue.__init__=5
+size=12
+elements=4
+get=7
+FifoQueue.get=8
+__init__=3
+is_empty=11
