@@ -31,7 +31,6 @@ def main():
         if StremProp.StreamPop.scenario1 == scenario:
             index_bits = get_k_bits(queue_of_output, 8)
             index = bin_to_int(index_bits)
-            my_list.insert(index)
             image_file.write(index + '\n')
         elif StremProp.StreamPop.scenario2 == scenario:
             secret = bits[0 : num_bits_per_index]
