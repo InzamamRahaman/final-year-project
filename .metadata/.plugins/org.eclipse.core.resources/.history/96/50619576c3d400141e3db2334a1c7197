@@ -20,8 +20,6 @@ queue_of_output = FileProcessor.create_queue_of_data(input_file_name)
 
 
 
-
-
 def main():
     while not queue_of_output.is_empty():
         bits = get_k_bits(queue_of_output, num_bits_per_index + 1)
@@ -41,4 +39,4 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    pass
