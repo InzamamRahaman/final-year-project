@@ -1,0 +1,3 @@
+vhdl work "size_constraints_pkg.vhd"
+vhdl work "list.vhd"
+vhdl work "top.vhd"

@@ -1747,3 +1747,33 @@ Location: /home/school/.eclipse/org.eclipse.platform_3.8_155965261/plugins/org.c
 Message: Goal (directive) failed: user:disable_tty_control
 
 
+pdt: WARNING - 28/03 02:13:05 - Prolog Process Default Process Work: pdt: The following Exception was caught:
+pdt: ERROR - 28/03 02:13:05 - Worker-46: Error during decoration of L/python-decoder/src/FileProcessor.py
+java.lang.NullPointerException
+	at org.cs3.prolog.connector.internal.process.socket.ReusablePool.recycle(ReusablePool.java:40)
+	at org.cs3.prolog.connector.internal.process.socket.SocketClient.close(SocketClient.java:90)
+	at org.cs3.prolog.connector.internal.session.socket.SocketSession.dispose(SocketSession.java:62)
+	at org.cs3.prolog.connector.internal.process.AbstractPrologProcess$MyLifeCycle.disposeSessions(AbstractPrologProcess.java:250)
+	at org.cs3.prolog.connector.internal.lifecycle.ShutdownState$1.run(ShutdownState.java:46)
+	at org.cs3.prolog.connector.internal.lifecycle.LifeCycle$DispatcherThread.run(LifeCycle.java:59)
+pdt: WARNING - 28/03 02:13:05 - Worker-46: pdt: The following Exception was caught:
+org.cs3.prolog.connector.process.PrologException: could not read value for variable RsultList
+	at org.cs3.prolog.connector.internal.session.socket.SocketSession.readVariableValue(SocketSession.java:352)
+	at org.cs3.prolog.connector.internal.session.socket.SocketSession.read_solution(SocketSession.java:342)
+	at org.cs3.prolog.connector.internal.session.socket.SocketSession.queryOnce(SocketSession.java:304)
+	at org.cs3.prolog.connector.internal.session.socket.SocketSession.queryAllAtOnce(SocketSession.java:204)
+	at org.cs3.prolog.connector.internal.session.socket.SocketSession.queryAllImpl(SocketSession.java:130)
+	at org.cs3.prolog.connector.internal.session.socket.SocketSession.queryAll(SocketSession.java:75)
+	at org.cs3.prolog.connector.internal.process.AbstractPrologProcess.queryAll(AbstractPrologProcess.java:613)
+	at org.cs3.prolog.connector.internal.process.AbstractPrologProcess.queryAll(AbstractPrologProcess.java:585)
+	at org.cs3.pdt.navigator.internal.decorators.PDTConsultDecoratorContributor.fillSetsIfNeeded(PDTConsultDecoratorContributor.java:185)
+	at org.cs3.pdt.navigator.internal.decorators.PDTConsultDecoratorContributor.isCurrent(PDTConsultDecoratorContributor.java:161)
+	at org.cs3.pdt.navigator.internal.decorators.PDTConsultDecoratorContributor.decorate(PDTConsultDecoratorContributor.java:87)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorDefinition.decorate(LightweightDecoratorDefinition.java:263)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager$LightweightRunnable.run(LightweightDecoratorManager.java:81)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.decorate(LightweightDecoratorManager.java:365)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.getDecorations(LightweightDecoratorManager.java:347)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.ensureResultCached(DecorationScheduler.java:370)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.run(DecorationScheduler.java:330)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
