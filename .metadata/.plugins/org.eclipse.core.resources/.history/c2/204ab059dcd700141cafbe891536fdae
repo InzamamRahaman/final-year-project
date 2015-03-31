@@ -34,7 +34,6 @@ class OrganizingList(object):
             temp = self.elements[idx]
             self.elements[idx] = self.elements[idx - 1]
             self.elements[idx - 1] = temp
-        self.elements[0] = elem
         return location + 1
     
     def __getitem__(self, index):

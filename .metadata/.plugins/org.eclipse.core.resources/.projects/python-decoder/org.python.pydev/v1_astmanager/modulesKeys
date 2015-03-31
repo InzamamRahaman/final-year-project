@@ -1,7 +1,3 @@
 MODULES_MANAGER_V2
-src.FifoQueue|/home/school/ise_projs/final-year-project/python-decoder/src/FifoQueue.py
-src.FileProcessor|/home/school/ise_projs/final-year-project/python-decoder/src/FileProcessor.py
 src.OrganizingList|/home/school/ise_projs/final-year-project/python-decoder/src/OrganizingList.py
-src.StremProp|/home/school/ise_projs/final-year-project/python-decoder/src/StremProp.py
-src.config|/home/school/ise_projs/final-year-project/python-decoder/src/config.py
 src.decoder|/home/school/ise_projs/final-year-project/python-decoder/src/decoder.py

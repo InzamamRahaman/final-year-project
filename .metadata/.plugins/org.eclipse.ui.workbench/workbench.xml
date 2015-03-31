@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<workbench progressCount="16" version="2.0">
+<workbench progressCount="33" version="2.0">
 <workbenchAdvisor/>
 <window height="744" maximized="true" width="1020" x="260" y="176">
 <fastViewData fastViewLocation="1024"/>
@@ -58,7 +58,7 @@
 </editor>
 <editor activePart="true" focus="true" id="org.python.pydev.editor.PythonEditor" name="decoder.py" partName="decoder" path="/home/school/ise_projs/final-year-project/python-decoder/src/decoder.py" title="decoder" tooltip="python-decoder/src/decoder.py" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/python-decoder/src/decoder.py"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1172" selectionTopPixel="328"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="125" selectionTopPixel="394"/>
 </editor>
 <editor id="org.python.pydev.editor.PythonEditor" name="config.py" partName="config" path="/home/school/ise_projs/final-year-project/python-decoder/src/config.py" title="config" tooltip="python-decoder/src/config.py" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/python-decoder/src/config.py"/>
@@ -68,13 +68,13 @@
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/python-decoder/src/StremProp.py"/>
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="62" selectionTopPixel="22"/>
 </editor>
-<editor id="org.python.pydev.editor.PythonEditor" name="OrganizingList.py" partName="OrganizingList (python-encoder.src)" path="/home/school/ise_projs/final-year-project/python-encoder/src/OrganizingList.py" title="OrganizingList (python-encoder.src)" tooltip="python-encoder/src/OrganizingList.py" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/python-encoder/src/OrganizingList.py"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="638" selectionTopPixel="260"/>
-</editor>
 <editor id="org.python.pydev.editor.PythonEditor" name="OrganizingList.py" partName="OrganizingList (python-decoder.src)" path="/home/school/ise_projs/final-year-project/python-decoder/src/OrganizingList.py" title="OrganizingList (python-decoder.src)" tooltip="python-decoder/src/OrganizingList.py" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/python-decoder/src/OrganizingList.py"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1064" selectionTopPixel="396"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1063" selectionTopPixel="238"/>
+</editor>
+<editor id="org.python.pydev.editor.PythonEditor" name="encoder.py" partName="encoder" path="/home/school/ise_projs/final-year-project/python-encoder/src/encoder.py" title="encoder" tooltip="python-encoder/src/encoder.py" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/python-encoder/src/encoder.py"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
 </editor>
 </editors>
 <views>
@@ -87,7 +87,7 @@
 <expanded IMemento.internal.id="/home/school/ise_projs/final-year-project/python-decoder/src"/>
 <expanded IMemento.internal.id="/home/school/ise_projs/final-year-project/python-encoder"/>
 <expanded IMemento.internal.id="/home/school/ise_projs/final-year-project/python-encoder/src"/>
-<selected IMemento.internal.id="/home/school/ise_projs/final-year-project/python-decoder/src/OrganizingList.py"/>
+<selected IMemento.internal.id="/home/school/ise_projs/final-year-project/python-decoder/src"/>
 </viewState>
 </view>
 <view id="org.eclipse.ui.views.ContentOutline" partName="Outline">
@@ -109,7 +109,7 @@
 <viewState CommonNavigator.LINKING_ENABLED="0" org.eclipse.ui.navigator.resources.workingSets.showTopLevelWorkingSets="0"/>
 </view>
 </views>
-<perspectives activePart="org.python.pydev.editor.PythonEditor" activePerspective="org.python.pydev.ui.PythonPerspective">
+<perspectives activePart="org.python.pydev.navigator.view" activePerspective="org.python.pydev.ui.PythonPerspective">
 <perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
 <descriptor class="org.eclipse.ui.internal.ide.application.ResourcePerspective" id="org.eclipse.ui.resourcePerspective" label="Resource"/>
 <alwaysOnActionSet id="org.eclipse.ui.cheatsheets.actionSet"/>
@@ -145,50 +145,34 @@
 <view id="org.eclipse.ui.views.TaskList"/>
 <view id="org.cs3.pdt.console.internal.views.PrologConsoleView"/>
 <fastViewBars/>
-<layout>
-<mainWindow>
-<info folder="true" part="topLeft">
-<folder activePageID="org.eclipse.ui.navigator.ProjectExplorer" appearance="2" expanded="2">
-<page content="org.eclipse.ui.navigator.ProjectExplorer" label="Project Explorer"/>
+<layout>&#x0A;<mainWindow>&#x0A;<info folder="true" part="topLeft">&#x0A;<folder activePageID="org.eclipse.ui.navigator.ProjectExplorer" appearance="2" expanded="2">&#x0A;<page content="org.eclipse.ui.navigator.ProjectExplorer" label="Project Explorer"/>
 <page content="org.eclipse.ui.views.BookmarkView" label="LabelNotFound"/>
 <page content="org.eclipse.ui.views.ResourceNavigator" label="LabelNotFound"/>
 <page content="org.eclipse.team.ccvs.ui.RepositoriesView" label="LabelNotFound"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
-<part id="0"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
 </presentation>
 </folder>
 </info>
-<info folder="true" part="stickyFolderRight" ratio="0.7495049" ratioLeft="757" ratioRight="253" relationship="2" relative="topLeft">
-<folder appearance="2" expanded="2">
-<page content="org.eclipse.help.ui.HelpView" label="LabelNotFound"/>
+<info folder="true" part="stickyFolderRight" ratio="0.7495049" ratioLeft="757" ratioRight="253" relationship="2" relative="topLeft">&#x0A;<folder appearance="2" expanded="2">&#x0A;<page content="org.eclipse.help.ui.HelpView" label="LabelNotFound"/>
 <page content="org.eclipse.ui.internal.introview" label="LabelNotFound"/>
 <page content="org.eclipse.ui.cheatsheets.views.CheatSheetView" label="LabelNotFound"/>
 </folder>
 </info>
 <info part="org.eclipse.ui.editorss" ratio="0.25940594" ratioLeft="262" ratioRight="748" relationship="2" relative="topLeft"/>
-<info folder="true" part="bottomRight" ratio="0.6589506" ratioLeft="427" ratioRight="221" relationship="4" relative="org.eclipse.ui.editorss">
-<folder activePageID="org.eclipse.ui.views.TaskList" appearance="2" expanded="2">
-<page content="org.eclipse.ui.views.TaskList" label="Tasks"/>
+<info folder="true" part="bottomRight" ratio="0.6589506" ratioLeft="427" ratioRight="221" relationship="4" relative="org.eclipse.ui.editorss">&#x0A;<folder activePageID="org.eclipse.ui.views.TaskList" appearance="2" expanded="2">&#x0A;<page content="org.eclipse.ui.views.TaskList" label="Tasks"/>
 <page content="org.eclipse.team.ui.GenericHistoryView" label="LabelNotFound"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
-<part id="0"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
 </presentation>
 </folder>
 </info>
-<info folder="true" part="org.eclipse.ui.internal.ViewStack@73da7f08" ratio="0.5" ratioLeft="374" ratioRight="374" relationship="2" relative="bottomRight">
-<folder activePageID="org.cs3.pdt.console.internal.views.PrologConsoleView" appearance="2" expanded="2">
-<page content="org.cs3.pdt.console.internal.views.PrologConsoleView" label="Prolog Console"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
-<part id="0"/>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@73da7f08" ratio="0.5" ratioLeft="374" ratioRight="374" relationship="2" relative="bottomRight">&#x0A;<folder activePageID="org.cs3.pdt.console.internal.views.PrologConsoleView" appearance="2" expanded="2">&#x0A;<page content="org.cs3.pdt.console.internal.views.PrologConsoleView" label="Prolog Console"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
 </presentation>
 </folder>
 </info>
-<info folder="true" part="bottomLeft" ratio="0.5" ratioLeft="324" ratioRight="324" relationship="4" relative="topLeft">
-<folder activePageID="org.eclipse.ui.views.ContentOutline" appearance="2" expanded="2">
-<page content="org.eclipse.ui.views.ContentOutline" label="Outline"/>
+<info folder="true" part="bottomLeft" ratio="0.5" ratioLeft="324" ratioRight="324" relationship="4" relative="topLeft">&#x0A;<folder activePageID="org.eclipse.ui.views.ContentOutline" appearance="2" expanded="2">&#x0A;<page content="org.eclipse.ui.views.ContentOutline" label="Outline"/>
 <page content="org.eclipse.ant.ui.views.AntView" label="LabelNotFound"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
-<part id="0"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
 </presentation>
 </folder>
 </info>
@@ -224,9 +208,9 @@
 <new_wizard_action id="org.eclipse.ui.wizards.new.folder"/>
 <new_wizard_action id="org.eclipse.ui.wizards.new.file"/>
 <new_wizard_action id="org.eclipse.ui.editors.wizards.UntitledTextFileWizard"/>
+<hide_toolbar_item_id id="org.eclipse.ui.edit.text.toggleShowSelectedElementOnly"/>
 <hide_toolbar_item_id id="org.eclipse.debug.ui.commands.RunToLine"/>
 <hide_toolbar_item_id id="org.eclipse.jdt.ui.actions.OpenProjectWizard"/>
-<hide_toolbar_item_id id="org.eclipse.ui.edit.text.toggleShowSelectedElementOnly"/>
 <view id="org.python.pydev.navigator.view"/>
 <fastViewBars/>
 <layout>
@@ -264,7 +248,6 @@
 <navigationHistory>
 <editors>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.sigasi.hdt.vhdl.Vhdl" path="/FinalYear/src/main.vhd"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.sigasi.hdt.vhdl.Vhdl" path="/FinalYear/src/globals.vhd"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.sigasi.hdt.vhdl.Vhdl" path="/FinalYear/src/codestream.vhd"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.sigasi.hdt.vhdl.Vhdl" path="/FinalYear/src/encoder.vhd"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.sigasi.hdt.vhdl.Vhdl" path="/FinalYear/src/globals.vhd"/>
@@ -277,152 +260,155 @@
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.python.pydev.editor.PythonEditor" path="/python-decoder/src/StremProp.py"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.python.pydev.editor.PythonEditor" path="/python-encoder/src/OrganizingList.py"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.python.pydev.editor.PythonEditor" path="/python-decoder/src/OrganizingList.py"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.python.pydev.editor.PythonEditor" path="/python-encoder/src/OrganizingList.py"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.python.pydev.editor.PythonEditor" path="/python-decoder/src/OrganizingList.py"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.python.pydev.editor.PythonEditor" path="/python-encoder/src/encoder.py"/>
 </editors>
-<item historyLabel="main.vhd" index="0">
-<position info="not_deleted" x="140" y="0"/>
-</item>
-<item historyLabel="globals.vhd" index="1">
-<position info="not_deleted" x="2894" y="0"/>
-</item>
-<item historyLabel="main.vhd" index="0">
-<position info="not_deleted" x="4239" y="0"/>
-</item>
-<item historyLabel="globals.vhd" index="1">
-<position info="not_deleted" x="2894" y="0"/>
-</item>
-<item historyLabel="main.vhd" index="0">
-<position info="not_deleted" x="4239" y="0"/>
-</item>
-<item historyLabel="globals.vhd" index="1">
-<position info="not_deleted" x="847" y="0"/>
-</item>
-<item historyLabel="main.vhd" index="0">
-<position info="not_deleted" x="3725" y="0"/>
-</item>
-<item historyLabel="globals.vhd" index="1">
-<position info="not_deleted" x="1549" y="12"/>
-</item>
-<item historyLabel="main.vhd" index="0">
-<position info="not_deleted" x="5160" y="0"/>
-</item>
-<item historyLabel="globals.vhd" index="1">
-<position info="not_deleted" x="1549" y="12"/>
-</item>
-<item historyLabel="codestream.vhd" index="2">
+<item historyLabel="codestream.vhd" index="1">
 <position info="not_deleted" x="99" y="10"/>
 </item>
 <item historyLabel="main.vhd" index="0">
 <position info="not_deleted" x="5160" y="0"/>
 </item>
-<item historyLabel="encoder.vhd" index="3"/>
-<item historyLabel="globals.vhd" index="4"/>
-<item historyLabel="FifoQueue" index="5">
+<item historyLabel="encoder.vhd" index="2"/>
+<item historyLabel="globals.vhd" index="3"/>
+<item historyLabel="FifoQueue" index="4">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="FifoQueue (python-decoder.src)" index="6">
+<item historyLabel="FifoQueue (python-decoder.src)" index="5">
 <position info="not_deleted" x="712" y="0"/>
 </item>
-<item historyLabel="FifoQueue (python-encoder.src)" index="5">
+<item historyLabel="FifoQueue (python-encoder.src)" index="4">
 <position info="not_deleted" x="0" y="712"/>
 </item>
-<item historyLabel="FifoQueue (python-decoder.src)" index="6">
+<item historyLabel="FifoQueue (python-decoder.src)" index="5">
 <position info="not_deleted" x="712" y="0"/>
 </item>
-<item historyLabel="FifoQueue (python-encoder.src)" index="5">
+<item historyLabel="FifoQueue (python-encoder.src)" index="4">
 <position info="not_deleted" x="0" y="712"/>
 </item>
-<item historyLabel="FifoQueue (python-decoder.src)" index="6">
+<item historyLabel="FifoQueue (python-decoder.src)" index="5">
 <position info="not_deleted" x="712" y="0"/>
 </item>
-<item historyLabel="FileProcessor" index="7">
+<item historyLabel="FileProcessor" index="6">
 <position info="not_deleted" x="589" y="0"/>
 </item>
-<item historyLabel="output_from_algo.txt" index="8">
+<item historyLabel="output_from_algo.txt" index="7">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="FifoQueue (python-decoder.src)" index="6">
+<item historyLabel="FifoQueue (python-decoder.src)" index="5">
 <position info="not_deleted" x="712" y="0"/>
 </item>
-<item historyLabel="FileProcessor" index="7">
+<item historyLabel="FileProcessor" index="6">
 <position info="not_deleted" x="589" y="0"/>
 </item>
-<item historyLabel="FifoQueue (python-decoder.src)" index="6">
+<item historyLabel="FifoQueue (python-decoder.src)" index="5">
 <position info="not_deleted" x="497" y="0"/>
 </item>
-<item historyLabel="FileProcessor" index="7">
+<item historyLabel="FileProcessor" index="6">
 <position info="not_deleted" x="589" y="0"/>
 </item>
-<item historyLabel="FifoQueue (python-decoder.src)" index="6">
+<item historyLabel="FifoQueue (python-decoder.src)" index="5">
 <position info="not_deleted" x="497" y="0"/>
 </item>
-<item historyLabel="FileProcessor" index="7">
+<item historyLabel="FileProcessor" index="6">
 <position info="not_deleted" x="580" y="0"/>
 </item>
-<item historyLabel="FifoQueue (python-decoder.src)" index="6">
+<item historyLabel="FifoQueue (python-decoder.src)" index="5">
 <position info="not_deleted" x="497" y="0"/>
 </item>
-<item historyLabel="output_from_algo.txt" index="8">
+<item historyLabel="output_from_algo.txt" index="7">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="FileProcessor" index="7">
+<item historyLabel="FileProcessor" index="6">
 <position info="not_deleted" x="580" y="0"/>
 </item>
-<item historyLabel="decoder" index="9">
+<item historyLabel="decoder" index="8">
 <position info="not_deleted" x="458" y="0"/>
 </item>
-<item historyLabel="config" index="10">
+<item historyLabel="config" index="9">
 <position info="not_deleted" x="265" y="0"/>
 </item>
-<item historyLabel="StremProp" index="11">
+<item historyLabel="StremProp" index="10">
 <position info="not_deleted" x="62" y="0"/>
 </item>
-<item historyLabel="decoder" index="9">
+<item historyLabel="decoder" index="8">
 <position info="not_deleted" x="124" y="0"/>
 </item>
-<item historyLabel="FileProcessor" index="7">
+<item historyLabel="FileProcessor" index="6">
 <position info="not_deleted" x="580" y="0"/>
 </item>
-<item historyLabel="decoder" index="9">
+<item historyLabel="decoder" index="8">
 <position info="not_deleted" x="124" y="0"/>
 </item>
-<item historyLabel="FileProcessor" index="7">
+<item historyLabel="FileProcessor" index="6">
 <position info="not_deleted" x="580" y="0"/>
 </item>
-<item historyLabel="decoder" index="9">
+<item historyLabel="decoder" index="8">
 <position info="not_deleted" x="3" y="0"/>
 </item>
-<item historyLabel="FileProcessor" index="7">
+<item historyLabel="FileProcessor" index="6">
 <position info="not_deleted" x="580" y="0"/>
 </item>
-<item historyLabel="decoder" index="9">
+<item historyLabel="decoder" index="8">
 <position info="not_deleted" x="3" y="0"/>
 </item>
-<item historyLabel="decoder" index="9">
+<item historyLabel="decoder" index="8">
 <position info="not_deleted" x="737" y="0"/>
 </item>
-<item historyLabel="decoder" index="9">
+<item historyLabel="decoder" index="8">
 <position info="not_deleted" x="457" y="0"/>
 </item>
-<item historyLabel="OrganizingList (python-encoder.src)" index="12">
+<item historyLabel="OrganizingList (python-encoder.src)" index="11">
 <position info="not_deleted" x="638" y="0"/>
 </item>
-<item historyLabel="OrganizingList (python-decoder.src)" index="13">
+<item historyLabel="OrganizingList (python-decoder.src)" index="12">
 <position info="not_deleted" x="1452" y="0"/>
 </item>
-<item historyLabel="decoder" index="9">
+<item historyLabel="decoder" index="8">
 <position info="not_deleted" x="814" y="0"/>
 </item>
-<item historyLabel="OrganizingList (python-decoder.src)" index="13">
+<item historyLabel="OrganizingList (python-decoder.src)" index="12">
 <position info="not_deleted" x="1452" y="0"/>
 </item>
-<item historyLabel="decoder" index="9">
+<item historyLabel="decoder" index="8">
 <position info="not_deleted" x="1172" y="0"/>
 </item>
-<item historyLabel="OrganizingList (python-decoder.src)" index="13">
+<item historyLabel="OrganizingList (python-decoder.src)" index="12">
 <position info="not_deleted" x="1064" y="0"/>
 </item>
-<item active="true" historyLabel="decoder" index="9">
+<item historyLabel="decoder" index="8">
 <position info="not_deleted" x="1172" y="0"/>
+</item>
+<item historyLabel="OrganizingList (python-encoder.src)" index="13">
+<position info="not_deleted" x="638" y="0"/>
+</item>
+<item historyLabel="OrganizingList (python-decoder.src)" index="14">
+<position info="not_deleted" x="1096" y="0"/>
+</item>
+<item historyLabel="OrganizingList (python-encoder.src)" index="13">
+<position info="not_deleted" x="638" y="0"/>
+</item>
+<item historyLabel="OrganizingList (python-decoder.src)" index="14">
+<position info="not_deleted" x="1096" y="0"/>
+</item>
+<item historyLabel="decoder" index="8">
+<position info="not_deleted" x="1724" y="0"/>
+</item>
+<item historyLabel="OrganizingList (python-decoder.src)" index="14">
+<position info="not_deleted" x="1063" y="0"/>
+</item>
+<item historyLabel="decoder" index="8">
+<position info="not_deleted" x="1724" y="0"/>
+</item>
+<item historyLabel="decoder" index="8">
+<position info="not_deleted" x="125" y="0"/>
+</item>
+<item historyLabel="encoder" index="15">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item active="true" historyLabel="decoder" index="8">
+<position info="not_deleted" x="125" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -441,6 +427,9 @@
 </trimLayout>
 </window>
 <mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.python.pydev.editor.PythonEditor" name="encoder.py" tooltip="python-encoder/src/encoder.py">
+<persistable path="/python-encoder/src/encoder.py"/>
+</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.python.pydev.editor.PythonEditor" name="OrganizingList.py" tooltip="python-decoder/src/OrganizingList.py">
 <persistable path="/python-decoder/src/OrganizingList.py"/>
 </file>

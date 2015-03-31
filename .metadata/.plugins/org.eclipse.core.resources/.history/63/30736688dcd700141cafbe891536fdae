@@ -6,12 +6,12 @@ Created on Mar 27, 2015
 
 import FileProcessor
 import StremProp
-import config
+import config 
 import OrganizingList
 
-import sys
-# from FileProcessor import get_k_bits
-# from config import num_bits_per_index, bin_to_int
+import sys 
+from src.FileProcessor import get_k_bits
+from src.config import num_bits_per_index, bin_to_int
 args = sys.argv
 input_file_name = args[1]
 image_file = open(args[2].strip(), 'r')
@@ -20,19 +20,6 @@ my_list = OrganizingList(4)
 
 queue_of_output = FileProcessor.create_queue_of_data(input_file_name)
 
-
-def read_list_index():
-    zero_count = 0
-    bit = int(queue_of_output.get())
-    while bit == 0:
-        zero_count += 1
-        bit = int(queue_of_output.get())
-    zero_count += 1
-    num = str(bit)
-    while zero_count:
-        zero_count -= 1
-        num += str(queue_of_output.get())
-    image_file.write(str(my_list[bin_to_int(num)]) + '\n')
 
 
 
@@ -50,18 +37,24 @@ def main():
             secret = bits[0 : num_bits_per_index]
             for bit in secret:
                 secret_file.write(bit + '\n')
+        elif StremProp.StreamPop.scenario3 == scenario:
             next_bit = queue_of_output.get()
             if int(next_bit):
                 image_file.write(str(my_list[1]) + '\n')
             else:
-                read_list_index()
-        elif StremProp.StreamPop.scenario3 == scenario:
-            image_file.write(str(my_list[1]) + '\n')
-        else:
-            read_list_index()
-    print "Finished with decoding process"
-
-
+                zero_count = 0
+                bit = int(queue_of_output.get())
+                while bit == 0:
+                    zero_count += 1
+                    bit = int(queue_of_output.get())
+                zero_count += 1
+                num = str(bit)
+                while zero_count:
+                    zero_count -= 1
+                    num += str(queue_of_output.get())
+                image_file.write(str(my_list[bin_to_int(num)]) + '\n')
+                
+                    
 
 
 if __name__ == '__main__':

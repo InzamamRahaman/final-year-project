@@ -1777,3 +1777,29 @@ org.cs3.prolog.connector.process.PrologException: could not read value for varia
 	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.ensureResultCached(DecorationScheduler.java:370)
 	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.run(DecorationScheduler.java:330)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+pdt: ----------------------------------
+pdt: Tue Mar 31 15:19:09 AST 2015
+pdt: ----------------------------------
+pdt: set debug output to LOGFILE
+pdt: ----------------------------------
+pdt: Tue Mar 31 15:19:09 AST 2015
+pdt: ----------------------------------
+pdt: set debug output to LOGFILE
+pdt: WARNING - 31/03 15:19:25 - Prolog Process Default Process Work: Prolog warnings and errors during initialization:
+Location: /home/school/.eclipse/org.eclipse.platform_3.8_155965261/plugins/org.cs3.prolog.library_3.0.3.201411200925/pl/compatiblitySWI.pl:373
+Message: Goal (directive) failed: user:disable_tty_control
+
+
+pdt: ERROR - 31/03 15:32:39 - Worker-19: Error during decoration of L/python-decoder/src/decoder.py
+pdt: WARNING - 31/03 15:32:39 - Worker-19: pdt: The following Exception was caught:
+java.lang.NullPointerException
+	at org.cs3.pdt.navigator.internal.ImageRepository.getImageDescriptor(ImageRepository.java:38)
+	at org.cs3.pdt.navigator.internal.decorators.PDTConsultDecoratorContributor.decorate(PDTConsultDecoratorContributor.java:110)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorDefinition.decorate(LightweightDecoratorDefinition.java:263)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager$LightweightRunnable.run(LightweightDecoratorManager.java:81)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.decorate(LightweightDecoratorManager.java:365)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.getDecorations(LightweightDecoratorManager.java:347)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.ensureResultCached(DecorationScheduler.java:370)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.run(DecorationScheduler.java:330)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
