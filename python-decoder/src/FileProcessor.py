@@ -7,9 +7,10 @@ from FifoQueue import FifoQueue
 
 
 def create_queue_of_data(file_name):
-    queue = FifoQueue
+    queue = FifoQueue()
     file = open(file_name, 'r')
     all_data = file.read()
+    file.close()
     cleaned_data = filter(lambda x : len(x) > 0, all_data.split())
     for data in cleaned_data:
         queue.insert(data)
@@ -22,10 +23,7 @@ def get_k_bits(queue, k = 2):
             ans.append(queue.get())
         else:
             break
-    return ans 
+    return ans
 
 def list_to_string(xs):
     return ''.join(xs)
-
-
-        
