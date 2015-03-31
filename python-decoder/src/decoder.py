@@ -67,11 +67,12 @@ def write_secret_bits(bits):
 
 def handle_case_3():
     # read until we have all other zeroes
-    count = 0
+    count = 2
     bit = queue_of_output.get()
     while bit == '0':
-        count += 1
         bit = queue_of_output.get()
+        count += 1
+    print "count is ", count
     number = bit
     number = number + get_k_bits(queue_of_output, count - 1)
     print "converting ", number
@@ -80,16 +81,17 @@ def handle_case_3():
     print "List elements ", my_list.elements
     print "Retrieving"
     list_cont = my_list[index]
+    print list_cont
     image_file.write(str(list_cont) + '\n')
 
 def handle_case_5():
     # read until we have all other zeroes
-    count = 0
+    count = 2
     bit = queue_of_output.get()
     while bit == '0':
-        count += 1
         bit = queue_of_output.get()
-    count += 1
+        count += 1
+    #count += 1
     number = bit
     number = number + get_k_bits(queue_of_output, count - 1)
     print "converting ", number
@@ -98,6 +100,7 @@ def handle_case_5():
     print "List elements ", my_list.elements
     print "Retrieving"
     list_cont = my_list[index]
+    print list_cont
     image_file.write(str(list_cont) + '\n')
 
 
