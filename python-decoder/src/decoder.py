@@ -41,6 +41,7 @@ def main():
     while not queue_of_output.is_empty():
         bits = get_k_bits(queue_of_output, num_bits_per_index + 1)
         scenario = compute_case(bits)
+        print "read ", str(bits)
         if StreamPop.scenario1 == scenario:
             index_bits = get_k_bits(queue_of_output, 8)
             index = bin_to_int(index_bits)

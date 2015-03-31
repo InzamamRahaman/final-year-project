@@ -23,7 +23,7 @@ def get_k_bits(queue, k = 2):
             ans.append(queue.get())
         else:
             break
-    return ans
+    return ''.join(ans)
 
 def list_to_string(xs):
     return ''.join(xs)
