@@ -59,7 +59,7 @@ begin
 			last_index <= 1;
 		elsif rising_edge(clk) then
 			-- initialize the outputs
-			at_index_one <= 0;
+			at_index_one <= contents(1);
 			value_at_index <= 0;
 			-- handle insertion case first
 			if enable_insert = '1' then
