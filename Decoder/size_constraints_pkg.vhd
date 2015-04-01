@@ -16,6 +16,10 @@ package size_constraints_pkg is
 	subtype list_index is integer range 0 to 5;
 	
 	constant MAX_LIST_SIZE : natural := 4;
+	constant RAM_ADDRESS_SIZE : natural := 18;
+	constant LIST_FILLER : vq_index := 128;
+	constant MAX_NUMBER_OF_BITS_FOR_VQ : natural := 8;
+	
 	
 	type vq_index_list is array (1 to MAX_LIST_SIZE) of vq_index;
 

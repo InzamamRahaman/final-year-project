@@ -34,30 +34,60 @@ use work.size_constraints_pkg.all;
 entity top is
     Port ( clk : in  STD_LOGIC;
            rst : in  STD_LOGIC;
-           secret_bit : out  STD_LOGIC;
-           sending_secret : out  STD_LOGIC;
-           finished_secret : out  STD_LOGIC;
-           vq : out  std_logic_vector(0 to 8);
-           sending_vq_idex : out  STD_LOGIC;
-           finished_vq_indicies : out  STD_LOGIC);
+           finished_out : out  STD_LOGIC;
+           sending_bit_out : out  STD_LOGIC;
+           bit_out : out  STD_LOGIC;
+			  vq_index_out : std_logic_vector(
+					MAX_NUMBER_OF_BITS_FOR_VQ - 1 downto 0);
+			  sending_vq_index_out : std_logic);
 end top;
 
 architecture Behavioral of top is
-	-- control signals for the list
-	signal enable_insert : std_logic;
-	signal enable_read : std_logic; 
+	signal need_more_data_out : std_logic;
+	signal bit_into_decoder : std_logic;
 	
-	signal index_to_read_from : list_index;
-	signal vq_to_insert : vq_index;
-	signal vq_read : vq_index;
-	signal vq_at_top : vq_index;
+	-- component for decoder here
+	component decoder is
+    Port ( clk : in  STD_LOGIC;
+           rst : in  STD_LOGIC;
+			  bit_in : in std_logic;
+			  need_more_data_out : std_logic;
+           finished_out : out  STD_LOGIC;
+           sending_bit_out : out  STD_LOGIC;
+           bit_out : out  STD_LOGIC;
+			  vq_index_out : std_logic_vector(
+					MAX_NUMBER_OF_BITS_FOR_VQ - 1 downto 0);
+			  sending_vq_index_out : std_logic);
+	end component;
+	
+	-- component definition for data controller
+	component data_controller is
+	Port (
+		clk : in  STD_LOGIC;
+      rst : in  STD_LOGIC;
+      send_in : in  STD_LOGIC;
+      bit_out : out  STD_LOGIC
+	);
+	end component;
 begin
+
+	data_controller_unit : data_controller port map (
+		clk => clk, rst => rst,
+		send_in => need_more_data,
+		bit_out => bit_into_decoder
+	);
 	
-	list_unit : entity work.list(list_arch) port map
-	(clk => clk, rst => rst,
-		enable_insert => enable_insert, enable_read => enable_read,
-		to_insert => vq_to_insert, index => index_to_read_from,
-		at_index_one => vq_at_top, value_at_index => vq_read);
+	decoder_unit : decoder port map (
+		clk => clk, rst => rst,
+		need_more_data_out => need_more_data_out,
+		bit_in => bit_into_decoder,
+		finished_out => finished_out,
+		sending_bit_out => sending_bit_out,
+		bit_out => bit_out,
+		vq_index_out => vq_index_out,
+		sending_vq_index_out => sending_vq_index_out
+	);
+	
 
 end Behavioral;
 
