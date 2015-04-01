@@ -29,6 +29,9 @@ use IEEE.STD_LOGIC_1164.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
+use work.size_constraints_pkg.all;
+use work.decoder_state_pkg.all;
+
 entity decoder is
     Port ( clk : in  STD_LOGIC;
            rst : in  STD_LOGIC;
@@ -43,8 +46,39 @@ entity decoder is
 end decoder;
 
 architecture decoder_arch of decoder is
-
+	signal data_buffer : std_logic_vector(MAX_BUFFER_SIZE - 1 downto 0);
+	signal buffer_len : buffer_index ;
+	signal current_state : decoder_state;
 begin
+
+	main_pr : process(clk, rst)
+		if rst = '1' then
+			data_buffer <= (others => '0');
+			buffer_len <= 0;
+			current_state <= START;
+		elsif rising_edge(clk) then
+			-- set all output ports to 0
+			finished_out <= '0';
+			sending_bit_out <= '0';
+			bit_out <= '0';
+			vq_index_out <= (others => '0');
+			sending_vq_index_out <= '0';
+			case current_state is
+				when START =>
+					current_state <= START_DECODING;
+				when START_DECODING =>
+					need_more_data_out <= '1';
+					if bit_in = '1' then
+						current_state <= START_WITH_ONE;
+					else
+						current_state <= START_WITH_ZERO;
+					end if;
+				when DONE =>
+					finished_out <= '1';
+					current_state <= DONE;
+			end case;
+		end if;
+	end process;
 
 
 end decoder_arch;

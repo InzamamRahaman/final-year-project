@@ -10,20 +10,11 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
 
-package size_constraints_pkg is
+package decoder_state_pkg is
 
-	subtype vq_index is integer range -1 to 128;
-	subtype list_index is integer range 0 to 5;
-	
-	constant MAX_LIST_SIZE : natural := 4;
-	constant RAM_ADDRESS_SIZE : natural := 18;
-	constant LIST_FILLER : vq_index := 128;
-	constant MAX_NUMBER_OF_BITS_FOR_VQ : natural := 8;
-	constant MAX_BUFFER_SIZE : natural := 10;
-	
-	subtype buffer_index is integer range 0 to MAX_BUFFER_SIZE;
-	
-	type vq_index_list is array (1 to MAX_LIST_SIZE) of vq_index;
+	type decoder_state is (
+		START, DONE
+	);
 
 -- type <new_type> is
 --  record
@@ -42,9 +33,9 @@ package size_constraints_pkg is
 -- procedure <procedure_name> (<type_declaration> <constant_name>	: in <type_declaration>);
 --
 
-end size_constraints_pkg;
+end decoder_state_pkg;
 
-package body size_constraints_pkg is
+package body decoder_state_pkg is
 
 ---- Example 1
 --  function <function_name>  (signal <signal_name> : in <type_declaration>  ) return <type_declaration> is
@@ -72,4 +63,4 @@ package body size_constraints_pkg is
 --    
 --  end <procedure_name>;
  
-end size_constraints_pkg;
+end decoder_state_pkg;
