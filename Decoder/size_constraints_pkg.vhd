@@ -13,7 +13,7 @@ use IEEE.STD_LOGIC_1164.all;
 package size_constraints_pkg is
 
 	subtype vq_index is integer range -1 to 128;
-	subtype list_index is integer range 0 to 5;
+	subtype list_index is integer range 0 to 4;
 	
 	constant MAX_LIST_SIZE : natural := 4;
 	constant RAM_ADDRESS_SIZE : natural := 18;
