@@ -73,6 +73,27 @@ begin
 					else
 						current_state <= START_WITH_ZERO;
 					end if;
+				when START_WITH_ZERO =>
+					need_more_data_out <= '1';
+					if bit_in = '0' then
+						current_state <= EXTRACT_VQ_INDEX;
+					else
+						current_state <= CHECK_NEXT_BIT;
+					end if;
+				when START_WITH_ONE =>
+					need_more_data_out <= '1';
+					if bit_in = '0' then
+						current_state <= COMPUTE_LIST_INDEX;
+					else
+						current_state <= SEND_FIRST_OF_LIST;
+					end if;
+				when CHECK_NEXT_BIT =>
+					need_more_data_out <= '1';
+					if bit_in = '1' then
+						current_state <= SEND_FIRST_OF_LIST;
+					else
+						current_state <= COMPUTE_LIST_INDEX;
+					end if;
 				when DONE =>
 					finished_out <= '1';
 					current_state <= DONE;
