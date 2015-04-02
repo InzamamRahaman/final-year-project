@@ -176,6 +176,21 @@ begin
 				when EXTRACT_LIST_INDEX =>
 					if counter = 0 then
 						current_state <= AWAIT_LIST_PROCESSING;
+						enable_read <= '1';
+						index <= list_index_acc;
+					else
+					   counter <= counter - 1;
+						need_more_data_out <= '1';
+						if bit_in = '1' then
+							list_index_acc <= list_index_acc * 2 + 1;
+						else
+							list_index_acc <= list_index_acc + 0;
+						end if;
+				when AWAIT_LIST_PROCESSING =>
+					current_state <= READ_LIST_RESPONSE;
+				when READ_LIST_RESPONSE =>
+					sending_vq_index_out <= '1';
+					vq_index_out <= std_logic_vector(to_unsigned(value_at_index, 8));
 				when DONE =>
 					finished_out <= '1';
 					current_state <= DONE;
