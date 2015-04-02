@@ -5,14 +5,14 @@ Parameter TMPDIR set to xst/projnav.tmp
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.07 secs
+Total CPU time to Xst completion: 0.06 secs
  
 --> 
 Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.07 secs
+Total CPU time to Xst completion: 0.06 secs
  
 --> 
 Reading design: top.prj
@@ -121,13 +121,12 @@ Architecture data_converter_arch of Entity data_converter is up to date.
 Compiling vhdl file "/home/school/ise_projs/final-year-project/Decoder/ipcore_dir/data_ram.vhd" in Library work.
 Architecture data_ram_a of Entity data_ram is up to date.
 Compiling vhdl file "/home/school/ise_projs/final-year-project/Decoder/data_controller.vhd" in Library work.
-Architecture data_controller_arch of Entity data_controller is up to date.
+Entity <data_controller> compiled.
+Entity <data_controller> (Architecture <data_controller_arch>) compiled.
 Compiling vhdl file "/home/school/ise_projs/final-year-project/Decoder/decoder.vhd" in Library work.
-Entity <decoder> compiled.
-Entity <decoder> (Architecture <decoder_arch>) compiled.
+Architecture decoder_arch of Entity decoder is up to date.
 Compiling vhdl file "/home/school/ise_projs/final-year-project/Decoder/top.vhd" in Library work.
-Entity <top> compiled.
-Entity <top> (Architecture <behavioral>) compiled.
+Architecture behavioral of Entity top is up to date.
 
 =========================================================================
 *                     Design Hierarchy Analysis                         *
@@ -151,7 +150,6 @@ Entity <top> analyzed. Unit <top> generated.
 
 Analyzing Entity <data_controller> in library <work> (Architecture <data_controller_arch>).
 WARNING:Xst:2211 - "/home/school/ise_projs/final-year-project/Decoder/data_controller.vhd" line 74: Instantiating black box module <data_ram>.
-INFO:Xst:2679 - Register <bit_out> in unit <data_controller> has a constant value of 0 during circuit operation. The register is replaced by logic.
 Entity <data_controller> analyzed. Unit <data_controller> generated.
 
 Analyzing Entity <data_converter> in library <work> (Architecture <data_converter_arch>).
@@ -338,22 +336,224 @@ Macro Statistics
 *                         Low Level Synthesis                           *
 =========================================================================
 WARNING:Xst:1710 - FF/Latch <finished_out> (without init value) has a constant value of 0 in block <decoder>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:2677 - Node <location_1> of sequential type is unconnected in block <list>.
 
-ERROR:Xst:528 - Multi-source in Unit <data_controller> on signal <bit_out>; this signal is connected to multiple drivers.
-Drivers are: 
-   Output signal of MUXF5 instance <data_controller_unit/ram_unit/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/Mmux_dout_mux2128>
-   Signal <data_controller_unit/bit_out> in Unit <data_controller> is assigned to GND
+Optimizing unit <top> ...
+
+Optimizing unit <list> ...
+
+Optimizing unit <decoder> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block top, actual ratio is 2.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 119
+ Flip-Flops                                            : 119
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : top.ngr
+Top Level Output File Name         : top
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+
+Design Statistics
+# IOs                              : 14
+
+Cell Usage :
+# BELS                             : 270
+#      GND                         : 2
+#      INV                         : 3
+#      LUT1                        : 16
+#      LUT2                        : 19
+#      LUT2_L                      : 2
+#      LUT3                        : 42
+#      LUT3_D                      : 3
+#      LUT4                        : 102
+#      LUT4_D                      : 7
+#      LUT4_L                      : 16
+#      MUXCY                       : 17
+#      MUXF5                       : 22
+#      VCC                         : 1
+#      XORCY                       : 18
+# FlipFlops/Latches                : 123
+#      FDC                         : 9
+#      FDCE                        : 46
+#      FDE                         : 58
+#      FDP                         : 1
+#      FDPE                        : 9
+# RAMS                             : 9
+#      RAMB16_S1_S1                : 9
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 13
+#      IBUF                        : 1
+#      OBUF                        : 12
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 3s500efg320-5 
+
+ Number of Slices:                      113  out of   4656     2%  
+ Number of Slice Flip Flops:            123  out of   9312     1%  
+ Number of 4 input LUTs:                210  out of   9312     2%  
+ Number of IOs:                          14
+ Number of bonded IOBs:                  14  out of    232     6%  
+ Number of BRAMs:                         9  out of     20    45%  
+ Number of GCLKs:                         1  out of     24     4%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
 
 
-Total REAL time to Xst completion: 8.00 secs
-Total CPU time to Xst completion: 6.76 secs
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)                                                                                                                             | Load  |
+-----------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------+-------+
+clk                                | BUFGP                                                                                                                                             | 132   |
+data_controller_unit/ram_unit/N1   | NONE(data_controller_unit/ram_unit/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[8].ram.r/s3_init.ram/dpram.dp1x1.ram)| 9     |
+-----------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------+-------+
+INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
+
+Asynchronous Control Signals Information:
+----------------------------------------
+-----------------------------------+------------------------+-------+
+Control Signal                     | Buffer(FF name)        | Load  |
+-----------------------------------+------------------------+-------+
+rst                                | IBUF                   | 65    |
+-----------------------------------+------------------------+-------+
+
+Timing Summary:
+---------------
+Speed Grade: -5
+
+   Minimum period: 9.384ns (Maximum Frequency: 106.569MHz)
+   Minimum input arrival time before clock: 4.362ns
+   Maximum output required time after clock: 4.040ns
+   Maximum combinational path delay: No path found
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clk'
+  Clock period: 9.384ns (frequency: 106.569MHz)
+  Total number of paths / destination ports: 4630 / 310
+-------------------------------------------------------------------------
+Delay:               9.384ns (Levels of Logic = 8)
+  Source:            data_controller_unit/ram_unit/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3_init.ram/dpram.dp1x1.ram (RAM)
+  Destination:       decoder_unit/vq_acc_6 (FF)
+  Source Clock:      clk rising
+  Destination Clock: clk rising
+
+  Data Path: data_controller_unit/ram_unit/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3_init.ram/dpram.dp1x1.ram to decoder_unit/vq_acc_6
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     RAMB16_S1_S1:CLKA->DOA0    1   2.436   0.387  U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3_init.ram/dpram.dp1x1.ram (U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.ram_douta)
+     LUT4:I2->O            1   0.612   0.000  U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/Mmux_dout_mux240_F (N2)
+     MUXF5:I0->O           1   0.278   0.509  U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/Mmux_dout_mux240 (U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/Mmux_dout_mux240)
+     LUT4:I0->O            1   0.612   0.000  U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/Mmux_dout_mux2128_F (N4)
+     MUXF5:I0->O          31   0.278   1.142  U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/Mmux_dout_mux2128 (douta<0>)
+     end scope: 'data_controller_unit/ram_unit'
+     LUT2:I1->O            3   0.612   0.454  decoder_unit/current_state_FSM_FFd6-In1 (decoder_unit/current_state_FSM_FFd6-In)
+     LUT4_D:I3->O          6   0.612   0.572  decoder_unit/vq_acc_mux0000<1>12 (decoder_unit/N0)
+     LUT4:I3->O            1   0.612   0.000  decoder_unit/vq_acc_mux0000<6>1 (decoder_unit/vq_acc_mux0000<6>)
+     FDE:D                     0.268          decoder_unit/vq_acc_6
+    ----------------------------------------
+    Total                      9.384ns (6.320ns logic, 3.064ns route)
+                                       (67.4% logic, 32.6% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
+  Total number of paths / destination ports: 54 / 54
+-------------------------------------------------------------------------
+Offset:              4.362ns (Levels of Logic = 2)
+  Source:            rst (PAD)
+  Destination:       decoder_unit/list_unit/value_at_index_0 (FF)
+  Destination Clock: clk rising
+
+  Data Path: rst to decoder_unit/list_unit/value_at_index_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            66   1.106   1.082  rst_IBUF (rst_IBUF)
+     INV:I->O             54   0.612   1.079  decoder_unit/rst_inv1_INV_0 (decoder_unit/list_unit/rst_inv)
+     FDE:CE                    0.483          decoder_unit/list_unit/value_at_index_0
+    ----------------------------------------
+    Total                      4.362ns (2.201ns logic, 2.161ns route)
+                                       (50.5% logic, 49.5% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
+  Total number of paths / destination ports: 9 / 9
+-------------------------------------------------------------------------
+Offset:              4.040ns (Levels of Logic = 1)
+  Source:            decoder_unit/sending_vq_index_out (FF)
+  Destination:       sending_vq_index_out (PAD)
+  Source Clock:      clk rising
+
+  Data Path: decoder_unit/sending_vq_index_out to sending_vq_index_out
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDE:C->Q              1   0.514   0.357  decoder_unit/sending_vq_index_out (decoder_unit/sending_vq_index_out)
+     OBUF:I->O                 3.169          sending_vq_index_out_OBUF (sending_vq_index_out)
+    ----------------------------------------
+    Total                      4.040ns (3.683ns logic, 0.357ns route)
+                                       (91.2% logic, 8.8% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 11.00 secs
+Total CPU time to Xst completion: 9.19 secs
  
 --> 
 
 
-Total memory usage is 524484 kilobytes
+Total memory usage is 528888 kilobytes
 
-Number of errors   :    1 (   0 filtered)
-Number of warnings :    6 (   0 filtered)
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    7 (   0 filtered)
 Number of infos    :    8 (   0 filtered)
 

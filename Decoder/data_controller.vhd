@@ -84,7 +84,7 @@ begin
 	begin
 		if rst = '1' then
 			current_address <= (others => '0');
-			bit_out <= '0';
+			--bit_out <= '0';
 		elsif rising_edge(clk) then
 			if send_in = '1' then
 				current_address <= std_logic_vector(unsigned(current_address)
