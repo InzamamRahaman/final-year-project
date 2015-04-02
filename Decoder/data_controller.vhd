@@ -22,7 +22,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
+use IEEE.NUMERIC_STD.ALL;
 
 -- Uncomment the following library declaration if instantiating
 -- any Xilinx primitives in this code.
@@ -46,8 +46,8 @@ architecture data_controller_arch of data_controller is
 	-- conversion
 	component data_converter
 		port (
-			bit_in : in std_logic;
-			bit_out : out std_logic;
+			bit_in : in std_logic_vector(0 to 0);
+			bit_out : out std_logic
 		);
 	end component;
 	
@@ -68,27 +68,31 @@ begin
 	-- insert component for data conversion here
 	converter_unit : data_converter port map (
 		bit_in => current_data,
-		bit_out => bit_out,
+		bit_out => bit_out
 	);
 	
 	ram_unit : data_ram
   PORT MAP (
-    clka => clka,
-    wea => wea,
-    addra => addra,
-    dina => dina,
-    douta => douta
+    clka => clk,
+    wea => (others => '0'),
+    addra => current_address,
+    dina => (others => '0'),
+    douta => current_data
   );
 	
 	main_pr : process(clk, rst)
+	begin
 		if rst = '1' then
 			current_address <= (others => '0');
 			bit_out <= '0';
 		elsif rising_edge(clk) then
 			if send_in = '1' then
-				current_address <= current_address + 1;
+				current_address <= std_logic_vector(unsigned(current_address)
+					+ 1);
 			else
-				current_address <= current_address + 0;
+				current_address <= std_logic_vector(unsigned(current_address)
+					+ 0);
+			end if;
 		end if;
 	end process;
 

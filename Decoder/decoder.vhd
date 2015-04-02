@@ -55,7 +55,7 @@ architecture decoder_arch of decoder is
 	signal to_insert : vq_index;
 	signal index : list_index;
 	signal enable_read : std_logic;
-	signal at_index_one : vq_idnex;
+	signal at_index_one : vq_index;
 	signal value_at_index : vq_index;
 	signal vq_acc : vq_index;
 	signal list_index_acc : list_index;
@@ -98,7 +98,7 @@ begin
 			bit_out <= '0';
 			vq_index_out <= (others => '0');
 			sending_vq_index_out <= '0';
-			
+			need_more_data_out <= '0';
 			-- flush all list inputs
 			enable_input <= '0';
 			enable_read <= '0';
@@ -165,6 +165,7 @@ begin
 						current_state <= COMPUTE_LIST_INDEX;
 					end if;
 				when COMPUTE_LIST_INDEX =>
+					need_more_data_out <= '1';
 					if bit_in = '0' then
 						counter <= counter + 1;
 						current_state <= COMPUTE_LIST_INDEX;
@@ -179,6 +180,7 @@ begin
 						enable_read <= '1';
 						index <= list_index_acc;
 					else
+					   need_more_data_out <= '1';
 					   counter <= counter - 1;
 						need_more_data_out <= '1';
 						if bit_in = '1' then

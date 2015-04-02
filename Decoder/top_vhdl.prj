@@ -1,0 +1,7 @@
+vhdl work "/home/school/ise_projs/final-year-project/Decoder/ipcore_dir/data_ram.vhd"
+vhdl work "/home/school/ise_projs/final-year-project/Decoder/size_constraints_pkg.vhd"
+vhdl work "/home/school/ise_projs/final-year-project/Decoder/decoder_state_pkg.vhd"
+vhdl work "/home/school/ise_projs/final-year-project/Decoder/data_converter.vhd"
+vhdl work "/home/school/ise_projs/final-year-project/Decoder/decoder.vhd"
+vhdl work "/home/school/ise_projs/final-year-project/Decoder/data_controller.vhd"
+vhdl work "/home/school/ise_projs/final-year-project/Decoder/top.vhd"
