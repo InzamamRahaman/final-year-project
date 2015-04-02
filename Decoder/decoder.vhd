@@ -57,6 +57,9 @@ architecture decoder_arch of decoder is
 	signal enable_read : std_logic;
 	signal at_index_one : vq_idnex;
 	signal value_at_index : vq_index;
+	signal vq_acc : vq_index;
+	signal list_index_acc : list_index;
+	signal counter : counter_int;
 	-- component for list
 	component list
 		Port (
@@ -109,8 +112,25 @@ begin
 					need_more_data_out <= '1';
 					if bit_in = '0' then
 						current_state <= EXTRACT_VQ_INDEX;
+						vq_acc <= 0;
+						counter <= 8;
 					else
 						current_state <= CHECK_NEXT_BIT;
+					end if;
+				when EXTRACT_VQ_INDEX =>
+					if counter = 0 then
+						need_more_data_out <= '0';
+						current_state <= START_DECODING;
+						sending_vq_index_out <= '1';
+						vq_index_out <= std_logic_vector(to_unsigned(vq_acc, 8));
+					else
+						need_more_data_out <= '1'
+					   if bit_in = '1' then
+							vq_acc <= vq_acc * 2 + 1;
+						else
+							vq_acc <= vq_acc + 0;
+						end if;
+						counter <= counter - 1;
 					end if;
 				when START_WITH_ONE =>
 					need_more_data_out <= '1';
@@ -124,9 +144,9 @@ begin
 				when CHECK_NEXT_BIT =>
 					need_more_data_out <= '1';
 					if bit_in = '1' then
-						--current_state <= SEND_FIRST_OF_LIST;
 						sending_vq_index_out <= '1';
 						vq_index_out <= at_index_one;
+						current_state <= START_DECODING;
 					else
 						current_state <= COMPUTE_LIST_INDEX;
 					end if;
