@@ -31,15 +31,15 @@ package body list_manipulations_pkg is
 	end init_list;
 	
 	procedure insert(signal xs : inout vq_index_list;
-		signal index : vq : index)
+		signal index : vq_index)
 	is
 		variable location : list_index := 0;
 	begin
 		for idx in 1 to MAX_LIST_SIZE loop
 			if xs(idx) = index then
-				location = idx;
+				location := idx;
 			else
-				location = location;
+				location := location;
 			end if;
 		end loop;
 	end insert;

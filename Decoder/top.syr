@@ -5,14 +5,14 @@ Parameter TMPDIR set to xst/projnav.tmp
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.06 secs
+Total CPU time to Xst completion: 0.07 secs
  
 --> 
 Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.06 secs
+Total CPU time to Xst completion: 0.07 secs
  
 --> 
 Reading design: top.prj
@@ -110,37 +110,250 @@ Cores Search Directories           : {"ipcore_dir"  }
 =========================================================================
 *                          HDL Compilation                              *
 =========================================================================
-WARNING:HDLParsers:3516 - Found error in file "/home/school/ise_projs/final-year-project/Decoder/decoder.vhd". 
-WARNING:HDLParsers:3458 - Because of erroneous VHDL file(s), automatic determination of correct order of compilation of files in project file "/home/school/ise_projs/final-year-project/Decoder/top_vhdl.prj" may be inaccurate. Please put the files in the project file in correct order with keyword 'nosort' at end of the project file, or compile your vhdl file(s) individually to find and fix the error(s) in your vhdl file(s). 
 Compiling vhdl file "/home/school/ise_projs/final-year-project/Decoder/size_constraints_pkg.vhd" in Library work.
 Architecture size_constraints_pkg of Entity size_constraints_pkg is up to date.
 Compiling vhdl file "/home/school/ise_projs/final-year-project/Decoder/decoder_state_pkg.vhd" in Library work.
 Architecture decoder_state_pkg of Entity decoder_state_pkg is up to date.
+Compiling vhdl file "/home/school/ise_projs/final-year-project/Decoder/list.vhd" in Library work.
+Architecture list_arch of Entity list is up to date.
 Compiling vhdl file "/home/school/ise_projs/final-year-project/Decoder/data_converter.vhd" in Library work.
 Architecture data_converter_arch of Entity data_converter is up to date.
 Compiling vhdl file "/home/school/ise_projs/final-year-project/Decoder/ipcore_dir/data_ram.vhd" in Library work.
 Architecture data_ram_a of Entity data_ram is up to date.
 Compiling vhdl file "/home/school/ise_projs/final-year-project/Decoder/data_controller.vhd" in Library work.
-Entity <data_controller> compiled.
-Entity <data_controller> (Architecture <data_controller_arch>) compiled.
+Architecture data_controller_arch of Entity data_controller is up to date.
 Compiling vhdl file "/home/school/ise_projs/final-year-project/Decoder/decoder.vhd" in Library work.
 Entity <decoder> compiled.
-ERROR:HDLParsers:3313 - "/home/school/ise_projs/final-year-project/Decoder/decoder.vhd" Line 58. Undefined symbol 'vq_idnex'.  Should it be: vq_index?
-ERROR:HDLParsers:1209 - "/home/school/ise_projs/final-year-project/Decoder/decoder.vhd" Line 58. vq_idnex: Undefined symbol (last report in this block)
-ERROR:HDLParsers:164 - "/home/school/ise_projs/final-year-project/Decoder/decoder.vhd" Line 79. parse error, unexpected MAP, expecting OPENPAR or TICK or LSQBRACK
-ERROR:HDLParsers:164 - "/home/school/ise_projs/final-year-project/Decoder/decoder.vhd" Line 90. parse error, unexpected IF
-ERROR:HDLParsers:164 - "/home/school/ise_projs/final-year-project/Decoder/decoder.vhd" Line 94. parse error, unexpected ELSIF
-ERROR:HDLParsers:1402 - "/home/school/ise_projs/final-year-project/Decoder/decoder.vhd" Line 99. Object vq_index_out of mode IN can not be updated.
-ERROR:HDLParsers:1402 - "/home/school/ise_projs/final-year-project/Decoder/decoder.vhd" Line 100. Object sending_vq_index_out of mode IN can not be updated.
-ERROR:HDLParsers:1402 - "/home/school/ise_projs/final-year-project/Decoder/decoder.vhd" Line 101. Object need_more_data_out of mode IN can not be updated.
-ERROR:HDLParsers:3312 - "/home/school/ise_projs/final-year-project/Decoder/decoder.vhd" Line 103. Undefined symbol 'enable_input'.
-ERROR:HDLParsers:164 - "/home/school/ise_projs/final-year-project/Decoder/decoder.vhd" Line 108. parse error, unexpected CASE
+Entity <decoder> (Architecture <decoder_arch>) compiled.
+Compiling vhdl file "/home/school/ise_projs/final-year-project/Decoder/top.vhd" in Library work.
+Entity <top> compiled.
+Entity <top> (Architecture <behavioral>) compiled.
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for entity <top> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <data_controller> in library <work> (architecture <data_controller_arch>).
+
+Analyzing hierarchy for entity <decoder> in library <work> (architecture <decoder_arch>).
+
+Analyzing hierarchy for entity <data_converter> in library <work> (architecture <data_converter_arch>).
+
+Analyzing hierarchy for entity <list> in library <work> (architecture <list_arch>).
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing Entity <top> in library <work> (Architecture <behavioral>).
+Entity <top> analyzed. Unit <top> generated.
+
+Analyzing Entity <data_controller> in library <work> (Architecture <data_controller_arch>).
+WARNING:Xst:2211 - "/home/school/ise_projs/final-year-project/Decoder/data_controller.vhd" line 74: Instantiating black box module <data_ram>.
+INFO:Xst:2679 - Register <bit_out> in unit <data_controller> has a constant value of 0 during circuit operation. The register is replaced by logic.
+Entity <data_controller> analyzed. Unit <data_controller> generated.
+
+Analyzing Entity <data_converter> in library <work> (Architecture <data_converter_arch>).
+Entity <data_converter> analyzed. Unit <data_converter> generated.
+
+Analyzing Entity <decoder> in library <work> (Architecture <decoder_arch>).
+INFO:Xst:2679 - Register <data_buffer> in unit <decoder> has a constant value of 0000000000 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <buffer_len> in unit <decoder> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <sending_bit_out> in unit <decoder> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <bit_out> in unit <decoder> has a constant value of 0 during circuit operation. The register is replaced by logic.
+Entity <decoder> analyzed. Unit <decoder> generated.
+
+Analyzing Entity <list> in library <work> (Architecture <list_arch>).
+INFO:Xst:1433 - Contents of array <contents> may be accessed with an index that exceeds the array size. This could cause simulation mismatch.
+Entity <list> analyzed. Unit <list> generated.
+
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <data_converter>.
+    Related source file is "/home/school/ise_projs/final-year-project/Decoder/data_converter.vhd".
+Unit <data_converter> synthesized.
+
+
+Synthesizing Unit <list>.
+    Related source file is "/home/school/ise_projs/final-year-project/Decoder/list.vhd".
+WARNING:Xst:646 - Signal <last_index<0>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+    Using one-hot encoding for signal <location$mux0000>.
+    Found 8-bit register for signal <value_at_index>.
+    Found 8-bit register for signal <at_index_one>.
+    Found 8-bit 4-to-1 multiplexer for signal <$varindex0000> created at line 88.
+    Found 32-bit register for signal <contents>.
+    Found 3-bit comparator less for signal <contents_2$cmp_gt0000> created at line 92.
+    Found 3-bit comparator less for signal <contents_3$cmp_gt0000> created at line 92.
+    Found 3-bit comparator less for signal <contents_4$cmp_gt0000> created at line 92.
+    Found 5-bit register for signal <location>.
+    Found 8-bit comparator equal for signal <location$cmp_eq0000> created at line 67.
+    Found 8-bit comparator equal for signal <location$cmp_eq0001> created at line 67.
+    Found 8-bit comparator equal for signal <location$cmp_eq0002> created at line 67.
+    Found 8-bit comparator equal for signal <location$cmp_eq0003> created at line 67.
+    Found 8-bit comparator not equal for signal <location$cmp_ne0000> created at line 67.
+    Found 8-bit comparator not equal for signal <location$cmp_ne0001> created at line 67.
+    Found 8-bit comparator not equal for signal <location$cmp_ne0002> created at line 67.
+    Found 8-bit comparator not equal for signal <location$cmp_ne0003> created at line 67.
+    Summary:
+	inferred  16 D-type flip-flop(s).
+	inferred  11 Comparator(s).
+	inferred   8 Multiplexer(s).
+Unit <list> synthesized.
+
+
+Synthesizing Unit <data_controller>.
+    Related source file is "/home/school/ise_projs/final-year-project/Decoder/data_controller.vhd".
+    Found 18-bit up counter for signal <current_address>.
+    Summary:
+	inferred   1 Counter(s).
+Unit <data_controller> synthesized.
+
+
+Synthesizing Unit <decoder>.
+    Related source file is "/home/school/ise_projs/final-year-project/Decoder/decoder.vhd".
+WARNING:Xst:646 - Signal <data_buffer> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <buffer_len<0>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+INFO:Xst:1799 - State done is never reached in FSM <current_state>.
+    Found finite state machine <FSM_0> for signal <current_state>.
+    -----------------------------------------------------------------------
+    | States             | 11                                             |
+    | Transitions        | 18                                             |
+    | Inputs             | 2                                              |
+    | Outputs            | 11                                             |
+    | Clock              | clk                       (rising_edge)        |
+    | Reset              | rst                       (positive)           |
+    | Reset type         | asynchronous                                   |
+    | Reset State        | start                                          |
+    | Power Up State     | start                                          |
+    | Encoding           | automatic                                      |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 1-bit register for signal <sending_vq_index_out>.
+    Found 1-bit register for signal <need_more_data_out>.
+    Found 1-bit register for signal <finished_out>.
+    Found 8-bit register for signal <vq_index_out>.
+    Found 4-bit register for signal <counter>.
+    Found 4-bit addsub for signal <counter$share0000> created at line 109.
+    Found 1-bit register for signal <enable_insert>.
+    Found 1-bit register for signal <enable_read>.
+    Found 3-bit register for signal <index>.
+    Found 3-bit register for signal <list_index_acc>.
+    Found 3-bit adder for signal <list_index_acc$addsub0000> created at line 188.
+    Found 8-bit register for signal <to_insert>.
+    Found 8-bit register for signal <vq_acc>.
+    Found 8-bit adder for signal <vq_acc$addsub0000> created at line 141.
+    Summary:
+	inferred   1 Finite State Machine(s).
+	inferred  39 D-type flip-flop(s).
+	inferred   3 Adder/Subtractor(s).
+Unit <decoder> synthesized.
+
+
+Synthesizing Unit <top>.
+    Related source file is "/home/school/ise_projs/final-year-project/Decoder/top.vhd".
+Unit <top> synthesized.
+
+INFO:Xst:1767 - HDL ADVISOR - Resource sharing has identified that some arithmetic operations in this design can share the same physical resources for reduced device utilization. For improved clock frequency you may try to disable resource sharing.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 3
+ 3-bit adder                                           : 1
+ 4-bit addsub                                          : 1
+ 8-bit adder                                           : 1
+# Counters                                             : 1
+ 18-bit up counter                                     : 1
+# Registers                                            : 18
+ 1-bit register                                        : 5
+ 3-bit register                                        : 2
+ 4-bit register                                        : 1
+ 5-bit register                                        : 1
+ 8-bit register                                        : 9
+# Comparators                                          : 11
+ 3-bit comparator less                                 : 3
+ 8-bit comparator equal                                : 4
+ 8-bit comparator not equal                            : 4
+# Multiplexers                                         : 1
+ 8-bit 4-to-1 multiplexer                              : 1
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+Analyzing FSM <FSM_0> for best encoding.
+Optimizing FSM <decoder_unit/current_state/FSM> on signal <current_state[1:11]> with one-hot encoding.
+--------------------------------------
+ State                 | Encoding
+--------------------------------------
+ start                 | 00000000001
+ start_decoding        | 00000000010
+ start_with_zero       | 00000001000
+ start_with_one        | 00000000100
+ extract_vq_index      | 00000010000
+ check_next_bit        | 00000100000
+ insert_into_list      | 00001000000
+ compute_list_index    | 00010000000
+ extract_list_index    | 00100000000
+ await_list_processing | 01000000000
+ done                  | unreached
+ read_list_response    | 10000000000
+--------------------------------------
+Reading core <ipcore_dir/data_ram.ngc>.
+Loading core <data_ram> for timing and area information for instance <ram_unit>.
+WARNING:Xst:1710 - FF/Latch <finished_out> (without init value) has a constant value of 0 in block <decoder_unit>. This FF/Latch will be trimmed during the optimization process.
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# FSMs                                                 : 1
+# Adders/Subtractors                                   : 3
+ 3-bit adder                                           : 1
+ 4-bit addsub                                          : 1
+ 8-bit adder                                           : 1
+# Counters                                             : 1
+ 18-bit up counter                                     : 1
+# Registers                                            : 92
+ Flip-Flops                                            : 92
+# Comparators                                          : 11
+ 3-bit comparator less                                 : 3
+ 8-bit comparator equal                                : 4
+ 8-bit comparator not equal                            : 4
+# Multiplexers                                         : 1
+ 8-bit 4-to-1 multiplexer                              : 1
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+WARNING:Xst:1710 - FF/Latch <finished_out> (without init value) has a constant value of 0 in block <decoder>. This FF/Latch will be trimmed during the optimization process.
+
+ERROR:Xst:528 - Multi-source in Unit <data_controller> on signal <bit_out>; this signal is connected to multiple drivers.
+Drivers are: 
+   Output signal of MUXF5 instance <data_controller_unit/ram_unit/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/Mmux_dout_mux2128>
+   Signal <data_controller_unit/bit_out> in Unit <data_controller> is assigned to GND
+
+
+Total REAL time to Xst completion: 8.00 secs
+Total CPU time to Xst completion: 6.76 secs
+ 
 --> 
 
 
-Total memory usage is 490276 kilobytes
+Total memory usage is 524484 kilobytes
 
-Number of errors   :   10 (   0 filtered)
-Number of warnings :    2 (   0 filtered)
-Number of infos    :    0 (   0 filtered)
+Number of errors   :    1 (   0 filtered)
+Number of warnings :    6 (   0 filtered)
+Number of infos    :    8 (   0 filtered)
 

@@ -22,7 +22,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
+use IEEE.NUMERIC_STD.ALL;
 
 -- Uncomment the following library declaration if instantiating
 -- any Xilinx primitives in this code.
@@ -36,13 +36,13 @@ entity decoder is
     Port ( clk : in  STD_LOGIC;
            rst : in  STD_LOGIC;
 			  bit_in : in std_logic;
-			  need_more_data_out : std_logic;
+			  need_more_data_out : out std_logic;
            finished_out : out  STD_LOGIC;
            sending_bit_out : out  STD_LOGIC;
            bit_out : out  STD_LOGIC;
-			  vq_index_out : std_logic_vector(
+			  vq_index_out : out std_logic_vector(
 					MAX_NUMBER_OF_BITS_FOR_VQ - 1 downto 0);
-			  sending_vq_index_out : std_logic);
+			  sending_vq_index_out : out std_logic);
 end decoder;
 
 architecture decoder_arch of decoder is
@@ -76,7 +76,7 @@ architecture decoder_arch of decoder is
 	
 begin
 
-	list_unit : list map port (
+	list_unit : list port map (
 		clk => clk, rst => rst,
 		enable_insert => enable_insert,
 		to_insert => to_insert,
@@ -87,6 +87,7 @@ begin
 	);
 
 	main_pr : process(clk, rst)
+	begin
 		if rst = '1' then
 			data_buffer <= (others => '0');
 			buffer_len <= 0;
@@ -100,7 +101,7 @@ begin
 			sending_vq_index_out <= '0';
 			need_more_data_out <= '0';
 			-- flush all list inputs
-			enable_input <= '0';
+			enable_insert <= '0';
 			enable_read <= '0';
 			to_insert <= 0;
 			index <= 1;
@@ -133,9 +134,9 @@ begin
 						need_more_data_out <= '0';
 						current_state <= INSERT_INTO_LIST;
 						sending_vq_index_out <= '1';
-						vq_index_out <= std_logic_vector(to_unsigned(vq_acc, 8));
+						vq_index_out <= std_logic_vector(to_unsigned(vq_acc, MAX_NUMBER_OF_BITS_FOR_VQ));
 					else
-						need_more_data_out <= '1'
+						need_more_data_out <= '1';
 					   if bit_in = '1' then
 							vq_acc <= vq_acc * 2 + 1;
 						else
@@ -152,13 +153,13 @@ begin
 						--current_state <= SEND_FIRST_OF_LIST;
 						current_state <= START_DECODING;
 						sending_vq_index_out <= '1';
-						vq_index_out <= at_index_one;
+						vq_index_out <= std_logic_vector(to_unsigned(at_index_one, MAX_NUMBER_OF_BITS_FOR_VQ));
 					end if;
 				when CHECK_NEXT_BIT =>
 					need_more_data_out <= '1';
 					if bit_in = '1' then
 						sending_vq_index_out <= '1';
-						vq_index_out <= at_index_one;
+						vq_index_out <= std_logic_vector(to_unsigned(at_index_one, MAX_NUMBER_OF_BITS_FOR_VQ));
 						current_state <= START_DECODING;
 					else
 						counter <= 1;
@@ -188,11 +189,12 @@ begin
 						else
 							list_index_acc <= list_index_acc + 0;
 						end if;
+					end if;
 				when AWAIT_LIST_PROCESSING =>
 					current_state <= READ_LIST_RESPONSE;
 				when READ_LIST_RESPONSE =>
 					sending_vq_index_out <= '1';
-					vq_index_out <= std_logic_vector(to_unsigned(value_at_index, 8));
+					vq_index_out <= std_logic_vector(to_unsigned(value_at_index, MAX_NUMBER_OF_BITS_FOR_VQ));
 				when DONE =>
 					finished_out <= '1';
 					current_state <= DONE;

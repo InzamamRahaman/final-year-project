@@ -5,40 +5,49 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
-<msg type="warning" file="HDLParsers" num="3516" delta="old" >Found error in file &quot;<arg fmt="%s" index="1">/home/school/ise_projs/final-year-project/Decoder/decoder.vhd</arg>&quot;. 
+<msg type="warning" file="Xst" num="2211" delta="new" >&quot;<arg fmt="%s" index="1">/home/school/ise_projs/final-year-project/Decoder/data_controller.vhd</arg>&quot; line <arg fmt="%d" index="2">74</arg>: Instantiating black box module &lt;<arg fmt="%s" index="3">data_ram</arg>&gt;.
 </msg>
 
-<msg type="warning" file="HDLParsers" num="3458" delta="old" >Because of erroneous VHDL file(s), automatic determination of correct order of compilation of files in project file &quot;<arg fmt="%s" index="1">/home/school/ise_projs/final-year-project/Decoder/top_vhdl.prj</arg>&quot; may be inaccurate. Please put the files in the project file in correct order with keyword &apos;nosort&apos; at end of the project file, or compile your vhdl file(s) individually to find and fix the error(s) in your vhdl file(s). 
+<msg type="info" file="Xst" num="2679" delta="new" >Register &lt;<arg fmt="%s" index="1">bit_out</arg>&gt; in unit &lt;<arg fmt="%s" index="2">data_controller</arg>&gt; has a constant value of <arg fmt="%s" index="3">0</arg> during circuit operation. The register is replaced by logic.
 </msg>
 
-<msg type="error" file="HDLParsers" num="3313" delta="new" >&quot;<arg fmt="%s" index="1">/home/school/ise_projs/final-year-project/Decoder/decoder.vhd</arg>&quot; Line <arg fmt="%d" index="2">58</arg>. Undefined symbol &apos;<arg fmt="%s" index="3">vq_idnex</arg>&apos;.  Should it be: <arg fmt="%s" index="4">vq_index</arg>?
+<msg type="info" file="Xst" num="2679" delta="new" >Register &lt;<arg fmt="%s" index="1">data_buffer</arg>&gt; in unit &lt;<arg fmt="%s" index="2">decoder</arg>&gt; has a constant value of <arg fmt="%s" index="3">0000000000</arg> during circuit operation. The register is replaced by logic.
 </msg>
 
-<msg type="error" file="HDLParsers" num="1209" delta="new" >&quot;<arg fmt="%s" index="1">/home/school/ise_projs/final-year-project/Decoder/decoder.vhd</arg>&quot; Line <arg fmt="%d" index="2">58</arg>. <arg fmt="%s" index="3">vq_idnex</arg>: Undefined symbol (last report in this block)
+<msg type="info" file="Xst" num="2679" delta="new" >Register &lt;<arg fmt="%s" index="1">buffer_len</arg>&gt; in unit &lt;<arg fmt="%s" index="2">decoder</arg>&gt; has a constant value of <arg fmt="%s" index="3">0</arg> during circuit operation. The register is replaced by logic.
 </msg>
 
-<msg type="error" file="HDLParsers" num="164" delta="new" >&quot;<arg fmt="%s" index="1">/home/school/ise_projs/final-year-project/Decoder/decoder.vhd</arg>&quot; Line <arg fmt="%d" index="2">79</arg>. <arg fmt="%s" index="3">parse error, unexpected MAP, expecting OPENPAR or TICK or LSQBRACK</arg>
+<msg type="info" file="Xst" num="2679" delta="new" >Register &lt;<arg fmt="%s" index="1">sending_bit_out</arg>&gt; in unit &lt;<arg fmt="%s" index="2">decoder</arg>&gt; has a constant value of <arg fmt="%s" index="3">0</arg> during circuit operation. The register is replaced by logic.
 </msg>
 
-<msg type="error" file="HDLParsers" num="164" delta="new" >&quot;<arg fmt="%s" index="1">/home/school/ise_projs/final-year-project/Decoder/decoder.vhd</arg>&quot; Line <arg fmt="%d" index="2">90</arg>. <arg fmt="%s" index="3">parse error, unexpected IF</arg>
+<msg type="info" file="Xst" num="2679" delta="new" >Register &lt;<arg fmt="%s" index="1">bit_out</arg>&gt; in unit &lt;<arg fmt="%s" index="2">decoder</arg>&gt; has a constant value of <arg fmt="%s" index="3">0</arg> during circuit operation. The register is replaced by logic.
 </msg>
 
-<msg type="error" file="HDLParsers" num="164" delta="new" >&quot;<arg fmt="%s" index="1">/home/school/ise_projs/final-year-project/Decoder/decoder.vhd</arg>&quot; Line <arg fmt="%d" index="2">94</arg>. <arg fmt="%s" index="3">parse error, unexpected ELSIF</arg>
+<msg type="info" file="Xst" num="1433" delta="new" >Contents of array &lt;<arg fmt="%s" index="1">contents</arg>&gt; may be accessed with an index that exceeds the array size. This could cause simulation mismatch.
 </msg>
 
-<msg type="error" file="HDLParsers" num="1402" delta="new" >&quot;<arg fmt="%s" index="1">/home/school/ise_projs/final-year-project/Decoder/decoder.vhd</arg>&quot; Line <arg fmt="%d" index="2">99</arg>. Object <arg fmt="%s" index="3">vq_index_out</arg> of mode <arg fmt="%s" index="4">IN</arg> can not be updated.
+<msg type="warning" file="Xst" num="646" delta="new" >Signal &lt;<arg fmt="%s" index="1">last_index&lt;0&gt;</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 </msg>
 
-<msg type="error" file="HDLParsers" num="1402" delta="new" >&quot;<arg fmt="%s" index="1">/home/school/ise_projs/final-year-project/Decoder/decoder.vhd</arg>&quot; Line <arg fmt="%d" index="2">100</arg>. Object <arg fmt="%s" index="3">sending_vq_index_out</arg> of mode <arg fmt="%s" index="4">IN</arg> can not be updated.
+<msg type="warning" file="Xst" num="646" delta="new" >Signal &lt;<arg fmt="%s" index="1">data_buffer</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 </msg>
 
-<msg type="error" file="HDLParsers" num="1402" delta="new" >&quot;<arg fmt="%s" index="1">/home/school/ise_projs/final-year-project/Decoder/decoder.vhd</arg>&quot; Line <arg fmt="%d" index="2">101</arg>. Object <arg fmt="%s" index="3">need_more_data_out</arg> of mode <arg fmt="%s" index="4">IN</arg> can not be updated.
+<msg type="warning" file="Xst" num="646" delta="new" >Signal &lt;<arg fmt="%s" index="1">buffer_len&lt;0&gt;</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 </msg>
 
-<msg type="error" file="HDLParsers" num="3312" delta="new" >&quot;<arg fmt="%s" index="1">/home/school/ise_projs/final-year-project/Decoder/decoder.vhd</arg>&quot; Line <arg fmt="%d" index="2">103</arg>. Undefined symbol &apos;<arg fmt="%s" index="3">enable_input</arg>&apos;.
+<msg type="info" file="Xst" num="1799" delta="new" >State <arg fmt="%s" index="1">done</arg> is never reached in FSM &lt;<arg fmt="%s" index="2">current_state</arg>&gt;.
 </msg>
 
-<msg type="error" file="HDLParsers" num="164" delta="new" >&quot;<arg fmt="%s" index="1">/home/school/ise_projs/final-year-project/Decoder/decoder.vhd</arg>&quot; Line <arg fmt="%d" index="2">108</arg>. <arg fmt="%s" index="3">parse error, unexpected CASE</arg>
+<msg type="info" file="Xst" num="1767" delta="new" >HDL ADVISOR - Resource sharing has identified that some arithmetic operations in this design can share the same physical resources for reduced device utilization. For improved clock frequency you may try to disable resource sharing.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">finished_out</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">decoder_unit</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">finished_out</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">decoder</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="error" file="Xst" num="528" delta="new" >Multi-source in Unit &lt;<arg fmt="%s" index="1">data_controller</arg>&gt; on signal &lt;<arg fmt="%s" index="2">bit_out</arg>&gt;; this signal is connected to multiple drivers.
 </msg>
 
 </messages>

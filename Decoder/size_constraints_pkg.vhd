@@ -12,7 +12,7 @@ use IEEE.STD_LOGIC_1164.all;
 
 package size_constraints_pkg is
 
-	subtype vq_index is integer range 0 to 128;
+	subtype vq_index is integer range 0 to 129;
 	subtype list_index is integer range 0 to 4;
 	subtype counter_int is integer range 0 to 10;
 	constant MAX_LIST_SIZE : natural := 4;
@@ -20,7 +20,7 @@ package size_constraints_pkg is
 	constant LIST_FILLER : vq_index := 128;
 	constant MAX_NUMBER_OF_BITS_FOR_VQ : natural := 8;
 	constant MAX_BUFFER_SIZE : natural := 10;
-	constant INITIAL_LIST_ELEMENT : vq_index := 128;
+	constant INITIAL_LIST_ELEMENT : vq_index := 129;
 	
 	subtype buffer_index is integer range 0 to MAX_BUFFER_SIZE;
 	

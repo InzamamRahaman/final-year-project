@@ -54,7 +54,7 @@ begin
 		if rst = '1' then
 			location := 0;
 			for idx in 1 to MAX_LIST_SIZE loop
-				contents(idx) <= -1;
+				contents(idx) <= INITIAL_LIST_ELEMENT;
 			end loop;
 			last_index <= 1;
 		elsif rising_edge(clk) then

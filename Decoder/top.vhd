@@ -37,9 +37,9 @@ entity top is
            finished_out : out  STD_LOGIC;
            sending_bit_out : out  STD_LOGIC;
            bit_out : out  STD_LOGIC;
-			  vq_index_out : std_logic_vector(
+			  vq_index_out  : out std_logic_vector(
 					MAX_NUMBER_OF_BITS_FOR_VQ - 1 downto 0);
-			  sending_vq_index_out : std_logic);
+			  sending_vq_index_out : out std_logic);
 end top;
 
 architecture Behavioral of top is
@@ -51,13 +51,13 @@ architecture Behavioral of top is
     Port ( clk : in  STD_LOGIC;
            rst : in  STD_LOGIC;
 			  bit_in : in std_logic;
-			  need_more_data_out : std_logic;
+			  need_more_data_out : out std_logic;
            finished_out : out  STD_LOGIC;
            sending_bit_out : out  STD_LOGIC;
            bit_out : out  STD_LOGIC;
-			  vq_index_out : std_logic_vector(
+			  vq_index_out : out std_logic_vector(
 					MAX_NUMBER_OF_BITS_FOR_VQ - 1 downto 0);
-			  sending_vq_index_out : std_logic);
+			  sending_vq_index_out : out std_logic);
 	end component;
 	
 	-- component definition for data controller
@@ -73,7 +73,7 @@ begin
 
 	data_controller_unit : data_controller port map (
 		clk => clk, rst => rst,
-		send_in => need_more_data,
+		send_in => need_more_data_out,
 		bit_out => bit_into_decoder
 	);
 	
