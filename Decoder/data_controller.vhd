@@ -35,13 +35,14 @@ entity data_controller is
     Port ( clk : in  STD_LOGIC;
            rst : in  STD_LOGIC;
            send_in : in  STD_LOGIC;
-           bit_out : out  STD_LOGIC);
+           bit_out : out  STD_LOGIC;
+			  finished : out std_logic);
 end data_controller;
 
 architecture data_controller_arch of data_controller is
 	signal current_address : std_logic_vector(0 to RAM_ADDRESS_SIZE - 1);
 	signal current_data : std_logic_vector(0 to 0);
-	
+	signal counter : memory_counter_int;
 	-- interface for component responsible for data
 	-- conversion
 	component data_converter
@@ -84,11 +85,18 @@ begin
 	begin
 		if rst = '1' then
 			current_address <= (others => '0');
+			counter <= 0;
 			--bit_out <= '0';
 		elsif rising_edge(clk) then
+			finished <= '0';
 			if send_in = '1' then
-				current_address <= std_logic_vector(unsigned(current_address)
+				if counter < NUMBER_OF_BITS then
+					current_address <= std_logic_vector(unsigned(current_address)
 					+ 1);
+					counter <= counter + 1;
+				else
+					finished <= '1';
+				end if;
 			else
 				current_address <= std_logic_vector(unsigned(current_address)
 					+ 0);

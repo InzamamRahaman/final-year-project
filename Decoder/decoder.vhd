@@ -36,6 +36,7 @@ entity decoder is
     Port ( clk : in  STD_LOGIC;
            rst : in  STD_LOGIC;
 			  bit_in : in std_logic;
+			  data_finished : in std_logic;
 			  need_more_data_out : out std_logic;
            finished_out : out  STD_LOGIC;
            sending_bit_out : out  STD_LOGIC;
@@ -110,11 +111,16 @@ begin
 				when START =>
 					current_state <= START_DECODING;
 				when START_DECODING =>
-					need_more_data_out <= '1';
-					if bit_in = '1' then
-						current_state <= START_WITH_ONE;
+					if data_finished = '0' then
+						need_more_data_out <= '1';
+						if bit_in = '1' then
+							current_state <= START_WITH_ONE;
+						else
+							current_state <= START_WITH_ZERO;
+						end if;
 					else
-						current_state <= START_WITH_ZERO;
+						finished_out <= '1';
+						current_state <= DONE;
 					end if;
 				when START_WITH_ZERO =>
 					need_more_data_out <= '1';

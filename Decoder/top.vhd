@@ -45,12 +45,13 @@ end top;
 architecture Behavioral of top is
 	signal need_more_data_out : std_logic;
 	signal bit_into_decoder : std_logic;
-	
+	signal data_finished : std_logic;
 	-- component for decoder here
 	component decoder is
     Port ( clk : in  STD_LOGIC;
            rst : in  STD_LOGIC;
 			  bit_in : in std_logic;
+			  data_finished : in std_logic;
 			  need_more_data_out : out std_logic;
            finished_out : out  STD_LOGIC;
            sending_bit_out : out  STD_LOGIC;
@@ -66,7 +67,8 @@ architecture Behavioral of top is
 		clk : in  STD_LOGIC;
       rst : in  STD_LOGIC;
       send_in : in  STD_LOGIC;
-      bit_out : out  STD_LOGIC
+      bit_out : out  STD_LOGIC;
+		finished : out std_logic
 	);
 	end component;
 begin
@@ -74,13 +76,15 @@ begin
 	data_controller_unit : data_controller port map (
 		clk => clk, rst => rst,
 		send_in => need_more_data_out,
-		bit_out => bit_into_decoder
+		bit_out => bit_into_decoder,
+		finished => data_finished
 	);
 	
 	decoder_unit : decoder port map (
 		clk => clk, rst => rst,
 		need_more_data_out => need_more_data_out,
 		bit_in => bit_into_decoder,
+		data_finished => data_finished,
 		finished_out => finished_out,
 		sending_bit_out => sending_bit_out,
 		bit_out => bit_out,
