@@ -98,6 +98,13 @@ begin
 			bit_out <= '0';
 			vq_index_out <= (others => '0');
 			sending_vq_index_out <= '0';
+			
+			-- flush all list inputs
+			enable_input <= '0';
+			enable_read <= '0';
+			to_insert <= 0;
+			index <= 1;
+			
 			case current_state is
 				when START =>
 					current_state <= START_DECODING;
@@ -117,10 +124,14 @@ begin
 					else
 						current_state <= CHECK_NEXT_BIT;
 					end if;
+				when INSERT_INTO_LIST =>
+					to_insert <= vq_acc;
+					enable_insert <= '1';
+					current_state <= START_DECODING;
 				when EXTRACT_VQ_INDEX =>
 					if counter = 0 then
 						need_more_data_out <= '0';
-						current_state <= START_DECODING;
+						current_state <= INSERT_INTO_LIST;
 						sending_vq_index_out <= '1';
 						vq_index_out <= std_logic_vector(to_unsigned(vq_acc, 8));
 					else
@@ -135,6 +146,7 @@ begin
 				when START_WITH_ONE =>
 					need_more_data_out <= '1';
 					if bit_in = '0' then
+					   counter <= 1;
 						current_state <= COMPUTE_LIST_INDEX;
 					else
 						--current_state <= SEND_FIRST_OF_LIST;
@@ -149,8 +161,21 @@ begin
 						vq_index_out <= at_index_one;
 						current_state <= START_DECODING;
 					else
+						counter <= 1;
 						current_state <= COMPUTE_LIST_INDEX;
 					end if;
+				when COMPUTE_LIST_INDEX =>
+					if bit_in = '0' then
+						counter <= counter + 1;
+						current_state <= COMPUTE_LIST_INDEX;
+					else
+						counter <= counter + 2;
+						list_index_acc <= 1;
+						current_state <= EXTRACT_LIST_INDEX;
+					end if;
+				when EXTRACT_LIST_INDEX =>
+					if counter = 0 then
+						current_state <= AWAIT_LIST_PROCESSING;
 				when DONE =>
 					finished_out <= '1';
 					current_state <= DONE;
