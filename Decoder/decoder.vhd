@@ -138,6 +138,7 @@ begin
 						current_state <= COMPUTE_LIST_INDEX;
 					else
 						--current_state <= SEND_FIRST_OF_LIST;
+						current_state <= START_DECODING;
 						sending_vq_index_out <= '1';
 						vq_index_out <= at_index_one;
 					end if;
