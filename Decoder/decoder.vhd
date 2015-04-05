@@ -159,7 +159,7 @@ begin
 					   if bit_in = '1' then
 							vq_acc <= vq_acc * 2 + 1;
 						else
-							vq_acc <= vq_acc + 0;
+							vq_acc <= vq_acc * 2;
 						end if;
 						counter <= counter - 1;
 						need_more_data_out <= '1';
@@ -173,30 +173,34 @@ begin
 					   counter <= 2;
 						dispatch_state <= COMPUTE_LIST_INDEX;
 					else
-						current_state <= START_DECODING;
+						dispatch_state <= START_DECODING;
+						need_more_data_out <= '1';
+						current_state <= AWAIT_ADDR_CALC;
 						sending_vq_index_out <= '1';
 						vq_index_out <= std_logic_vector(to_unsigned(at_index_one, MAX_NUMBER_OF_BITS_FOR_VQ));
 					end if;
 				when CHECK_NEXT_BIT =>
-					need_more_data_out <= '1';
 					if bit_in = '1' then
 						sending_vq_index_out <= '1';
 						vq_index_out <= std_logic_vector(to_unsigned(at_index_one, MAX_NUMBER_OF_BITS_FOR_VQ));
-						current_state <= START_DECODING;
+						dispatch_state <= START_DECODING;
 					else
-						counter <= 1;
-						current_state <= COMPUTE_LIST_INDEX;
+						counter <= 2;
+						dispatch_state <= COMPUTE_LIST_INDEX;
 					end if;
-				when COMPUTE_LIST_INDEX =>
 					need_more_data_out <= '1';
+					current_state <= AWAIT_ADDR_CALC;
+				when COMPUTE_LIST_INDEX =>
 					if bit_in = '0' then
 						counter <= counter + 1;
-						current_state <= COMPUTE_LIST_INDEX;
+						dispatch_state <= COMPUTE_LIST_INDEX;
 					else
-						counter <= counter + 2;
+						counter <= counter - 1
 						list_index_acc <= 1;
-						current_state <= EXTRACT_LIST_INDEX;
+						dispatch_state <= EXTRACT_LIST_INDEX;
 					end if;
+					need_more_data_out <= '1';
+					current_state <= AWAIT_ADDR_CALC;
 				when EXTRACT_LIST_INDEX =>
 					if counter = 0 then
 						current_state <= AWAIT_LIST_PROCESSING;
@@ -204,13 +208,14 @@ begin
 						index <= list_index_acc;
 					else
 					   need_more_data_out <= '1';
+						current_state <= AWAIT_ADDR_CALC;
 					   counter <= counter - 1;
-						need_more_data_out <= '1';
 						if bit_in = '1' then
 							list_index_acc <= list_index_acc * 2 + 1;
 						else
-							list_index_acc <= list_index_acc + 0;
+							list_index_acc <= list_index_acc * 2;
 						end if;
+						dispatch_state <= EXTRACT_LIST_INDEX;
 					end if;
 				when AWAIT_LIST_PROCESSING =>
 					current_state <= READ_LIST_RESPONSE;
