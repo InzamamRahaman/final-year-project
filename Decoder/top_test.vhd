@@ -94,6 +94,10 @@ BEGIN
 			write(my_line, integer'image(to_integer(unsigned(vq_index_out))));
 			writeline(outfile, my_line);
 		end if;
+		
+		if (finished_out = '1') then
+			report "Finished!";
+		end if;
 		wait for clk_period/2;
    end process;
  

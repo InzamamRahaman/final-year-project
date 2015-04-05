@@ -24,7 +24,7 @@ package size_constraints_pkg is
 	
 	subtype buffer_index is integer range 0 to MAX_BUFFER_SIZE;
 	constant NUMBER_OF_BITS : integer := 137634;
-	subtype memory_counter_int is integer range 0 to NUMBER_OF_BITS;
+	subtype memory_counter_int is integer range 0 to (NUMBER_OF_BITS + 2);
 	type vq_index_list is array (1 to MAX_LIST_SIZE) of vq_index;
 
 -- type <new_type> is

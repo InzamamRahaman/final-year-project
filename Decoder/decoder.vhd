@@ -97,7 +97,7 @@ begin
 			dispatch_state <= START;
 		elsif rising_edge(clk) then
 			-- set all output ports to 0
-			finished_out <= '0';
+			finished_out <= data_finished;
 			sending_bit_out <= '0';
 			bit_out <= '0';
 			vq_index_out <= (others => '0');
@@ -108,11 +108,12 @@ begin
 			enable_read <= '0';
 			to_insert <= 0;
 			index <= 1;
-			
+			report "Is finihsed : " & std_logic'image(data_finished);
 			-- set dispatch state
 			
 			case current_state is
 				when START =>
+				   report "Starting circuit";
 					current_state <= START_DECODING;
 				when AWAIT_ADDR_CALC =>
 					current_state <= AWAIT_DATA_RETR;
@@ -128,12 +129,13 @@ begin
 						need_more_data_out <= '1';
 						current_state <= AWAIT_ADDR_CALC;
 					else
+					   report "Breakpoint";
 						finished_out <= '1';
 						current_state <= DONE;
 					end if;
 				when START_WITH_ZERO =>
 					if bit_in = '0' then
-						report "Going to extract index";
+						--report "Going to extract index";
 						dispatch_state <= EXTRACT_VQ_INDEX;
 						vq_acc <= 0;
 						counter <= 8;
@@ -153,11 +155,11 @@ begin
 					if counter = 0 then
 						current_state <= INSERT_INTO_LIST;
 						sending_vq_index_out <= '1';
-						report integer'image(vq_acc);
+						--report integer'image(vq_acc);
 						vq_index_out <= std_logic_vector(to_unsigned(vq_acc, MAX_NUMBER_OF_BITS_FOR_VQ));
 					else
-					   report "Bit #: " & integer'image(counter);
-					   report std_logic'image(bit_in);
+					   --report "Bit #: " & integer'image(counter);
+					   --report std_logic'image(bit_in);
 					   if bit_in = '1' then
 							vq_acc <= vq_acc * 2 + 1;
 						else
@@ -224,9 +226,10 @@ begin
 				when READ_LIST_RESPONSE =>
 					sending_vq_index_out <= '1';
 					vq_index_out <= std_logic_vector(to_unsigned(value_at_index, MAX_NUMBER_OF_BITS_FOR_VQ));
-					need_more_data_out <= '1';
-					current_state <= AWAIT_ADDR_CALC;
-					dispatch_state <= START_DECODING;
+					--need_more_data_out <= '1';
+					--current_state <= AWAIT_ADDR_CALC;
+					current_state <= START_DECODING;
+					--dispatch_state <= START_DECODING;
 				when DONE =>
 					finished_out <= '1';
 					current_state <= DONE;

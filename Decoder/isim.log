@@ -1,6 +1,5 @@
 ISim log file
-Running: /home/school/ise_projs/final-year-project/Decoder/top_test_isim_beh.exe -intstyle ise -gui -tclbatch isim.cmd -wdb /home/school/ise_projs/final-year-project/Decoder/top_test_isim_beh.wdb 
-INFO: There is another simulation running in the same directory. Using database file name isim1.wdb.
+Running: /home/school/ise_projs/final-year-project/Decoder/decoder_isim_beh.exe -intstyle ise -gui -tclbatch isim.cmd -wdb /home/school/ise_projs/final-year-project/Decoder/decoder_isim_beh.wdb 
 ISim P.20131013 (signature 0xfbc00daa)
 WARNING: A WEBPACK license was found.
 WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
@@ -9,57 +8,7 @@ This is a Lite version of ISim.
 Time resolution is 1 ps
 # onerror resume
 # wave add /
-# run 1000 ns
+# run 4433545 ns
 Simulator is doing circuit initialization process.
 Finished circuit initialization process.
-at 145 ns(1): Note: Going to extract index (/top_test/uut/decoder_unit/).
-at 175 ns(1): Note: Bit #: 8 (/top_test/uut/decoder_unit/).
-at 175 ns(1): Note: '0' (/top_test/uut/decoder_unit/).
-at 205 ns(1): Note: Bit #: 7 (/top_test/uut/decoder_unit/).
-at 205 ns(1): Note: '0' (/top_test/uut/decoder_unit/).
-at 235 ns(1): Note: Bit #: 6 (/top_test/uut/decoder_unit/).
-at 235 ns(1): Note: '0' (/top_test/uut/decoder_unit/).
-at 265 ns(1): Note: Bit #: 5 (/top_test/uut/decoder_unit/).
-at 265 ns(1): Note: '0' (/top_test/uut/decoder_unit/).
-at 295 ns(1): Note: Bit #: 4 (/top_test/uut/decoder_unit/).
-at 295 ns(1): Note: '0' (/top_test/uut/decoder_unit/).
-at 325 ns(1): Note: Bit #: 3 (/top_test/uut/decoder_unit/).
-at 325 ns(1): Note: '0' (/top_test/uut/decoder_unit/).
-at 355 ns(1): Note: Bit #: 2 (/top_test/uut/decoder_unit/).
-at 355 ns(1): Note: '0' (/top_test/uut/decoder_unit/).
-at 385 ns(1): Note: Bit #: 1 (/top_test/uut/decoder_unit/).
-at 385 ns(1): Note: '1' (/top_test/uut/decoder_unit/).
-at 415 ns(1): Note: 1 (/top_test/uut/decoder_unit/).
-at 465 ns(1): Note: Going to extract index (/top_test/uut/decoder_unit/).
-at 495 ns(1): Note: Bit #: 8 (/top_test/uut/decoder_unit/).
-at 495 ns(1): Note: '0' (/top_test/uut/decoder_unit/).
-at 525 ns(1): Note: Bit #: 7 (/top_test/uut/decoder_unit/).
-at 525 ns(1): Note: '0' (/top_test/uut/decoder_unit/).
-at 555 ns(1): Note: Bit #: 6 (/top_test/uut/decoder_unit/).
-at 555 ns(1): Note: '0' (/top_test/uut/decoder_unit/).
-at 585 ns(1): Note: Bit #: 5 (/top_test/uut/decoder_unit/).
-at 585 ns(1): Note: '0' (/top_test/uut/decoder_unit/).
-at 615 ns(1): Note: Bit #: 4 (/top_test/uut/decoder_unit/).
-at 615 ns(1): Note: '0' (/top_test/uut/decoder_unit/).
-at 645 ns(1): Note: Bit #: 3 (/top_test/uut/decoder_unit/).
-at 645 ns(1): Note: '0' (/top_test/uut/decoder_unit/).
-at 675 ns(1): Note: Bit #: 2 (/top_test/uut/decoder_unit/).
-at 675 ns(1): Note: '1' (/top_test/uut/decoder_unit/).
-at 705 ns(1): Note: Bit #: 1 (/top_test/uut/decoder_unit/).
-at 705 ns(1): Note: '1' (/top_test/uut/decoder_unit/).
-at 735 ns(1): Note: 3 (/top_test/uut/decoder_unit/).
-at 785 ns(1): Note: Going to extract index (/top_test/uut/decoder_unit/).
-at 815 ns(1): Note: Bit #: 8 (/top_test/uut/decoder_unit/).
-at 815 ns(1): Note: '0' (/top_test/uut/decoder_unit/).
-at 845 ns(1): Note: Bit #: 7 (/top_test/uut/decoder_unit/).
-at 845 ns(1): Note: '0' (/top_test/uut/decoder_unit/).
-at 875 ns(1): Note: Bit #: 6 (/top_test/uut/decoder_unit/).
-at 875 ns(1): Note: '0' (/top_test/uut/decoder_unit/).
-at 905 ns(1): Note: Bit #: 5 (/top_test/uut/decoder_unit/).
-at 905 ns(1): Note: '0' (/top_test/uut/decoder_unit/).
-at 935 ns(1): Note: Bit #: 4 (/top_test/uut/decoder_unit/).
-at 935 ns(1): Note: '0' (/top_test/uut/decoder_unit/).
-at 965 ns(1): Note: Bit #: 3 (/top_test/uut/decoder_unit/).
-at 965 ns(1): Note: '1' (/top_test/uut/decoder_unit/).
-at 995 ns(1): Note: Bit #: 2 (/top_test/uut/decoder_unit/).
-at 995 ns(1): Note: '1' (/top_test/uut/decoder_unit/).
+# exit 0

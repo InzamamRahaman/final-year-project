@@ -43,6 +43,7 @@ architecture data_controller_arch of data_controller is
 	signal current_address : std_logic_vector(0 to RAM_ADDRESS_SIZE - 1);
 	signal current_data : std_logic_vector(0 to 0);
 	signal counter : memory_counter_int;
+	signal is_finished : std_logic;
 	-- interface for component responsible for data
 	-- conversion
 	component data_converter
@@ -86,14 +87,25 @@ begin
 		if rst = '1' then
 			current_address <= (others => '0');
 			counter <= 0;
+			is_finished <= '0';
 			--bit_out <= '0';
 		elsif rising_edge(clk) then
 			finished <= '0';
-			if send_in = '1' then
+			if counter >= NUMBER_OF_BITS then
+			   report "Finished with addresses";
+				finished <= '1';
+				is_finished <= '1';
+			else
+				finished <= '0';
+				is_finished <= '0';
+			end if;
+			
+			if send_in = '1' and is_finished = '0' then
 				if counter < NUMBER_OF_BITS then
 					current_address <= std_logic_vector(unsigned(current_address)
 					+ 1);
 					counter <= counter + 1;
+					report integer'image(counter + 1);
 				else
 					finished <= '1';
 				end if;

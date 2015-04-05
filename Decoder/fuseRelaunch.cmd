@@ -1,1 +1,1 @@
--intstyle "ise" -incremental -o "/home/school/ise_projs/final-year-project/Decoder/top_test_isim_beh.exe" -prj "/home/school/ise_projs/final-year-project/Decoder/top_test_beh.prj" "work.top_test" 
+-intstyle "ise" -incremental -o "/home/school/ise_projs/final-year-project/Decoder/decoder_isim_beh.exe" -prj "/home/school/ise_projs/final-year-project/Decoder/decoder_beh.prj" "work.decoder" 

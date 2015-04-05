@@ -5,7 +5,7 @@ Algorithm				:	Minimum_Area
 Memory Type				:	Single_Port_RAM
 Port A Read Width		:	1
 Port A Write Width		:	1
-Memory Depth			:	137634
+Memory Depth			:	137637
 --------------------------------------------------------------
 
 Block RAM resource(s) (18K BRAMs)		: 9

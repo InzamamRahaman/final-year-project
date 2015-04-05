@@ -42,8 +42,8 @@ int main(int argc, char **argv)
     ieee_p_3620187407_init();
     xilinxcorelib_a_4040560389_2959432447_init();
     xilinxcorelib_a_3010993415_1709443946_init();
-    xilinxcorelib_a_0284850460_0543512595_init();
-    xilinxcorelib_a_0253143723_3212880686_init();
+    xilinxcorelib_a_0599579245_0543512595_init();
+    xilinxcorelib_a_1424490697_3212880686_init();
     work_a_1504200489_0992258258_init();
     work_a_0733051271_0504320110_init();
     work_a_1104041532_4151730006_init();
