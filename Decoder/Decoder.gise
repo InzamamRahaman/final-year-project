@@ -38,10 +38,10 @@
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST" xil_pn:name="top.xst"/>
     <file xil_pn:fileType="FILE_HTML" xil_pn:name="top_envsettings.html"/>
     <file xil_pn:fileType="FILE_HTML" xil_pn:name="top_summary.html"/>
-    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="top_test_beh.prj"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="top_test_beh.prj"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="top_test_isim_beh.exe"/>
     <file xil_pn:fileType="FILE_ISIM_MISC" xil_pn:name="top_test_isim_beh.wdb"/>
-    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="top_test_stx_beh.prj"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="top_test_stx_beh.prj"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="top_vhdl.prj"/>
     <file xil_pn:fileType="FILE_XRPT" xil_pn:name="top_xst.xrpt"/>
     <file xil_pn:fileType="FILE_FITTER_REPORT" xil_pn:name="webtalk_pn.xml"/>
@@ -161,12 +161,10 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1427986836" xil_pn:in_ck="-8443897636975636619" xil_pn:name="TRANEXT_xstsynthesize_spartan3e" xil_pn:prop_ck="-5890401537785076932" xil_pn:start_ts="1427986826">
+    <transform xil_pn:end_ts="1428266773" xil_pn:in_ck="-8443897636975636619" xil_pn:name="TRANEXT_xstsynthesize_spartan3e" xil_pn:prop_ck="-5890401537785076932" xil_pn:start_ts="1428266760">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="InputChanged"/>
       <outfile xil_pn:name="_xmsgs/xst.xmsgs"/>
       <outfile xil_pn:name="top.lso"/>
       <outfile xil_pn:name="top.ngc"/>
@@ -175,6 +173,8 @@
       <outfile xil_pn:name="top.stx"/>
       <outfile xil_pn:name="top.syr"/>
       <outfile xil_pn:name="top.xst"/>
+      <outfile xil_pn:name="top_test_beh.prj"/>
+      <outfile xil_pn:name="top_test_stx_beh.prj"/>
       <outfile xil_pn:name="top_xst.xrpt"/>
       <outfile xil_pn:name="webtalk_pn.xml"/>
       <outfile xil_pn:name="xst"/>

@@ -60,7 +60,7 @@ architecture decoder_arch of decoder is
 	signal at_index_one : vq_index;
 	signal value_at_index : vq_index;
 	signal vq_acc : vq_index;
-	signal list_index_acc : list_index;
+	signal index_acc : list_index;
 	signal counter : counter_int;
 	-- component for list
 	component list
@@ -195,8 +195,8 @@ begin
 						counter <= counter + 1;
 						dispatch_state <= COMPUTE_LIST_INDEX;
 					else
-						counter <= counter - 1
-						list_index_acc <= 1;
+						counter <= counter - 1;
+						index_acc <= 1;
 						dispatch_state <= EXTRACT_LIST_INDEX;
 					end if;
 					need_more_data_out <= '1';
@@ -205,15 +205,15 @@ begin
 					if counter = 0 then
 						current_state <= AWAIT_LIST_PROCESSING;
 						enable_read <= '1';
-						index <= list_index_acc;
+						index <= index_acc;
 					else
 					   need_more_data_out <= '1';
 						current_state <= AWAIT_ADDR_CALC;
 					   counter <= counter - 1;
 						if bit_in = '1' then
-							list_index_acc <= list_index_acc * 2 + 1;
+							index_acc <= index_acc * 2 + 1;
 						else
-							list_index_acc <= list_index_acc * 2;
+							index_acc <= index_acc * 2;
 						end if;
 						dispatch_state <= EXTRACT_LIST_INDEX;
 					end if;
@@ -222,6 +222,9 @@ begin
 				when READ_LIST_RESPONSE =>
 					sending_vq_index_out <= '1';
 					vq_index_out <= std_logic_vector(to_unsigned(value_at_index, MAX_NUMBER_OF_BITS_FOR_VQ));
+					need_more_data_out <= '1';
+					current_state <= AWAIT_ADDR_CALC;
+					dispatch_state <= START_DECODING;
 				when DONE =>
 					finished_out <= '1';
 					current_state <= DONE;
