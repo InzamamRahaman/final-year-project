@@ -50,6 +50,7 @@ architecture decoder_arch of decoder is
 	signal data_buffer : std_logic_vector(MAX_BUFFER_SIZE - 1 downto 0);
 	signal buffer_len : buffer_index ;
 	signal current_state : decoder_state;
+	signal dispatch_state : decoder_state;
 	
 	-- signals for managing lists
 	signal enable_insert : std_logic;
@@ -93,6 +94,7 @@ begin
 			data_buffer <= (others => '0');
 			buffer_len <= 0;
 			current_state <= START;
+			dispatch_state <= START;
 		elsif rising_edge(clk) then
 			-- set all output ports to 0
 			finished_out <= '0';
@@ -107,56 +109,70 @@ begin
 			to_insert <= 0;
 			index <= 1;
 			
+			-- set dispatch state
+			
 			case current_state is
 				when START =>
 					current_state <= START_DECODING;
+				when AWAIT_ADDR_CALC =>
+					current_state <= AWAIT_DATA_RETR;
+				when AWAIT_DATA_RETR =>
+					current_state <= dispatch_state;
 				when START_DECODING =>
 					if data_finished = '0' then
-						need_more_data_out <= '1';
 						if bit_in = '1' then
-							current_state <= START_WITH_ONE;
+							dispatch_state <= START_WITH_ONE;
 						else
-							current_state <= START_WITH_ZERO;
+							dispatch_state <= START_WITH_ZERO;
 						end if;
+						need_more_data_out <= '1';
+						current_state <= AWAIT_ADDR_CALC;
 					else
 						finished_out <= '1';
 						current_state <= DONE;
 					end if;
 				when START_WITH_ZERO =>
-					need_more_data_out <= '1';
 					if bit_in = '0' then
-						current_state <= EXTRACT_VQ_INDEX;
+						report "Going to extract index";
+						dispatch_state <= EXTRACT_VQ_INDEX;
 						vq_acc <= 0;
 						counter <= 8;
 					else
-						current_state <= CHECK_NEXT_BIT;
+						dispatch_state <= CHECK_NEXT_BIT;
 					end if;
+					need_more_data_out <= '1';
+					current_state <= AWAIT_ADDR_CALC;
 				when INSERT_INTO_LIST =>
 					to_insert <= vq_acc;
 					enable_insert <= '1';
-					current_state <= START_DECODING;
+					dispatch_state <= START_DECODING;
+					need_more_data_out <= '1';
+					current_state <= AWAIT_ADDR_CALC;
 				when EXTRACT_VQ_INDEX =>
 					if counter = 0 then
-						need_more_data_out <= '0';
 						current_state <= INSERT_INTO_LIST;
 						sending_vq_index_out <= '1';
+						report integer'image(vq_acc);
 						vq_index_out <= std_logic_vector(to_unsigned(vq_acc, MAX_NUMBER_OF_BITS_FOR_VQ));
 					else
-						need_more_data_out <= '1';
+					   report std_logic'image(bit_in);
 					   if bit_in = '1' then
 							vq_acc <= vq_acc * 2 + 1;
 						else
 							vq_acc <= vq_acc + 0;
 						end if;
 						counter <= counter - 1;
+						need_more_data_out <= '1';
+						current_state <= AWAIT_ADDR_CALC;
+						dispatch_state <= EXTRACT_VQ_INDEX;
 					end if;
 				when START_WITH_ONE =>
-					need_more_data_out <= '1';
 					if bit_in = '0' then
-					   counter <= 1;
-						current_state <= COMPUTE_LIST_INDEX;
+					   need_more_data_out <= '1';
+						current_state <= AWAIT_ADDR_CALC;
+					   counter <= 2;
+						dispatch_state <= COMPUTE_LIST_INDEX;
 					else
-						--current_state <= SEND_FIRST_OF_LIST;
 						current_state <= START_DECODING;
 						sending_vq_index_out <= '1';
 						vq_index_out <= std_logic_vector(to_unsigned(at_index_one, MAX_NUMBER_OF_BITS_FOR_VQ));
