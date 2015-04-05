@@ -91,7 +91,7 @@ BEGIN
 		clk <= '1';
 		if (sending_vq_index_out = '1') then
 			--integer'image(to_integer(unsigned(vq_index_out)))
-			write(my_line, vq_index_out);
+			write(my_line, integer'image(to_integer(unsigned(vq_index_out))));
 			writeline(outfile, my_line);
 		end if;
 		wait for clk_period/2;

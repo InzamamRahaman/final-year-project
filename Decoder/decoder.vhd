@@ -145,9 +145,10 @@ begin
 				when INSERT_INTO_LIST =>
 					to_insert <= vq_acc;
 					enable_insert <= '1';
-					dispatch_state <= START_DECODING;
-					need_more_data_out <= '1';
-					current_state <= AWAIT_ADDR_CALC;
+					--dispatch_state <= START_DECODING;
+					--need_more_data_out <= '1';
+					--current_state <= AWAIT_ADDR_CALC;
+					current_state <= START_DECODING;
 				when EXTRACT_VQ_INDEX =>
 					if counter = 0 then
 						current_state <= INSERT_INTO_LIST;
@@ -155,6 +156,7 @@ begin
 						report integer'image(vq_acc);
 						vq_index_out <= std_logic_vector(to_unsigned(vq_acc, MAX_NUMBER_OF_BITS_FOR_VQ));
 					else
+					   report "Bit #: " & integer'image(counter);
 					   report std_logic'image(bit_in);
 					   if bit_in = '1' then
 							vq_acc <= vq_acc * 2 + 1;

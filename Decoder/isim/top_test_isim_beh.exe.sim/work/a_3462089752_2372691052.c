@@ -22,15 +22,16 @@
 #define alloca _alloca
 #endif
 static const char *ng0 = "/home/school/ise_projs/final-year-project/Decoder/top_test.vhd";
-extern char *IEEE_P_3564397177;
 extern char *STD_TEXTIO;
+extern char *STD_STANDARD;
+extern char *IEEE_P_1242562249;
 
-void ieee_p_3564397177_sub_2250825304603680424_91900896(char *, char *, char *, char *, char *, unsigned char , int );
+int ieee_p_1242562249_sub_17802405650254020620_1035706684(char *, char *, char *);
 
 
 static void work_a_3462089752_2372691052_p_0(char *t0)
 {
-    char t11[8];
+    char t11[16];
     char *t1;
     char *t2;
     char *t3;
@@ -41,6 +42,10 @@ static void work_a_3462089752_2372691052_p_0(char *t0)
     int64 t8;
     unsigned char t9;
     unsigned char t10;
+    char *t12;
+    int t13;
+    char *t14;
+    char *t15;
 
 LAB0:    t1 = (t0 + 3440U);
     t2 = *((char **)t1);
@@ -103,11 +108,14 @@ LAB7:    goto LAB5;
 LAB8:    xsi_set_current_line(94, ng0);
     t2 = (t0 + 3248);
     t4 = (t0 + 2792U);
-    t5 = (t0 + 1832U);
-    t6 = *((char **)t5);
-    memcpy(t11, t6, 8U);
-    t5 = (t0 + 6688U);
-    ieee_p_3564397177_sub_2250825304603680424_91900896(IEEE_P_3564397177, t2, t4, t11, t5, (unsigned char)0, 0);
+    t5 = ((STD_STANDARD) + 384);
+    t6 = (t0 + 1832U);
+    t12 = *((char **)t6);
+    t6 = (t0 + 6688U);
+    t13 = ieee_p_1242562249_sub_17802405650254020620_1035706684(IEEE_P_1242562249, t12, t6);
+    t14 = xsi_int_to_mem(t13);
+    t15 = xsi_string_variable_get_image(t11, t5, t14);
+    std_textio_write7(STD_TEXTIO, t2, t4, t15, t11, (unsigned char)0, 0);
     xsi_set_current_line(95, ng0);
     t2 = (t0 + 3248);
     t3 = (t0 + 2616U);
